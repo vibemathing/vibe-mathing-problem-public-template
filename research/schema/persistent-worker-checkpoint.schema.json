@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/persistent-worker-checkpoint.v1.json",
+  "title": "Vibe Mathing Persistent Research Worker Checkpoint v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest_path",
+    "worker_id",
+    "task_id",
+    "problem_id",
+    "branch",
+    "runtime_profile",
+    "provider_fingerprint",
+    "session_fingerprint",
+    "authorization_sha256",
+    "state",
+    "iteration",
+    "goal_digest",
+    "active_route",
+    "failed_routes",
+    "best_verified_result",
+    "next_obligation",
+    "artifact_manifest",
+    "updated_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "manifest_path": {"type": "string", "minLength": 1},
+    "worker_id": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_.-]*$"},
+    "task_id": {"type": "string", "minLength": 1},
+    "problem_id": {"type": "string", "pattern": "^problem:[a-z0-9][a-z0-9.-]*$"},
+    "branch": {"type": "string", "pattern": "^research/[A-Za-z0-9._/-]+$"},
+    "runtime_profile": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "provider_fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "session_fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "authorization_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "state": {
+      "enum": ["active", "stalled", "paused", "safety_paused", "completed", "cancelled"]
+    },
+    "iteration": {"type": "integer", "minimum": 0},
+    "goal_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "obligation_graph_id": {
+      "type": ["string", "null"],
+      "pattern": "^graph:[a-z0-9][a-z0-9.-]*$"
+    },
+    "active_obligation_id": {
+      "type": ["string", "null"],
+      "pattern": "^obligation:[a-z0-9][a-z0-9.-]*$"
+    },
+    "active_route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route_id", "status"],
+      "properties": {
+        "route_id": {"type": "string", "pattern": "^route:[a-z0-9][a-z0-9.-]*$"},
+        "status": {"enum": ["planned", "running", "failed", "paused", "superseded"]},
+        "label": {"type": "string", "minLength": 1}
+      }
+    },
+    "failed_routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["route_id", "problem_id", "route", "blocker", "conclusion", "evidence", "recorded_at", "recorded_by"],
+        "properties": {
+          "route_id": {"type": "string", "pattern": "^route:[a-z0-9][a-z0-9.-]*$"},
+          "problem_id": {"type": "string", "pattern": "^problem:[a-z0-9][a-z0-9.-]*$"},
+          "route": {"type": "string", "minLength": 1},
+          "blocker": {"type": "string", "minLength": 1},
+          "conclusion": {"enum": ["blocked", "exhausted", "refuted", "artifact", "superceded"]},
+          "evidence": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "recorded_at": {"type": "string", "format": "date-time"},
+          "recorded_by": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "best_verified_result": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    },
+    "next_obligation": {"type": "string", "minLength": 1},
+    "artifact_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "state", "bytes", "files", "max_bytes", "max_files", "high_watermark_bytes", "high_watermark_files", "manifest_sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "state": {"enum": ["normal", "warn", "high_watermark", "over_budget", "missing"]},
+        "bytes": {"type": "integer", "minimum": 0},
+        "files": {"type": "integer", "minimum": 0},
+        "max_bytes": {"type": "integer", "minimum": 1},
+        "max_files": {"type": "integer", "minimum": 1},
+        "high_watermark_bytes": {"type": "integer", "minimum": 1},
+        "high_watermark_files": {"type": "integer", "minimum": 1},
+        "manifest_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "last_step": {
+      "type": ["object", "null"],
+      "additionalProperties": true
+    },
+    "updated_at": {"type": "string", "format": "date-time"}
+  }
+}

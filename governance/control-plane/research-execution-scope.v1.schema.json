@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/research-execution-scope.v1.json",
+  "title": "Vibe Mathing Research Execution Scope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "scope_id",
+    "status",
+    "effective_at",
+    "mode",
+    "default_action",
+    "unknown_task_action",
+    "automatic_resume",
+    "allowlisted_tasks",
+    "frozen_tasks",
+    "unaffected_maintenance",
+    "invariants",
+    "evidence_refs"
+  ],
+  "properties": {
+    "$schema": {"type": "string", "const": "https://json-schema.org/draft/2020-12/schema"},
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "scope_id": {"type": "string", "pattern": "^RESEARCH-EXECUTION-SCOPE-[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "status": {"type": "string", "const": "current"},
+    "effective_at": {"type": "string", "format": "date-time"},
+    "mode": {"type": "string", "const": "allowlist_only"},
+    "default_action": {"type": "string", "const": "freeze"},
+    "unknown_task_action": {"type": "string", "const": "deny"},
+    "automatic_resume": {"type": "boolean", "const": false},
+    "allowlisted_tasks": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 7,
+      "items": {"$ref": "#/$defs/allowlistedTask"}
+    },
+    "frozen_tasks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["millennium", "legacy", "vm15"],
+      "properties": {
+        "millennium": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/frozenTask"}},
+        "legacy": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/frozenTask"}},
+        "vm15": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/frozenTask"}}
+      }
+    },
+    "unaffected_maintenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_ids", "policy", "does_not_authorize_research"],
+      "properties": {
+        "task_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "policy": {"type": "string", "minLength": 1},
+        "does_not_authorize_research": {"type": "boolean", "const": true}
+      }
+    },
+    "invariants": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "evidence_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^[^/][^\u0000]*$"}}
+  },
+  "$defs": {
+    "allowlistedTask": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_id",
+        "problem_id",
+        "title",
+        "branch",
+        "checkpoint_commit",
+        "goal_source",
+        "worktree_key",
+        "runtime_profile",
+        "authorization",
+        "execution_state",
+        "launch_mode",
+        "prohibited_profiles",
+        "requires"
+      ],
+      "properties": {
+        "task_id": {"type": "string", "minLength": 1},
+        "problem_id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "branch": {"type": "string", "pattern": "^research/[A-Za-z0-9._/-]+$"},
+        "checkpoint_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "goal_source": {"type": "string", "pattern": "^[^/][^\u0000]*$"},
+        "worktree_key": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "runtime_profile": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "authorization": {"type": "string", "const": "allowlisted"},
+        "execution_state": {"type": "string", "const": "stopped"},
+        "launch_mode": {"type": "string", "const": "future_only"},
+        "prohibited_profiles": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "requires": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "frozenTask": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "branch", "checkpoint_commit", "state"],
+      "properties": {
+        "task_id": {"type": "string", "minLength": 1},
+        "branch": {"type": "string", "pattern": "^research/[A-Za-z0-9._/-]+$"},
+        "checkpoint_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "state": {"type": "string", "const": "frozen"}
+      }
+    }
+  }
+}
