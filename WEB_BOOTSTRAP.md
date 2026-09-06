@@ -12,7 +12,7 @@
 - Problem admission: `preview_unadmitted`
 - Harness suite: `harness-source:web-research-full` `1.1.0`
 - Suite manifest SHA-256: `7dfdb41a68bfda314d663ba03b4b2a713ea194168ade5287e58c6434be5cc4fb`
-- Harness snapshot SHA-256: `d9b0672ded171b73b2817e4c7e37f9a0851a388c861743cf4809f22b2709204a`
+- Harness snapshot SHA-256: `2e5a81b661248d816f60d55ad7f5eaa6000fa64fb92820cf305e48652aed6262`
 - Channel: `chatgpt-web-github-issue-pr-writer`
 
 ## Required read order

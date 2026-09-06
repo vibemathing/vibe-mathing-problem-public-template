@@ -62,7 +62,7 @@
     "sha256": "251f90611be508ad40fca3aad135f5a1d7a889c96a90f04cacc513bda9e03d95",
     "version": "1.1.0"
   },
-  "built_at": "2026-09-05T17:03:50+08:00",
+  "built_at": "2026-09-06T11:24:12+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "WEB_BOOTSTRAP.md"
@@ -1890,7 +1890,7 @@
     "commit": "7dfdb41a68bfda314d663ba03b4b2a713ea19416",
     "repository": "reviewed-public-export",
     "source_manifest_sha256": "7dfdb41a68bfda314d663ba03b4b2a713ea194168ade5287e58c6434be5cc4fb",
-    "worktree_dirty": true
+    "worktree_dirty": false
   },
   "tree_sha256": "477cb5ec65c457390c1210b4b9e74b96cc20490b1a09aae29450653e9f480032"
 }
