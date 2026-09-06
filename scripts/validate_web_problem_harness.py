@@ -199,6 +199,20 @@ def validate(root: Path) -> list[str]:
             errors.append("WEB_OUTPUT_CONTRACT autonomy policy drift")
         if output_contract.get("repository_scope_policy") != profile.get("repository_scope_policy"):
             errors.append("WEB_OUTPUT_CONTRACT repository scope policy drift")
+        freshness = output_contract.get("state_freshness_policy", {})
+        expected_freshness = {
+            "authoritative_state": "fresh_default_branch_and_live_github_objects",
+            "historical_chat_is_authoritative": False,
+            "design_time_revisions_may_advance": True,
+            "audit_maturity_is_repository_admission": False,
+            "round_end_is_permission_failure": False,
+            "issue_identity_fields": ["problem_id", "attempt_id", "route_id", "obligation_id"],
+            "issue_creation": "search_twice_then_create_or_reuse_unique",
+        }
+        if freshness != expected_freshness:
+            errors.append("WEB_OUTPUT_CONTRACT state freshness policy drift")
+        if profile.get("operational_admission") != "admitted_problem_repository_namespace":
+            errors.append("Web candidate namespace is not operationally admitted")
         required_operations = {
             "issue_create", "candidate_branch_create", "candidate_file_create", "candidate_file_update",
             "candidate_file_delete", "commit_create", "pull_request_create", "pull_request_review",

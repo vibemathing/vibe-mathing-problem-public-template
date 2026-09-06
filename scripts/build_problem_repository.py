@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TASK = ROOT / "governance/tasks/0027-web-gpt-github-chat-research-harness"
 DEFAULT_MANIFEST = TASK / "harness-source-manifest.v1.json"
 DEFAULT_TEMPLATE = TASK / "problem-repository-template"
-BUILDER_VERSION = "1.1.2"
+BUILDER_VERSION = "1.1.3"
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "WEB_BOOTSTRAP.md"}
 MUTABLE_GENERATED = {
     "research/records/attempts.jsonl",
@@ -352,6 +352,15 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         "prohibited_write_paths": profile["prohibited_repository_write_paths"],
         "autonomy_policy": profile["autonomy_policy"],
         "repository_scope_policy": profile["repository_scope_policy"],
+        "state_freshness_policy": {
+            "authoritative_state": "fresh_default_branch_and_live_github_objects",
+            "historical_chat_is_authoritative": False,
+            "design_time_revisions_may_advance": True,
+            "audit_maturity_is_repository_admission": False,
+            "round_end_is_permission_failure": False,
+            "issue_identity_fields": ["problem_id", "attempt_id", "route_id", "obligation_id"],
+            "issue_creation": "search_twice_then_create_or_reuse_unique",
+        },
         "allowed_github_operations": [
             "issue_create", "candidate_branch_create", "candidate_file_create",
             "candidate_file_update", "candidate_file_delete", "commit_create",

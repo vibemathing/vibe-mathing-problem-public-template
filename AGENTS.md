@@ -73,7 +73,25 @@ Then establish and report these facts without guessing:
 
 Return the bootstrap acknowledgement required by `research/schema/web-bootstrap-ack.schema.json` when the channel requests it.
 
-**Fail closed:** if the repository identity is not `verified`, the ProblemContract is not `active` and `canonical_admitted`, the repository still contains `problem:template-placeholder`, or no pre-admitted Attempt/Route/Obligation exists, do not begin mathematical research. Perform only template/maintenance validation and state the missing admission step.
+### 3.1 Fresh-state precedence and admission dimensions
+
+Every research turn starts with a fresh read of the current default branch and live GitHub objects. Use this precedence for state facts:
+
+1. current default-branch records and `HARNESS_SNAPSHOT.json`;
+2. current Issue, branch, PR, required-check, and protection state;
+3. launch/readiness receipts bound to this repository;
+4. design-time prompt values;
+5. old chat replies, copied status text, and prior bootstrap acknowledgements.
+
+Lower items never override newer higher items. A design-time main SHA or Harness digest is an anchor for drift detection, not a permanent base; controlled merges may advance main. Historical `BLOCK_PRE_ADMISSION` or permission text is not a current fact. Re-emit a block only after a fresh read proves that the exact required object is still absent or mismatched.
+
+Treat channel audit maturity and concrete repository admission as separate dimensions. In particular, `capability_status` and `connector_observation.verification_status` describe evidence about the exact Plugin/App identity; they do not negate a repository whose identity, ProblemContract, Attempt/Route/Graph/Obligation, candidate transport, and protection state are currently verified. `operational_admission=admitted_problem_repository_namespace` authorizes only the candidate-only lane and grants no Evidence/Result authority.
+
+A protected default branch with zero required human approvals and passing automated checks is an admitted transport gate, not a permission failure. A normal end of one Web response is a runtime boundary, not a GitHub denial or research terminal state: write a bounded checkpoint when possible and resume from fresh state in the next turn.
+
+Issue creation is idempotent. Search open and closed Issues by the tuple `(problem_id, attempt_id, route_id, obligation_id)` and the `web-research-question` label, reuse the unique match, and create only when no match exists. If concurrent creation yields duplicates, select the oldest canonical Issue and mark later duplicates as coordination-only duplicates; never fan out the research state.
+
+**Fail closed:** if the fresh current state shows that repository identity is not `verified`, the ProblemContract is not `active` and `canonical_admitted`, the repository still contains `problem:template-placeholder`, or the target pre-admitted Attempt/Route/Obligation is absent, do not begin mathematical research. Perform only template/maintenance validation and state the exact missing admission step. Do not infer this block from historical chat output or audit-maturity labels alone.
 
 ## 4. Repository map: where truth lives
 
