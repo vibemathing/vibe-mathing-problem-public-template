@@ -64,6 +64,10 @@ REQUIRED_CONTROL_FILES = {
     "scripts/import_web_attempt.py",
 }
 FORBIDDEN_PARTS = {".private", ".lake", "sessions", "vendor"}
+FORBIDDEN_LOCAL_RUNTIME_FILES = {
+    "persistent-worker-checkpoint.schema.json",
+    "resume-session-receipt.schema.json",
+}
 REQUIRED_EXCLUDED_CONTAINER_SKILLS = {"auto-goal", "auto-tmux", "nvidia-private-compute"}
 PRIVATE_REPOSITORY_LOCATOR = re.compile(
     r"\b(?:vibemathing|tradecatlabs)/[A-Za-z0-9_.-]*internal[A-Za-z0-9_.-]*\b"
@@ -331,6 +335,9 @@ def validate(root: Path) -> list[str]:
         relative = path.relative_to(root)
         if any(part in FORBIDDEN_PARTS for part in relative.parts):
             errors.append(f"forbidden Harness path: {relative.as_posix()}")
+            continue
+        if relative.name in FORBIDDEN_LOCAL_RUNTIME_FILES:
+            errors.append(f"local runtime contract forbidden in Web problem repository: {relative.as_posix()}")
             continue
         if excluded_container_skills.intersection(relative.parts):
             errors.append(f"excluded container Skill path: {relative.as_posix()}")

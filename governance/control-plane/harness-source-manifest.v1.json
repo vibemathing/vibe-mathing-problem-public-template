@@ -417,7 +417,10 @@
       "privacy_class": "public_code",
       "rewrite_policy": "replace_from_source",
       "license_ref": null,
-      "excludes": []
+      "excludes": [
+        "persistent-worker-checkpoint.schema.json",
+        "resume-session-receipt.schema.json"
+      ]
     },
     {
       "source_path": "research/verifiers.json",

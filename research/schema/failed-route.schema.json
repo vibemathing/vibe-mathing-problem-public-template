@@ -30,6 +30,6 @@
       "description": "可复核证据路径（脚本/日志/checkpoint/Lean 文件），禁止空引用"
     },
     "recorded_at": {"type": "string", "format": "date-time"},
-    "recorded_by": {"type": "string", "minLength": 1, "description": "登记人/worker 标识（如 worker:rh）"}
+    "recorded_by": {"type": "string", "minLength": 1, "description": "登记该失败路线的 producer principal 标识"}
   }
 }
