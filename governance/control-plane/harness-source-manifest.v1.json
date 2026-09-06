@@ -264,18 +264,6 @@
       "excludes": []
     },
     {
-      "source_path": "governance/control-plane/research-execution-scope.v1.schema.json",
-      "target_path": "governance/control-plane/research-execution-scope.v1.schema.json",
-      "kind": "file",
-      "layer": "research_core",
-      "required": true,
-      "owner": "harness",
-      "privacy_class": "internal_code",
-      "rewrite_policy": "replace_from_source",
-      "license_ref": null,
-      "excludes": []
-    },
-    {
       "source_path": "governance/tasks/0027-web-gpt-github-chat-research-harness/WEB_CHANNEL_REQUIREMENTS_SNAPSHOT.md",
       "target_path": "governance/web-channel/REQUIREMENTS.md",
       "kind": "file",

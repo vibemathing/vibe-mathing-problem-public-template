@@ -1243,12 +1243,12 @@
       "sha256": "469e04ec1cfde45cef996168773e616fdf119b5532d284dc2e32ce2f41a2a630"
     },
     {
-      "bytes": 21724,
+      "bytes": 21294,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "governance/control-plane/harness-source-manifest.v1.json",
-      "sha256": "d4f9e3c8b523f87d05dcb8b3797340d4e01954201ce98367b48674d722ad1711"
+      "sha256": "7dfdb41a68bfda314d663ba03b4b2a713ea194168ade5287e58c6434be5cc4fb"
     },
     {
       "bytes": 2275,
@@ -1305,14 +1305,6 @@
       "owner": "harness",
       "path": "governance/control-plane/math-tool-maturity.v1.json",
       "sha256": "73e733e437e6dd376be59df81c0ec9d28a318d2c9233b65973a8d91f3207f1dd"
-    },
-    {
-      "bytes": 4326,
-      "layer": "research_core",
-      "mode": "0644",
-      "owner": "harness",
-      "path": "governance/control-plane/research-execution-scope.v1.schema.json",
-      "sha256": "fd55ec15ab6a2d3759e99424a4ca36740c1bd7c90d81c2d9a1849b361ad70e2a"
     },
     {
       "bytes": 10913,
@@ -1747,12 +1739,12 @@
       "sha256": "aa453e6c5c162706bef0b531e45ac8ef775c02de8a5977ccab7ca4cbc0cea2d8"
     },
     {
-      "bytes": 21372,
+      "bytes": 21419,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "42048b6317ac71dc10251d74a0b8c799e0e93e517c29b8c4333ac488f4bf9c05"
+      "sha256": "a02e1d4b6393cc284f9700c1896b3588b2c87be9e918db95852f4203ce1c0a5b"
     },
     {
       "bytes": 2410,
@@ -1895,10 +1887,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "d4f9e3c8b523f87d05dcb8b3797340d4e0195420",
+    "commit": "7dfdb41a68bfda314d663ba03b4b2a713ea19416",
     "repository": "reviewed-public-export",
-    "source_manifest_sha256": "d4f9e3c8b523f87d05dcb8b3797340d4e01954201ce98367b48674d722ad1711",
+    "source_manifest_sha256": "7dfdb41a68bfda314d663ba03b4b2a713ea194168ade5287e58c6434be5cc4fb",
     "worktree_dirty": true
   },
-  "tree_sha256": "dcafb4a067d3bfc84c7db153d492c318d95800b31ea7868195d12facb67f577f"
+  "tree_sha256": "477cb5ec65c457390c1210b4b9e74b96cc20490b1a09aae29450653e9f480032"
 }

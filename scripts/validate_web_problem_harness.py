@@ -66,6 +66,7 @@ REQUIRED_CONTROL_FILES = {
 FORBIDDEN_PARTS = {".private", ".lake", "sessions", "vendor"}
 FORBIDDEN_LOCAL_RUNTIME_FILES = {
     "persistent-worker-checkpoint.schema.json",
+    "research-execution-scope.v1.schema.json",
     "resume-session-receipt.schema.json",
 }
 REQUIRED_EXCLUDED_CONTAINER_SKILLS = {"auto-goal", "auto-tmux", "nvidia-private-compute"}
