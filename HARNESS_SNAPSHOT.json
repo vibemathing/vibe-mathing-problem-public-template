@@ -59,10 +59,10 @@
   ],
   "builder": {
     "id": "build-problem-repository",
-    "sha256": "251f90611be508ad40fca3aad135f5a1d7a889c96a90f04cacc513bda9e03d95",
-    "version": "1.1.0"
+    "sha256": "e29a25ec656248939010855cf650f5154045e0197f7603b8554c535efd392bb3",
+    "version": "1.1.1"
   },
-  "built_at": "2026-09-06T11:24:12+08:00",
+  "built_at": "2026-09-06T13:10:07+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "WEB_BOOTSTRAP.md"
@@ -1019,12 +1019,12 @@
       "sha256": "52a5c17534263eb4065c436960824dfc20858c2c7b8530fdf4674634f84c0b57"
     },
     {
-      "bytes": 1202,
+      "bytes": 2517,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": ".github/workflows/web-candidate-gate.yml",
-      "sha256": "b2a2c7f7e589c0b4e8d163e60069b77c3db210601188e0748be6b2503b108774"
+      "sha256": "1f0cff65c4276da4b6ec87f162c2cd83b1da74ed9703ac641b1395bf94ed75d6"
     },
     {
       "bytes": 109,
@@ -1248,7 +1248,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "governance/control-plane/harness-source-manifest.v1.json",
-      "sha256": "7dfdb41a68bfda314d663ba03b4b2a713ea194168ade5287e58c6434be5cc4fb"
+      "sha256": "c615d53afae447ea46d8ec53b442c9514e87948676c8c448ecafb68b8f41175b"
     },
     {
       "bytes": 2275,
@@ -1627,12 +1627,12 @@
       "sha256": "b544d5b540e563d344b0dd23f5357cf10e8dcd719246a5de19f255bf7147f3d2"
     },
     {
-      "bytes": 2196,
+      "bytes": 2367,
       "layer": "research_core",
       "mode": "0644",
       "owner": "harness",
       "path": "research/verifiers.json",
-      "sha256": "ab8a1a403e6c5835f0dce160e18c8c1447b93eb04b9dff8b235945d7454b1120"
+      "sha256": "a97ddf84e4cb58ad556dc017ff7c0714b7277629595b3673fad5c046d7bb8a40"
     },
     {
       "bytes": 1668,
@@ -1664,7 +1664,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_problem_repository.py",
-      "sha256": "251f90611be508ad40fca3aad135f5a1d7a889c96a90f04cacc513bda9e03d95"
+      "sha256": "e29a25ec656248939010855cf650f5154045e0197f7603b8554c535efd392bb3"
     },
     {
       "bytes": 5361,
@@ -1739,12 +1739,12 @@
       "sha256": "aa453e6c5c162706bef0b531e45ac8ef775c02de8a5977ccab7ca4cbc0cea2d8"
     },
     {
-      "bytes": 21419,
+      "bytes": 22093,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "a02e1d4b6393cc284f9700c1896b3588b2c87be9e918db95852f4203ce1c0a5b"
+      "sha256": "ca7d7ba5e7acdedf6d55ec05523579e20e8819c0589397a9962a8a0ee0371f44"
     },
     {
       "bytes": 2410,
@@ -1867,7 +1867,7 @@
       "sha256": "75645b444d76637000823ce502eeb603709775dc452dcff952275477fe867590"
     }
   ],
-  "harness_version": "1.1.0",
+  "harness_version": "1.1.1",
   "problem": {
     "admission": "preview_unadmitted",
     "contract_sha256": "e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940",
@@ -1887,10 +1887,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "7dfdb41a68bfda314d663ba03b4b2a713ea19416",
+    "commit": "c615d53afae447ea46d8ec53b442c9514e879486",
     "repository": "reviewed-public-export",
-    "source_manifest_sha256": "7dfdb41a68bfda314d663ba03b4b2a713ea194168ade5287e58c6434be5cc4fb",
+    "source_manifest_sha256": "c615d53afae447ea46d8ec53b442c9514e87948676c8c448ecafb68b8f41175b",
     "worktree_dirty": false
   },
-  "tree_sha256": "477cb5ec65c457390c1210b4b9e74b96cc20490b1a09aae29450653e9f480032"
+  "tree_sha256": "db6fb9c573c1fdaf99df88740ecc9043f78adf5280e3db1a426641760e6566bc"
 }
