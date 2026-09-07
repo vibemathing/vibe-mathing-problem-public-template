@@ -59,6 +59,10 @@ def main() -> int:
     try:
         old = load_json(target / "HARNESS_SNAPSHOT.json")
         repository = old["repository"]
+        identity = old.get("repository_identity", {})
+        visibility = identity.get("visibility")
+        if visibility not in {"private", "public"}:
+            raise RuntimeError("target snapshot lacks a valid repository visibility")
         problem_file = target / "problem-library/records/canonical-problems.jsonl"
         with tempfile.TemporaryDirectory(prefix="vibe-web-harness-sync-") as temporary:
             built = Path(temporary) / "repo"
@@ -68,7 +72,8 @@ def main() -> int:
                 "--project-root", str(source_root),
                 "--problem-file", str(problem_file),
                 "--repository", repository,
-                "--default-branch", str(old.get("repository_identity", {}).get("default_branch", "main")),
+                "--visibility", visibility,
+                "--default-branch", str(identity.get("default_branch", "main")),
                 "--output", str(built),
                 "--attempts-file", str(target / "research/records/attempts.jsonl"),
                 "--failed-routes-file", str(target / "research/records/failed-routes.jsonl"),
@@ -81,7 +86,6 @@ def main() -> int:
                 command.append("--allow-draft-problem")
             if args.allow_unadmitted_problem:
                 command.append("--allow-unadmitted-problem")
-            identity = old.get("repository_identity", {})
             if identity.get("binding_state") == "verified":
                 command.extend([
                     "--repository-database-id", str(identity["database_id"]),

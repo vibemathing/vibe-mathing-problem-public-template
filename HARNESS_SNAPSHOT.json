@@ -59,10 +59,10 @@
   ],
   "builder": {
     "id": "build-problem-repository",
-    "sha256": "728d26d545a043a52ae0f5203c7e9d218600090d317158b9e2085fd05de234ad",
-    "version": "1.2.0"
+    "sha256": "d8c6f36befd6a641299960e2b9cfce544ab22681a496ca9e4a7f22840d8cb722",
+    "version": "1.2.1"
   },
-  "built_at": "2026-09-07T10:08:16+08:00",
+  "built_at": "2026-09-07T10:17:12+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "WEB_BOOTSTRAP.md"
@@ -995,12 +995,12 @@
       "sha256": "01e1691e07222b5905c20d58c6877418d126368260ed183b6f59d9e17b663d92"
     },
     {
-      "bytes": 1269,
+      "bytes": 1435,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": ".github/AGENTS.md",
-      "sha256": "a39e5d0aa291a1882c11df066bcd720d68de6a71526532b1e440d1c176c3b06a"
+      "sha256": "498bb2b7368846bac8bc0c6616a224ea1aed9f7b8603f1c4652da5e51ad611ed"
     },
     {
       "bytes": 2525,
@@ -1035,12 +1035,12 @@
       "sha256": "1b1498dd73a7c7f3f436c1d752304ad16df2b022095dcf62715d53ad41736fea"
     },
     {
-      "bytes": 22564,
+      "bytes": 22829,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "AGENTS.md",
-      "sha256": "8ce33db21deff1ad283ae9fb9930b4f0807ce211cbe19eea3bbcddd793b783ae"
+      "sha256": "717c8f6fd61ab63541740b22d9aa39c152d22592a067b07a95f46716bf4b0ec4"
     },
     {
       "bytes": 446,
@@ -1091,12 +1091,12 @@
       "sha256": "6392294580958c5e0e1084cf2c60c4714220038e4e2bfe20e74b2c1affdf19b6"
     },
     {
-      "bytes": 3032,
+      "bytes": 3270,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "WEB_OUTPUT_CONTRACT.json",
-      "sha256": "eaca3d666295caf2357240c04f3219553ad03e73145776d2ccc54e3612d4989b"
+      "sha256": "8f8ea2923307be8f22c466d7fd01b97e6476d9482ad122eb83c9f3be99e108a2"
     },
     {
       "bytes": 1060,
@@ -1248,7 +1248,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "governance/control-plane/harness-source-manifest.v1.json",
-      "sha256": "c46170a21d3f528274bb8b18371cfd13812872aaf08421ba6a1d23f9557301e5"
+      "sha256": "ca1bd697d99dd30feee17295189135a9091cb33eb6bbdb40fa018cd1b4beaee1"
     },
     {
       "bytes": 2275,
@@ -1683,12 +1683,12 @@
       "sha256": "d3e1f8c4b2f99819475c41c57fdfa1636be3ee37b78057719f64392dfa760fa8"
     },
     {
-      "bytes": 24924,
+      "bytes": 25195,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_problem_repository.py",
-      "sha256": "728d26d545a043a52ae0f5203c7e9d218600090d317158b9e2085fd05de234ad"
+      "sha256": "d8c6f36befd6a641299960e2b9cfce544ab22681a496ca9e4a7f22840d8cb722"
     },
     {
       "bytes": 5361,
@@ -1707,12 +1707,12 @@
       "sha256": "a7650a8ba5be3fef370914b24a49b1118f57dc12f41980f21b11ef2b0a8267c1"
     },
     {
-      "bytes": 7905,
+      "bytes": 8105,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/sync_problem_repository_harness.py",
-      "sha256": "ed3640cdda8616e5117356980dc13ec04443b031880ac82f8cac00328c942f13"
+      "sha256": "dfa8b4c05b8676ddea4d5e55ae23c5b1ce9de2584d52cb28a157e460c2006f00"
     },
     {
       "bytes": 26871,
@@ -1763,20 +1763,20 @@
       "sha256": "b4940667d01afdeb07bb1a90534b23975cfd7afd08918037ecd8a85131249649"
     },
     {
-      "bytes": 7770,
+      "bytes": 13901,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_pr_diff.py",
-      "sha256": "aa453e6c5c162706bef0b531e45ac8ef775c02de8a5977ccab7ca4cbc0cea2d8"
+      "sha256": "1c0ec95d2807be5b91dd282afc07020fe9e8490612e6b9173a78661f754d9534"
     },
     {
-      "bytes": 23394,
+      "bytes": 23825,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "9bbe3d8cdf1271708082137e02ac4b15fefc9f4d0c9f74326e573be0fcf761a5"
+      "sha256": "db5cea24289fe0f2232b70c44751532fd0d08aba39e2194c6d79dcf444fb28cd"
     },
     {
       "bytes": 2410,
@@ -1899,7 +1899,7 @@
       "sha256": "75645b444d76637000823ce502eeb603709775dc452dcff952275477fe867590"
     }
   ],
-  "harness_version": "1.2.0",
+  "harness_version": "1.2.1",
   "problem": {
     "admission": "preview_unadmitted",
     "contract_sha256": "e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940",
@@ -1914,15 +1914,15 @@
     "default_branch": "main",
     "full_name": "vibemathing/vibe-mathing-problem-public-template",
     "node_id": "R_kgDOUPyGOA",
-    "visibility": "private"
+    "visibility": "public"
   },
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "ba31f241665f0878dbb5b2c5a6dfce972ab625f8",
-    "repository": "tradecatlabs/vibe-mathing-cn-internal",
-    "source_manifest_sha256": "c46170a21d3f528274bb8b18371cfd13812872aaf08421ba6a1d23f9557301e5",
+    "commit": "ca1bd697d99dd30feee17295189135a9091cb33e",
+    "repository": "reviewed-public-export",
+    "source_manifest_sha256": "ca1bd697d99dd30feee17295189135a9091cb33eb6bbdb40fa018cd1b4beaee1",
     "worktree_dirty": false
   },
-  "tree_sha256": "44bbfc3777f6d56c7e1f7b3d0e2753f8f5fd1578f1872878b15fc24653e1e5cf"
+  "tree_sha256": "5a98105f32bcccf21892495773d45e9c9eda9a8b355e98449e23645ac46fed18"
 }

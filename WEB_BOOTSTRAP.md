@@ -5,14 +5,14 @@
 - Repository database ID: `1358726712`
 - Repository node ID: `R_kgDOUPyGOA`
 - Default branch: `main`
-- Visibility: `private`
+- Visibility: `public`
 - Canonical Problem: `problem:template-placeholder`
 - ProblemContract SHA-256: `e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940`
 - Problem lifecycle: `draft`
 - Problem admission: `preview_unadmitted`
-- Harness suite: `harness-source:web-research-full` `1.2.0`
-- Suite manifest SHA-256: `c46170a21d3f528274bb8b18371cfd13812872aaf08421ba6a1d23f9557301e5`
-- Harness snapshot SHA-256: `dec3c540b7b6f582a27518f5623a29be0f3dfdb9c64c068e7d6485d27b57b046`
+- Harness suite: `harness-source:web-research-full` `1.2.1`
+- Suite manifest SHA-256: `ca1bd697d99dd30feee17295189135a9091cb33eb6bbdb40fa018cd1b4beaee1`
+- Harness snapshot SHA-256: `0353e8c60bc98aa388370c5007b118270016f58175080c1a262e875786c81603`
 - Channel: `chatgpt-web-github-issue-pr-writer`
 
 ## Required read order

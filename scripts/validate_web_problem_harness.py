@@ -204,6 +204,14 @@ def validate(root: Path) -> list[str]:
             errors.append("WEB_OUTPUT_CONTRACT autonomy policy drift")
         if output_contract.get("repository_scope_policy") != profile.get("repository_scope_policy"):
             errors.append("WEB_OUTPUT_CONTRACT repository scope policy drift")
+        expected_maintenance = {
+            "branch_prefix": "maintenance/harness-",
+            "trusted_actors": ["vibemathing"],
+            "exact_regenerated_snapshot_delta_required": True,
+            "mathematical_state_changes_allowed": False,
+        }
+        if output_contract.get("harness_maintenance_policy") != expected_maintenance:
+            errors.append("WEB_OUTPUT_CONTRACT Harness maintenance policy drift")
         freshness = output_contract.get("state_freshness_policy", {})
         expected_freshness = {
             "authoritative_state": "fresh_default_branch_and_live_github_objects",

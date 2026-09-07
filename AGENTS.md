@@ -177,8 +177,9 @@ Determine the role from the direct task, machine profile, actual principal, and 
 
 ### Harness maintainer
 
-- Acts only on an explicit maintenance task and a separate trusted branch.
+- Acts only on an explicit maintenance task and a `maintenance/harness-*` branch under the allowlisted `vibemathing` maintainer identity.
 - Rebuilds generated context/snapshots and runs the full Harness tests after changing contracts, Skills, schemas, scripts, or workflow.
+- The PR diff must equal the old/new Harness-owned snapshot delta plus regenerated control files; ProblemContract, records, candidate artifacts, EvidenceLinks, Results and Solution views cannot change.
 - Maintenance authority is not mathematical admission authority.
 
 ## 6. Skill routing: use the suite as a system
