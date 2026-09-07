@@ -12,6 +12,7 @@ from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
+from validate_mathematical_reasoning_discipline import validate as validate_reasoning_discipline
 from vibe_mathing.web_channel import (
     canonical_json_sha256,
     load_json,
@@ -47,6 +48,8 @@ REQUIRED_CONTROL_FILES = {
     "research/records/candidate-artifacts.jsonl",
     "research/records/evidence-links.jsonl",
     "result-library/records/results.jsonl",
+    "governance/control-plane/mathematical-reasoning-discipline.schema.json",
+    "governance/control-plane/mathematical-reasoning-discipline.v1.json",
     "governance/control-plane/math-knowledge-source.v1.json",
     "governance/control-plane/math-knowledge-operators.v1.json",
     "governance/control-plane/harness-source-manifest.v1.json",
@@ -57,6 +60,7 @@ REQUIRED_CONTROL_FILES = {
     "scripts/build_problem_repository.py",
     "scripts/build_web_context_bundle.py",
     "scripts/sync_problem_repository_harness.py",
+    "scripts/validate_mathematical_reasoning_discipline.py",
     "scripts/validate_math_knowledge_registry.py",
     "scripts/validate_web_problem_harness.py",
     "scripts/validate_web_attempt.py",
@@ -115,6 +119,7 @@ def validate(root: Path) -> list[str]:
         path = root / relative
         if not path.is_file() or path.is_symlink():
             errors.append(f"required regular file missing: {relative}")
+    errors.extend(f"reasoning discipline: {message}" for message in validate_reasoning_discipline(root))
 
     try:
         snapshot = load_json(root / "HARNESS_SNAPSHOT.json")

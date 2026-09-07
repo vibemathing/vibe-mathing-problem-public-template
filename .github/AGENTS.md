@@ -1,5 +1,11 @@
 # GitHub Automation Boundary
 
+## Mandatory reasoning boundary
+
+<!-- MATHEMATICAL_REASONING_DISCIPLINE_V1 -->
+
+Automation inherits `governance/standards/MATHEMATICAL_REASONING_DISCIPLINE.md`. CI may check structure, frozen artifacts and receipts, but it cannot replace definition/quantifier review, valid induction or contraposition, explicit witnesses, counterexample pressure tests, invariant/termination arguments, scale/boundary analysis, statement-faithfulness, or independent mathematical evidence.
+
 - Web GPT candidate branches must not modify `.github/**`.
 - Workflows run untrusted candidate diffs with `contents: read` only and without secrets.
 - The required candidate gate must validate the immutable Harness snapshot, full diff, packet schema, candidate-path add/modify/delete boundary, file modes, size budgets and privacy rules.
