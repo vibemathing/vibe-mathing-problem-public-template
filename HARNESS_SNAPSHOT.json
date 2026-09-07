@@ -59,10 +59,10 @@
   ],
   "builder": {
     "id": "build-problem-repository",
-    "sha256": "4ab5fad2d127251498ba68910122237a17190c97a7fe4984980cce6b93ba75fc",
-    "version": "1.2.2"
+    "sha256": "d5866dffe389ea1ae2d15bd8244662bfd005b1ef962734fdedd778905c41b34c",
+    "version": "1.2.3"
   },
-  "built_at": "2026-09-07T10:29:22+08:00",
+  "built_at": "2026-09-07T10:34:33+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -1257,7 +1257,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "governance/control-plane/harness-source-manifest.v1.json",
-      "sha256": "af805d9ab19f39597349ad102bde40053b9ad693616559ad0af039d5c1cbfe02"
+      "sha256": "27a22779f4ea8418115002a4a180553b0f23425b69e4deb76f2bd6ae893b2993"
     },
     {
       "bytes": 2275,
@@ -1697,7 +1697,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_problem_repository.py",
-      "sha256": "4ab5fad2d127251498ba68910122237a17190c97a7fe4984980cce6b93ba75fc"
+      "sha256": "d5866dffe389ea1ae2d15bd8244662bfd005b1ef962734fdedd778905c41b34c"
     },
     {
       "bytes": 5361,
@@ -1772,12 +1772,12 @@
       "sha256": "b4940667d01afdeb07bb1a90534b23975cfd7afd08918037ecd8a85131249649"
     },
     {
-      "bytes": 13938,
+      "bytes": 13520,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_pr_diff.py",
-      "sha256": "b3a3afef8e78db5a970ec6c83c114f283dd99e36bd594a0320391689dbdcad60"
+      "sha256": "9ab3d2d78b7f2120acd54b26cccd0b1d6a154fb2ab644fabeb8aa063e870add1"
     },
     {
       "bytes": 25674,
@@ -1908,7 +1908,7 @@
       "sha256": "e250018898ae62ffb669974f48b007b688844a23fa5543a5f6e379aaca20bc59"
     }
   ],
-  "harness_version": "1.2.2",
+  "harness_version": "1.2.3",
   "problem": {
     "admission": "preview_unadmitted",
     "contract_sha256": "e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940",
@@ -1928,10 +1928,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "af805d9ab19f39597349ad102bde40053b9ad693",
+    "commit": "27a22779f4ea8418115002a4a180553b0f23425b",
     "repository": "reviewed-public-export",
-    "source_manifest_sha256": "af805d9ab19f39597349ad102bde40053b9ad693616559ad0af039d5c1cbfe02",
+    "source_manifest_sha256": "27a22779f4ea8418115002a4a180553b0f23425b69e4deb76f2bd6ae893b2993",
     "worktree_dirty": false
   },
-  "tree_sha256": "8f8bab26d1b2ecd0c1b44b409295b40e5aa9005fe0b01331e16b2b0bfb9b1d98"
+  "tree_sha256": "a5f58473939760a0e4edf696d5d0a8083b07ecfa0644f18092f450dc6ce5d913"
 }
