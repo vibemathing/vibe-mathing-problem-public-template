@@ -39,6 +39,7 @@ REQUIRED_CONTROL_FILES = {
     "WEB_ACTIVE_SKILLS.json",
     "WEB_OUTPUT_CONTRACT.json",
     "HARNESS_SNAPSHOT.json",
+    "HARNESS_SNAPSHOT_HISTORY.json",
     ".codex/AGENTS.md",
     ".codex/skills/README.md",
     "problem-library/records/canonical-problems.jsonl",
@@ -57,6 +58,7 @@ REQUIRED_CONTROL_FILES = {
     "governance/control-plane/container-skill-source-lock.v1.json",
     "governance/control-plane/container-skill-source-lock.v1.schema.json",
     "governance/control-plane/harness-snapshot-manifest.v1.schema.json",
+    "governance/control-plane/harness-snapshot-history.v1.schema.json",
     "scripts/build_problem_repository.py",
     "scripts/build_web_context_bundle.py",
     "scripts/sync_problem_repository_harness.py",
@@ -171,6 +173,34 @@ def validate(root: Path) -> list[str]:
     if repository_identity.get("binding_state") == "verified":
         if not isinstance(repository_identity.get("database_id"), int) or not repository_identity.get("node_id"):
             errors.append("verified repository identity lacks database/node ID")
+
+    try:
+        history = load_json(root / "HARNESS_SNAPSHOT_HISTORY.json")
+        history_schema = root / "governance/control-plane/harness-snapshot-history.v1.schema.json"
+        errors.extend(f"snapshot history schema: {message}" for message in validate_schema(history, history_schema))
+        expected_history_identity = {
+            key: repository_identity.get(key)
+            for key in ("database_id", "node_id", "default_branch", "visibility")
+        }
+        if history.get("repository") != snapshot.get("repository"):
+            errors.append("Harness snapshot history repository mismatch")
+        if history.get("repository_identity") != expected_history_identity:
+            errors.append("Harness snapshot history repository identity mismatch")
+        entries = history.get("entries", [])
+        digests = [item.get("harness_snapshot_sha256") for item in entries if isinstance(item, dict)]
+        if len(digests) != len(set(digests)):
+            errors.append("Harness snapshot history contains duplicate digests")
+        current_entry = {
+            "harness_snapshot_sha256": sha256_file(root / "HARNESS_SNAPSHOT.json"),
+            "harness_version": snapshot.get("harness_version"),
+            "tree_sha256": snapshot.get("tree_sha256"),
+            "source_manifest_sha256": snapshot.get("source", {}).get("source_manifest_sha256"),
+            "importer_policy_sha256": sha256_file(root / "scripts/import_web_attempt.py"),
+        }
+        if current_entry not in entries:
+            errors.append("Harness snapshot history lacks the current snapshot/importer binding")
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        errors.append(f"Harness snapshot history invalid: {exc}")
 
     try:
         problem = load_problem(root)

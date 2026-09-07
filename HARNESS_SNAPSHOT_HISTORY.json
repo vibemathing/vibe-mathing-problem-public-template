@@ -1,0 +1,19 @@
+{
+  "entries": [
+    {
+      "harness_snapshot_sha256": "91d0c595f8828c04d098e10ab700e556f62a8e06f22465a70d07875ad49b0cab",
+      "harness_version": "1.2.2",
+      "importer_policy_sha256": "a7650a8ba5be3fef370914b24a49b1118f57dc12f41980f21b11ef2b0a8267c1",
+      "source_manifest_sha256": "af805d9ab19f39597349ad102bde40053b9ad693616559ad0af039d5c1cbfe02",
+      "tree_sha256": "8f8bab26d1b2ecd0c1b44b409295b40e5aa9005fe0b01331e16b2b0bfb9b1d98"
+    }
+  ],
+  "repository": "vibemathing/vibe-mathing-problem-public-template",
+  "repository_identity": {
+    "database_id": 1358726712,
+    "default_branch": "main",
+    "node_id": "R_kgDOUPyGOA",
+    "visibility": "public"
+  },
+  "schema_version": "1.0.0"
+}

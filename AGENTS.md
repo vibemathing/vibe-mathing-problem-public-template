@@ -146,7 +146,8 @@ Issue creation is idempotent. Search open and closed Issues by the tuple `(probl
 | `.codex/skills/**` | Fixed mathematical method/router contracts | Read-only during research |
 | `governance/control-plane/**` | Source/operator registries and Harness contracts | Read-only during research |
 | `research/schema/**`, `scripts/**`, `.github/workflows/**` | Schemas, trusted code, and gates | Maintainer-only change |
-| `HARNESS_SNAPSHOT.json` | Fixed suite identity and file digests | Never hand-edit |
+| `HARNESS_SNAPSHOT.json` | Current fixed suite identity and file digests | Never hand-edit |
+| `HARNESS_SNAPSHOT_HISTORY.json` | Append-only historical snapshot/importer bindings for immutable packets | Harness maintainer only |
 
 A tool being technically able to write a path does not grant permission to write it. GitHub `contents: write` is not a path ACL; `WEB_CHANNEL_PROFILE.json`, `WEB_OUTPUT_CONTRACT.json`, the diff gate, and the closest `AGENTS.md` define the admitted surface.
 
