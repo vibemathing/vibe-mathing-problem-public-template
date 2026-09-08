@@ -66,10 +66,10 @@
   ],
   "builder": {
     "id": "build-problem-repository",
-    "sha256": "53b17c12c995b88c3d4949c9cb4878c090f5e896151ed8c50475901768c12035",
-    "version": "1.5.0"
+    "sha256": "31ecb653765760d7401930b57e91ea4a752a6540d06738099854c7180a61169f",
+    "version": "1.5.1"
   },
-  "built_at": "2026-09-08T16:26:27+08:00",
+  "built_at": "2026-09-08T16:56:31+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -1195,12 +1195,12 @@
       "sha256": "1b1498dd73a7c7f3f436c1d752304ad16df2b022095dcf62715d53ad41736fea"
     },
     {
-      "bytes": 23436,
+      "bytes": 23535,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "AGENTS.md",
-      "sha256": "133ee7ffef7ba4a85d5bbefecc86237d2eaf6efb0e6ba129da195cac93f6d79a"
+      "sha256": "87927ac52461956ebc7d116531e53cc7e80902684ca445d8702ca622b30a8cba"
     },
     {
       "bytes": 446,
@@ -1251,12 +1251,12 @@
       "sha256": "5f56f5b013e64ce8f09f9d00fa808c4e32a73a1d1e0a1dea4bb36837ad4bcb13"
     },
     {
-      "bytes": 7456,
+      "bytes": 8799,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "WEB_COORDINATOR.md",
-      "sha256": "d6eeb114e527ac1d44a2b549e158da49f3a67bdc188277cc9c85f370413e2925"
+      "sha256": "863c80d71d70fb281bff07c0fcd885597d43ea3666b0c16bdd429ceca5cecc16"
     },
     {
       "bytes": 3270,
@@ -1424,7 +1424,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "governance/control-plane/harness-source-manifest.v1.json",
-      "sha256": "f6975b79cddfdcd8511c39ffda40ccc0fa80776cc02749beeb9e603cf3dcf72b"
+      "sha256": "94cff861e217ccfec6122b3c79b828a24afc03784c8572018772fb2bfcc35766"
     },
     {
       "bytes": 2275,
@@ -1864,7 +1864,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_problem_repository.py",
-      "sha256": "53b17c12c995b88c3d4949c9cb4878c090f5e896151ed8c50475901768c12035"
+      "sha256": "31ecb653765760d7401930b57e91ea4a752a6540d06738099854c7180a61169f"
     },
     {
       "bytes": 5361,
@@ -2083,7 +2083,7 @@
       "sha256": "e250018898ae62ffb669974f48b007b688844a23fa5543a5f6e379aaca20bc59"
     }
   ],
-  "harness_version": "1.5.0",
+  "harness_version": "1.5.1",
   "problem": {
     "admission": "preview_unadmitted",
     "contract_sha256": "e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940",
@@ -2103,10 +2103,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "f6975b79cddfdcd8511c39ffda40ccc0fa80776c",
+    "commit": "94cff861e217ccfec6122b3c79b828a24afc0378",
     "repository": "reviewed-public-export",
-    "source_manifest_sha256": "f6975b79cddfdcd8511c39ffda40ccc0fa80776cc02749beeb9e603cf3dcf72b",
+    "source_manifest_sha256": "94cff861e217ccfec6122b3c79b828a24afc03784c8572018772fb2bfcc35766",
     "worktree_dirty": false
   },
-  "tree_sha256": "faa490ccf897ec16df7a3c364b0d0653a88b52acc46798a11962327c5df2d43b"
+  "tree_sha256": "33bd7beeecb49814d39a9649a5fad73917e97b66fcb2998fd0b82833aa794b57"
 }

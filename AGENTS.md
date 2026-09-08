@@ -71,7 +71,7 @@ Then establish and report these facts without guessing:
 - writable paths, operation limits, runtime limits, and available tools;
 - the next falsifiable objective and its stop condition.
 
-A coordinator-only planning conversation is the sole exception to requiring an existing Issue/Attempt/Route/Graph/Obligation at bootstrap. It must read `WEB_COORDINATOR.md`, may only emit bounded T1–T9 worker prompts or status/replanning summaries, and may not perform mathematical work or repository writes. Each generated worker prompt must bind its own unique research identities before that worker starts. The coordinator is not a tenth mathematical lane.
+A coordinator-only planning conversation is the sole exception to requiring an existing Issue/Attempt/Route/Graph/Obligation at bootstrap. It must read `WEB_COORDINATOR.md`, may only emit bounded T1–T9 planning/startup prompts or status/replanning summaries, and may not perform mathematical work or repository writes. Runnable worker prompts must bind nine unique research identities already pre-admitted on the fresh default branch; otherwise the coordinator returns only non-runnable pre-admission drafts. The coordinator is not a tenth mathematical lane.
 
 Return the bootstrap acknowledgement required by `research/schema/web-bootstrap-ack.schema.json` when the channel requests it.
 

@@ -41,10 +41,12 @@ Read in this order:
 6. `WEB_ACTIVE_SKILLS.json`;
 7. `problem-library/records/canonical-problems.jsonl`;
 8. `research/records/failed-routes.jsonl`;
-9. `.codex/skills/outcome-space-search/SKILL.md`;
-10. `.codex/skills/outcome-space-search/references/web-gpt-parallel-tree.md`;
-11. `.codex/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json`;
-12. `WEB_OUTPUT_CONTRACT.json`.
+9. `research/records/attempts.jsonl`;
+10. `research/records/obligation-graphs.jsonl`;
+11. `.codex/skills/outcome-space-search/SKILL.md`;
+12. `.codex/skills/outcome-space-search/references/web-gpt-parallel-tree.md`;
+13. `.codex/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json`;
+14. `WEB_OUTPUT_CONTRACT.json`.
 
 Then freeze and report:
 
@@ -56,11 +58,18 @@ ProblemContract version + digest
 root statement + domain + quantifiers + definitions
 assumptions + allowed axioms + acceptance predicate
 current failed-route signatures
-current obligations/candidates/evidence/results, including empty sets
+current admitted Attempt/Route/Graph/Obligation identities and statuses
+current candidates/evidence/results, including empty sets
 outcome-space-search version + web_status
 ```
 
 Return `BLOCK` instead of prompts if repository identity is not verified, the repository contains the template placeholder, the ProblemContract is not `active + canonical_admitted`, required files are missing, or `outcome-space-search` is absent/not version `0.3.0`/not readable.
+
+## Trusted pre-admission bridge
+
+Prompt text cannot admit protected research identities. Before emitting runnable worker startup prompts, the current default branch must already contain nine candidate-only pre-admitted lane packets, each with a unique Attempt/Route/Obligation, graph membership, branch and candidate path, all bound to the current ProblemContract digest. The coordinator only reads those packets; it must not invent them as if they already existed.
+
+If fewer than nine valid packets exist, return `BLOCK_PRE_ADMISSION` and a bounded nine-lane **planning proposal** for a trusted repository maintainer. Label every block `NOT_RUNNABLE_PRE_ADMISSION_DRAFT`; do not call them worker startup prompts and instruct the user not to paste them into worker conversations. The maintainer must validate and merge the protected Attempt/Route/Obligation records through the repository's trusted admission process. After that merge, rerun the fresh-state preflight before generating runnable prompts.
 
 ## Canonical nine result lanes
 
@@ -88,9 +97,9 @@ Each compound objective must be split before assignment. Scope is an overlay (`e
 
 ## Nine-prompt output contract
 
-When the user explicitly requests a nine-lane launch, output exactly nine code blocks in numerical order T1 through T9. Before the blocks, report the preflight binding and state that nine lanes are a user-requested bounded coverage run: OSPS normally selects at most three frontier lanes and its nine-slot tree alone does not authorize sessions or concurrency.
+When the user explicitly requests a nine-lane launch **and all nine protected lane packets are freshly pre-admitted**, output exactly nine runnable code blocks in numerical order T1 through T9. Before the blocks, report the preflight binding and state that nine lanes are a user-requested bounded coverage run: OSPS normally selects at most three frontier lanes and its nine-slot tree alone does not authorize sessions or concurrency.
 
-Every worker prompt must bind:
+Every worker prompt must bind the corresponding pre-admitted values (never newly invented values):
 
 ```text
 lane_id
@@ -103,9 +112,9 @@ classification target/effect/output and one documented subdirection
 one primary owner Skill
 input_refs, including relevant FailedRoute signatures
 bounded requested budget and observable stop condition
-unique attempt_id, route_id and obligation_id
-unique web/attempt-* branch
-unique candidate artifact path
+pre-admitted unique attempt_id, route_id, graph_id and obligation_id
+pre-admitted unique web/attempt-* branch
+pre-admitted unique candidate artifact path
 required terminal handoff
 candidate-only and no-root-propagation non-claims
 ```
