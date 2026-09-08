@@ -10,9 +10,9 @@
 - ProblemContract SHA-256: `e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940`
 - Problem lifecycle: `draft`
 - Problem admission: `preview_unadmitted`
-- Harness suite: `harness-source:web-research-full` `1.5.0`
-- Suite manifest SHA-256: `f6975b79cddfdcd8511c39ffda40ccc0fa80776cc02749beeb9e603cf3dcf72b`
-- Harness snapshot SHA-256: `68b30ee6a2e2c0f0731da2e83c77304ab95396252b20c996b692195c3bd76513`
+- Harness suite: `harness-source:web-research-full` `1.5.1`
+- Suite manifest SHA-256: `94cff861e217ccfec6122b3c79b828a24afc03784c8572018772fb2bfcc35766`
+- Harness snapshot SHA-256: `96819115c4bc07b48d294be5be343132ec05771648a4a3bcaa14df71259580da`
 - Channel: `chatgpt-web-github-issue-pr-writer`
 
 ## Required read order
@@ -32,7 +32,7 @@ Return a `web-bootstrap-ack.schema.json` object before mathematical work. Hashes
 
 ## Coordinator-only planning mode
 
-If the user requests a one-problem T1–T9 coordination plan rather than Issue-bound mathematical work, read `WEB_COORDINATOR.md` and follow that contract. This mode may emit bounded startup/continuation prompts but does not require or create a research Issue, Attempt, Route, Obligation, session, branch, CandidateArtifact, Evidence or Result. It is not a tenth mathematical lane. A human must create each worker conversation and copy its prompt; the coordinator must not claim that prompt generation launched any worker.
+If the user requests a one-problem T1–T9 coordination plan rather than Issue-bound mathematical work, read `WEB_COORDINATOR.md` and follow that contract. This mode does not create a research Issue, Attempt, Route, Obligation, session, branch, CandidateArtifact, Evidence or Result. It may emit runnable startup prompts only for nine matching lane packets already pre-admitted on the current default branch; otherwise it returns `BLOCK_PRE_ADMISSION` plus non-runnable planning drafts for a trusted maintainer. It is not a tenth mathematical lane. A human must create each worker conversation and copy only a freshly admitted runnable prompt; the coordinator must not claim that prompt generation launched any worker.
 
 ## Fresh-state gate precedence
 
