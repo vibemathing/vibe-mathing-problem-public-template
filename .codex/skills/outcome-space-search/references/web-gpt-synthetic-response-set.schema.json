@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/web-gpt-synthetic-response-set.v1.json",
+  "title": "Web GPT synthetic nine-response rehearsal set v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_role", "response_set_id", "task_set_digest", "responses", "response_set_digest"],
+  "properties": {
+    "schema_version": {"const": "web-gpt-synthetic-response-set.v1"},
+    "artifact_role": {"const": "infrastructure-rehearsal-only"},
+    "response_set_id": {"type": "string", "pattern": "^web-gpt-response-set:[a-z0-9][a-z0-9._-]{2,95}$"},
+    "task_set_digest": {"$ref": "#/$defs/digest"},
+    "responses": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {"$ref": "#/$defs/response"}
+    },
+    "response_set_digest": {"$ref": "#/$defs/digest"}
+  },
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "laneId": {"type": "string", "pattern": "^T[1-9]$"},
+    "scope": {"enum": ["exact", "special", "conditional", "generalized", "strengthened", "weakened", "incomparable"]},
+    "hitGroup": {"enum": ["root_closure_candidate", "local_progress", "search_reduction", "replan_trigger"]},
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "observed_inputs", "validation_status"],
+      "properties": {
+        "summary": {"type": "string", "minLength": 20, "maxLength": 500},
+        "observed_inputs": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 10, "maxLength": 300}
+        },
+        "validation_status": {"const": "shape-only-no-mathematical-claim"}
+      }
+    },
+    "propagation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hit_group", "root_closure_allowed", "result_admission_allowed"],
+      "properties": {
+        "hit_group": {"$ref": "#/$defs/hitGroup"},
+        "root_closure_allowed": {"const": false},
+        "result_admission_allowed": {"const": false}
+      }
+    },
+    "response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lane_id", "task_digest", "problem_contract_digest", "scope", "artifact_path", "artifact_role", "simulation_mode", "payload", "payload_digest", "result_outcome", "evidence_created", "result_created", "solution_created", "root_closure_asserted", "propagation"],
+      "properties": {
+        "lane_id": {"$ref": "#/$defs/laneId"},
+        "task_digest": {"$ref": "#/$defs/digest"},
+        "problem_contract_digest": {"$ref": "#/$defs/digest"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "artifact_path": {"type": "string", "pattern": "^research/artifacts/candidates/synthetic-infrastructure/T[1-9]\\.json$"},
+        "artifact_role": {"const": "candidate-only"},
+        "simulation_mode": {"const": "shape-only-no-claim"},
+        "payload": {"$ref": "#/$defs/payload"},
+        "payload_digest": {"$ref": "#/$defs/digest"},
+        "result_outcome": {"const": "undetermined"},
+        "evidence_created": {"const": false},
+        "result_created": {"const": false},
+        "solution_created": {"const": false},
+        "root_closure_asserted": {"const": false},
+        "propagation": {"$ref": "#/$defs/propagation"}
+      }
+    }
+  }
+}

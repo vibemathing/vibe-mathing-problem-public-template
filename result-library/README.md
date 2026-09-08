@@ -2,6 +2,15 @@
 
 `result-library/` 保存经过结构化表达的研究成果。完整解不是独立人工录入的数据，而是从满足晋升条件的 `Result` 派生出的视图。
 
+在点—线—面—体唯一元模型下，Result/SolutionView 属于 F10 成果与解视图面，不是 F05 `Project → Workflow → Task → Step → Job` 之后自动出现的第六、第七层。可追踪方向为：
+
+```text
+SolutionView → Result → 有效 Evidence → 验证 Job → CandidateArtifact
+                                      → 生成 Job → Step → Task → Workflow → Project
+```
+
+Job 成功、Step 验收或 Task 执行完成都不能直接晋升 Result；Task 所关联的证明义务必须由独立证据闭合，并继续通过陈述忠实性及既有 Result admission gate。
+
 ## 目录结构
 
 ```text

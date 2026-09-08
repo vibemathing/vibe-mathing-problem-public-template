@@ -1,0 +1,179 @@
+{
+  "schema_version": "osps-plan.v0.2",
+  "artifact_role": "candidate-planning-only",
+  "digest_policy": "sha256-canonical-json-nfc-v1",
+  "analysis_id": "osps-plan:synthetic-example-v1",
+  "plan_version": 1,
+  "generated_at": "2026-09-07T00:00:00Z",
+  "supersedes_plan_ref": null,
+  "problem_contract_ref": {
+    "problem_id": "problem:synthetic-osps-example",
+    "contract_version": "1.0.0",
+    "statement_digest": "9102fe80c11c5a175a494cf48e53d099e67ab32e13d10922d869dff7679a15d5",
+    "scope_digest": "f1e3c017a7ea671cb7b83c0bc82d341e289da494b8c01bccb4dda8b5d02b8bcf",
+    "acceptance_ref": "policy:solution-admission-v1",
+    "acceptance_digest": "abababababababababababababababababababababababababababababababab",
+    "owner_locator": "problem-library/records/canonical-problems.jsonl",
+    "lifecycle": "active"
+  },
+  "root_outcome_id": "outcome:synthetic-root-resolution",
+  "input_refs": {
+    "source_refs": ["source:synthetic-problem-definition"],
+    "failed_route_refs": [],
+    "failed_route_signatures": [],
+    "obligation_refs": ["obligation:synthetic-root"],
+    "candidate_refs": [],
+    "evidence_refs": [],
+    "result_refs": []
+  },
+  "outcomes": [
+    {
+      "outcome_id": "outcome:synthetic-root-resolution",
+      "family": "resolution",
+      "statement": "For every object in the synthetic domain, the declared predicate holds.",
+      "statement_digest": "9102fe80c11c5a175a494cf48e53d099e67ab32e13d10922d869dff7679a15d5",
+      "scope": {
+        "domain": "Synthetic finite objects used only for a schema fixture.",
+        "quantifiers": ["for every synthetic object x"],
+        "definition_refs": ["definition:synthetic-predicate"],
+        "assumptions": ["x satisfies the fixture input contract"],
+        "allowed_axioms": ["fixture-base-logic"]
+      },
+      "scope_digest": "f1e3c017a7ea671cb7b83c0bc82d341e289da494b8c01bccb4dda8b5d02b8bcf",
+      "closure_predicate": "An independently checked complete proof or a faithful complete counterexample covers the frozen root scope.",
+      "value_if_closed": "Determines the synthetic root statement within its exact fixture scope.",
+      "planning_status": "normalized",
+      "basis_refs": ["problem:synthetic-osps-example"]
+    },
+    {
+      "outcome_id": "outcome:synthetic-structural-lemma",
+      "family": "structural",
+      "statement": "Every minimal synthetic counterexample has the declared normal-form property.",
+      "statement_digest": "564c57d102e04db83d21ef4f3c8e4cfa9c382bf52dbd7c8659d89d4114ac37f0",
+      "scope": {
+        "domain": "Minimal counterexamples inside the synthetic fixture domain.",
+        "quantifiers": ["for every minimal synthetic counterexample x"],
+        "definition_refs": ["definition:synthetic-minimality", "definition:synthetic-normal-form"],
+        "assumptions": ["a root counterexample exists", "x is minimal under the fixture order"],
+        "allowed_axioms": ["fixture-base-logic"]
+      },
+      "scope_digest": "2b137a82216e6ebe60ee2a7ece440f83be2f0565589c205dd2f770913273013b",
+      "closure_predicate": "A proof covers all minimal counterexamples in the stated fixture order without changing assumptions.",
+      "value_if_closed": "Reduces a root counterexample search to a smaller normal-form family.",
+      "planning_status": "ready",
+      "basis_refs": ["obligation:synthetic-root"]
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "relation:synthetic-branch-1",
+      "line_type": "line.branches_to",
+      "source_outcome_id": "outcome:synthetic-root-resolution",
+      "target_outcome_id": "outcome:synthetic-structural-lemma",
+      "scope_basis": "The structural lemma is a separately closable route derived from the root counterexample branch.",
+      "basis_refs": ["obligation:synthetic-root"],
+      "relation_status": "candidate",
+      "propagation": "none"
+    }
+  ],
+  "frontier_policy": {
+    "selection": "pareto-then-diversity",
+    "default_limit": 3,
+    "frontier_limit": 3,
+    "limit_exception": null,
+    "dimensions": [
+      "root_relevance",
+      "mathematical_value",
+      "semantic_clarity",
+      "verification_feasibility",
+      "information_gain",
+      "route_novelty",
+      "reuse_value",
+      "estimated_cost",
+      "epistemic_risk"
+    ],
+    "benefit_dimensions": [
+      "root_relevance",
+      "mathematical_value",
+      "semantic_clarity",
+      "verification_feasibility",
+      "information_gain",
+      "route_novelty",
+      "reuse_value"
+    ],
+    "cost_dimensions": ["estimated_cost", "epistemic_risk"],
+    "opaque_scalar_score_allowed": false
+  },
+  "frontier": [
+    {
+      "lane_id": "lane:synthetic-structural-proof",
+      "outcome_id": "outcome:synthetic-structural-lemma",
+      "route_id": "route:synthetic-minimal-counterexample",
+      "owner_skill": "math-proof",
+      "method_summary": "Attack the normal-form statement by a minimal-counterexample proof and boundary-case audit.",
+      "proposed_obligation": "Prove the normal-form property for every minimal object under the frozen fixture order.",
+      "expected_artifact_type": "proof_draft",
+      "requested_budget": {
+        "authorized": false,
+        "max_wall_seconds": 900,
+        "max_output_bytes": 131072,
+        "max_artifacts": 4
+      },
+      "stop_condition": "Stop after one proof draft plus an explicit list of all unresolved proof obligations or the first valid counterexample.",
+      "independence_basis": "This lane uses a deductive route distinct from any future finite enumeration lane.",
+      "route_signature": {
+        "method_family": "minimal-counterexample",
+        "representation": "natural-language-deduction",
+        "key_assumption_digests": [],
+        "tool_capability_refs": [],
+        "digest": "4baa75d472ea062e11e658efe90cc3f0ad7f947799eaafedf46ffaf52e90abce"
+      },
+      "priority_vector": {
+        "root_relevance": 3,
+        "mathematical_value": 3,
+        "semantic_clarity": 4,
+        "verification_feasibility": 3,
+        "information_gain": 4,
+        "route_novelty": 3,
+        "reuse_value": 3,
+        "estimated_cost": 2,
+        "epistemic_risk": 1
+      },
+      "priority_basis": [
+        {"dimension": "root_relevance", "value": 3, "basis": "The lemma restricts the counterexample branch but does not itself close the root.", "basis_refs": ["obligation:synthetic-root"]},
+        {"dimension": "mathematical_value", "value": 3, "basis": "A normal form would organize all synthetic minimal counterexamples.", "basis_refs": ["definition:synthetic-normal-form"]},
+        {"dimension": "semantic_clarity", "value": 4, "basis": "The domain, minimality order and closure predicate are explicitly frozen.", "basis_refs": ["problem:synthetic-osps-example"]},
+        {"dimension": "verification_feasibility", "value": 3, "basis": "The proof can be checked obligation by obligation after a draft is produced.", "basis_refs": ["obligation:synthetic-root"]},
+        {"dimension": "information_gain", "value": 4, "basis": "Either a proof or a counterexample sharply changes the root search structure.", "basis_refs": ["outcome:synthetic-root-resolution"]},
+        {"dimension": "route_novelty", "value": 3, "basis": "No failed minimal-counterexample route is present in the synthetic inputs.", "basis_refs": ["source:synthetic-problem-definition"]},
+        {"dimension": "reuse_value", "value": 3, "basis": "The normal form can constrain multiple future proof and computation lanes.", "basis_refs": ["definition:synthetic-normal-form"]},
+        {"dimension": "estimated_cost", "value": 2, "basis": "The request is one bounded proof draft with four artifact slots.", "basis_refs": ["route:synthetic-minimal-counterexample"]},
+        {"dimension": "epistemic_risk", "value": 1, "basis": "Scope drift risk is low because quantifiers and assumptions are explicit.", "basis_refs": ["problem:synthetic-osps-example"]}
+      ]
+    }
+  ],
+  "deferred": [
+    {
+      "outcome_id": "outcome:synthetic-root-resolution",
+      "route_id": null,
+      "reason": "budget_limit",
+      "basis": "Direct root proof search is deferred until the structural branch returns a checkable artifact or blocker."
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "observation:synthetic-input-read",
+      "kind": "source_record",
+      "summary": "The synthetic fixture provides one active contract and one open root obligation.",
+      "source_ref": "source:synthetic-problem-definition"
+    }
+  ],
+  "non_claims": {
+    "runtime_executed": false,
+    "authorization_granted": false,
+    "evidence_issued": false,
+    "result_admitted": false,
+    "root_solved": false,
+    "hidden_reasoning_saved": false
+  }
+}

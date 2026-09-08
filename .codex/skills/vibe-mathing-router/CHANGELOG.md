@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.0
+
+- 新增 `outcome-space-search` 路由：active ProblemContract 已冻结但攻击目标空间/frontier 不清时，先生成 candidate-only OSPS plan。
+- 明确并行 frontier 不启动并发 worker、不授权预算、不创建 Job/Evidence/Result。
+
 ## 0.4.0
 
 - 接入数学知识 source/operator registry；命中既有定理、包或数据库时先生成 ReusePlan/Candidate，再路由到唯一 owner。

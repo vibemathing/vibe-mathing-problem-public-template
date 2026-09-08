@@ -36,6 +36,7 @@ REQUIRED_CONTROL_FILES = {
     ".github/workflows/web-candidate-gate.yml",
     "governance/harness/PROJECT_AGENTS.md",
     "WEB_BOOTSTRAP.md",
+    "WEB_COORDINATOR.md",
     "WEB_CONTEXT_BUNDLE.md",
     "WEB_CHANNEL_PROFILE.json",
     "WEB_ACTIVE_SKILLS.json",
@@ -333,13 +334,14 @@ def validate(root: Path) -> list[str]:
         "math-computation": "constrained",
         "math-proof": "active",
         "math-formalization": "constrained",
+        "outcome-space-search": "constrained",
         "solve": "active",
         "math-toolchain": "constrained",
     }
     expected_skill_ids = set(expected_skill_status)
     actual_skill_ids = {item.get("skill_id") for item in active.get("skills", []) if isinstance(item, dict)}
     if actual_skill_ids != expected_skill_ids:
-        errors.append(f"WEB_ACTIVE_SKILLS must contain exactly the 8 admitted Web research Skills: {sorted(actual_skill_ids)}")
+        errors.append(f"WEB_ACTIVE_SKILLS must contain exactly the 9 bundled Web research Skills: {sorted(actual_skill_ids)}")
     for item in active.get("skills", []):
         if isinstance(item, dict) and item.get("skill_id") in expected_skill_status:
             if item.get("web_status") != expected_skill_status[item["skill_id"]]:

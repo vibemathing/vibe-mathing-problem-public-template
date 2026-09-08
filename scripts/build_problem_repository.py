@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TASK = ROOT / "governance/tasks/0027-web-gpt-github-chat-research-harness"
 DEFAULT_MANIFEST = TASK / "harness-source-manifest.v1.json"
 DEFAULT_TEMPLATE = TASK / "problem-repository-template"
-BUILDER_VERSION = "1.2.4"
+BUILDER_VERSION = "1.5.0"
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
 MUTABLE_GENERATED = {
     "research/records/attempts.jsonl",
@@ -326,6 +326,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         "math-proof": "active",
         "math-computation": "constrained",
         "math-formalization": "constrained",
+        "outcome-space-search": "constrained",
         "solve": "active",
         "math-toolchain": "constrained",
     }
