@@ -1,0 +1,470 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/osps-candidate-plan.v0.2.json",
+  "title": "OSPS candidate planning artifact v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_role",
+    "digest_policy",
+    "analysis_id",
+    "plan_version",
+    "generated_at",
+    "problem_contract_ref",
+    "root_outcome_id",
+    "input_refs",
+    "outcomes",
+    "relations",
+    "frontier_policy",
+    "frontier",
+    "deferred",
+    "observations",
+    "non_claims"
+  ],
+  "properties": {
+    "schema_version": {"const": "osps-plan.v0.2"},
+    "artifact_role": {"const": "candidate-planning-only"},
+    "digest_policy": {"const": "sha256-canonical-json-nfc-v1"},
+    "analysis_id": {"$ref": "#/$defs/stableId"},
+    "plan_version": {"type": "integer", "minimum": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "supersedes_plan_ref": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/reference"}
+      ]
+    },
+    "problem_contract_ref": {"$ref": "#/$defs/problemContractRef"},
+    "root_outcome_id": {"$ref": "#/$defs/stableId"},
+    "input_refs": {"$ref": "#/$defs/inputRefs"},
+    "outcomes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 256,
+      "items": {"$ref": "#/$defs/outcome"}
+    },
+    "relations": {
+      "type": "array",
+      "maxItems": 1024,
+      "items": {"$ref": "#/$defs/relation"}
+    },
+    "frontier_policy": {"$ref": "#/$defs/frontierPolicy"},
+    "frontier": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {"$ref": "#/$defs/lane"}
+    },
+    "deferred": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {"$ref": "#/$defs/deferred"}
+    },
+    "observations": {
+      "type": "array",
+      "maxItems": 256,
+      "items": {"$ref": "#/$defs/observation"}
+    },
+    "non_claims": {"$ref": "#/$defs/nonClaims"}
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "stableId": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200,
+      "pattern": "^[a-z][a-z0-9._-]*:[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "reference": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "pattern": "^(?!/)(?![A-Za-z]:\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]+$"
+    },
+    "referenceArray": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/reference"}
+    },
+    "basisReferenceArray": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/reference"}
+    },
+    "problemContractRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problem_id", "contract_version", "statement_digest", "scope_digest", "acceptance_ref", "acceptance_digest", "owner_locator", "lifecycle"],
+      "properties": {
+        "problem_id": {"type": "string", "pattern": "^problem:[a-z0-9][a-z0-9.-]*$"},
+        "contract_version": {"type": "string", "minLength": 1, "maxLength": 100},
+        "statement_digest": {"$ref": "#/$defs/sha256"},
+        "scope_digest": {"$ref": "#/$defs/sha256"},
+        "acceptance_ref": {"$ref": "#/$defs/reference"},
+        "acceptance_digest": {"$ref": "#/$defs/sha256"},
+        "owner_locator": {"const": "problem-library/records/canonical-problems.jsonl"},
+        "lifecycle": {"const": "active"}
+      }
+    },
+    "inputRefs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_refs", "failed_route_refs", "failed_route_signatures", "obligation_refs", "candidate_refs", "evidence_refs", "result_refs"],
+      "properties": {
+        "source_refs": {"$ref": "#/$defs/referenceArray"},
+        "failed_route_refs": {"$ref": "#/$defs/referenceArray"},
+        "failed_route_signatures": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {"$ref": "#/$defs/failedRouteSignature"}
+        },
+        "obligation_refs": {"$ref": "#/$defs/referenceArray"},
+        "candidate_refs": {"$ref": "#/$defs/referenceArray"},
+        "evidence_refs": {"$ref": "#/$defs/referenceArray"},
+        "result_refs": {"$ref": "#/$defs/referenceArray"}
+      }
+    },
+    "failedRouteSignature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["failed_route_ref", "route_signature_digest", "blocker_digest"],
+      "properties": {
+        "failed_route_ref": {"$ref": "#/$defs/reference"},
+        "route_signature_digest": {"$ref": "#/$defs/sha256"},
+        "blocker_digest": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "quantifiers", "definition_refs", "assumptions", "allowed_axioms"],
+      "properties": {
+        "domain": {"type": "string", "minLength": 1, "maxLength": 4000},
+        "quantifiers": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 1000}
+        },
+        "definition_refs": {"$ref": "#/$defs/referenceArray"},
+        "assumptions": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 2000}
+        },
+        "allowed_axioms": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "maxLength": 500}
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome_id",
+        "family",
+        "statement",
+        "statement_digest",
+        "scope",
+        "scope_digest",
+        "closure_predicate",
+        "value_if_closed",
+        "planning_status",
+        "basis_refs"
+      ],
+      "properties": {
+        "outcome_id": {"$ref": "#/$defs/stableId"},
+        "family": {
+          "enum": [
+            "resolution",
+            "structural",
+            "scope",
+            "quantitative",
+            "constructive",
+            "negative_knowledge",
+            "meta"
+          ]
+        },
+        "statement": {"type": "string", "minLength": 10, "maxLength": 20000},
+        "statement_digest": {"$ref": "#/$defs/sha256"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "scope_digest": {"$ref": "#/$defs/sha256"},
+        "closure_predicate": {"type": "string", "minLength": 20, "maxLength": 10000},
+        "value_if_closed": {"type": "string", "minLength": 10, "maxLength": 5000},
+        "planning_status": {"enum": ["proposed", "normalized", "ready", "blocked", "superseded"]},
+        "basis_refs": {"$ref": "#/$defs/basisReferenceArray"}
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relation_id",
+        "line_type",
+        "source_outcome_id",
+        "target_outcome_id",
+        "scope_basis",
+        "basis_refs",
+        "relation_status",
+        "propagation"
+      ],
+      "properties": {
+        "relation_id": {"$ref": "#/$defs/stableId"},
+        "line_type": {
+          "enum": [
+            "line.branches_to",
+            "line.depends_on",
+            "line.implies",
+            "line.equivalent_to",
+            "line.refutes",
+            "line.strengthens",
+            "line.weakens",
+            "line.specializes",
+            "line.generalizes",
+            "line.subsumes",
+            "line.blocked_by",
+            "line.merges_with",
+            "line.invalidates",
+            "line.supersedes"
+          ]
+        },
+        "source_outcome_id": {"$ref": "#/$defs/stableId"},
+        "target_outcome_id": {"$ref": "#/$defs/stableId"},
+        "scope_basis": {"type": "string", "minLength": 10, "maxLength": 5000},
+        "basis_refs": {"$ref": "#/$defs/basisReferenceArray"},
+        "relation_status": {"const": "candidate"},
+        "propagation": {"const": "none"}
+      }
+    },
+    "frontierPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selection", "default_limit", "frontier_limit", "limit_exception", "dimensions", "benefit_dimensions", "cost_dimensions", "opaque_scalar_score_allowed"],
+      "properties": {
+        "selection": {"const": "pareto-then-diversity"},
+        "default_limit": {"const": 3},
+        "frontier_limit": {"type": "integer", "minimum": 1, "maximum": 9},
+        "limit_exception": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["basis", "basis_refs"],
+              "properties": {
+                "basis": {"type": "string", "minLength": 20, "maxLength": 3000},
+                "basis_refs": {"$ref": "#/$defs/basisReferenceArray"}
+              }
+            }
+          ]
+        },
+        "dimensions": {
+          "const": [
+            "root_relevance",
+            "mathematical_value",
+            "semantic_clarity",
+            "verification_feasibility",
+            "information_gain",
+            "route_novelty",
+            "reuse_value",
+            "estimated_cost",
+            "epistemic_risk"
+          ]
+        },
+        "benefit_dimensions": {
+          "const": [
+            "root_relevance",
+            "mathematical_value",
+            "semantic_clarity",
+            "verification_feasibility",
+            "information_gain",
+            "route_novelty",
+            "reuse_value"
+          ]
+        },
+        "cost_dimensions": {"const": ["estimated_cost", "epistemic_risk"]},
+        "opaque_scalar_score_allowed": {"const": false}
+      }
+    },
+    "priorityVector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "root_relevance",
+        "mathematical_value",
+        "semantic_clarity",
+        "verification_feasibility",
+        "information_gain",
+        "route_novelty",
+        "reuse_value",
+        "estimated_cost",
+        "epistemic_risk"
+      ],
+      "properties": {
+        "root_relevance": {"type": "integer", "minimum": 0, "maximum": 4},
+        "mathematical_value": {"type": "integer", "minimum": 0, "maximum": 4},
+        "semantic_clarity": {"type": "integer", "minimum": 0, "maximum": 4},
+        "verification_feasibility": {"type": "integer", "minimum": 0, "maximum": 4},
+        "information_gain": {"type": "integer", "minimum": 0, "maximum": 4},
+        "route_novelty": {"type": "integer", "minimum": 0, "maximum": 4},
+        "reuse_value": {"type": "integer", "minimum": 0, "maximum": 4},
+        "estimated_cost": {"type": "integer", "minimum": 0, "maximum": 4},
+        "epistemic_risk": {"type": "integer", "minimum": 0, "maximum": 4}
+      }
+    },
+    "priorityBasis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "value", "basis", "basis_refs"],
+      "properties": {
+        "dimension": {
+          "enum": [
+            "root_relevance",
+            "mathematical_value",
+            "semantic_clarity",
+            "verification_feasibility",
+            "information_gain",
+            "route_novelty",
+            "reuse_value",
+            "estimated_cost",
+            "epistemic_risk"
+          ]
+        },
+        "value": {"type": "integer", "minimum": 0, "maximum": 4},
+        "basis": {"type": "string", "minLength": 10, "maxLength": 2000},
+        "basis_refs": {"$ref": "#/$defs/basisReferenceArray"}
+      }
+    },
+    "budgetRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorized", "max_wall_seconds", "max_output_bytes", "max_artifacts"],
+      "properties": {
+        "authorized": {"const": false},
+        "max_wall_seconds": {"type": "integer", "minimum": 1, "maximum": 86400},
+        "max_output_bytes": {"type": "integer", "minimum": 1, "maximum": 10485760},
+        "max_artifacts": {"type": "integer", "minimum": 1, "maximum": 64}
+      }
+    },
+    "lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lane_id",
+        "outcome_id",
+        "route_id",
+        "owner_skill",
+        "method_summary",
+        "proposed_obligation",
+        "expected_artifact_type",
+        "requested_budget",
+        "stop_condition",
+        "independence_basis",
+        "route_signature",
+        "priority_vector",
+        "priority_basis"
+      ],
+      "properties": {
+        "lane_id": {"$ref": "#/$defs/stableId"},
+        "outcome_id": {"$ref": "#/$defs/stableId"},
+        "route_id": {"$ref": "#/$defs/stableId"},
+        "owner_skill": {
+          "enum": [
+            "math-discovery",
+            "math-derivation",
+            "math-computation",
+            "math-proof",
+            "math-formalization",
+            "solve",
+            "math-toolchain"
+          ]
+        },
+        "method_summary": {"type": "string", "minLength": 10, "maxLength": 5000},
+        "proposed_obligation": {"type": "string", "minLength": 10, "maxLength": 5000},
+        "expected_artifact_type": {
+          "enum": ["source_note", "derivation", "computation", "proof_draft", "formalization_candidate", "counterexample_candidate", "tool_plan", "route_analysis"]
+        },
+        "requested_budget": {"$ref": "#/$defs/budgetRequest"},
+        "stop_condition": {"type": "string", "minLength": 10, "maxLength": 3000},
+        "independence_basis": {"type": "string", "minLength": 10, "maxLength": 3000},
+        "route_signature": {"$ref": "#/$defs/routeSignature"},
+        "priority_vector": {"$ref": "#/$defs/priorityVector"},
+        "priority_basis": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "items": {"$ref": "#/$defs/priorityBasis"}
+        }
+      }
+    },
+    "routeSignature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method_family", "representation", "key_assumption_digests", "tool_capability_refs", "digest"],
+      "properties": {
+        "method_family": {"type": "string", "pattern": "^[a-z][a-z0-9._-]{1,79}$"},
+        "representation": {"type": "string", "pattern": "^[a-z][a-z0-9._-]{1,79}$"},
+        "key_assumption_digests": {
+          "type": "array",
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/sha256"}
+        },
+        "tool_capability_refs": {"$ref": "#/$defs/referenceArray"},
+        "digest": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "deferred": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome_id", "reason", "basis"],
+      "properties": {
+        "outcome_id": {"$ref": "#/$defs/stableId"},
+        "route_id": {
+          "oneOf": [
+            {"type": "null"},
+            {"$ref": "#/$defs/stableId"}
+          ]
+        },
+        "reason": {"enum": ["duplicate", "dominated", "blocked", "insufficient_semantics", "unverifiable", "repeats_failed_route", "budget_limit", "diversity_limit"]},
+        "basis": {"type": "string", "minLength": 10, "maxLength": 3000}
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["observation_id", "kind", "summary", "source_ref"],
+      "properties": {
+        "observation_id": {"$ref": "#/$defs/stableId"},
+        "kind": {"enum": ["source_record", "semantic_review", "failed_route", "obligation_state", "candidate_artifact", "evidence_state", "result_state", "external_event"]},
+        "summary": {"type": "string", "minLength": 10, "maxLength": 5000},
+        "source_ref": {"$ref": "#/$defs/reference"}
+      }
+    },
+    "nonClaims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_executed", "authorization_granted", "evidence_issued", "result_admitted", "root_solved", "hidden_reasoning_saved"],
+      "properties": {
+        "runtime_executed": {"const": false},
+        "authorization_granted": {"const": false},
+        "evidence_issued": {"const": false},
+        "result_admitted": {"const": false},
+        "root_solved": {"const": false},
+        "hidden_reasoning_saved": {"const": false}
+      }
+    }
+  }
+}

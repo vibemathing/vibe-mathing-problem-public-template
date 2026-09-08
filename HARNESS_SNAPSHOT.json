@@ -43,6 +43,13 @@
       "web_status": "constrained"
     },
     {
+      "entry": ".codex/skills/outcome-space-search/SKILL.md",
+      "entry_sha256": "cd86de9b4d416014be95b22b08d95d372c2512355cfecd2bd01302e4c463287e",
+      "skill_id": "outcome-space-search",
+      "version": "0.3.0",
+      "web_status": "constrained"
+    },
+    {
       "entry": ".codex/skills/solve/SKILL.md",
       "entry_sha256": "ff557dc3fc2fa10df4b21e8bef251a37928f5572ccf0092c79f0d9ab90a00ec0",
       "skill_id": "solve",
@@ -51,18 +58,18 @@
     },
     {
       "entry": ".codex/skills/vibe-mathing-router/SKILL.md",
-      "entry_sha256": "65f6b25fe152a4cc2fa9ecb03626dad6e3b70473fc256ac9acbabd0ef7cb9e8e",
+      "entry_sha256": "4eeaf34d99f7fd5b357a9ea7b255df45bcbc26d052f2e31e015741ac40c0778c",
       "skill_id": "vibe-mathing-router",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "web_status": "active"
     }
   ],
   "builder": {
     "id": "build-problem-repository",
-    "sha256": "709148f69964bdf708c9924bfd43f48970e72291f85527d74e9ceeacccb6f8fc",
-    "version": "1.2.4"
+    "sha256": "53b17c12c995b88c3d4949c9cb4878c090f5e896151ed8c50475901768c12035",
+    "version": "1.5.0"
   },
-  "built_at": "2026-09-07T11:11:48+08:00",
+  "built_at": "2026-09-08T16:26:27+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -84,20 +91,20 @@
   ],
   "files": [
     {
-      "bytes": 1920,
+      "bytes": 2448,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".codex/AGENTS.md",
-      "sha256": "a922893315a3b67ea2b89134935cbf09d92b1cbdb0423cc577b143ba6163396f"
+      "sha256": "6518e7a795b3550523fad73d57ff5222444f8e7758ea5d608090d9cd0e9193b0"
     },
     {
-      "bytes": 2090,
+      "bytes": 2683,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".codex/skills/README.md",
-      "sha256": "544eb10ce184d0545d728007c636da64085f141d1362366a9fa4ce044a771562"
+      "sha256": "ed4069c51d783d72168b7b34c3a4781cff2651cbf96c92c7b0d063d739e00e9b"
     },
     {
       "bytes": 1380,
@@ -378,6 +385,158 @@
       "owner": "harness",
       "path": ".codex/skills/math-toolchain/VERSION",
       "sha256": "1f930dd1f133c1f97a94fe3acb8db34372cf4c01ffdb2b3ff4ca72f9494121e9"
+    },
+    {
+      "bytes": 2210,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/CHANGELOG.md",
+      "sha256": "7ab208d433126c70da98de88a9ba32872e5e41e2b6bae39ac4aaa32bf37a6395"
+    },
+    {
+      "bytes": 12266,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/SKILL.md",
+      "sha256": "cd86de9b4d416014be95b22b08d95d372c2512355cfecd2bd01302e4c463287e"
+    },
+    {
+      "bytes": 6,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/VERSION",
+      "sha256": "d915cc95d6ca8f47ae297713ed46d4e5c5d99ddd29fc3c61e263bdf305f2b5b0"
+    },
+    {
+      "bytes": 1135,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/index.md",
+      "sha256": "faab54c69c99a7b50febfbfd6c748f34fcb05a49471762042d4cf8d325d8eecb"
+    },
+    {
+      "bytes": 7880,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/method.md",
+      "sha256": "5ccec4661dbbbfe1909c56a8e87923fab3c48602a2aa8680ecabdbb2844a2de3"
+    },
+    {
+      "bytes": 3754,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/optimization-notes.md",
+      "sha256": "c8c639ca8ad0e6d60c68cec708e9892b4da1dd83cdfef4b5c74fa2f5027d18c6"
+    },
+    {
+      "bytes": 16350,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/osps-plan.schema.json",
+      "sha256": "84572897ff71cc4403f02c638e5d10faea034f41d6d69da7ca7c33fcf60d9a59"
+    },
+    {
+      "bytes": 2949,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/output-contract.md",
+      "sha256": "252422036fe9a94d06dea764b043f49dc43be0ee925bfe7616abc74e3af15af8"
+    },
+    {
+      "bytes": 5868,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/pressure-tests.md",
+      "sha256": "7456c8c65fd3077d9e44fb2d0807c65cd15b6475aedee7a9e8c40494015067b1"
+    },
+    {
+      "bytes": 6290,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/source-map.md",
+      "sha256": "d4105cbd17c85250f41f408107a7b93cdf0cc13d36f0a07f2da3e4beab6e5709"
+    },
+    {
+      "bytes": 8655,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/valid-minimal-plan.json",
+      "sha256": "304cbb78fc234c2380cff33825fbda9cd3024fd62901b1626c29e65cb58e9a1e"
+    },
+    {
+      "bytes": 4465,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/web-gpt-parallel-tree.md",
+      "sha256": "d5eacea76ce7eeadbfd5c0c3f2feb111fa370e87176cbcdcb93d2058bdf61b52"
+    },
+    {
+      "bytes": 7819,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/web-gpt-parallel-tree.schema.json",
+      "sha256": "5fea4967e060381f81a6f4ae38619428a2699f4288f080112dfc177c28326bfc"
+    },
+    {
+      "bytes": 7304,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json",
+      "sha256": "54987b807d0f13ef2122e654efad2420cdda32224de7a3bb468ecbbd09651a19"
+    },
+    {
+      "bytes": 3399,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/web-gpt-synthetic-response-set.schema.json",
+      "sha256": "7c6c39b54e71d28a72b073262289862aa291b57ced8c6b5919604fce124342a1"
+    },
+    {
+      "bytes": 7018,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/references/web-gpt-task-set.schema.json",
+      "sha256": "1b64fe0bc76f5d27463ad5bebcd4056011cc90b83d4258206065f3c362c94e15"
+    },
+    {
+      "bytes": 15960,
+      "layer": "math_layer",
+      "mode": "0755",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/scripts/validate_osps_plan.py",
+      "sha256": "7be2cd57b086dc9d9690b8d0b2681ee96334654a0f40824bb47fe6812f67006e"
+    },
+    {
+      "bytes": 10026,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/scripts/validate_web_gpt_parallel_tree.py",
+      "sha256": "d7707ebe7428236a2122ceea8e915b02a144f93e44251d479d9f560c823b995a"
+    },
+    {
+      "bytes": 10755,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".codex/skills/outcome-space-search/scripts/validate_web_gpt_task_set.py",
+      "sha256": "4e4f780090d44446be3839102df078105596c4393880bc02d9867de63981859f"
     },
     {
       "bytes": 3695,
@@ -948,20 +1107,20 @@
       "sha256": "8b4aa358fff41ef4bf4af581fbd9d209cc25bad905aa6d14c96aa3c621b24ae3"
     },
     {
-      "bytes": 612,
+      "bytes": 877,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".codex/skills/vibe-mathing-router/CHANGELOG.md",
-      "sha256": "58ede0ebb3251438c9744659fa67821d5584b50743d06c59664428b30ba6d190"
+      "sha256": "4b6628277eb47eb4fa32fbaeb7198297ece955b06c88c11dde9034b0b9cd3138"
     },
     {
-      "bytes": 3542,
+      "bytes": 4499,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".codex/skills/vibe-mathing-router/SKILL.md",
-      "sha256": "65f6b25fe152a4cc2fa9ecb03626dad6e3b70473fc256ac9acbabd0ef7cb9e8e"
+      "sha256": "4eeaf34d99f7fd5b357a9ea7b255df45bcbc26d052f2e31e015741ac40c0778c"
     },
     {
       "bytes": 6,
@@ -969,7 +1128,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".codex/skills/vibe-mathing-router/VERSION",
-      "sha256": "40b8eb4000a913a7791090535f291d3d369874162a89ef3c9e3d4e887a1b9e79"
+      "sha256": "a0ad50640139a524f86591157145bf1d4674ea9c065bfea21558f0f7b04430c8"
     },
     {
       "bytes": 112,
@@ -980,20 +1139,20 @@
       "sha256": "0f2dd96d6b53326f3ce5f6b644554b6bdbe7f7bcf23bd12260337ddef9b2f36f"
     },
     {
-      "bytes": 752,
+      "bytes": 1211,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".codex/skills/vibe-mathing-router/references/pressure-tests.md",
-      "sha256": "80dca9f7ba102f6be45b0e7d034a1bf49d5735f62a123f99126e07edcbf90e78"
+      "sha256": "65e84227eff6f9d9529ffa737ec4a2a1a15b1de71cc9d516455c24b587697c97"
     },
     {
-      "bytes": 158,
+      "bytes": 584,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".codex/skills/vibe-mathing-router/references/source-map.md",
-      "sha256": "01e1691e07222b5905c20d58c6877418d126368260ed183b6f59d9e17b663d92"
+      "sha256": "7747ae71b8c439f508c4767be2d1c103ed6ddeab24421d034ecaa955e9172630"
     },
     {
       "bytes": 1435,
@@ -1036,12 +1195,12 @@
       "sha256": "1b1498dd73a7c7f3f436c1d752304ad16df2b022095dcf62715d53ad41736fea"
     },
     {
-      "bytes": 22973,
+      "bytes": 23436,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "AGENTS.md",
-      "sha256": "7a742e742677b49cad84ffd60e024c9d632d37319e027cd58cc7115acda36786"
+      "sha256": "133ee7ffef7ba4a85d5bbefecc86237d2eaf6efb0e6ba129da195cac93f6d79a"
     },
     {
       "bytes": 446,
@@ -1052,12 +1211,12 @@
       "sha256": "216c1abeda8da3487832c387622c8f067c29e496c75907442a3b640892ac9e8f"
     },
     {
-      "bytes": 790,
+      "bytes": 1319,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "README.md",
-      "sha256": "d16000bc3387e92529ec7eef2f36986f164213c83280b5767001d9a3030ef7eb"
+      "sha256": "60eb9985a2204438b61aa7f71c739c4d0e40fd0b9831e6f5991d6542b0eaf5a6"
     },
     {
       "bytes": 1172,
@@ -1068,12 +1227,12 @@
       "sha256": "5392f31cef0ee2aad64b44b56386d560ff3aeec202fa84bc27a63781d0be5d2f"
     },
     {
-      "bytes": 2063,
+      "bytes": 2330,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "WEB_ACTIVE_SKILLS.json",
-      "sha256": "bda967ee4e65a4adbf85806532bab24c7274ee4763244c85f354e7739d997831"
+      "sha256": "0607da5b3ed33e9daa10890c903e6882f959f6e46bc3693bc8fef67f78bc018a"
     },
     {
       "bytes": 5558,
@@ -1084,12 +1243,20 @@
       "sha256": "3f899616e5b8b6462d6bf3fcbc3a56be6b44a3bdc1730cf35cfc60abb67207a2"
     },
     {
-      "bytes": 9035,
+      "bytes": 9302,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "WEB_CONTEXT_BUNDLE.md",
-      "sha256": "6392294580958c5e0e1084cf2c60c4714220038e4e2bfe20e74b2c1affdf19b6"
+      "sha256": "5f56f5b013e64ce8f09f9d00fa808c4e32a73a1d1e0a1dea4bb36837ad4bcb13"
+    },
+    {
+      "bytes": 7456,
+      "layer": "web_channel",
+      "mode": "0644",
+      "owner": "harness",
+      "path": "WEB_COORDINATOR.md",
+      "sha256": "d6eeb114e527ac1d44a2b549e158da49f3a67bdc188277cc9c85f370413e2925"
     },
     {
       "bytes": 3270,
@@ -1196,12 +1363,12 @@
       "sha256": "6177c2be2c2d199fc290f2ac3f4366d49b8cdd7fa9dd1a6c32e86ce21c19e9ae"
     },
     {
-      "bytes": 647,
+      "bytes": 1107,
       "layer": "research_core",
       "mode": "0644",
       "owner": "harness",
       "path": "governance/context/AGENT-ENTRY.md",
-      "sha256": "3ec4ec7f96b6be759fdc4d0bc485b0e23f79eedf3e113a4e8ee0ea3626287be3"
+      "sha256": "4300d8bff7dede2dcfbb1ee0361bcf2d4a9b76e8f985f6158ce38be1ea363890"
     },
     {
       "bytes": 1194,
@@ -1257,7 +1424,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "governance/control-plane/harness-source-manifest.v1.json",
-      "sha256": "fedd664f1ac16c5232eb05076b73f2bab566ed672840e7f2af851c77253813b3"
+      "sha256": "f6975b79cddfdcd8511c39ffda40ccc0fa80776cc02749beeb9e603cf3dcf72b"
     },
     {
       "bytes": 2275,
@@ -1676,12 +1843,12 @@
       "sha256": "901d1a92b8ff6db9982ed3e8d6beb4301a055ea57a752868ecea5964c57a0101"
     },
     {
-      "bytes": 2031,
+      "bytes": 2647,
       "layer": "research_core",
       "mode": "0644",
       "owner": "harness",
       "path": "result-library/README.md",
-      "sha256": "716e4e5a002c8f6cc46eb07eba7698fa2c342d7458637b5ff8938396cb7f8d47"
+      "sha256": "fee97ecd2edfcdc2bfbaa39f48e067f83cc835f669628a42855c4afcb174cd08"
     },
     {
       "bytes": 3552,
@@ -1692,12 +1859,12 @@
       "sha256": "d3e1f8c4b2f99819475c41c57fdfa1636be3ee37b78057719f64392dfa760fa8"
     },
     {
-      "bytes": 26489,
+      "bytes": 26536,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_problem_repository.py",
-      "sha256": "709148f69964bdf708c9924bfd43f48970e72291f85527d74e9ceeacccb6f8fc"
+      "sha256": "53b17c12c995b88c3d4949c9cb4878c090f5e896151ed8c50475901768c12035"
     },
     {
       "bytes": 5361,
@@ -1772,20 +1939,20 @@
       "sha256": "b4940667d01afdeb07bb1a90534b23975cfd7afd08918037ecd8a85131249649"
     },
     {
-      "bytes": 13520,
+      "bytes": 13546,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_pr_diff.py",
-      "sha256": "9ab3d2d78b7f2120acd54b26cccd0b1d6a154fb2ab644fabeb8aa063e870add1"
+      "sha256": "af0b5c71e79cca2a5d6d56eb30d78670d6439d93c1bc212dc0a0766772da1a71"
     },
     {
-      "bytes": 25890,
+      "bytes": 25962,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "0133a6319e290ddbfbdb83a543d56f1d31c8016fe4c81da698baf1ddd06fb503"
+      "sha256": "72909b7c55307ca26395355712b50114951fe7c0c27c0e368648d5e349a59a7d"
     },
     {
       "bytes": 2410,
@@ -1916,7 +2083,7 @@
       "sha256": "e250018898ae62ffb669974f48b007b688844a23fa5543a5f6e379aaca20bc59"
     }
   ],
-  "harness_version": "1.2.4",
+  "harness_version": "1.5.0",
   "problem": {
     "admission": "preview_unadmitted",
     "contract_sha256": "e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940",
@@ -1936,10 +2103,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "fedd664f1ac16c5232eb05076b73f2bab566ed67",
+    "commit": "f6975b79cddfdcd8511c39ffda40ccc0fa80776c",
     "repository": "reviewed-public-export",
-    "source_manifest_sha256": "fedd664f1ac16c5232eb05076b73f2bab566ed672840e7f2af851c77253813b3",
+    "source_manifest_sha256": "f6975b79cddfdcd8511c39ffda40ccc0fa80776cc02749beeb9e603cf3dcf72b",
     "worktree_dirty": false
   },
-  "tree_sha256": "4cd282256d411fe493a82ef0050b5463e57339f15bd7a7c829a6f5d2fa1d0c7e"
+  "tree_sha256": "faa490ccf897ec16df7a3c364b0d0653a88b52acc46798a11962327c5df2d43b"
 }

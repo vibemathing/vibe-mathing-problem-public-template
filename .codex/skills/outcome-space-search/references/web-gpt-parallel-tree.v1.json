@@ -1,0 +1,157 @@
+{
+  "schema_version": "web-gpt-parallel-outcome-tree.v1",
+  "artifact_role": "candidate-classification-only",
+  "classification_rule": "first-match-by-assignment-precedence",
+  "lane_count": 9,
+  "classifier_dimensions": {
+    "target": ["root_problem", "intermediate_mathematics", "route", "semantic_contract", "unclassified"],
+    "effect": ["establish", "refute", "advance", "block", "revise", "independence", "unknown"],
+    "output": ["proof", "refutation", "relation", "local-assertion", "structure", "quantity", "construction-or-procedure", "negative-route-knowledge", "meta-semantic-or-new-type"]
+  },
+  "assignment_precedence": ["T1", "T2", "T8", "T3", "T5", "T6", "T7", "T4", "T9"],
+  "assignment_rules": [
+    {"lane_id": "T1", "mode": "all", "conditions": {"target": ["root_problem"], "effect": ["establish"]}},
+    {"lane_id": "T2", "mode": "all", "conditions": {"target": ["root_problem"], "effect": ["refute"]}},
+    {"lane_id": "T8", "mode": "any", "conditions": {"target": ["route"], "effect": ["block"], "output": ["negative-route-knowledge"]}},
+    {"lane_id": "T3", "mode": "all", "conditions": {"target": ["intermediate_mathematics"], "output": ["relation"]}},
+    {"lane_id": "T5", "mode": "all", "conditions": {"target": ["intermediate_mathematics"], "output": ["structure"]}},
+    {"lane_id": "T6", "mode": "all", "conditions": {"target": ["intermediate_mathematics"], "output": ["quantity"]}},
+    {"lane_id": "T7", "mode": "all", "conditions": {"target": ["intermediate_mathematics"], "output": ["construction-or-procedure"]}},
+    {"lane_id": "T4", "mode": "all", "conditions": {"target": ["intermediate_mathematics"], "output": ["local-assertion"]}},
+    {"lane_id": "T9", "mode": "fallback", "conditions": {}}
+  ],
+  "lanes": [
+    {
+      "lane_id": "T1",
+      "title_zh": "直接证明",
+      "slug": "direct-proof",
+      "primary_target": "root_problem",
+      "primary_effect": "establish",
+      "primary_output": "proof",
+      "children": ["complete-proof", "proof-chain", "equivalent-transfer-proof", "reduction-transfer-proof"],
+      "hit_value": "root-closure-candidate",
+      "fallback": false
+    },
+    {
+      "lane_id": "T2",
+      "title_zh": "反例与反驳",
+      "slug": "root-refutation",
+      "primary_target": "root_problem",
+      "primary_effect": "refute",
+      "primary_output": "refutation",
+      "children": ["minimal-counterexample", "finite-counterexample", "parametric-counterexample-family", "boundary-counterexample"],
+      "hit_value": "root-closure-candidate",
+      "fallback": false
+    },
+    {
+      "lane_id": "T3",
+      "title_zh": "等价、归约与分解",
+      "slug": "relations-reductions-decomposition",
+      "primary_target": "intermediate_mathematics",
+      "primary_effect": "advance",
+      "primary_output": "relation",
+      "children": ["equivalent-reformulation", "one-way-reduction", "known-result-transfer", "and-decomposition", "or-decomposition"],
+      "hit_value": "local-verifiable-progress",
+      "fallback": false
+    },
+    {
+      "lane_id": "T4",
+      "title_zh": "局部定理与适用范围",
+      "slug": "local-theorems-and-scope",
+      "primary_target": "intermediate_mathematics",
+      "primary_effect": "advance",
+      "primary_output": "local-assertion",
+      "children": ["special-case-theorem", "necessary-condition", "sufficient-condition", "conditional-result", "intermediate-refutation"],
+      "hit_value": "local-verifiable-progress",
+      "fallback": false
+    },
+    {
+      "lane_id": "T5",
+      "title_zh": "结构刻画",
+      "slug": "structural-characterization",
+      "primary_target": "intermediate_mathematics",
+      "primary_effect": "advance",
+      "primary_output": "structure",
+      "children": ["characterization", "classification", "invariant-or-monovariant", "normal-form", "minimal-counterexample-structure"],
+      "hit_value": "local-verifiable-progress",
+      "fallback": false
+    },
+    {
+      "lane_id": "T6",
+      "title_zh": "定量与界",
+      "slug": "quantitative-bounds",
+      "primary_target": "intermediate_mathematics",
+      "primary_effect": "advance",
+      "primary_output": "quantity",
+      "children": ["upper-bound", "lower-bound", "exact-value", "sharpness", "asymptotic-or-threshold"],
+      "hit_value": "local-verifiable-progress",
+      "fallback": false
+    },
+    {
+      "lane_id": "T7",
+      "title_zh": "构造与算法",
+      "slug": "constructions-and-algorithms",
+      "primary_target": "intermediate_mathematics",
+      "primary_effect": "advance",
+      "primary_output": "construction-or-procedure",
+      "children": ["explicit-construction", "witness-or-family", "checkable-certificate", "decision-algorithm", "generation-or-search-algorithm"],
+      "hit_value": "local-verifiable-progress",
+      "fallback": false
+    },
+    {
+      "lane_id": "T8",
+      "title_zh": "障碍与失败路线",
+      "slug": "obstructions-and-failed-routes",
+      "primary_target": "route",
+      "primary_effect": "block",
+      "primary_output": "negative-route-knowledge",
+      "children": ["auxiliary-lemma-failure", "incompatible-assumptions", "structural-obstruction", "method-or-tool-barrier", "failed-route-and-replacement"],
+      "hit_value": "search-space-reduction",
+      "fallback": false
+    },
+    {
+      "lane_id": "T9",
+      "title_zh": "元数学、语义修订与新类型",
+      "slug": "meta-semantic-and-new-outcomes",
+      "primary_target": "mixed-fallback",
+      "primary_effect": "independence-revise-or-classify",
+      "primary_output": "meta-semantic-or-new-type",
+      "children": ["independence-or-undecidability", "relative-consistency", "source-or-statement-correction", "definition-quantifier-or-scope-correction", "new-outcome-type-review"],
+      "hit_value": "semantic-fix-or-replan",
+      "fallback": true
+    }
+  ],
+  "scope_overlay": ["exact", "special", "conditional", "generalized", "strengthened", "weakened", "incomparable"],
+  "search_unit_contract": {
+    "required_fields": ["lane_id", "outcome_id", "statement", "scope", "closure_predicate", "priority_vector", "owner", "requested_budget", "stop_condition", "input_refs", "expected_artifact"],
+    "exactly_one_owner": true,
+    "semantic_digests_required": true,
+    "subdirections_spawn_tasks": false,
+    "authorized_by_tree": false
+  },
+  "concurrency_projection": {
+    "classification_slots": 9,
+    "task_candidates_per_slot": 1,
+    "maximum_task_candidates": 9,
+    "subdirections_are_internal": true
+  },
+  "atomicity_rules": [
+    "Each candidate Outcome has exactly one primary closure predicate.",
+    "Each candidate Outcome is assigned to exactly one T1-T9 lane by the ordered first-match rule.",
+    "A compound finding is split into atomic Outcomes and connected by candidate typed relations.",
+    "T9 is the final fallback and prevents silent loss of a new or semantically defective Outcome type."
+  ],
+  "hit_semantics": {
+    "root_closure_candidate": ["T1", "T2"],
+    "local_progress": ["T3", "T4", "T5", "T6", "T7"],
+    "search_reduction": ["T8"],
+    "replan_trigger": ["T9"]
+  },
+  "non_claims": {
+    "authorizes_concurrency": false,
+    "creates_web_tasks": false,
+    "creates_evidence": false,
+    "creates_result": false,
+    "claims_exhaustive_mathematics": false
+  }
+}

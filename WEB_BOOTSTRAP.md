@@ -10,9 +10,9 @@
 - ProblemContract SHA-256: `e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940`
 - Problem lifecycle: `draft`
 - Problem admission: `preview_unadmitted`
-- Harness suite: `harness-source:web-research-full` `1.2.4`
-- Suite manifest SHA-256: `fedd664f1ac16c5232eb05076b73f2bab566ed672840e7f2af851c77253813b3`
-- Harness snapshot SHA-256: `a9ae2bc14e33fba31934d2a44e3c37bfbb52a3a1cf098d646b31c9c5ddf173e3`
+- Harness suite: `harness-source:web-research-full` `1.5.0`
+- Suite manifest SHA-256: `f6975b79cddfdcd8511c39ffda40ccc0fa80776cc02749beeb9e603cf3dcf72b`
+- Harness snapshot SHA-256: `68b30ee6a2e2c0f0731da2e83c77304ab95396252b20c996b692195c3bd76513`
 - Channel: `chatgpt-web-github-issue-pr-writer`
 
 ## Required read order
@@ -29,6 +29,10 @@
 10. `WEB_OUTPUT_CONTRACT.json`
 
 Return a `web-bootstrap-ack.schema.json` object before mathematical work. Hashes shown here are manifest-declared values; do not claim to have recomputed them in chat.
+
+## Coordinator-only planning mode
+
+If the user requests a one-problem T1–T9 coordination plan rather than Issue-bound mathematical work, read `WEB_COORDINATOR.md` and follow that contract. This mode may emit bounded startup/continuation prompts but does not require or create a research Issue, Attempt, Route, Obligation, session, branch, CandidateArtifact, Evidence or Result. It is not a tenth mathematical lane. A human must create each worker conversation and copy its prompt; the coordinator must not claim that prompt generation launched any worker.
 
 ## Fresh-state gate precedence
 

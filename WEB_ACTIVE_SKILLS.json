@@ -44,6 +44,13 @@
       "web_status": "constrained"
     },
     {
+      "entry": ".codex/skills/outcome-space-search/SKILL.md",
+      "entry_sha256": "cd86de9b4d416014be95b22b08d95d372c2512355cfecd2bd01302e4c463287e",
+      "skill_id": "outcome-space-search",
+      "version": "0.3.0",
+      "web_status": "constrained"
+    },
+    {
       "entry": ".codex/skills/solve/SKILL.md",
       "entry_sha256": "ff557dc3fc2fa10df4b21e8bef251a37928f5572ccf0092c79f0d9ab90a00ec0",
       "skill_id": "solve",
@@ -52,9 +59,9 @@
     },
     {
       "entry": ".codex/skills/vibe-mathing-router/SKILL.md",
-      "entry_sha256": "65f6b25fe152a4cc2fa9ecb03626dad6e3b70473fc256ac9acbabd0ef7cb9e8e",
+      "entry_sha256": "4eeaf34d99f7fd5b357a9ea7b255df45bcbc26d052f2e31e015741ac40c0778c",
       "skill_id": "vibe-mathing-router",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "web_status": "active"
     }
   ]

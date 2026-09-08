@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/web-gpt-task-set.v1.json",
+  "title": "Web GPT nine-slot candidate task set v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_role", "task_set_id", "problem_contract", "classification_tree", "execution_authorization", "lanes", "task_set_digest"],
+  "properties": {
+    "schema_version": {"const": "web-gpt-task-set.v1"},
+    "artifact_role": {"const": "candidate-planning-only"},
+    "task_set_id": {"type": "string", "pattern": "^web-gpt-task-set:[a-z0-9][a-z0-9._-]{2,95}$"},
+    "problem_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref", "digest", "synthetic"],
+      "properties": {
+        "ref": {"type": "string", "pattern": "^synthetic://[A-Za-z0-9._/-]+$"},
+        "digest": {"$ref": "#/$defs/digest"},
+        "synthetic": {"const": true}
+      }
+    },
+    "classification_tree": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref", "sha256"],
+      "properties": {
+        "ref": {"const": ".codex/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json"},
+        "sha256": {"$ref": "#/$defs/rawDigest"}
+      }
+    },
+    "execution_authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["web_sessions", "tasks", "jobs", "attempts", "evidence", "results", "solutions", "concurrency"],
+      "properties": {
+        "web_sessions": {"const": false},
+        "tasks": {"const": false},
+        "jobs": {"const": false},
+        "attempts": {"const": false},
+        "evidence": {"const": false},
+        "results": {"const": false},
+        "solutions": {"const": false},
+        "concurrency": {"const": false}
+      }
+    },
+    "lanes": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {"$ref": "#/$defs/taskCandidate"}
+    },
+    "task_set_digest": {"$ref": "#/$defs/digest"}
+  },
+  "$defs": {
+    "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "rawDigest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "laneId": {"type": "string", "pattern": "^T[1-9]$"},
+    "scope": {"enum": ["exact", "special", "conditional", "generalized", "strengthened", "weakened", "incomparable"]},
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "effect", "output"],
+      "properties": {
+        "target": {"enum": ["root_problem", "intermediate_mathematics", "route", "semantic_contract", "unclassified"]},
+        "effect": {"enum": ["establish", "refute", "advance", "block", "revise", "independence", "unknown"]},
+        "output": {"enum": ["proof", "refutation", "relation", "local-assertion", "structure", "quantity", "construction-or-procedure", "negative-route-knowledge", "meta-semantic-or-new-type"]}
+      }
+    },
+    "priorityVector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root_relevance", "mathematical_value", "semantic_clarity", "verification_feasibility", "information_gain", "route_novelty", "reuse_value", "estimated_cost", "epistemic_risk"],
+      "properties": {
+        "root_relevance": {"type": "integer", "minimum": 0, "maximum": 4},
+        "mathematical_value": {"type": "integer", "minimum": 0, "maximum": 4},
+        "semantic_clarity": {"type": "integer", "minimum": 0, "maximum": 4},
+        "verification_feasibility": {"type": "integer", "minimum": 0, "maximum": 4},
+        "information_gain": {"type": "integer", "minimum": 0, "maximum": 4},
+        "route_novelty": {"type": "integer", "minimum": 0, "maximum": 4},
+        "reuse_value": {"type": "integer", "minimum": 0, "maximum": 4},
+        "estimated_cost": {"type": "integer", "minimum": 0, "maximum": 4},
+        "epistemic_risk": {"type": "integer", "minimum": 0, "maximum": 4}
+      }
+    },
+    "requestedBudget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorization_status", "max_iterations", "max_wall_seconds", "max_output_bytes"],
+      "properties": {
+        "authorization_status": {"const": "not_authorized"},
+        "max_iterations": {"type": "integer", "minimum": 1, "maximum": 10},
+        "max_wall_seconds": {"type": "integer", "minimum": 1, "maximum": 3600},
+        "max_output_bytes": {"type": "integer", "minimum": 128, "maximum": 1000000}
+      }
+    },
+    "stopCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "events"],
+      "properties": {
+        "mode": {"const": "bounded-first-event"},
+        "events": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"enum": ["expected_artifact_shape_observed", "budget_exhausted", "classification_mismatch", "scope_drift", "problem_binding_mismatch", "policy_violation"]}
+        }
+      }
+    },
+    "expectedArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "path", "media_type"],
+      "properties": {
+        "role": {"const": "candidate-only"},
+        "path": {"type": "string", "pattern": "^research/artifacts/candidates/synthetic-infrastructure/T[1-9]\\.json$"},
+        "media_type": {"const": "application/json"}
+      }
+    },
+    "taskCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lane_id", "outcome_id", "statement", "scope", "closure_predicate", "priority_vector", "owner", "requested_budget", "stop_condition", "input_refs", "expected_artifact", "classification", "subdirection", "statement_digest", "scope_digest", "route_signature", "task_digest"],
+      "properties": {
+        "lane_id": {"$ref": "#/$defs/laneId"},
+        "outcome_id": {"type": "string", "pattern": "^outcome:synthetic-infrastructure:T[1-9]$"},
+        "statement": {"type": "string", "minLength": 20, "maxLength": 500},
+        "scope": {"$ref": "#/$defs/scope"},
+        "closure_predicate": {"type": "string", "minLength": 20, "maxLength": 500},
+        "priority_vector": {"$ref": "#/$defs/priorityVector"},
+        "owner": {"type": "string", "pattern": "^web-gpt-slot-T[1-9]$"},
+        "requested_budget": {"$ref": "#/$defs/requestedBudget"},
+        "stop_condition": {"$ref": "#/$defs/stopCondition"},
+        "input_refs": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 10, "maxLength": 300}
+        },
+        "expected_artifact": {"$ref": "#/$defs/expectedArtifact"},
+        "classification": {"$ref": "#/$defs/classification"},
+        "subdirection": {"type": "string", "pattern": "^[a-z][a-z0-9-]{2,79}$"},
+        "statement_digest": {"$ref": "#/$defs/digest"},
+        "scope_digest": {"$ref": "#/$defs/digest"},
+        "route_signature": {"$ref": "#/$defs/digest"},
+        "task_digest": {"$ref": "#/$defs/digest"}
+      }
+    }
+  }
+}

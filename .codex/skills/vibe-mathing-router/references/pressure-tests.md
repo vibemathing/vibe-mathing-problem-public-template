@@ -14,3 +14,10 @@
 - Tempting wrong behavior：同时启动检索、写作、计算和证明。
 - Correct behavior：识别第一个未满足前置，只选择一个 owner。
 - Pass：输出恰好一个主 skill 和一个停止条件。
+
+## OSPS frontier 不得变成并行工厂
+
+- Scenario：active ProblemContract 可展开出 proof、counterexample、special case 和 computation 多条 lane。
+- Tempting wrong behavior：router 同时启动所有 owner 或 worker。
+- Correct behavior：只选择 `outcome-space-search` 生成 bounded candidate plan；每条 lane 后续独立路由并接受 F05/F12 授权。
+- Pass：当前调用没有 Job、并发进程、Evidence 或 Result 写入。
