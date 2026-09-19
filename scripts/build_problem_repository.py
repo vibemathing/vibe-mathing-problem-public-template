@@ -21,9 +21,9 @@ from vibe_mathing.reasoning import apply_reasoning_agent_overlays
 from vibe_mathing.web_channel import canonical_json_sha256, sha256_file
 
 ROOT = Path(__file__).resolve().parents[1]
-TASK = ROOT / "governance/tasks/0027-web-gpt-github-chat-research-harness"
-DEFAULT_MANIFEST = TASK / "harness-source-manifest.v1.json"
-DEFAULT_TEMPLATE = TASK / "problem-repository-template"
+CONTROL = ROOT / "governance/control-plane"
+DEFAULT_MANIFEST = CONTROL / "harness-source-manifest.v1.json"
+DEFAULT_TEMPLATE = ROOT
 BUILDER_VERSION = "2.1.0"
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
 PI_SKILL_STATUS = {
@@ -218,7 +218,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     if source_repo == "local/unbound" and not args.allow_dirty_source:
         raise RuntimeError("source repository identity is unbound; production Harness snapshots require an exact GitHub source")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    validate_json(manifest, TASK / "harness-source-manifest.v1.schema.json", "source manifest")
+    validate_json(manifest, CONTROL / "harness-source-manifest.v1.schema.json", "source manifest")
     problem = read_problem(args.problem_file.resolve(), root)
     if problem.get("lifecycle") != "active" and not args.allow_draft_problem:
         raise RuntimeError("ProblemContract is not active; production problem repositories require lifecycle=active")
@@ -287,13 +287,20 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         if candidate.is_symlink() or not candidate.is_file():
             raise RuntimeError(f"unsafe problem repository template member: {candidate}")
         relative = candidate.relative_to(template)
+        if ".git" in relative.parts or "__pycache__" in relative.parts or candidate.suffix == ".pyc":
+            continue
         if excluded_skill_ids.intersection(relative.parts):
             raise RuntimeError(f"excluded container Skill in problem repository template: {relative}")
-        if relative.as_posix() in {"WEB_BOOTSTRAP.md.in", ".pi/settings.json.in"}:
+        if relative.as_posix() in {
+            "WEB_BOOTSTRAP.md", "WEB_BOOTSTRAP.md.in", ".pi/settings.json.in",
+            "HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json",
+        }:
             continue
         target = output / relative
         if target.exists():
-            raise RuntimeError(f"template target collides with Harness source: {relative}")
+            if target.read_bytes() == candidate.read_bytes():
+                continue
+            raise RuntimeError(f"template target collides with different Harness source: {relative}")
         copy_regular(candidate, target)
         file_policy[relative.as_posix()] = ("web_channel", "harness")
 
@@ -460,7 +467,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         "tree_sha256": tree_digest(listed_files),
         "built_at": built_at,
     }
-    validate_json(snapshot, TASK / "harness-snapshot-manifest.v1.schema.json", "Harness snapshot")
+    validate_json(snapshot, CONTROL / "harness-snapshot-manifest.v1.schema.json", "Harness snapshot")
     write_json(output / "HARNESS_SNAPSHOT.json", snapshot)
     snapshot_sha = sha256_file(output / "HARNESS_SNAPSHOT.json")
     history = {
@@ -482,7 +489,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     }
     validate_json(
         history,
-        TASK / "harness-snapshot-history.v1.schema.json",
+        CONTROL / "harness-snapshot-history.v1.schema.json",
         "Harness snapshot history",
     )
     write_json(output / "HARNESS_SNAPSHOT_HISTORY.json", history)
