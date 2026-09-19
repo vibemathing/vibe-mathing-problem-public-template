@@ -1,0 +1,78 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "owned_packages": [
+    {
+      "capabilities": [
+        "problem-to-method fit",
+        "verification-first experimentation",
+        "informative failure"
+      ],
+      "package_id": "ai-for-mathematics",
+      "public_body_included": false,
+      "source_family": "ai-for-mathematics"
+    },
+    {
+      "capabilities": [
+        "artifact and modality routing",
+        "evaluation design",
+        "research-system comparison"
+      ],
+      "package_id": "ai4math-research-navigator",
+      "public_body_included": false,
+      "source_family": "ai4math-research-navigator"
+    },
+    {
+      "capabilities": [
+        "capability diagnosis",
+        "specialist-versus-general tool choice",
+        "verifier feedback"
+      ],
+      "package_id": "dong-ai4m-research-guide",
+      "public_body_included": false,
+      "source_family": "dongbin-ai4math"
+    },
+    {
+      "capabilities": [
+        "capability diagnosis",
+        "formalization stack",
+        "understanding-over-ritual objective"
+      ],
+      "package_id": "dongbin-ai4m",
+      "public_body_included": false,
+      "source_family": "dongbin-ai4math"
+    },
+    {
+      "capabilities": [
+        "goal-based resource routing",
+        "learning progression",
+        "resource-fit recovery"
+      ],
+      "package_id": "lean4-self-study-resources",
+      "public_body_included": false,
+      "source_family": "lean4-self-study-resources"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "persistent proof state",
+        "retrieval applicability checks",
+        "strict verification and degraded-mode honesty"
+      ],
+      "package_id": "rethlas-math-reasoning",
+      "primary_owner": "ai4math-proof-refutation"
+    },
+    {
+      "capabilities": [
+        "concise proof exposition",
+        "explicit logical relations",
+        "editing-versus-validation separation"
+      ],
+      "package_id": "strunk-elements-of-style",
+      "primary_owner": "ai4math-proof-refutation"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "top_level_skill": "ai4math-source-discovery"
+}

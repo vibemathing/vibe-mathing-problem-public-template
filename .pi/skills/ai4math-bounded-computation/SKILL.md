@@ -85,6 +85,10 @@ status = "symbolically-checked" if delta == 0 else "not-verified"
 - 动作：先运行 `python3 scripts/compute_plan.py --kind batch-search --n 1e8 --ops-per-sample 200 --dtype f32`，按 `route` 选择 GPU 或 CPU；GPU 命中候选后用 SymPy/mpmath 精确复核。
 - 验收：执行记录含路由决策、库版本、命中样本与复核结果；GPU 结果只标 `numeric-check`。
 
+## Internal package routing
+
+Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies remain private-local while rights are on HOLD; this repository exposes routing metadata only.
+
 ## Progressive disclosure
 
 Read `references/consolidated-core.md` for computation-request typing, exact/symbolic/numeric/solver/randomized routing, completeness conditions, counterexample validation, resource controls, reproducibility receipts, and evidence ceilings.

@@ -66,6 +66,10 @@ Route status：open / blocked / refuted / closed，与 Claim status 分开记录
 - 动作：将该 route 标记 refuted，检查反例是否也反驳原 Claim，并保留其他独立路线。
 - 验收：没有原命题反例时，Claim 仍为 blocked/open，而不是 refuted。
 
+## Internal package routing
+
+Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies remain private-local while rights are on HOLD; this repository exposes routing metadata only.
+
 ## Progressive disclosure
 
 Read `references/consolidated-core.md` for the proof-state model, route lenses, lemma discipline, counterexample taxonomy, conjecture repair, automated-reasoning limits, failed-route memory, novelty test, and closure boundary.

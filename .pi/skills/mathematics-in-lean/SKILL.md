@@ -21,6 +21,10 @@ Use this Skill when the current obligation calls for a Lean 4/Mathlib formalizat
 
 If the pinned toolchain is unavailable, the statement is ambiguous, or required imports cannot be established, return a bounded formalization plan and the precise obstruction. Never fabricate compilation or kernel receipts.
 
+## Internal package routing
+
+Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies remain private-local while rights are on HOLD; this repository exposes routing metadata only.
+
 ## Progressive disclosure
 
 Read `references/consolidated-core.md` before substantial proof work. It consolidates goal-shape routing, equality/sets/induction/algebra/order/topology/analysis/linear-algebra/quotient/measure patterns, theorem search, tactic selection, elaboration diagnosis, abstraction control and formalization integrity from the reviewed Lean-oriented source families. The text is project-authored and does not redistribute source chapters.

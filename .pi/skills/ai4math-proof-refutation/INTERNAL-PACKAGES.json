@@ -1,0 +1,107 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "owned_packages": [
+    {
+      "capabilities": [
+        "type-directed search",
+        "dependency-preserving Skolemization",
+        "higher-order unification limits"
+      ],
+      "package_id": "classical-type-theory",
+      "public_body_included": false,
+      "source_family": "classical-type-theory"
+    },
+    {
+      "capabilities": [
+        "producer/verifier separation",
+        "fact-graph memory",
+        "falsification before persistence"
+      ],
+      "package_id": "danus-proof-orchestration",
+      "public_body_included": false,
+      "source_family": "danus-proof-orchestration"
+    },
+    {
+      "capabilities": [
+        "logic-fragment routing",
+        "rewriting and decision-procedure scope",
+        "LCF trust boundary"
+      ],
+      "package_id": "harrison-automated-reasoning",
+      "public_body_included": false,
+      "source_family": "harrison-automated-reasoning"
+    },
+    {
+      "capabilities": [
+        "counterexample triage",
+        "lemma incorporation",
+        "conjecture and definition repair"
+      ],
+      "package_id": "lakatos-proofs-and-refutations",
+      "public_body_included": false,
+      "source_family": "lakatos-proofs-and-refutations"
+    },
+    {
+      "capabilities": [
+        "understand-plan-execute-review",
+        "backward reasoning",
+        "heuristic-versus-proof separation"
+      ],
+      "package_id": "polya-problem-solving",
+      "public_body_included": false,
+      "source_family": "polya-problem-solving"
+    },
+    {
+      "capabilities": [
+        "persistent proof state",
+        "retrieval applicability checks",
+        "strict verification and degraded-mode honesty"
+      ],
+      "package_id": "rethlas-math-reasoning",
+      "public_body_included": false,
+      "source_family": "rethlas-math-reasoning"
+    },
+    {
+      "capabilities": [
+        "concise proof exposition",
+        "explicit logical relations",
+        "editing-versus-validation separation"
+      ],
+      "package_id": "strunk-elements-of-style",
+      "public_body_included": false,
+      "source_family": "strunk-elements-of-style"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "problem-to-method fit",
+        "verification-first experimentation",
+        "informative failure"
+      ],
+      "package_id": "ai-for-mathematics",
+      "primary_owner": "ai4math-source-discovery"
+    },
+    {
+      "capabilities": [
+        "assumption exposure",
+        "definition variation",
+        "counterexample-guided boundary discovery"
+      ],
+      "package_id": "cheng-math-logic",
+      "primary_owner": "ai4math-modeling-derivation"
+    },
+    {
+      "capabilities": [
+        "statement parsing",
+        "proof-language discipline",
+        "example and counterexample use"
+      ],
+      "package_id": "houston-mathematical-thinking",
+      "primary_owner": "ai4math-modeling-derivation"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "top_level_skill": "ai4math-proof-refutation"
+}

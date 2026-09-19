@@ -10,7 +10,7 @@ from typing import Any
 
 from vibe_mathing.web_channel import canonical_json_sha256, load_json, load_jsonl, load_problem
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 
 
 def compact_json(value: Any) -> str:
@@ -26,6 +26,7 @@ def render_context(root: Path, max_chars: int = 120_000) -> str:
     source_registry = load_json(root / "governance/control-plane/math-knowledge-source.v1.json")
     operator_registry = load_json(root / "governance/control-plane/math-knowledge-operators.v1.json")
     active_skills = load_json(root / "WEB_ACTIVE_SKILLS.json")
+    internal_package_classification = load_json(root / ".pi/skills/INTERNAL-PACKAGE-CLASSIFICATION.json")
 
     graph_summary = []
     for graph in graphs:
@@ -54,6 +55,28 @@ def render_context(root: Path, max_chars: int = 120_000) -> str:
         "obligation_graphs": graph_summary,
         "failed_routes": failed,
         "active_skills": active_skills.get("skills", []),
+        "internal_package_routing": {
+            "policy": internal_package_classification.get("policy", {}),
+            "top_level_skills": {
+                skill_id: {
+                    "owned_packages": [
+                        item.get("package_id")
+                        for item in internal_package_classification.get("packages", [])
+                        if isinstance(item, dict) and item.get("primary_owner") == skill_id
+                    ],
+                    "cross_referenced_packages": [
+                        item.get("package_id")
+                        for item in internal_package_classification.get("packages", [])
+                        if isinstance(item, dict) and skill_id in item.get("cross_referenced_by", [])
+                    ],
+                }
+                for skill_id in sorted({
+                    item.get("primary_owner")
+                    for item in internal_package_classification.get("packages", [])
+                    if isinstance(item, dict) and item.get("primary_owner")
+                })
+            },
+        },
         "knowledge_sources": [
             {
                 "source_id": item.get("source_id"),
@@ -84,10 +107,11 @@ This file is generated from repository truth and bounded for the web channel. It
 1. Read `AGENTS.md`, `governance/harness/PROJECT_AGENTS.md`, and `WEB_BOOTSTRAP.md`.
 2. Check the exact ProblemContract and its SHA-256 below.
 3. Select exactly one pre-admitted Attempt/Route/ObligationGraph/Obligation.
-4. Search registered mathematical knowledge sources before inventing a new theorem.
-5. After repository admission, autonomously complete Issue, candidate branch/file edits, commit, PR review, checks/rerun, merge, and checkpoint within the profile.
-6. Write only candidate files under the profile allowlist and one `WEB_ATTEMPT_PACKET`; do not wait for project-added routine human approvals.
-7. Never claim that Issue, PR, AI review, merge, Actions status, package build, search hit, test success, or this context closes mathematics.
+4. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. HOLD package bodies remain private-local and are not publication content.
+5. Search registered mathematical knowledge sources before inventing a new theorem.
+6. After repository admission, autonomously complete Issue, candidate branch/file edits, commit, PR review, checks/rerun, merge, and checkpoint within the profile.
+7. Write only candidate files under the profile allowlist and one `WEB_ATTEMPT_PACKET`; do not wait for project-added routine human approvals.
+8. Never claim that Issue, PR, AI review, merge, Actions status, package build, search hit, test success, or this context closes mathematics.
 
 ## Compiled repository truth
 

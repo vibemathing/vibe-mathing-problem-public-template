@@ -45,7 +45,8 @@ Read in this order:
 10. `research/records/obligation-graphs.jsonl`;
 11. `.pi/settings.json`;
 12. `.pi/skills/README.md`;
-13. `WEB_OUTPUT_CONTRACT.json`.
+13. `.pi/skills/INTERNAL-PACKAGE-CLASSIFICATION.json` and the selected top-level Skill's `INTERNAL-PACKAGES.json`;
+14. `WEB_OUTPUT_CONTRACT.json`.
 
 Then freeze and report:
 
@@ -60,9 +61,10 @@ current failed-route signatures
 current admitted Attempt/Route/Graph/Obligation identities and statuses
 current candidates/evidence/results, including empty sets
 exact Pi Skill allowlist + active/constrained status
+internal-package owner + selected package identity + body availability
 ```
 
-Return `BLOCK` instead of prompts if repository identity is not verified, the repository contains the template placeholder, the ProblemContract is not `active + canonical_admitted`, required files are missing, or `.pi/settings.json` and `WEB_ACTIVE_SKILLS.json` do not identify the same exact nine readable Skills.
+Return `BLOCK` instead of prompts if repository identity is not verified, the repository contains the template placeholder, the ProblemContract is not `active + canonical_admitted`, required files are missing, or `.pi/settings.json` and `WEB_ACTIVE_SKILLS.json` do not identify the same exact ten readable Skills, or the 31-package classification and per-Skill registries disagree.
 
 ## Trusted pre-admission bridge
 

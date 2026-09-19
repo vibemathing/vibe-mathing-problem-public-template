@@ -1,0 +1,516 @@
+{
+  "packages": [
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-bounded-computation",
+        "ai4math-proof-refutation"
+      ],
+      "extracted_capabilities": [
+        "problem-to-method fit",
+        "verification-first experimentation",
+        "informative failure"
+      ],
+      "package_id": "ai-for-mathematics",
+      "primary_owner": "ai4math-source-discovery",
+      "public_body_included": false,
+      "source_family": "ai-for-mathematics"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-toolchain-reproducibility"
+      ],
+      "extracted_capabilities": [
+        "artifact and modality routing",
+        "evaluation design",
+        "research-system comparison"
+      ],
+      "package_id": "ai4math-research-navigator",
+      "primary_owner": "ai4math-source-discovery",
+      "public_body_included": false,
+      "source_family": "ai4math-research-navigator"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-toolchain-reproducibility"
+      ],
+      "extracted_capabilities": [
+        "dependency-aware formalization",
+        "plan/prove/review separation",
+        "stalled-run diagnosis"
+      ],
+      "package_id": "archon-formalization",
+      "primary_owner": "ai4math-lean-formalization",
+      "public_body_included": false,
+      "source_family": "archon-formalization"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-modeling-derivation",
+        "ai4math-assurance-admission"
+      ],
+      "extracted_capabilities": [
+        "model/property separation",
+        "abstraction soundness",
+        "state-space control"
+      ],
+      "package_id": "baier-katoen-model-checking",
+      "primary_owner": "ai4math-bounded-computation",
+      "public_body_included": false,
+      "source_family": "baier-katoen-model-checking"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-proof-refutation"
+      ],
+      "extracted_capabilities": [
+        "assumption exposure",
+        "definition variation",
+        "counterexample-guided boundary discovery"
+      ],
+      "package_id": "cheng-math-logic",
+      "primary_owner": "ai4math-modeling-derivation",
+      "public_body_included": false,
+      "source_family": "cheng-math-logic"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-lean-formalization"
+      ],
+      "extracted_capabilities": [
+        "type-directed search",
+        "dependency-preserving Skolemization",
+        "higher-order unification limits"
+      ],
+      "package_id": "classical-type-theory",
+      "primary_owner": "ai4math-proof-refutation",
+      "public_body_included": false,
+      "source_family": "classical-type-theory"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-assurance-admission"
+      ],
+      "extracted_capabilities": [
+        "producer/verifier separation",
+        "fact-graph memory",
+        "falsification before persistence"
+      ],
+      "package_id": "danus-proof-orchestration",
+      "primary_owner": "ai4math-proof-refutation",
+      "public_body_included": false,
+      "source_family": "danus-proof-orchestration"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-toolchain-reproducibility"
+      ],
+      "extracted_capabilities": [
+        "capability diagnosis",
+        "specialist-versus-general tool choice",
+        "verifier feedback"
+      ],
+      "package_id": "dong-ai4m-research-guide",
+      "primary_owner": "ai4math-source-discovery",
+      "public_body_included": false,
+      "source_family": "dongbin-ai4math"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-toolchain-reproducibility"
+      ],
+      "extracted_capabilities": [
+        "capability diagnosis",
+        "formalization stack",
+        "understanding-over-ritual objective"
+      ],
+      "package_id": "dongbin-ai4m",
+      "primary_owner": "ai4math-source-discovery",
+      "public_body_included": false,
+      "source_family": "dongbin-ai4math"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-assurance-admission"
+      ],
+      "extracted_capabilities": [
+        "logic-fragment routing",
+        "rewriting and decision-procedure scope",
+        "LCF trust boundary"
+      ],
+      "package_id": "harrison-automated-reasoning",
+      "primary_owner": "ai4math-proof-refutation",
+      "public_body_included": false,
+      "source_family": "harrison-automated-reasoning"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "mathematics-in-lean"
+      ],
+      "extracted_capabilities": [
+        "universal constructions",
+        "functorial translation",
+        "naturality and adjunction routing"
+      ],
+      "package_id": "hewei-category-theory",
+      "primary_owner": "ai4math-modeling-derivation",
+      "public_body_included": false,
+      "source_family": "hewei-category-theory"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-proof-refutation"
+      ],
+      "extracted_capabilities": [
+        "statement parsing",
+        "proof-language discipline",
+        "example and counterexample use"
+      ],
+      "package_id": "houston-mathematical-thinking",
+      "primary_owner": "ai4math-modeling-derivation",
+      "public_body_included": false,
+      "source_family": "houston-mathematical-thinking"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-toolchain-reproducibility"
+      ],
+      "extracted_capabilities": [
+        "toolchain matching",
+        "InfoTree and declaration products",
+        "static-analysis diagnostics"
+      ],
+      "package_id": "jixia-lean-analyzer",
+      "primary_owner": "ai4math-lean-formalization",
+      "public_body_included": false,
+      "source_family": "jixia-lean-analyzer"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-modeling-derivation"
+      ],
+      "extracted_capabilities": [
+        "counterexample triage",
+        "lemma incorporation",
+        "conjecture and definition repair"
+      ],
+      "package_id": "lakatos-proofs-and-refutations",
+      "primary_owner": "ai4math-proof-refutation",
+      "public_body_included": false,
+      "source_family": "lakatos-proofs-and-refutations"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-toolchain-reproducibility"
+      ],
+      "extracted_capabilities": [
+        "pristine-versus-edited comparison",
+        "isolated elaboration",
+        "pin and security audit"
+      ],
+      "package_id": "lean-eval-comparator",
+      "primary_owner": "ai4math-assurance-admission",
+      "public_body_included": false,
+      "source_family": "lean-eval-comparator"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-lean-formalization"
+      ],
+      "extracted_capabilities": [
+        "query routing by known information",
+        "syntax-sensitive search",
+        "local validation of suggestions"
+      ],
+      "package_id": "lean-search-client",
+      "primary_owner": "mathematics-in-lean",
+      "public_body_included": false,
+      "source_family": "lean-search-client"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "mathematics-in-lean"
+      ],
+      "extracted_capabilities": [
+        "statement translation",
+        "proof-state reading",
+        "abstraction-ladder control"
+      ],
+      "package_id": "lean4-math-formalization-2025",
+      "primary_owner": "ai4math-lean-formalization",
+      "public_body_included": false,
+      "source_family": "lean4-math-formalization-2025"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-toolchain-reproducibility"
+      ],
+      "extracted_capabilities": [
+        "syntax/elaboration/kernel staging",
+        "metavariable state and rollback",
+        "generated-term validation"
+      ],
+      "package_id": "lean4-metaprogramming",
+      "primary_owner": "ai4math-lean-formalization",
+      "public_body_included": false,
+      "source_family": "lean4-metaprogramming"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "mathematics-in-lean"
+      ],
+      "extracted_capabilities": [
+        "goal-based resource routing",
+        "learning progression",
+        "resource-fit recovery"
+      ],
+      "package_id": "lean4-self-study-resources",
+      "primary_owner": "ai4math-source-discovery",
+      "public_body_included": false,
+      "source_family": "lean4-self-study-resources"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-lean-formalization"
+      ],
+      "extracted_capabilities": [
+        "parse/index/embed/search pipeline",
+        "schema and revision pinning",
+        "service diagnostics"
+      ],
+      "package_id": "leansearch-operator",
+      "primary_owner": "ai4math-toolchain-reproducibility",
+      "public_body_included": false,
+      "source_family": "leansearch-operator"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "mathematics-in-lean"
+      ],
+      "extracted_capabilities": [
+        "expression normalization",
+        "theorem precondition routing",
+        "convergence-mode distinctions"
+      ],
+      "package_id": "math-analysis-thinking-methods",
+      "primary_owner": "ai4math-modeling-derivation",
+      "public_body_included": false,
+      "source_family": "math-analysis-thinking-methods"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-lean-formalization"
+      ],
+      "extracted_capabilities": [
+        "proof state as API",
+        "weakest sufficient abstraction",
+        "typeclasses filters and induction"
+      ],
+      "package_id": "mathematics-in-lean-project-record",
+      "primary_owner": "mathematics-in-lean",
+      "public_body_included": false,
+      "source_family": "mathematics-in-lean"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-lean-formalization"
+      ],
+      "extracted_capabilities": [
+        "goal-shape routing",
+        "library interface preference",
+        "formal analysis patterns"
+      ],
+      "package_id": "mathematics-in-lean-external-snapshot",
+      "primary_owner": "mathematics-in-lean",
+      "public_body_included": false,
+      "source_family": "mathematics-in-lean"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-lean-formalization"
+      ],
+      "extracted_capabilities": [
+        "constructor and recursor alignment",
+        "rewrite-to-recursion",
+        "witness-based order"
+      ],
+      "package_id": "natural-number-game-lean4",
+      "primary_owner": "mathematics-in-lean",
+      "public_body_included": false,
+      "source_family": "natural-number-game-lean4"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-modeling-derivation"
+      ],
+      "extracted_capabilities": [
+        "understand-plan-execute-review",
+        "backward reasoning",
+        "heuristic-versus-proof separation"
+      ],
+      "package_id": "polya-problem-solving",
+      "primary_owner": "ai4math-proof-refutation",
+      "public_body_included": false,
+      "source_family": "polya-problem-solving"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-source-discovery",
+        "ai4math-assurance-admission"
+      ],
+      "extracted_capabilities": [
+        "persistent proof state",
+        "retrieval applicability checks",
+        "strict verification and degraded-mode honesty"
+      ],
+      "package_id": "rethlas-math-reasoning",
+      "primary_owner": "ai4math-proof-refutation",
+      "public_body_included": false,
+      "source_family": "rethlas-math-reasoning"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-source-discovery"
+      ],
+      "extracted_capabilities": [
+        "concise proof exposition",
+        "explicit logical relations",
+        "editing-versus-validation separation"
+      ],
+      "package_id": "strunk-elements-of-style",
+      "primary_owner": "ai4math-proof-refutation",
+      "public_body_included": false,
+      "source_family": "strunk-elements-of-style"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-lean-formalization"
+      ],
+      "extracted_capabilities": [
+        "API phase alignment",
+        "epsilon-filter translation",
+        "totalization and type-boundary guards"
+      ],
+      "package_id": "tao-analysis-lean",
+      "primary_owner": "mathematics-in-lean",
+      "public_body_included": false,
+      "source_family": "tao-analysis-lean"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-lean-formalization"
+      ],
+      "extracted_capabilities": [
+        "propositions as types",
+        "constructor and recursor interfaces",
+        "termination and typeclass inference"
+      ],
+      "package_id": "theorem-proving-in-lean-4",
+      "primary_owner": "mathematics-in-lean",
+      "public_body_included": false,
+      "source_family": "theorem-proving-in-lean-4"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "ai4math-assurance-admission"
+      ],
+      "extracted_capabilities": [
+        "verifier hard boundary",
+        "retrieval before brute force",
+        "reasoning-proving interleaving"
+      ],
+      "package_id": "welleck-informal-formal-reasoning",
+      "primary_owner": "ai4math-lean-formalization",
+      "public_body_included": false,
+      "source_family": "welleck-informal-formal-reasoning"
+    },
+    {
+      "activation": "internal_reference_not_pi_entry",
+      "body_policy": "private_local_complete_package_hold",
+      "cross_referenced_by": [
+        "mathematics-in-lean",
+        "ai4math-assurance-admission"
+      ],
+      "extracted_capabilities": [
+        "statement freezing",
+        "API engineering",
+        "normalize-before-automation and counterexample checks"
+      ],
+      "package_id": "xena-formalization-method",
+      "primary_owner": "ai4math-lean-formalization",
+      "public_body_included": false,
+      "source_family": "xena-formalization-method"
+    }
+  ],
+  "policy": {
+    "internal_packages_are_not_pi_entries": true,
+    "one_physical_private_copy_per_package": true,
+    "public_repository_contains_metadata_only_until_rights_admission": true,
+    "top_level_skills_own_routing_not_mathematical_strategy": true
+  },
+  "schema_version": "ai4math-internal-package-classification.v1",
+  "scope": {
+    "packages": 31,
+    "source_families": 29,
+    "top_level_skills": 8
+  }
+}

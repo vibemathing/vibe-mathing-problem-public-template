@@ -1,0 +1,115 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "owned_packages": [
+    {
+      "capabilities": [
+        "query routing by known information",
+        "syntax-sensitive search",
+        "local validation of suggestions"
+      ],
+      "package_id": "lean-search-client",
+      "public_body_included": false,
+      "source_family": "lean-search-client"
+    },
+    {
+      "capabilities": [
+        "proof state as API",
+        "weakest sufficient abstraction",
+        "typeclasses filters and induction"
+      ],
+      "package_id": "mathematics-in-lean-project-record",
+      "public_body_included": false,
+      "source_family": "mathematics-in-lean"
+    },
+    {
+      "capabilities": [
+        "goal-shape routing",
+        "library interface preference",
+        "formal analysis patterns"
+      ],
+      "package_id": "mathematics-in-lean-external-snapshot",
+      "public_body_included": false,
+      "source_family": "mathematics-in-lean"
+    },
+    {
+      "capabilities": [
+        "constructor and recursor alignment",
+        "rewrite-to-recursion",
+        "witness-based order"
+      ],
+      "package_id": "natural-number-game-lean4",
+      "public_body_included": false,
+      "source_family": "natural-number-game-lean4"
+    },
+    {
+      "capabilities": [
+        "API phase alignment",
+        "epsilon-filter translation",
+        "totalization and type-boundary guards"
+      ],
+      "package_id": "tao-analysis-lean",
+      "public_body_included": false,
+      "source_family": "tao-analysis-lean"
+    },
+    {
+      "capabilities": [
+        "propositions as types",
+        "constructor and recursor interfaces",
+        "termination and typeclass inference"
+      ],
+      "package_id": "theorem-proving-in-lean-4",
+      "public_body_included": false,
+      "source_family": "theorem-proving-in-lean-4"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "universal constructions",
+        "functorial translation",
+        "naturality and adjunction routing"
+      ],
+      "package_id": "hewei-category-theory",
+      "primary_owner": "ai4math-modeling-derivation"
+    },
+    {
+      "capabilities": [
+        "statement translation",
+        "proof-state reading",
+        "abstraction-ladder control"
+      ],
+      "package_id": "lean4-math-formalization-2025",
+      "primary_owner": "ai4math-lean-formalization"
+    },
+    {
+      "capabilities": [
+        "goal-based resource routing",
+        "learning progression",
+        "resource-fit recovery"
+      ],
+      "package_id": "lean4-self-study-resources",
+      "primary_owner": "ai4math-source-discovery"
+    },
+    {
+      "capabilities": [
+        "expression normalization",
+        "theorem precondition routing",
+        "convergence-mode distinctions"
+      ],
+      "package_id": "math-analysis-thinking-methods",
+      "primary_owner": "ai4math-modeling-derivation"
+    },
+    {
+      "capabilities": [
+        "statement freezing",
+        "API engineering",
+        "normalize-before-automation and counterexample checks"
+      ],
+      "package_id": "xena-formalization-method",
+      "primary_owner": "ai4math-lean-formalization"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "top_level_skill": "mathematics-in-lean"
+}

@@ -1,0 +1,77 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "owned_packages": [
+    {
+      "capabilities": [
+        "assumption exposure",
+        "definition variation",
+        "counterexample-guided boundary discovery"
+      ],
+      "package_id": "cheng-math-logic",
+      "public_body_included": false,
+      "source_family": "cheng-math-logic"
+    },
+    {
+      "capabilities": [
+        "universal constructions",
+        "functorial translation",
+        "naturality and adjunction routing"
+      ],
+      "package_id": "hewei-category-theory",
+      "public_body_included": false,
+      "source_family": "hewei-category-theory"
+    },
+    {
+      "capabilities": [
+        "statement parsing",
+        "proof-language discipline",
+        "example and counterexample use"
+      ],
+      "package_id": "houston-mathematical-thinking",
+      "public_body_included": false,
+      "source_family": "houston-mathematical-thinking"
+    },
+    {
+      "capabilities": [
+        "expression normalization",
+        "theorem precondition routing",
+        "convergence-mode distinctions"
+      ],
+      "package_id": "math-analysis-thinking-methods",
+      "public_body_included": false,
+      "source_family": "math-analysis-thinking-methods"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "model/property separation",
+        "abstraction soundness",
+        "state-space control"
+      ],
+      "package_id": "baier-katoen-model-checking",
+      "primary_owner": "ai4math-bounded-computation"
+    },
+    {
+      "capabilities": [
+        "counterexample triage",
+        "lemma incorporation",
+        "conjecture and definition repair"
+      ],
+      "package_id": "lakatos-proofs-and-refutations",
+      "primary_owner": "ai4math-proof-refutation"
+    },
+    {
+      "capabilities": [
+        "understand-plan-execute-review",
+        "backward reasoning",
+        "heuristic-versus-proof separation"
+      ],
+      "package_id": "polya-problem-solving",
+      "primary_owner": "ai4math-proof-refutation"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "top_level_skill": "ai4math-modeling-derivation"
+}

@@ -64,6 +64,10 @@ description: "数学问题发现与证据检索。用于界定研究问题、查
 - 动作：显式查询 candidates，保留 source status、许可和 admission 状态；只生成待审 shortlist，不启动计算。
 - 验收：每项均标为 `research_eligible=false`，唯一下一步是来源/陈述准入或 ProblemContract 冻结。
 
+## Internal package routing
+
+Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies remain private-local while rights are on HOLD; this repository exposes routing metadata only.
+
 ## Progressive disclosure
 
 Read `references/consolidated-core.md` for the full source-question model, authority hierarchy, applicability audit, conflict handling, handoff contract, and anti-loop rules distilled from the reviewed AI4Math source families.

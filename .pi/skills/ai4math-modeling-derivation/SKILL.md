@@ -54,6 +54,10 @@ Status：coherent / coherent-after-reframing / blocked。
 - 动作：指出对象切换，重构为“全局量 → 分解 → 局部切片”。
 - 验收：状态为 `coherent-after-reframing` 并保留原目标差异。
 
+## Internal package routing
+
+Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies remain private-local while rights are on HOLD; this repository exposes routing metadata only.
+
 ## Progressive disclosure
 
 Read `references/consolidated-core.md` for the full representation record, definition audit, abstraction ladder, typed derivation ledger, invariant tests, structural translations, approximation discipline, and recovery rules.

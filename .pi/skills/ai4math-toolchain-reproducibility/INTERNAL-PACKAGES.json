@@ -1,0 +1,83 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "owned_packages": [
+    {
+      "capabilities": [
+        "parse/index/embed/search pipeline",
+        "schema and revision pinning",
+        "service diagnostics"
+      ],
+      "package_id": "leansearch-operator",
+      "public_body_included": false,
+      "source_family": "leansearch-operator"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "artifact and modality routing",
+        "evaluation design",
+        "research-system comparison"
+      ],
+      "package_id": "ai4math-research-navigator",
+      "primary_owner": "ai4math-source-discovery"
+    },
+    {
+      "capabilities": [
+        "dependency-aware formalization",
+        "plan/prove/review separation",
+        "stalled-run diagnosis"
+      ],
+      "package_id": "archon-formalization",
+      "primary_owner": "ai4math-lean-formalization"
+    },
+    {
+      "capabilities": [
+        "capability diagnosis",
+        "specialist-versus-general tool choice",
+        "verifier feedback"
+      ],
+      "package_id": "dong-ai4m-research-guide",
+      "primary_owner": "ai4math-source-discovery"
+    },
+    {
+      "capabilities": [
+        "capability diagnosis",
+        "formalization stack",
+        "understanding-over-ritual objective"
+      ],
+      "package_id": "dongbin-ai4m",
+      "primary_owner": "ai4math-source-discovery"
+    },
+    {
+      "capabilities": [
+        "toolchain matching",
+        "InfoTree and declaration products",
+        "static-analysis diagnostics"
+      ],
+      "package_id": "jixia-lean-analyzer",
+      "primary_owner": "ai4math-lean-formalization"
+    },
+    {
+      "capabilities": [
+        "pristine-versus-edited comparison",
+        "isolated elaboration",
+        "pin and security audit"
+      ],
+      "package_id": "lean-eval-comparator",
+      "primary_owner": "ai4math-assurance-admission"
+    },
+    {
+      "capabilities": [
+        "syntax/elaboration/kernel staging",
+        "metavariable state and rollback",
+        "generated-term validation"
+      ],
+      "package_id": "lean4-metaprogramming",
+      "primary_owner": "ai4math-lean-formalization"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "top_level_skill": "ai4math-toolchain-reproducibility"
+}

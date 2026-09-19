@@ -70,6 +70,10 @@ rg -n '\b(sorry|admit)\b' .
 - 动作：记录 timeout、预算、工具链和未闭合义务。
 - 验收：状态为 blocked/timeout，不把原命题标记 refuted。
 
+## Internal package routing
+
+Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies remain private-local while rights are on HOLD; this repository exposes routing metadata only.
+
 ## Progressive disclosure
 
 Read `references/consolidated-core.md` for statement translation, environment preflight, proof-state and shape routing, theorem search, diagnosis order, metaprogramming/static-analysis boundaries, project-scale formalization, trust audits, and replay receipts.

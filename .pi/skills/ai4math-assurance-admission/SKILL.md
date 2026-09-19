@@ -30,6 +30,10 @@ Return a bounded review with:
 
 The output is a Candidate review only. This Skill cannot write truth ledgers, sign verifier receipts, or admit a Result or Solution.
 
+## Internal package routing
+
+Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies remain private-local while rights are on HOLD; this repository exposes routing metadata only.
+
 ## Progressive disclosure
 
 Read `references/consolidated-core.md` for the capability matrix, receipt validation, independence analysis, statement-faithfulness audit, proof/counterexample/computation review, conflict handling, adversarial probes and admission recommendation semantics consolidated from the reviewed assurance sources.

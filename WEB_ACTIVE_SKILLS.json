@@ -10,9 +10,9 @@
     },
     {
       "entry": ".pi/skills/mathematics-in-lean/SKILL.md",
-      "entry_sha256": "58a1647bb4e6bf8934a31655be6f0ca623093d46145298ed7ccec5de0dffd00d",
+      "entry_sha256": "8b2dd7291e2f9d17b37e4603e74ca6b9bece38604141f206f5689eef80aebebf",
       "skill_id": "mathematics-in-lean",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "web_status": "active"
     },
     {
@@ -24,51 +24,51 @@
     },
     {
       "entry": ".pi/skills/ai4math-source-discovery/SKILL.md",
-      "entry_sha256": "0f2776c32224c313c943164e77b206c12472cb030c0f0d6a82c20e2dc161520d",
+      "entry_sha256": "6055cc1dbb37d4fe5d65286601fcbd4ebf20880267987a4199bb34dd93fbf7e5",
       "skill_id": "ai4math-source-discovery",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "web_status": "active"
     },
     {
       "entry": ".pi/skills/ai4math-modeling-derivation/SKILL.md",
-      "entry_sha256": "e20bd3b51be54739471e6bbe92fc3de8e8d75bef7f90f4bee76e21bcc8c3d70d",
+      "entry_sha256": "d0f591d410060251ee3a062f993c88dd942becab5232ded72ce284034caa0a3a",
       "skill_id": "ai4math-modeling-derivation",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "web_status": "active"
     },
     {
       "entry": ".pi/skills/ai4math-proof-refutation/SKILL.md",
-      "entry_sha256": "33bd1bbd7d09d979529fe49025061ae50b8b6d8a0a34e43c5338080e3826a61b",
+      "entry_sha256": "25735ec9ce50dd930f3344a522d57b77edb26a0e971c3e1c3fbd762c3688154c",
       "skill_id": "ai4math-proof-refutation",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "web_status": "active"
     },
     {
       "entry": ".pi/skills/ai4math-bounded-computation/SKILL.md",
-      "entry_sha256": "58720c5d7c73519108938a289cd2cd46ed3388325fff4dd7290510c695441d4b",
+      "entry_sha256": "937432fb4f259fee7f8ea232532d8184a7aafd472b5b92f0d13b3ae41a0e6456",
       "skill_id": "ai4math-bounded-computation",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/ai4math-lean-formalization/SKILL.md",
-      "entry_sha256": "4975006512820c130e041bcec460dc6667c5c8550f84420d7a514366b3a821e8",
+      "entry_sha256": "8feb7b44cfb15f4cf9342b3c16695a2e333f285a04bf018077d05aadac95861d",
       "skill_id": "ai4math-lean-formalization",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/ai4math-assurance-admission/SKILL.md",
-      "entry_sha256": "c1fee24e444faeab4f22c7c4ed0b2d1611f9bf58d85e8631aab6d01da72503cc",
+      "entry_sha256": "b75e20510ca3bae9cdb58123029c39b87783dbf50aaace250ab16847cbebc71a",
       "skill_id": "ai4math-assurance-admission",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/ai4math-toolchain-reproducibility/SKILL.md",
-      "entry_sha256": "c436ffc08a36b6be58aef825790789db8b840049948720d7a846ef5d7766ff14",
+      "entry_sha256": "9f31fe3423b0faa561e85127718f8295a0f060c9a97015dbbf4d75484dcc5adc",
       "skill_id": "ai4math-toolchain-reproducibility",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "web_status": "constrained"
     }
   ]

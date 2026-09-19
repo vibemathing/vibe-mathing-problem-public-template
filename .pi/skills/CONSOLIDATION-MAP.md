@@ -10,6 +10,10 @@ This file records the conceptual consolidation behind the nine project Skills. I
 - A source being reviewed here does not make it installed, activated, trusted, evidence-capable, or verifier-admitted.
 - The canonical research actor chooses mathematical routes. Skills expose capabilities; they do not prescribe a mandatory route or phase plan.
 
+## Internal-package architecture
+
+All 31 audited packages have one primary owner among the eight top-level mathematical Skills. A package is physically preserved once in the private-local package vault and may be cross-referenced by other top-level Skills. Public repository files contain identity and routing metadata only while redistribution rights remain on HOLD. Internal packages are inert source material and are never additional Pi entries.
+
 ## Target capability layers
 
 | Target Skill | Consolidated responsibility |

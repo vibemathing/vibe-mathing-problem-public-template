@@ -1,0 +1,142 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "owned_packages": [
+    {
+      "capabilities": [
+        "dependency-aware formalization",
+        "plan/prove/review separation",
+        "stalled-run diagnosis"
+      ],
+      "package_id": "archon-formalization",
+      "public_body_included": false,
+      "source_family": "archon-formalization"
+    },
+    {
+      "capabilities": [
+        "toolchain matching",
+        "InfoTree and declaration products",
+        "static-analysis diagnostics"
+      ],
+      "package_id": "jixia-lean-analyzer",
+      "public_body_included": false,
+      "source_family": "jixia-lean-analyzer"
+    },
+    {
+      "capabilities": [
+        "statement translation",
+        "proof-state reading",
+        "abstraction-ladder control"
+      ],
+      "package_id": "lean4-math-formalization-2025",
+      "public_body_included": false,
+      "source_family": "lean4-math-formalization-2025"
+    },
+    {
+      "capabilities": [
+        "syntax/elaboration/kernel staging",
+        "metavariable state and rollback",
+        "generated-term validation"
+      ],
+      "package_id": "lean4-metaprogramming",
+      "public_body_included": false,
+      "source_family": "lean4-metaprogramming"
+    },
+    {
+      "capabilities": [
+        "verifier hard boundary",
+        "retrieval before brute force",
+        "reasoning-proving interleaving"
+      ],
+      "package_id": "welleck-informal-formal-reasoning",
+      "public_body_included": false,
+      "source_family": "welleck-informal-formal-reasoning"
+    },
+    {
+      "capabilities": [
+        "statement freezing",
+        "API engineering",
+        "normalize-before-automation and counterexample checks"
+      ],
+      "package_id": "xena-formalization-method",
+      "public_body_included": false,
+      "source_family": "xena-formalization-method"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "type-directed search",
+        "dependency-preserving Skolemization",
+        "higher-order unification limits"
+      ],
+      "package_id": "classical-type-theory",
+      "primary_owner": "ai4math-proof-refutation"
+    },
+    {
+      "capabilities": [
+        "query routing by known information",
+        "syntax-sensitive search",
+        "local validation of suggestions"
+      ],
+      "package_id": "lean-search-client",
+      "primary_owner": "mathematics-in-lean"
+    },
+    {
+      "capabilities": [
+        "parse/index/embed/search pipeline",
+        "schema and revision pinning",
+        "service diagnostics"
+      ],
+      "package_id": "leansearch-operator",
+      "primary_owner": "ai4math-toolchain-reproducibility"
+    },
+    {
+      "capabilities": [
+        "proof state as API",
+        "weakest sufficient abstraction",
+        "typeclasses filters and induction"
+      ],
+      "package_id": "mathematics-in-lean-project-record",
+      "primary_owner": "mathematics-in-lean"
+    },
+    {
+      "capabilities": [
+        "goal-shape routing",
+        "library interface preference",
+        "formal analysis patterns"
+      ],
+      "package_id": "mathematics-in-lean-external-snapshot",
+      "primary_owner": "mathematics-in-lean"
+    },
+    {
+      "capabilities": [
+        "constructor and recursor alignment",
+        "rewrite-to-recursion",
+        "witness-based order"
+      ],
+      "package_id": "natural-number-game-lean4",
+      "primary_owner": "mathematics-in-lean"
+    },
+    {
+      "capabilities": [
+        "API phase alignment",
+        "epsilon-filter translation",
+        "totalization and type-boundary guards"
+      ],
+      "package_id": "tao-analysis-lean",
+      "primary_owner": "mathematics-in-lean"
+    },
+    {
+      "capabilities": [
+        "propositions as types",
+        "constructor and recursor interfaces",
+        "termination and typeclass inference"
+      ],
+      "package_id": "theorem-proving-in-lean-4",
+      "primary_owner": "mathematics-in-lean"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "top_level_skill": "ai4math-lean-formalization"
+}

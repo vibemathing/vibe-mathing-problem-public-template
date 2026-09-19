@@ -48,6 +48,8 @@ REQUIRED_CONTROL_FILES = {
     ".pi/skills/README.md",
     ".pi/skills/CONSOLIDATION-MAP.md",
     ".pi/skills/SOURCE-ABSTRACTION-MAP.json",
+    ".pi/skills/INTERNAL-PACKAGE-CLASSIFICATION.json",
+    ".pi/skills/INTERNAL-PACKAGE-ARCHITECTURE.md",
     "problem-library/records/canonical-problems.jsonl",
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
@@ -96,6 +98,16 @@ PI_SKILL_STATUS = {
     "ai4math-lean-formalization": "constrained",
     "ai4math-assurance-admission": "constrained",
     "ai4math-toolchain-reproducibility": "constrained",
+}
+INTERNAL_PACKAGE_TOP_SKILLS = {
+    "mathematics-in-lean",
+    "ai4math-source-discovery",
+    "ai4math-modeling-derivation",
+    "ai4math-proof-refutation",
+    "ai4math-bounded-computation",
+    "ai4math-lean-formalization",
+    "ai4math-assurance-admission",
+    "ai4math-toolchain-reproducibility",
 }
 MUTABLE_RECORDS = {
     "research/records/attempts.jsonl",
@@ -415,6 +427,66 @@ def validate(root: Path) -> list[str]:
                     errors.append(f"empty Skill abstraction: {item.get('package_id')}")
         except (OSError, ValueError, json.JSONDecodeError) as exc:
             errors.append(f"Skill source abstraction map invalid: {exc}")
+
+    classification_path = root / ".pi/skills/INTERNAL-PACKAGE-CLASSIFICATION.json"
+    classified_packages: list[dict[str, Any]] = []
+    if classification_path.is_file():
+        try:
+            classification = load_json(classification_path)
+            classified_packages = classification.get("packages", [])
+            ids = [item.get("package_id") for item in classified_packages if isinstance(item, dict)]
+            families = {item.get("source_family") for item in classified_packages if isinstance(item, dict)}
+            owners = [item.get("primary_owner") for item in classified_packages if isinstance(item, dict)]
+            if len(classified_packages) != 31 or len(ids) != len(set(ids)):
+                errors.append("internal-package classification must contain 31 unique packages")
+            if len(families) != 29 or None in families:
+                errors.append("internal-package classification must contain exactly 29 source families")
+            if not set(owners).issubset(INTERNAL_PACKAGE_TOP_SKILLS) or set(owners) != INTERNAL_PACKAGE_TOP_SKILLS:
+                errors.append("internal-package classification owner set mismatch")
+            for item in classified_packages:
+                if not isinstance(item, dict):
+                    errors.append("internal-package classification contains a non-object")
+                    continue
+                if item.get("body_policy") != "private_local_complete_package_hold":
+                    errors.append(f"internal-package body policy mismatch: {item.get('package_id')}")
+                if item.get("public_body_included") is not False:
+                    errors.append(f"held internal-package body entered public metadata: {item.get('package_id')}")
+                if not set(item.get("cross_referenced_by", [])).issubset(INTERNAL_PACKAGE_TOP_SKILLS - {item.get('primary_owner')}):
+                    errors.append(f"invalid internal-package cross-reference: {item.get('package_id')}")
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            errors.append(f"internal-package classification invalid: {exc}")
+
+    classified_by_owner = {
+        skill_id: {item.get("package_id") for item in classified_packages if isinstance(item, dict) and item.get("primary_owner") == skill_id}
+        for skill_id in INTERNAL_PACKAGE_TOP_SKILLS
+    }
+    for skill_id in INTERNAL_PACKAGE_TOP_SKILLS:
+        skill_dir = root / ".pi/skills" / skill_id
+        registry_path = skill_dir / "INTERNAL-PACKAGES.json"
+        routing_path = skill_dir / "references/internal-package-routing.md"
+        if not registry_path.is_file() or registry_path.is_symlink():
+            errors.append(f"internal-package registry missing: {skill_id}")
+            continue
+        if not routing_path.is_file() or routing_path.is_symlink():
+            errors.append(f"internal-package routing guide missing: {skill_id}")
+        try:
+            registry = load_json(registry_path)
+            if registry.get("top_level_skill") != skill_id:
+                errors.append(f"internal-package registry owner mismatch: {skill_id}")
+            owned = {item.get("package_id") for item in registry.get("owned_packages", []) if isinstance(item, dict)}
+            if owned != classified_by_owner[skill_id]:
+                errors.append(f"internal-package owned set mismatch: {skill_id}")
+            if any(item.get("public_body_included") is not False for item in registry.get("owned_packages", []) if isinstance(item, dict)):
+                errors.append(f"held package body flag mismatch: {skill_id}")
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            errors.append(f"internal-package registry invalid {skill_id}: {exc}")
+        if (skill_dir / "internal-packages").exists():
+            errors.append(f"HOLD package bodies must not enter the public repository: {skill_id}")
+        entry = skill_dir / "SKILL.md"
+        if entry.is_file():
+            entry_text = entry.read_text(encoding="utf-8")
+            if "INTERNAL-PACKAGES.json" not in entry_text or "references/internal-package-routing.md" not in entry_text:
+                errors.append(f"top-level Skill does not route internal packages: {skill_id}")
 
     skill_suite_bytes = 0
     consolidated_skill_ids = expected_skill_ids - {"solve"}

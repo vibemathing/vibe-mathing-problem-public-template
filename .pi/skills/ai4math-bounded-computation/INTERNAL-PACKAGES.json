@@ -1,0 +1,29 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "owned_packages": [
+    {
+      "capabilities": [
+        "model/property separation",
+        "abstraction soundness",
+        "state-space control"
+      ],
+      "package_id": "baier-katoen-model-checking",
+      "public_body_included": false,
+      "source_family": "baier-katoen-model-checking"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "problem-to-method fit",
+        "verification-first experimentation",
+        "informative failure"
+      ],
+      "package_id": "ai-for-mathematics",
+      "primary_owner": "ai4math-source-discovery"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "top_level_skill": "ai4math-bounded-computation"
+}
