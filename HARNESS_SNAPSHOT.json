@@ -2,74 +2,74 @@
   "active_skills": [
     {
       "entry": ".pi/skills/ai4math-assurance-admission/SKILL.md",
-      "entry_sha256": "c20468c5fab97118ba574c766c474ad7ed14d6a1aa6a2458e1cf59275cf1d30d",
+      "entry_sha256": "c1fee24e444faeab4f22c7c4ed0b2d1611f9bf58d85e8631aab6d01da72503cc",
       "skill_id": "ai4math-assurance-admission",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/ai4math-bounded-computation/SKILL.md",
-      "entry_sha256": "eadbd8b93d7927c85247378fe17eebebe89bfaf3d23b0e0c5499ad0a66f5f605",
+      "entry_sha256": "58720c5d7c73519108938a289cd2cd46ed3388325fff4dd7290510c695441d4b",
       "skill_id": "ai4math-bounded-computation",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/ai4math-lean-formalization/SKILL.md",
-      "entry_sha256": "d7200af5ed58b7bafefb531dee309e4085eada329be618dee67c3f2f61dbbc08",
+      "entry_sha256": "4975006512820c130e041bcec460dc6667c5c8550f84420d7a514366b3a821e8",
       "skill_id": "ai4math-lean-formalization",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/ai4math-modeling-derivation/SKILL.md",
-      "entry_sha256": "b98bd8c1f3a9640a080143ebd5deae4d43fff00318063bf9b5e86db40f2da088",
+      "entry_sha256": "e20bd3b51be54739471e6bbe92fc3de8e8d75bef7f90f4bee76e21bcc8c3d70d",
       "skill_id": "ai4math-modeling-derivation",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "active"
     },
     {
       "entry": ".pi/skills/ai4math-proof-refutation/SKILL.md",
-      "entry_sha256": "10342bc2b6c3e0f8cdf747afeb7e3aae7dd3ef2f5af9faaac470cdd3e3d6701d",
+      "entry_sha256": "33bd1bbd7d09d979529fe49025061ae50b8b6d8a0a34e43c5338080e3826a61b",
       "skill_id": "ai4math-proof-refutation",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "active"
     },
     {
       "entry": ".pi/skills/ai4math-source-discovery/SKILL.md",
-      "entry_sha256": "de0c419b8c4e4e185bb5e299cb5b759a4c328dddcb7a2eea9198600e9fc9526f",
+      "entry_sha256": "0f2776c32224c313c943164e77b206c12472cb030c0f0d6a82c20e2dc161520d",
       "skill_id": "ai4math-source-discovery",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "active"
     },
     {
       "entry": ".pi/skills/ai4math-toolchain-reproducibility/SKILL.md",
-      "entry_sha256": "c7dab252042407c3a8c0c4fe7f8fb5f1d9336e379b37647094b88d953c5319c2",
+      "entry_sha256": "c436ffc08a36b6be58aef825790789db8b840049948720d7a846ef5d7766ff14",
       "skill_id": "ai4math-toolchain-reproducibility",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/mathematics-in-lean/SKILL.md",
-      "entry_sha256": "111d841454e8dd110ca7c9daa8132c0a84a2dfdda6c0ee7aa1e917a9eb85493b",
+      "entry_sha256": "58a1647bb4e6bf8934a31655be6f0ca623093d46145298ed7ccec5de0dffd00d",
       "skill_id": "mathematics-in-lean",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "active"
     },
     {
       "entry": ".pi/skills/prove2me/SKILL.md",
-      "entry_sha256": "8140d0e64c643c52cfdb6db06267b28c35c29f3985bdd284b7f3779fca231737",
+      "entry_sha256": "535dfa98839d78543d9c00259ccb3a1a3647933a0f7c0bad6062ae079bb1b190",
       "skill_id": "prove2me",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "web_status": "constrained"
     }
   ],
   "builder": {
     "id": "build-problem-repository",
-    "sha256": "627d8f7af875d21683c45996a06fc6b87d493b55aa330d0f66d612b451482783",
-    "version": "1.7.0"
+    "sha256": "7b379a296349c41df76489cd0c80f53626430df933cf5f7aabbeec87b92697e2",
+    "version": "1.8.0"
   },
-  "built_at": "2026-09-19T08:58:42+08:00",
+  "built_at": "2026-09-19T09:13:55+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -147,28 +147,36 @@
       "sha256": "4df4edb1348be5ee412e8e127c08b8ced9a089a1cdf90ffe8e158694c6ae560d"
     },
     {
-      "bytes": 1630,
+      "bytes": 8368,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/CONSOLIDATION-MAP.md",
+      "sha256": "87d3c47cc1421e16773c689f171625eadc72d1356eccc722d075911875b581dc"
+    },
+    {
+      "bytes": 1902,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/README.md",
-      "sha256": "428367a633dfa3aa2da3bce98bda454c03ca1f3af791c87e7a92341c7bea01fe"
+      "sha256": "f22f64c29ebd727ee199c419d84324d1aab090490c4bc3d373d77f6bc17f841a"
     },
     {
-      "bytes": 163,
+      "bytes": 456,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-assurance-admission/CHANGELOG.md",
-      "sha256": "128e474b76c03e4e9b86d07b694dbd7d282ce657da3873bde1d499e9c0d2b57a"
+      "sha256": "849c85320958827942fa4ee8524779d48fdfa228387cf95bbc8c43a9483a8f41"
     },
     {
-      "bytes": 1519,
+      "bytes": 1854,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-assurance-admission/SKILL.md",
-      "sha256": "c20468c5fab97118ba574c766c474ad7ed14d6a1aa6a2458e1cf59275cf1d30d"
+      "sha256": "c1fee24e444faeab4f22c7c4ed0b2d1611f9bf58d85e8631aab6d01da72503cc"
     },
     {
       "bytes": 6,
@@ -176,23 +184,31 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-assurance-admission/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
     },
     {
-      "bytes": 1578,
+      "bytes": 5126,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/ai4math-assurance-admission/references/consolidated-core.md",
+      "sha256": "ad7bb1bdf4a77b1e68d8449f87d0e42b7a63012b9901df5c1b7d1a1843335184"
+    },
+    {
+      "bytes": 1871,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-bounded-computation/CHANGELOG.md",
-      "sha256": "57a82420fc71ca8cf4bd9909a1d05da249bf9146980db8e9a0ae10497ab0b05e"
+      "sha256": "a6942cfbd2990110f642cf8d5d79dd1680272eef71c9b70b86d4fd0f7c673dae"
     },
     {
-      "bytes": 6454,
+      "bytes": 6861,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-bounded-computation/SKILL.md",
-      "sha256": "eadbd8b93d7927c85247378fe17eebebe89bfaf3d23b0e0c5499ad0a66f5f605"
+      "sha256": "58720c5d7c73519108938a289cd2cd46ed3388325fff4dd7290510c695441d4b"
     },
     {
       "bytes": 6,
@@ -200,15 +216,23 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-bounded-computation/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
     },
     {
-      "bytes": 227,
+      "bytes": 5314,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/ai4math-bounded-computation/references/consolidated-core.md",
+      "sha256": "a1391aaf88d8046706503c04e79c287e25fd8161e149884c886ab38733b6dbc1"
+    },
+    {
+      "bytes": 346,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-bounded-computation/references/index.md",
-      "sha256": "d92af8d0d8b9bde6cfcadd58e546e31a855c7c8760f612be6f713d8bcf85609f"
+      "sha256": "88a0396c0b60e30c0ab782f2874e0890f776d611cc22f201460cabb50bd811a2"
     },
     {
       "bytes": 1154,
@@ -235,20 +259,20 @@
       "sha256": "bce118ee73dcacc1d45734e0dc49790b7faba033e1a10d63cffbfc5ec1692cb3"
     },
     {
-      "bytes": 1230,
+      "bytes": 1523,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-lean-formalization/CHANGELOG.md",
-      "sha256": "cb33daa83e9dbf4f29a41f2ac3ecac911d7c8703ab4d7970cfa5d94f393ebcbd"
+      "sha256": "3ee8bd51c6b7e95ceaa6093853692449cef43382a696d45a75a04565b568efa9"
     },
     {
-      "bytes": 5146,
+      "bytes": 5595,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-lean-formalization/SKILL.md",
-      "sha256": "d7200af5ed58b7bafefb531dee309e4085eada329be618dee67c3f2f61dbbc08"
+      "sha256": "4975006512820c130e041bcec460dc6667c5c8550f84420d7a514366b3a821e8"
     },
     {
       "bytes": 6,
@@ -256,15 +280,23 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-lean-formalization/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
     },
     {
-      "bytes": 142,
+      "bytes": 6247,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/ai4math-lean-formalization/references/consolidated-core.md",
+      "sha256": "5a78c1f4a94d660acbd650412ace0274577a5f742c715d7427b5b2bb5b606218"
+    },
+    {
+      "bytes": 264,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-lean-formalization/references/index.md",
-      "sha256": "5eab84367ed99f7a8911754519bef286fc2f644dcfab3b0f912c7ebd77a1dec1"
+      "sha256": "8177951b7353a068be9176a5661b19a507fb945e7eb3836d3ba6465d4f80bd0c"
     },
     {
       "bytes": 2462,
@@ -283,20 +315,20 @@
       "sha256": "36963cb6c3a9317c8cd16fa0d1351e3be36770b8311972b3c4a324b26ca53d08"
     },
     {
-      "bytes": 770,
+      "bytes": 1063,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-modeling-derivation/CHANGELOG.md",
-      "sha256": "5685e2197eea2e72b78942f066bf9510f4b1daf53c690235fdd259efe5156252"
+      "sha256": "7c1a496c242ab5d2a8bfa0a47240e3e845b7182c4a89a71d69b084f510d08ca4"
     },
     {
-      "bytes": 3292,
+      "bytes": 3675,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-modeling-derivation/SKILL.md",
-      "sha256": "b98bd8c1f3a9640a080143ebd5deae4d43fff00318063bf9b5e86db40f2da088"
+      "sha256": "e20bd3b51be54739471e6bbe92fc3de8e8d75bef7f90f4bee76e21bcc8c3d70d"
     },
     {
       "bytes": 6,
@@ -304,15 +336,23 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-modeling-derivation/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
     },
     {
-      "bytes": 138,
+      "bytes": 5626,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/ai4math-modeling-derivation/references/consolidated-core.md",
+      "sha256": "6716537792f271b11d501398f7bf8a33da6c11349c63395a7a8a91fe496747f6"
+    },
+    {
+      "bytes": 242,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-modeling-derivation/references/index.md",
-      "sha256": "cfac5585b216a69ea11db338c290d5751bd3f551f71e7cc518231a408c7566ec"
+      "sha256": "abc0caa36182cda047e6eae8bbb0ae2eaee977188af9b934e59b2fa6628dcd6f"
     },
     {
       "bytes": 356,
@@ -331,20 +371,20 @@
       "sha256": "4079ba1d3f2925c4db76ad54421a5c98bae1c0f3b0f24929d273601b58d81a4e"
     },
     {
-      "bytes": 1150,
+      "bytes": 1443,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-proof-refutation/CHANGELOG.md",
-      "sha256": "58367ad9169fd24d1cf16a02e91fc4f2b9c1a9f1f33753921b799860518fbfb8"
+      "sha256": "eb301c1c0c957e5bf534ddd21b494814a65c528539745182658af3883c182185"
     },
     {
-      "bytes": 4530,
+      "bytes": 4935,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-proof-refutation/SKILL.md",
-      "sha256": "10342bc2b6c3e0f8cdf747afeb7e3aae7dd3ef2f5af9faaac470cdd3e3d6701d"
+      "sha256": "33bd1bbd7d09d979529fe49025061ae50b8b6d8a0a34e43c5338080e3826a61b"
     },
     {
       "bytes": 6,
@@ -352,15 +392,23 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-proof-refutation/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
     },
     {
-      "bytes": 147,
+      "bytes": 5726,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/ai4math-proof-refutation/references/consolidated-core.md",
+      "sha256": "9aa8393f99f32b31059a657454d3973070c976246f42b0c65dcdfce5fd4420ce"
+    },
+    {
+      "bytes": 266,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-proof-refutation/references/index.md",
-      "sha256": "71c1a0265f18b6f6a52e7dce6ecac18a580a68adc5a03cbaeee0441827000108"
+      "sha256": "c6b1b670188782661c88ab04b82a55e58d2389b208eadf118df3ed187d4a4d7f"
     },
     {
       "bytes": 2129,
@@ -379,20 +427,20 @@
       "sha256": "74007ddeac312ccb536b5db351e66906b15b1ec9777263f03ef3268e55cf5f3e"
     },
     {
-      "bytes": 856,
+      "bytes": 1149,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-source-discovery/CHANGELOG.md",
-      "sha256": "ff20c34af8b438c61fac004b84396005c572ce99872039321a8bb40dcb3ae5ba"
+      "sha256": "5dfea0aeb6fb6a78b2bd6ef7e7d5c68897b76728f9ac62af83d3c95debf02c50"
     },
     {
-      "bytes": 4638,
+      "bytes": 5040,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-source-discovery/SKILL.md",
-      "sha256": "de0c419b8c4e4e185bb5e299cb5b759a4c328dddcb7a2eea9198600e9fc9526f"
+      "sha256": "0f2776c32224c313c943164e77b206c12472cb030c0f0d6a82c20e2dc161520d"
     },
     {
       "bytes": 6,
@@ -400,15 +448,23 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-source-discovery/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
     },
     {
-      "bytes": 141,
+      "bytes": 5577,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/ai4math-source-discovery/references/consolidated-core.md",
+      "sha256": "873bb08f13455ec57666d5dd13558a58ba1327f36dc811b877302eb840d6131d"
+    },
+    {
+      "bytes": 257,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-source-discovery/references/index.md",
-      "sha256": "86ba5d6c1966edc52ccf9ee8b52b80d6db9b15d08277e3c43b57f729e9911939"
+      "sha256": "50c83296c96fe17fbf2c13d66deb8c10cfc062d792e8be1ead50fabf8e14006f"
     },
     {
       "bytes": 975,
@@ -435,20 +491,20 @@
       "sha256": "fcda78a74692ea18f8241f3ed423075c647bd9112072abf4ae18555271b28811"
     },
     {
-      "bytes": 659,
+      "bytes": 952,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-toolchain-reproducibility/CHANGELOG.md",
-      "sha256": "76d38f5f5d09fc81c9a086eb159812f85e12923871635942b0689a92d4c82000"
+      "sha256": "25ce57dd1167abf0c607583502ebf298bb0167cc8a5fd07f846d52806201e398"
     },
     {
-      "bytes": 2533,
+      "bytes": 2852,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-toolchain-reproducibility/SKILL.md",
-      "sha256": "c7dab252042407c3a8c0c4fe7f8fb5f1d9336e379b37647094b88d953c5319c2"
+      "sha256": "c436ffc08a36b6be58aef825790789db8b840049948720d7a846ef5d7766ff14"
     },
     {
       "bytes": 6,
@@ -456,23 +512,31 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/ai4math-toolchain-reproducibility/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
     },
     {
-      "bytes": 182,
+      "bytes": 4854,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/ai4math-toolchain-reproducibility/references/consolidated-core.md",
+      "sha256": "4e2215796fa2af6290e48bc5b9179f7703939ff6853b2f258232bc71ee5d1618"
+    },
+    {
+      "bytes": 475,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/mathematics-in-lean/CHANGELOG.md",
-      "sha256": "0a1795f3310d63337591505e91c052f05ba1227aa696cfd1a122447e995a2aaf"
+      "sha256": "38642a3ed142f2dc66f33ae6119fec2f5e49651b03c8fa0acbdc7b2130036b69"
     },
     {
-      "bytes": 1482,
+      "bytes": 1940,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/mathematics-in-lean/SKILL.md",
-      "sha256": "111d841454e8dd110ca7c9daa8132c0a84a2dfdda6c0ee7aa1e917a9eb85493b"
+      "sha256": "58a1647bb4e6bf8934a31655be6f0ca623093d46145298ed7ccec5de0dffd00d"
     },
     {
       "bytes": 6,
@@ -480,23 +544,31 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/mathematics-in-lean/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
     },
     {
-      "bytes": 175,
+      "bytes": 5800,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/mathematics-in-lean/references/consolidated-core.md",
+      "sha256": "95342df0cb3a33aebb22d1d6830aace64eb35d9e24a80f2b148f241060832035"
+    },
+    {
+      "bytes": 468,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/prove2me/CHANGELOG.md",
-      "sha256": "0ab4b9a115ddffeff50524bf92273d5b2476f1bba8e6fa18df5373c1e44766a2"
+      "sha256": "c518338880c1496c40b0aa4eccd5a7793eb9cd929df82c52b8335f04d4eb8dca"
     },
     {
-      "bytes": 1414,
+      "bytes": 1698,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/prove2me/SKILL.md",
-      "sha256": "8140d0e64c643c52cfdb6db06267b28c35c29f3985bdd284b7f3779fca231737"
+      "sha256": "535dfa98839d78543d9c00259ccb3a1a3647933a0f7c0bad6062ae079bb1b190"
     },
     {
       "bytes": 6,
@@ -504,7 +576,15 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/prove2me/VERSION",
-      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
+    },
+    {
+      "bytes": 4458,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/prove2me/references/consolidated-core.md",
+      "sha256": "83ea0c23978b4d5f12cf211a7c2f397b430f5963d3f413d74a82443d8b56629b"
     },
     {
       "bytes": 41648,
@@ -544,7 +624,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "WEB_ACTIVE_SKILLS.json",
-      "sha256": "8ffe2f9489199a0b5f5d0f39903736bda238035f4154e6159de36ad351d08f62"
+      "sha256": "bbe8327d3fe8cfb06ea17e40c499e2a1635961d85f50f334148afd0e61dbfa18"
     },
     {
       "bytes": 5558,
@@ -560,7 +640,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "WEB_CONTEXT_BUNDLE.md",
-      "sha256": "330c1e1414a372e76003741d4878e4d577e7e2688c8154eb9597f88640e21102"
+      "sha256": "98976e00bd15396deb14482e149c624f126da83a3a99628b2e8ab14453f5be69"
     },
     {
       "bytes": 8686,
@@ -736,7 +816,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "governance/control-plane/harness-source-manifest.v1.json",
-      "sha256": "5692b9bcf36a392a97c1f6b562342d16fe65a74547c526cf1dcee6d894053ea9"
+      "sha256": "4612a040b865286fe26add206d5ac7ed0f57584e8e7a4b97ac6411731d6457e6"
     },
     {
       "bytes": 2275,
@@ -1176,7 +1256,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_problem_repository.py",
-      "sha256": "627d8f7af875d21683c45996a06fc6b87d493b55aa330d0f66d612b451482783"
+      "sha256": "7b379a296349c41df76489cd0c80f53626430df933cf5f7aabbeec87b92697e2"
     },
     {
       "bytes": 5361,
@@ -1259,12 +1339,12 @@
       "sha256": "af0b5c71e79cca2a5d6d56eb30d78670d6439d93c1bc212dc0a0766772da1a71"
     },
     {
-      "bytes": 26908,
+      "bytes": 28407,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "afcac2ed786c674d39379f1c115f188797eaa0fa917105c4effb6c5b13709062"
+      "sha256": "eca48292c2bce0ce4baaf4471e6b96723cc0e2b6822e964b48169d83629f3c42"
     },
     {
       "bytes": 2410,
@@ -1395,7 +1475,7 @@
       "sha256": "e250018898ae62ffb669974f48b007b688844a23fa5543a5f6e379aaca20bc59"
     }
   ],
-  "harness_version": "1.7.0",
+  "harness_version": "1.8.0",
   "problem": {
     "admission": "preview_unadmitted",
     "contract_sha256": "e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940",
@@ -1415,10 +1495,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "879fc95676856dcb1870a49015241f6d66cc17c7",
+    "commit": "2d0754d915bfb698c1c966f64063650e658899c7",
     "repository": "reviewed-public-export",
-    "source_manifest_sha256": "5692b9bcf36a392a97c1f6b562342d16fe65a74547c526cf1dcee6d894053ea9",
+    "source_manifest_sha256": "4612a040b865286fe26add206d5ac7ed0f57584e8e7a4b97ac6411731d6457e6",
     "worktree_dirty": false
   },
-  "tree_sha256": "d3e4ae32156517da713adc8d698ef1de66f876cc47dfeb252fb4cd4ff23f1380"
+  "tree_sha256": "e720b65392ee4095f3cf2fd0b33895c1660fa107195289ecf7c1df62658b23ed"
 }
