@@ -103,6 +103,8 @@ class ContextBundleTests(unittest.TestCase):
         self.assertEqual(payload["context_selection"]["status"], "no_active_execution_context")
         self.assertFalse(payload["context_selection"]["research_ready"])
         self.assertIsNone(payload["selected_execution_context"])
+        self.assertTrue(payload["freshness"]["recompute_when_input_digest_changes"])
+        self.assertEqual(payload["freshness"]["input_ledgers"]["research/records/attempts.jsonl"]["record_count"], 0)
 
     def test_multiple_active_attempts_fail_closed_to_catalog(self) -> None:
         with tempfile.TemporaryDirectory() as raw:

@@ -530,6 +530,25 @@ def render_context(
         "problem_contract_sha256": canonical_json_sha256(problem),
         "context_selection": selection,
         "selected_execution_context": selected_context,
+        "freshness": {
+            "bundle_role": "bounded_navigation_cache",
+            "authoritative_state": "fresh_repository_ledgers_and_live_github_objects",
+            "recompute_when_input_digest_changes": True,
+            "input_ledgers": {
+                "research/records/attempts.jsonl": {
+                    "record_count": len(attempts),
+                    "records_sha256": canonical_json_sha256(attempts),
+                },
+                "research/records/obligation-graphs.jsonl": {
+                    "record_count": len(graphs),
+                    "records_sha256": canonical_json_sha256(graphs),
+                },
+                "research/records/failed-routes.jsonl": {
+                    "record_count": len(failed),
+                    "records_sha256": canonical_json_sha256(failed),
+                },
+            },
+        },
         "execution_catalog": {
             "attempts": attempt_catalog,
             "obligation_graphs": graph_catalog,
@@ -575,10 +594,11 @@ This file is generated from repository truth and bounded by `governance/control-
 2. Read the execution-context profile and confirm its digest-bound limits.
 3. Check the exact ProblemContract and its SHA-256 below.
 4. Check `context_selection.status`. Only `ready` permits mathematical work; `no_active_execution_context` is maintenance/pre-admission only; ambiguous, inconsistent, missing, or invalid states are fail-closed.
-5. When `ready`, use only the selected Attempt/Route/ObligationGraph/Obligation and its bounded dependency closure. The catalogs are navigation indexes, not permission grants.
-6. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. Complete package bodies are bundled at repository-relative paths; rights remain HOLD and bundling does not grant publication or execution authority.
-7. Search registered mathematical knowledge sources before inventing a new theorem.
-8. Never claim that Issue, PR, AI review, merge, Actions status, package build, search hit, test success, or this context closes mathematics.
+5. Treat the bundle as a bounded navigation cache. Fresh repository ledgers and live GitHub state outrank it; compare the input-ledger digests before relying on a selected context.
+6. When `ready`, use only the selected Attempt/Route/ObligationGraph/Obligation and its bounded dependency closure. The catalogs are navigation indexes, not permission grants.
+7. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. Complete package bodies are bundled at repository-relative paths; rights remain HOLD and bundling does not grant publication or execution authority.
+8. Search registered mathematical knowledge sources before inventing a new theorem.
+9. Never claim that Issue, PR, AI review, merge, Actions status, package build, search hit, test success, or this context closes mathematics.
 
 ## Compiled repository truth
 

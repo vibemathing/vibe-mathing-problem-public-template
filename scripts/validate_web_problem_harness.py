@@ -18,6 +18,7 @@ from vibe_mathing.reasoning import strip_reasoning_agent_overlay
 from vibe_mathing.web_channel import (
     canonical_json_sha256,
     load_json,
+    load_jsonl,
     load_problem,
     scan_private_text,
     sha256_file,
@@ -337,6 +338,8 @@ def validate(root: Path) -> list[str]:
         errors.extend(f"execution-context profile: {message}" for message in validate_schema(context_profile, context_profile_schema))
         bundle_path = root / "WEB_CONTEXT_BUNDLE.md"
         bundle_text = bundle_path.read_text(encoding="utf-8")
+        for label in scan_private_text(bundle_text):
+            errors.append(f"WEB_CONTEXT_BUNDLE privacy finding {label}")
         if len(bundle_text) > context_profile.get("max_chars", 0):
             errors.append("WEB_CONTEXT_BUNDLE exceeds the configured execution-context budget")
         marker = "```json\n"
@@ -351,6 +354,25 @@ def validate(root: Path) -> list[str]:
                 errors.append("WEB_CONTEXT_BUNDLE execution-context profile drift")
             if payload.get("problem_contract_sha256") != canonical_json_sha256(problem):
                 errors.append("WEB_CONTEXT_BUNDLE ProblemContract digest mismatch")
+            freshness = payload.get("freshness", {})
+            if freshness.get("bundle_role") != "bounded_navigation_cache":
+                errors.append("WEB_CONTEXT_BUNDLE freshness role mismatch")
+            if freshness.get("authoritative_state") != "fresh_repository_ledgers_and_live_github_objects":
+                errors.append("WEB_CONTEXT_BUNDLE freshness authority mismatch")
+            if freshness.get("recompute_when_input_digest_changes") is not True:
+                errors.append("WEB_CONTEXT_BUNDLE lacks input-digest refresh rule")
+            expected_ledgers = {
+                "research/records/attempts.jsonl": root / "research/records/attempts.jsonl",
+                "research/records/obligation-graphs.jsonl": root / "research/records/obligation-graphs.jsonl",
+                "research/records/failed-routes.jsonl": root / "research/records/failed-routes.jsonl",
+            }
+            for relative, ledger_path in expected_ledgers.items():
+                ledger = load_jsonl(ledger_path)
+                observed = freshness.get("input_ledgers", {}).get(relative, {})
+                if observed.get("record_count") != len(ledger):
+                    errors.append(f"WEB_CONTEXT_BUNDLE ledger count mismatch: {relative}")
+                if observed.get("records_sha256") != canonical_json_sha256(ledger):
+                    errors.append(f"WEB_CONTEXT_BUNDLE ledger digest mismatch: {relative}")
             digest_input = dict(payload)
             digest_input.pop("context_payload_sha256", None)
             if payload.get("context_payload_sha256") != canonical_json_sha256(digest_input):

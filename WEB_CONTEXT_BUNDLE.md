@@ -8,10 +8,11 @@ This file is generated from repository truth and bounded by `governance/control-
 2. Read the execution-context profile and confirm its digest-bound limits.
 3. Check the exact ProblemContract and its SHA-256 below.
 4. Check `context_selection.status`. Only `ready` permits mathematical work; `no_active_execution_context` is maintenance/pre-admission only; ambiguous, inconsistent, missing, or invalid states are fail-closed.
-5. When `ready`, use only the selected Attempt/Route/ObligationGraph/Obligation and its bounded dependency closure. The catalogs are navigation indexes, not permission grants.
-6. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. Complete package bodies are bundled at repository-relative paths; rights remain HOLD and bundling does not grant publication or execution authority.
-7. Search registered mathematical knowledge sources before inventing a new theorem.
-8. Never claim that Issue, PR, AI review, merge, Actions status, package build, search hit, test success, or this context closes mathematics.
+5. Treat the bundle as a bounded navigation cache. Fresh repository ledgers and live GitHub state outrank it; compare the input-ledger digests before relying on a selected context.
+6. When `ready`, use only the selected Attempt/Route/ObligationGraph/Obligation and its bounded dependency closure. The catalogs are navigation indexes, not permission grants.
+7. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. Complete package bodies are bundled at repository-relative paths; rights remain HOLD and bundling does not grant publication or execution authority.
+8. Search registered mathematical knowledge sources before inventing a new theorem.
+9. Never claim that Issue, PR, AI review, merge, Actions status, package build, search hit, test success, or this context closes mathematics.
 
 ## Compiled repository truth
 
@@ -90,7 +91,7 @@ This file is generated from repository truth and bounded by `governance/control-
     }
   ],
   "context_bundle_version": "2.0.0",
-  "context_payload_sha256": "c633eabc51b8a94fefde1c540334dea118d70426049b7769a3d6244050aa236b",
+  "context_payload_sha256": "b917d0bfa0163c1dde07fdea913df211e78c490a5c0a0843ce0075c6860f6bc4",
   "context_policy": {
     "budgets": {
       "max_attempt_catalog": 32,
@@ -150,6 +151,25 @@ This file is generated from repository truth and bounded by `governance/control-
       "omitted_count": 0,
       "total": 0
     }
+  },
+  "freshness": {
+    "authoritative_state": "fresh_repository_ledgers_and_live_github_objects",
+    "bundle_role": "bounded_navigation_cache",
+    "input_ledgers": {
+      "research/records/attempts.jsonl": {
+        "record_count": 0,
+        "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "research/records/failed-routes.jsonl": {
+        "record_count": 0,
+        "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "research/records/obligation-graphs.jsonl": {
+        "record_count": 0,
+        "records_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "recompute_when_input_digest_changes": true
   },
   "internal_package_routing": {
     "package_catalog": {
