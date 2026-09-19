@@ -292,7 +292,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         if excluded_skill_ids.intersection(relative.parts):
             raise RuntimeError(f"excluded container Skill in problem repository template: {relative}")
         if relative.as_posix() in {
-            "WEB_BOOTSTRAP.md", "WEB_BOOTSTRAP.md.in", ".pi/settings.json.in",
+            "WEB_BOOTSTRAP.md", ".pi/settings.json.in",
             "HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json",
         }:
             continue
