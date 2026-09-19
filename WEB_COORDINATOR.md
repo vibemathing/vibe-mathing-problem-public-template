@@ -35,9 +35,10 @@ Read in this order:
 
 1. `AGENTS.md`;
 2. `WEB_BOOTSTRAP.md`;
-3. `WEB_CHANNEL_PROFILE.json`;
-4. `HARNESS_SNAPSHOT.json`;
-5. `WEB_CONTEXT_BUNDLE.md`;
+3. `governance/control-plane/web-context-profile.v1.json`;
+4. `WEB_CHANNEL_PROFILE.json`;
+5. `HARNESS_SNAPSHOT.json`;
+6. `WEB_CONTEXT_BUNDLE.md`;
 6. `WEB_ACTIVE_SKILLS.json`;
 7. `problem-library/records/canonical-problems.jsonl`;
 8. `research/records/failed-routes.jsonl`;
