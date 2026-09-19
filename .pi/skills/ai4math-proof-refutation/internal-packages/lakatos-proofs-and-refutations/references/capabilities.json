@@ -1,0 +1,772 @@
+[
+  {
+    "name": "counterexample-triage",
+    "purpose": "Classify failures as global/local/heuristic and choose the next method",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj3",
+      "ch01-mllj4",
+      "ch01-mllj13",
+      "ch01-mllj16",
+      "ch01-mllj24"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "proof-decomposition",
+    "purpose": "Turn an informal proof into criticizable non-trivial lemmas",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj2",
+      "ch01-mllj13"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "falsity-transfer-check",
+    "purpose": "Detect incomplete proof analysis when global failure does not hit an explicit lemma",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj12",
+      "ch01-mllj13"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "hidden-lemma-search",
+    "purpose": "Expose tacit assumptions and design discriminating counterexamples",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj12",
+      "app01-mllj3",
+      "app01-mllj5"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "lemma-incorporation",
+    "purpose": "Convert a refuted proof dependency into a theorem condition",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj9",
+      "ch01-mllj13"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "rule4-proof-repair",
+    "purpose": "Replace a locally refuted lemma or invent a deeper proof",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj16",
+      "ch01-mllj17",
+      "ch01-mllj18"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "deductive-guessing",
+    "purpose": "Generate a deeper theorem from proof/problem structure",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj22",
+      "ch01-mllj23"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "monster-barring-audit",
+    "purpose": "Detect definitional exclusion used to protect a claim",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj6",
+      "ch01-mllj11",
+      "ch01-mllj26"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "exception-barring-audit",
+    "purpose": "Detect safe-domain retreat and assess proof relevance",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj7",
+      "ch01-mllj9",
+      "app01-mllj4"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "monster-adjusting-audit",
+    "purpose": "Detect reinterpretation that makes a counterexample conform",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj8"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "concept-stretching-audit",
+    "purpose": "Track concept expansion and control arbitrary semantic refutation",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj26",
+      "ch01-mllj29",
+      "ch01-mllj32",
+      "ch01-mllj33"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "proof-generated-concept",
+    "purpose": "Derive definitions/classifications from proof needs",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj27",
+      "app01-mllj3",
+      "app02-mllj3",
+      "app02-mllj5",
+      "app02-mllj6"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "proof-content-comparison",
+    "purpose": "Compare proofs by scope, depth, concepts, and refutation productivity",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch01-mllj16",
+      "ch01-mllj17",
+      "ch01-mllj18",
+      "ch02-mllj4"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "translation-procedure-audit",
+    "purpose": "Separate faithful translation from stipulative redefinition",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch02-mllj2",
+      "ch02-mllj4"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "dominant-theory-audit",
+    "purpose": "Identify the background theory underwriting rigor and its assumptions",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch02-mllj4"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "formal-proof-boundary",
+    "purpose": "Separate mechanical derivation checking from translation/model fidelity",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "ch02-mllj4"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "heuristic-reconstruction",
+    "purpose": "Recover problem→proof→failure→definition ancestry from polished exposition",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "app02-mllj2",
+      "app02-mllj3",
+      "app02-mllj4",
+      "app02-mllj5",
+      "app02-mllj6"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  },
+  {
+    "name": "cross-proof-concept-validation",
+    "purpose": "Test a proof-generated concept in neighboring proofs",
+    "trigger": "Use when the task exhibits the failure/decision shape named by this capability.",
+    "required_context": [
+      "claim or target",
+      "proof/argument if available",
+      "counterexample or failure evidence if available"
+    ],
+    "inputs": [
+      "user problem context"
+    ],
+    "procedure": "See SKILL.md routing and the linked chapter procedure.",
+    "decision_points": [
+      "global vs local failure",
+      "proof-linked vs ad hoc restriction",
+      "current-proof repair vs deeper-proof search"
+    ],
+    "outputs": [
+      "diagnosis",
+      "repair path",
+      "next discriminating tests",
+      "scope warning"
+    ],
+    "failure_conditions": [
+      "insufficient proof detail",
+      "ambiguous definitions",
+      "multiple indistinguishable hidden assumptions"
+    ],
+    "fallback": "Return an underdetermined diagnosis and specify the smallest next test that discriminates alternatives.",
+    "validation": [
+      "trace new restrictions to proof dependencies",
+      "retest revised claim",
+      "preserve unresolved uncertainty"
+    ],
+    "related_capabilities": [],
+    "source_provenance": [
+      "app01-mllj5",
+      "app02-mllj5"
+    ],
+    "derivation_type": "SOURCE_DERIVED"
+  }
+]

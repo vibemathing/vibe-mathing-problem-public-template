@@ -1,0 +1,570 @@
+{
+  "structure": [
+    {
+      "id": "front",
+      "title": "Front matter",
+      "function": "editorial framing, author methodology, publication data"
+    },
+    {
+      "id": "ch01",
+      "title": "证明与反驳",
+      "function": "core heuristic engine: counterexamples, proof analysis, Rules 1–5, concept formation"
+    },
+    {
+      "id": "ch02",
+      "title": "Translation and formal proof",
+      "function": "translation procedure, dominant theories, formal proof boundary"
+    },
+    {
+      "id": "app01",
+      "title": "Case study: uniform convergence",
+      "function": "hidden-lemma discovery and proof-generated concept"
+    },
+    {
+      "id": "app02",
+      "title": "Deductivist method vs heuristic method",
+      "function": "proof-ancestor reconstruction and explanatory presentation"
+    },
+    {
+      "id": "bibliography",
+      "title": "参考书目",
+      "function": "historical source base"
+    },
+    {
+      "id": "name-index",
+      "title": "人名译名对照表",
+      "function": "name normalization"
+    }
+  ],
+  "reading_ledger": [
+    {
+      "id": "ch01-prelude",
+      "title": "第1章",
+      "chars": 8,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj1",
+      "title": "1．一个问题与一个猜想",
+      "chars": 354,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj2",
+      "title": "2．一个证明",
+      "chars": 1384,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj3",
+      "title": "3．用局部而非全局的反例对证明的批评",
+      "chars": 2004,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj4",
+      "title": "4．全局的反例对猜想的批评",
+      "chars": 297,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj5",
+      "title": "（a）猜想之拒斥。让步法",
+      "chars": 511,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj6",
+      "title": "（b）反例之拒斥。怪物排除法",
+      "chars": 5024,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj7",
+      "title": "（c）以例外排除法改进猜想。逐步排除。策略性撤退或稳扎稳打",
+      "chars": 4348,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj8",
+      "title": "（d）怪物校正法",
+      "chars": 1476,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj9",
+      "title": "（e）以引理并入法改进猜想。证明生成的定理VS.素朴的猜想",
+      "chars": 6031,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj10",
+      "title": "5．全局而非局部的反例对证明分析的批评。严格性的问题",
+      "chars": 31,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj11",
+      "title": "（a）守御定理的怪物排除",
+      "chars": 305,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj12",
+      "title": "（b）隐藏引理",
+      "chars": 2687,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj13",
+      "title": "（c）一证多驳法",
+      "chars": 1689,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj14",
+      "title": "（d）证明VS.证明分析。定理概念与证明分析之严格性概念的相对化",
+      "chars": 4843,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj15",
+      "title": "6．再论局部而非全局的反例对证明的批评。内容问题",
+      "chars": 29,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj16",
+      "title": "（a）以更深入的证明扩增内容",
+      "chars": 3994,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj17",
+      "title": "（b）向最终证明与相应的充分必要条件进军",
+      "chars": 1357,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj18",
+      "title": "（c）不同证明得出不同定理",
+      "chars": 516,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj19",
+      "title": "7．重谈内容问题",
+      "chars": 13,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj20",
+      "title": "（a）素朴猜想的素朴性",
+      "chars": 1210,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj21",
+      "title": "（b）作为多证多驳法之基础的归纳",
+      "chars": 1134,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj22",
+      "title": "（c）演绎的猜测VS.素朴的猜测",
+      "chars": 5223,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj23",
+      "title": "（d）以演绎猜测扩增内容",
+      "chars": 2903,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj24",
+      "title": "（e）逻辑的反例VS.探试的反例",
+      "chars": 1435,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj25",
+      "title": "8．概念的形成",
+      "chars": 12,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj26",
+      "title": "（a）以概念拉伸来反驳。重估怪物排除——兼重估错误与反驳之概念",
+      "chars": 2467,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj27",
+      "title": "（b）证明引生的概念VS.素朴的概念。理论分类VS.素朴分类",
+      "chars": 2328,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj28",
+      "title": "（c）再论逻辑反驳与探试反驳",
+      "chars": 657,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj29",
+      "title": "（d）理论的概念拉伸VS.素朴的概念拉伸。连续发展VS.批判发展",
+      "chars": 1656,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj30",
+      "title": "（e）内容增加的极限。理论反驳VS.素朴反驳",
+      "chars": 1940,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj31",
+      "title": "9．批评如何可把数学真理变为逻辑真理",
+      "chars": 23,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj32",
+      "title": "（a）无限制的概念拉伸摧毁意义与真理",
+      "chars": 2568,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-mllj33",
+      "title": "（b）温和的概念拉伸可将数学真理变为逻辑真理",
+      "chars": 1654,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch01-footnotes",
+      "title": "Footnotes",
+      "chars": 31285,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_1"
+    },
+    {
+      "id": "ch02-prelude",
+      "title": "第2章",
+      "chars": 8,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_2"
+    },
+    {
+      "id": "ch02-mllj1",
+      "title": "编者引言",
+      "chars": 317,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_2"
+    },
+    {
+      "id": "ch02-mllj2",
+      "title": "1．把猜想翻译成矢量代数“完全被认可的”术语。翻译的问题",
+      "chars": 7877,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_2"
+    },
+    {
+      "id": "ch02-mllj3",
+      "title": "2．猜想的另一个证明",
+      "chars": 1795,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_2"
+    },
+    {
+      "id": "ch02-mllj4",
+      "title": "3．关于证明之终极性的一些疑问。翻译的程序以及实在论者的定义方法VS.唯名论者的定义方法",
+      "chars": 4691,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_2"
+    },
+    {
+      "id": "ch02-footnotes",
+      "title": "Footnotes",
+      "chars": 3316,
+      "status": "processed",
+      "processed": true,
+      "role": "chapter_2"
+    },
+    {
+      "id": "app01-prelude",
+      "title": "附录1",
+      "chars": 8,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_1"
+    },
+    {
+      "id": "app01-mllj1",
+      "title": "多证多驳法中的另一个案例研究",
+      "chars": 19,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_1"
+    },
+    {
+      "id": "app01-mllj2",
+      "title": "1．柯西为“连续性原理”所作的辩护",
+      "chars": 2679,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_1"
+    },
+    {
+      "id": "app01-mllj3",
+      "title": "2．赛德尔的证明以及证明生成的一致收敛概念",
+      "chars": 1263,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_1"
+    },
+    {
+      "id": "app01-mllj4",
+      "title": "3．阿贝尔的例外排除法",
+      "chars": 1802,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_1"
+    },
+    {
+      "id": "app01-mllj5",
+      "title": "4．有关证明分析法之发现的障碍",
+      "chars": 3654,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_1"
+    },
+    {
+      "id": "app01-footnotes",
+      "title": "Footnotes",
+      "chars": 5104,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_1"
+    },
+    {
+      "id": "app02-prelude",
+      "title": "附录2",
+      "chars": 8,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_2"
+    },
+    {
+      "id": "app02-mllj1",
+      "title": "演绎主义方法VS.探试法",
+      "chars": 17,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_2"
+    },
+    {
+      "id": "app02-mllj2",
+      "title": "1．演绎主义方法",
+      "chars": 932,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_2"
+    },
+    {
+      "id": "app02-mllj3",
+      "title": "2．探试法。证明产生的概念",
+      "chars": 352,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_2"
+    },
+    {
+      "id": "app02-mllj4",
+      "title": "（a）一致收敛",
+      "chars": 826,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_2"
+    },
+    {
+      "id": "app02-mllj5",
+      "title": "（b）有界变分",
+      "chars": 5060,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_2"
+    },
+    {
+      "id": "app02-mllj6",
+      "title": "（c）可测集的卡拉西尔德瑞定义",
+      "chars": 1388,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_2"
+    },
+    {
+      "id": "app02-footnotes",
+      "title": "Footnotes",
+      "chars": 3935,
+      "status": "processed",
+      "processed": true,
+      "role": "appendix_2"
+    },
+    {
+      "id": "front-toc",
+      "title": "front-toc",
+      "chars": 945,
+      "status": "processed",
+      "processed": true,
+      "role": "front_matter"
+    },
+    {
+      "id": "front-bio",
+      "title": "front-bio",
+      "chars": 425,
+      "status": "processed",
+      "processed": true,
+      "role": "front_matter"
+    },
+    {
+      "id": "front-title",
+      "title": "front-title",
+      "chars": 163,
+      "status": "processed",
+      "processed": true,
+      "role": "front_matter"
+    },
+    {
+      "id": "front-copyright",
+      "title": "front-copyright",
+      "chars": 771,
+      "status": "processed",
+      "processed": true,
+      "role": "front_matter"
+    },
+    {
+      "id": "front-abstract",
+      "title": "front-abstract",
+      "chars": 655,
+      "status": "processed",
+      "processed": true,
+      "role": "front_matter"
+    },
+    {
+      "id": "front-editors",
+      "title": "front-editors",
+      "chars": 1850,
+      "status": "processed",
+      "processed": true,
+      "role": "front_matter"
+    },
+    {
+      "id": "front-ack",
+      "title": "front-ack",
+      "chars": 1008,
+      "status": "processed",
+      "processed": true,
+      "role": "front_matter"
+    },
+    {
+      "id": "front-author-intro",
+      "title": "front-author-intro",
+      "chars": 4982,
+      "status": "processed",
+      "processed": true,
+      "role": "front_matter"
+    },
+    {
+      "id": "bibliography",
+      "title": "bibliography",
+      "chars": 26038,
+      "status": "processed",
+      "processed": true,
+      "role": "bibliography"
+    },
+    {
+      "id": "name-index",
+      "title": "name-index",
+      "chars": 3888,
+      "status": "processed",
+      "processed": true,
+      "role": "name_index"
+    }
+  ],
+  "all_processed": true
+}

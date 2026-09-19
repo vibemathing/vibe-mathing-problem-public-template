@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:d55fb90313577ab4",
+  "label": "tao-analysis-lean-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "d55fb90313577ab4f157d9695bd1187f1e6f7fde76c8b7e8edcff8408880d600",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

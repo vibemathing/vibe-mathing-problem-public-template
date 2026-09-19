@@ -1,0 +1,100 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "theorem-proving-in-lean-4",
+  "primary_owner": "mathematics-in-lean",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 112153,
+  "source_family": "theorem-proving-in-lean-4",
+  "source_files": 17,
+  "source_rows": [
+    {
+      "bytes": 12896,
+      "path": "SKILL.md",
+      "sha256": "fe2cb32e7ffc1326be767ee026d2d45240adf29223e6f3dbfff62b8af9e61607"
+    },
+    {
+      "bytes": 335,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "94fcd415ebfa73dac70b1cb362d6aeb69d117cb0b9e425d6bbf6fca0bff37522"
+    },
+    {
+      "bytes": 4699,
+      "path": "chapters/ch01-introduction.md",
+      "sha256": "29ea63db612d15ba3e26f4efee00b4e0806f5bf5ca3391558ceaeb55072b3668"
+    },
+    {
+      "bytes": 6548,
+      "path": "chapters/ch02-dependent-type-theory.md",
+      "sha256": "06f0747f3ee47c487b8c0680936b80d10021200649e212a49b7d73ef8c6252c7"
+    },
+    {
+      "bytes": 5477,
+      "path": "chapters/ch03-propositions-and-proofs.md",
+      "sha256": "1237c3213109ae60addaec6ba5e32d11195bb06e2be5acd4a980502e64ccacbf"
+    },
+    {
+      "bytes": 5956,
+      "path": "chapters/ch04-quantifiers-and-equality.md",
+      "sha256": "be97d5d1f9faf0b59240037bf31e3053286c8d62e5acd999e95085e8308e42f8"
+    },
+    {
+      "bytes": 9232,
+      "path": "chapters/ch05-tactics.md",
+      "sha256": "beb6daa3a3059c0ad908aa014b56e6cbfde8ab79cc36ef4cb97278f78a761ac8"
+    },
+    {
+      "bytes": 7058,
+      "path": "chapters/ch06-interacting-with-lean.md",
+      "sha256": "a1929df4f69694084e4ff5d4e9fd4f09b255acd2d2942242df82c4d169f81278"
+    },
+    {
+      "bytes": 8871,
+      "path": "chapters/ch07-inductive-types.md",
+      "sha256": "51105b28ed46d1aec59812e05d5c29c3a1b7218ea4be6899297caa8d19fa2886"
+    },
+    {
+      "bytes": 8673,
+      "path": "chapters/ch08-induction-and-recursion.md",
+      "sha256": "f63e1f24b31da82eefb24eacf17885ab05aa533cbfc9e7d2afdea228bfce855e"
+    },
+    {
+      "bytes": 5394,
+      "path": "chapters/ch09-structures-and-records.md",
+      "sha256": "340ae014fedfa61e720366c3560bd740ddf3ac31f47ebc28433af72e1b2cc58e"
+    },
+    {
+      "bytes": 8872,
+      "path": "chapters/ch10-type-classes.md",
+      "sha256": "253101e80817c16a02f43dd3dbbd71c5ca3cfc4df501570add38de19a57c51b6"
+    },
+    {
+      "bytes": 5185,
+      "path": "chapters/ch11-the-conversion-tactic-mode.md",
+      "sha256": "a270cadcb36eeb2db7096b70c1e18ac955a59bbaac6238ce670a093f1a177e4c"
+    },
+    {
+      "bytes": 10437,
+      "path": "chapters/ch12-axioms-and-computation.md",
+      "sha256": "ceb5aa23072d5579209fd19327b87ce634c1510703a62089180b2eb66bffafdd"
+    },
+    {
+      "bytes": 3275,
+      "path": "cheatsheet.md",
+      "sha256": "c587d3b13cd23747060f37aed0bb8ef4a8edc9f597b112e050cacc5926adf186"
+    },
+    {
+      "bytes": 4416,
+      "path": "glossary.md",
+      "sha256": "4a89938fabb3288a5ac067feec09bd9078b03f2248631c9d3b53000a73794cb8"
+    },
+    {
+      "bytes": 4829,
+      "path": "patterns.md",
+      "sha256": "ac38c66d245d4a5d4b5ddaadb6188fc93741d5881401c21ff23c68a6969b54f0"
+    }
+  ],
+  "source_tree_sha256": "0633477c91e2af516101a9c91aad8a2f5ba8df0810e6572a6f3123124447b63f"
+}

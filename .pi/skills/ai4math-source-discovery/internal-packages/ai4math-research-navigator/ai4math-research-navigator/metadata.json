@@ -1,0 +1,10 @@
+{
+  "name": "ai4math-research-navigator",
+  "version": "1.0.0",
+  "source_title": "AI for Mathematical Reasoning — companion resource hub",
+  "source_snapshot": "July 2026",
+  "compiled_from": "19_awesome-AI4Math_系统论文索引.zip",
+  "compiler_contract": "User-provided Autonomous Book-to-Skill Compiler specification",
+  "source_scope": "README.md + 3 figures + LICENSE; linked external papers were not bundled or read",
+  "entrypoint": "SKILL.md"
+}

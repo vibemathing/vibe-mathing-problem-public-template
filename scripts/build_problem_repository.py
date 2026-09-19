@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TASK = ROOT / "governance/tasks/0027-web-gpt-github-chat-research-harness"
 DEFAULT_MANIFEST = TASK / "harness-source-manifest.v1.json"
 DEFAULT_TEMPLATE = TASK / "problem-repository-template"
-BUILDER_VERSION = "2.0.0"
+BUILDER_VERSION = "2.1.0"
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
 PI_SKILL_STATUS = {
     "solve": "active",
@@ -511,6 +511,17 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         raise RuntimeError("unresolved WEB_BOOTSTRAP template placeholder")
     (output / "WEB_BOOTSTRAP.md").write_text(bootstrap, encoding="utf-8")
     os.chmod(output / "WEB_BOOTSTRAP.md", 0o644)
+
+    validation = subprocess.run(
+        [sys.executable, str(output / "scripts/validate_web_problem_harness.py"), "--project-root", str(output)],
+        text=True,
+        capture_output=True,
+        timeout=180,
+        check=False,
+    )
+    if validation.returncode != 0:
+        detail = (validation.stdout + "\n" + validation.stderr).strip()
+        raise RuntimeError(f"generated self-contained repository failed validation: {detail}")
 
     report = {
         "decision": "PASS",

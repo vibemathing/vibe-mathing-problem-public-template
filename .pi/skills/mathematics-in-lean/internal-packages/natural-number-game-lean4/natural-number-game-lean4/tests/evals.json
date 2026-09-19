@@ -1,0 +1,117 @@
+{
+  "trigger_positive": [
+    {
+      "prompt": "I am on NNG4 Addition World. How should I prove zero_add?",
+      "expect": [
+        "trigger",
+        "ch02",
+        "induction"
+      ]
+    },
+    {
+      "prompt": "My Natural Number Game proof of a ≤ b is stuck at an exists goal.",
+      "expect": [
+        "trigger",
+        "ch07",
+        "use/witness"
+      ]
+    },
+    {
+      "prompt": "Why can’t I cancel a in a*b=a*c in MyNat?",
+      "expect": [
+        "trigger",
+        "ch08",
+        "nonzero"
+      ]
+    },
+    {
+      "prompt": "What is different about rw/rfl in NNG4?",
+      "expect": [
+        "trigger",
+        "tactic-semantics"
+      ]
+    },
+    {
+      "prompt": "What does xyzzy do in the Fermat final boss?",
+      "expect": [
+        "trigger",
+        "ch04",
+        "axiom boundary"
+      ]
+    }
+  ],
+  "trigger_negative": [
+    {
+      "prompt": "Write a Python function to sort a list.",
+      "expect": [
+        "no-trigger"
+      ]
+    },
+    {
+      "prompt": "Explain the Riemann hypothesis.",
+      "expect": [
+        "no-trigger"
+      ]
+    },
+    {
+      "prompt": "Prove a category theory lemma in Lean Mathlib using simp.",
+      "expect": [
+        "no-trigger unless user maps to NNG methods"
+      ]
+    },
+    {
+      "prompt": "What is the weather today?",
+      "expect": [
+        "no-trigger"
+      ]
+    }
+  ],
+  "method_selection": [
+    {
+      "case": "a + b = b + a before add_comm exists",
+      "route": "induct on b; use zero_add/succ_add and recursive equations"
+    },
+    {
+      "case": "(a+b)*c = a*c+b*c after mul_comm and mul_add",
+      "route": "mirror by commutativity; avoid duplicate induction"
+    },
+    {
+      "case": "hxy:a≤b, hyz:b≤z ⊢ a≤z",
+      "route": "unpack both witnesses; use sum of gaps"
+    },
+    {
+      "case": "ha:a≠0, h:a*b=a*c ⊢ b=c",
+      "route": "multiplication cancellation with ha; generalized induction only if proving the theorem itself"
+    },
+    {
+      "case": "⊢ (20:ℕ)+20=40 after DecidableEq",
+      "route": "custom decide"
+    },
+    {
+      "case": "Power L10 FLT",
+      "route": "xyzzy boundary; no genuine derivation claim"
+    }
+  ],
+  "failure_recovery": [
+    {
+      "failure": "rw rewrites wrong product in mul_pow",
+      "recovery": "supply explicit mul_comm arguments or nth_rewrite"
+    },
+    {
+      "failure": "IH too specific in mul_left_cancel",
+      "recovery": "induction with generalizing dependent variable"
+    },
+    {
+      "failure": "cancel common multiplication factor without ha",
+      "recovery": "derive nonzero or stop as insufficient"
+    },
+    {
+      "failure": "use witness leaves impossible equation",
+      "recovery": "reconstruct gap from ≤ data/cases"
+    },
+    {
+      "failure": "decide on symbolic theorem",
+      "recovery": "return to induction/rewrite"
+    }
+  ]
+}

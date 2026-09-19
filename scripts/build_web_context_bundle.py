@@ -107,7 +107,7 @@ This file is generated from repository truth and bounded for the web channel. It
 1. Read `AGENTS.md`, `governance/harness/PROJECT_AGENTS.md`, and `WEB_BOOTSTRAP.md`.
 2. Check the exact ProblemContract and its SHA-256 below.
 3. Select exactly one pre-admitted Attempt/Route/ObligationGraph/Obligation.
-4. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. HOLD package bodies remain private-local and are not publication content.
+4. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. Complete package bodies are bundled at repository-relative paths; rights remain HOLD and bundling does not grant publication or execution authority.
 5. Search registered mathematical knowledge sources before inventing a new theorem.
 6. After repository admission, autonomously complete Issue, candidate branch/file edits, commit, PR review, checks/rerun, merge, and checkpoint within the profile.
 7. Write only candidate files under the profile allowlist and one `WEB_ATTEMPT_PACKET`; do not wait for project-added routine human approvals.

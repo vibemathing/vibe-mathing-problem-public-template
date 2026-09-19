@@ -1,0 +1,45 @@
+{
+  "record_type": "project_skill_source_record",
+  "record_version": 1,
+  "skill_name": "classical-type-theory",
+  "installed_directory": ".pi/skills/classical-type-theory",
+  "source": {
+    "outer_archive_path": "REDACTED_LOCAL_ARCHIVE_PATH/classical-type-theory-skill-download.zip",
+    "outer_archive_sha256": "d83ae9cb5f28211ce057ca27112843553803f2bb6a40c7282773d11d4c21d84f",
+    "inner_archive_member": "classical-type-theory-skill.zip",
+    "inner_archive_sha256": "1685277172a7774aa008e4f6308bd34074b88f113af1817b90a38379bbcc38b3",
+    "outer_noninstallable_members": []
+  },
+  "validation": {
+    "outer_crc": "PASS",
+    "inner_crc": "PASS",
+    "payload_archive_members": 19,
+    "payload_archive_file_count": 18,
+    "unsafe_paths_symlinks_devices_executables_encrypted_or_binary": "none detected"
+  },
+  "frontmatter": {
+    "final_name": "classical-type-theory",
+    "description_present": true,
+    "compatibility_correction": {
+      "field": "name",
+      "from": "andrews-classical-type-theory",
+      "to": "classical-type-theory",
+      "reason": "required final directory/name match; no mathematical content changed"
+    }
+  },
+  "installation": {
+    "mapping": "inner archive root directory contents mapped under the expected project skill directory; classical package root files mapped under its expected directory",
+    "content_policy": "archive payload copied byte-for-byte except the recorded minimal frontmatter name compatibility correction",
+    "source_record": "SOURCE-RECORD.json is project-local metadata and excluded from the payload tree digest to avoid self-reference",
+    "final_file_tree_sha256": "035f3d2560167804e7d3190b01cc13e9286c6b2de46b6f014f2c7ae72270c7c5",
+    "final_tree_digest_definition": "sorted manifest of every installed payload directory/file; each file line contains type, relative path, SHA-256 and byte size; SOURCE-RECORD.json excluded",
+    "payload_manifest_line_count": 19,
+    "payload_file_count": 18,
+    "final_file_count_including_source_record": 19
+  },
+  "license_and_source_limitations": [
+    "User-provided derived skill package; no explicit redistribution license is supplied by the archive.",
+    "Copyright/source attribution remains that stated in the package; installation does not grant redistribution rights.",
+    "This project-only skill is reference/proof-engineering material and does not constitute verifier-admitted Evidence, Result, Solution, or a solved mathematical problem."
+  ]
+}

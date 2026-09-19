@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0
+
+- Bundle every owned original Skill package completely under `internal-packages/` with byte-level manifests.
+- Replace private-vault routing with repository-relative, self-contained package paths and preserve HOLD publication status.
+
 ## 1.2.0
 
 - Add the top-level internal-package registry and progressive routing guide.

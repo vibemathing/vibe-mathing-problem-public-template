@@ -1,0 +1,340 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "math-analysis-thinking-methods/SKILL.md",
+  "package_id": "math-analysis-thinking-methods",
+  "primary_owner": "ai4math-modeling-derivation",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 219444,
+  "source_family": "math-analysis-thinking-methods",
+  "source_files": 65,
+  "source_rows": [
+    {
+      "bytes": 334,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "ed79251d5d432e92db58ee56bab86654c11a0712b3cd5263ef96ba7930fddea6"
+    },
+    {
+      "bytes": 9732,
+      "path": "math-analysis-thinking-methods/SKILL.md",
+      "sha256": "d46a4470c7265ec84e4f7a779a0f4296a16e078ff9bac8d1046172b8e6116e70"
+    },
+    {
+      "bytes": 3598,
+      "path": "math-analysis-thinking-methods/chapters/ch01-calculus-approximation-limit.md",
+      "sha256": "92fb1fde2192f63decbb994344d4237e116584f490fa45811326171ecebaff10"
+    },
+    {
+      "bytes": 3677,
+      "path": "math-analysis-thinking-methods/chapters/ch02-structural-analysis-form-unification.md",
+      "sha256": "aa32f0c3ec3511ec1bd9c301b91391f912c805fcaf90621adfff72ee1ae8f48d"
+    },
+    {
+      "bytes": 3428,
+      "path": "math-analysis-thinking-methods/chapters/ch03-quantification.md",
+      "sha256": "b78229f25adc6e5626d7c0b0cfe0ff7ae764ae032b6205605a8655e56bb1fe9c"
+    },
+    {
+      "bytes": 3457,
+      "path": "math-analysis-thinking-methods/chapters/ch04-sequence-limit-definition.md",
+      "sha256": "f935a683ea10781c47662fc96031d2804a7c88f43f6a6b89b185e5363816b93a"
+    },
+    {
+      "bytes": 3378,
+      "path": "math-analysis-thinking-methods/chapters/ch05-sequence-limit-properties.md",
+      "sha256": "7b650416f32791531fbc874b89d6160092a0ffe578ba8620ccc7fe9e4885a87a"
+    },
+    {
+      "bytes": 3339,
+      "path": "math-analysis-thinking-methods/chapters/ch06-epsilon-thinking.md",
+      "sha256": "82297463b494e85730524d1fe81f612965719acc4e6cb73caea03e229622a585"
+    },
+    {
+      "bytes": 3146,
+      "path": "math-analysis-thinking-methods/chapters/ch07-infinite-quantities.md",
+      "sha256": "e63ec1aac840f5dbfd711c3e5d9bbd38a817ffa122203dc9bde8074fd261e5c4"
+    },
+    {
+      "bytes": 3269,
+      "path": "math-analysis-thinking-methods/chapters/ch08-squeeze-theorem.md",
+      "sha256": "7f1f28c1a489e62c6b51255cb8f11f37d17ffbed3e0e73484e662449db5b1392"
+    },
+    {
+      "bytes": 3156,
+      "path": "math-analysis-thinking-methods/chapters/ch09-stolz.md",
+      "sha256": "8c916b4416deceee564d2465db480bcd249609b7434c58be1e9190072920ef73"
+    },
+    {
+      "bytes": 3093,
+      "path": "math-analysis-thinking-methods/chapters/ch10-supremum-limit.md",
+      "sha256": "890f297562cba8bb6d8b49719a75ae78f525d84b29167e10453bda1cb2834661"
+    },
+    {
+      "bytes": 3315,
+      "path": "math-analysis-thinking-methods/chapters/ch11-monotone-bounded.md",
+      "sha256": "054157ef9984ded6ff26804caa1f1111a27df30830224d232b6d9f32cf18aa45"
+    },
+    {
+      "bytes": 3262,
+      "path": "math-analysis-thinking-methods/chapters/ch12-nested-intervals.md",
+      "sha256": "75d49687a7a01a408518cb40178cdfff48b3417d30a22a6239c610b509358256"
+    },
+    {
+      "bytes": 3386,
+      "path": "math-analysis-thinking-methods/chapters/ch13-finite-open-cover.md",
+      "sha256": "ab5a44a9d904c4a8f3d9a94556a1cf9330b577c6026f8fe6e8e18b488ebfa602"
+    },
+    {
+      "bytes": 3312,
+      "path": "math-analysis-thinking-methods/chapters/ch14-cauchy-sequences.md",
+      "sha256": "37feef082ca45edd96c3609ff930adbf42ac3b77d190655d3344fadccbbbf965"
+    },
+    {
+      "bytes": 3390,
+      "path": "math-analysis-thinking-methods/chapters/ch15-function-limit-definition.md",
+      "sha256": "9fb2b8bee2b27ab86cc3f1f0902b68a104a7bb99581b77e5c55257b7637a0e29"
+    },
+    {
+      "bytes": 3179,
+      "path": "math-analysis-thinking-methods/chapters/ch16-elementary-function-limits.md",
+      "sha256": "ae8448bec489c2e45b0a1b72908cd2d99943574d543a37d995b979d30ca0f98b"
+    },
+    {
+      "bytes": 3136,
+      "path": "math-analysis-thinking-methods/chapters/ch17-logarithmic-method.md",
+      "sha256": "493024e24bc49de44c52ff8f8349c9831ac93d9c6e023af0fb623896941e2c41"
+    },
+    {
+      "bytes": 3257,
+      "path": "math-analysis-thinking-methods/chapters/ch18-heine.md",
+      "sha256": "d139ad2d371fe8e8218cd698245a0e6fc80a784d648906fb34738a4cdec29714"
+    },
+    {
+      "bytes": 3214,
+      "path": "math-analysis-thinking-methods/chapters/ch19-two-important-limits.md",
+      "sha256": "417c831352b08d181f1e9980bddfce8b9bdfbb163f3977b2bd198aa3ffa9fe73"
+    },
+    {
+      "bytes": 3185,
+      "path": "math-analysis-thinking-methods/chapters/ch20-limit-representation.md",
+      "sha256": "60f0f30e92fe5ad2802511b7899876fd1a4ec1c5eb7f756143743c89ac745f5d"
+    },
+    {
+      "bytes": 3147,
+      "path": "math-analysis-thinking-methods/chapters/ch21-local-continuity.md",
+      "sha256": "80f2fb141cbef1a4f8af557c714ab1e12cd1afc0483cacbdb3393f19d2417a8d"
+    },
+    {
+      "bytes": 3141,
+      "path": "math-analysis-thinking-methods/chapters/ch22-continuous-closed-interval.md",
+      "sha256": "06018be6fe0e6065c610ba9a0f9c9e664e476bc62bed9c2be7adeac48a49eec1"
+    },
+    {
+      "bytes": 3166,
+      "path": "math-analysis-thinking-methods/chapters/ch23-zero-existence.md",
+      "sha256": "11c9f1dafcb7e86f7001947b3589e0c76af10b6818cf5de66402fb8e12758435"
+    },
+    {
+      "bytes": 3335,
+      "path": "math-analysis-thinking-methods/chapters/ch24-rolle.md",
+      "sha256": "0fe6c8627cd7763ff144d0c1c7dbca7dbe101a86acdd01dbf05554b8b104cfe0"
+    },
+    {
+      "bytes": 3390,
+      "path": "math-analysis-thinking-methods/chapters/ch25-mean-value-theorems.md",
+      "sha256": "f72db948c634d4e87a8d924246c5dcf1218ab7c5c0ea287d6a6576b0656455c6"
+    },
+    {
+      "bytes": 3384,
+      "path": "math-analysis-thinking-methods/chapters/ch26-taylor.md",
+      "sha256": "90014da538ba9cee67119a4e11a6a539df010361ec73966e0409f80315236dcc"
+    },
+    {
+      "bytes": 3334,
+      "path": "math-analysis-thinking-methods/chapters/ch27-inequalities.md",
+      "sha256": "9338225208859e23fc57440293d5a31b4840fca77e23b00d6f291a37edf8c406"
+    },
+    {
+      "bytes": 3378,
+      "path": "math-analysis-thinking-methods/chapters/ch28-cauchy-advanced.md",
+      "sha256": "7b2a265057ddfab8e4d6c4dba63253873524fb757f8abfd13a8672f8d89e3316"
+    },
+    {
+      "bytes": 3297,
+      "path": "math-analysis-thinking-methods/chapters/ch29-special-to-general.md",
+      "sha256": "9e53acc578fad8d58c5de9003476d3b713f987a663122589fb1e7dc4320aeb8f"
+    },
+    {
+      "bytes": 3394,
+      "path": "math-analysis-thinking-methods/chapters/ch30-part-whole-logic.md",
+      "sha256": "2497a027b78988ae1eab1bd545c39c049b0c8bd68c542a79d8fcf691c586b835"
+    },
+    {
+      "bytes": 3225,
+      "path": "math-analysis-thinking-methods/chapters/ch31-antiderivative-basics.md",
+      "sha256": "aeeed9b6d09390bf8d6320f04278a02fcc7b064e5abac3eac680ff933a75ef9b"
+    },
+    {
+      "bytes": 3196,
+      "path": "math-analysis-thinking-methods/chapters/ch32-substitution.md",
+      "sha256": "d59366e67d32a6bfd50d6f1713cd68f088f7436f8c313113416144980075196e"
+    },
+    {
+      "bytes": 3150,
+      "path": "math-analysis-thinking-methods/chapters/ch33-integration-by-parts.md",
+      "sha256": "152119d59b7aa4fefb7af2fd117199d1d5ab44c738547e79b7c0366135521db6"
+    },
+    {
+      "bytes": 3143,
+      "path": "math-analysis-thinking-methods/chapters/ch34-parameterized-indefinite-integrals.md",
+      "sha256": "5e5003040ca64859543bea15eb8ba986b0aec680e2dff4a54eef2ef524d34c8c"
+    },
+    {
+      "bytes": 3333,
+      "path": "math-analysis-thinking-methods/chapters/ch35-primary-secondary-integration.md",
+      "sha256": "fd3d33d706e8678921cd4c237896eb5814981546fadf18c96f1984e5219d269a"
+    },
+    {
+      "bytes": 3198,
+      "path": "math-analysis-thinking-methods/chapters/ch36-trig-antiderivatives.md",
+      "sha256": "e89a2caf23f177f117d75107f31433711bb4e9e46ae275a2ed7cb0d552d4c3d6"
+    },
+    {
+      "bytes": 3204,
+      "path": "math-analysis-thinking-methods/chapters/ch37-riemann-integral-definition.md",
+      "sha256": "274f872169bd5d2f7fad5ae45720d0d6fbb86e7cfb2d7ac46925816b323280dc"
+    },
+    {
+      "bytes": 3090,
+      "path": "math-analysis-thinking-methods/chapters/ch38-riemann-integral-structure.md",
+      "sha256": "cd65ddd18187c1c09e173dadc1f80651dec499c7b3d83ce01d13758d538a0833"
+    },
+    {
+      "bytes": 3243,
+      "path": "math-analysis-thinking-methods/chapters/ch39-integrability-criteria.md",
+      "sha256": "de80cb1c30d37c52bba8c17d8dcf266894b8d1ac5db1dcc6d6d62d8074e3892b"
+    },
+    {
+      "bytes": 3243,
+      "path": "math-analysis-thinking-methods/chapters/ch40-special-definite-integrals.md",
+      "sha256": "31d8016867e9537e14fb9c7661c2d7f3dfac3f37b80b937304c9c155250976ce"
+    },
+    {
+      "bytes": 3389,
+      "path": "math-analysis-thinking-methods/chapters/ch41-riemann-sum-sequence-limits.md",
+      "sha256": "a64b372cf091dd0efc18f5b643ce40bc12984f702faab44bcd8a5ad12de26535"
+    },
+    {
+      "bytes": 3241,
+      "path": "math-analysis-thinking-methods/chapters/ch42-integral-inequalities.md",
+      "sha256": "67c3a55be3413188e4b996dbcfc1f832ce84692bd2c2718767290701bd8cc8ce"
+    },
+    {
+      "bytes": 3328,
+      "path": "math-analysis-thinking-methods/chapters/ch43-integral-mean-value.md",
+      "sha256": "7b5e4b78dfdf9e52425be145171d15ec5dc8355b7776d4f38aa45bce64d85fa6"
+    },
+    {
+      "bytes": 3533,
+      "path": "math-analysis-thinking-methods/chapters/ch44-integral-form-unification.md",
+      "sha256": "21eb613b77a21c652fec2d5da802ff8b6f01d68edb693c6185d108ad9878361f"
+    },
+    {
+      "bytes": 3296,
+      "path": "math-analysis-thinking-methods/chapters/ch45-improper-cauchy.md",
+      "sha256": "27526c0c58f5292a8a04dbff6a00fa12b80f1d045b96abdad615f1a7450e5019"
+    },
+    {
+      "bytes": 3470,
+      "path": "math-analysis-thinking-methods/chapters/ch46-trig-improper-integrals.md",
+      "sha256": "b4adfd1275e5dd45ee011038676468d4e93877216ba3f123a4ec8b05f0fab97b"
+    },
+    {
+      "bytes": 3389,
+      "path": "math-analysis-thinking-methods/chapters/ch47-improper-test-method.md",
+      "sha256": "f08577eef2a233fd7d53e856072f3addc4b7f1d9f2987c6f5bfb25894a3f1901"
+    },
+    {
+      "bytes": 3321,
+      "path": "math-analysis-thinking-methods/chapters/ch48-improper-integration.md",
+      "sha256": "34d05513a1a59b7d1f4f812d3b3050f3b66de0b07f5560dc147ac6b9e694998b"
+    },
+    {
+      "bytes": 3445,
+      "path": "math-analysis-thinking-methods/chapters/ch49-positive-series-tests.md",
+      "sha256": "7032ff27a60b7f7235f935769aa72b244ebf4e708ceb6400a83baaafa4622919"
+    },
+    {
+      "bytes": 3282,
+      "path": "math-analysis-thinking-methods/chapters/ch50-series-test-trial-method.md",
+      "sha256": "54a98de527447893285867fda48c45b3b35885c6746de6d3ddac920dc78f7bb7"
+    },
+    {
+      "bytes": 3284,
+      "path": "math-analysis-thinking-methods/chapters/ch51-series-primary-secondary.md",
+      "sha256": "a41cd7c6ebbeebb1dce92b43310ce1470d4f71ba0aff7ddff8f35b52b17f6f29"
+    },
+    {
+      "bytes": 3251,
+      "path": "math-analysis-thinking-methods/chapters/ch52-absolute-convergence.md",
+      "sha256": "8332c7a0bbdbac54e6544b9489b4c8563523d6f996931599343c2ce5f6be07ff"
+    },
+    {
+      "bytes": 3340,
+      "path": "math-analysis-thinking-methods/chapters/ch53-uniform-max-test.md",
+      "sha256": "4fd85d3f1f22ecf67109707d9f45e0639b857065bbfd2699ffe6de98422cb277"
+    },
+    {
+      "bytes": 3161,
+      "path": "math-analysis-thinking-methods/chapters/ch54-dini.md",
+      "sha256": "4ef8831deb34e1d28c985a63ca2a059be8a59a9737dd4e290b0b5894777d84ca"
+    },
+    {
+      "bytes": 3345,
+      "path": "math-analysis-thinking-methods/chapters/ch55-alternating-series.md",
+      "sha256": "4013f60e8a3de6dd1110cf3469bab042bea0d10d14c7f7d757686f3b890effe6"
+    },
+    {
+      "bytes": 3334,
+      "path": "math-analysis-thinking-methods/chapters/ch56-local-uniform.md",
+      "sha256": "c1b3af2ba96799d276e24b5d90bf8f2666ee7922e5ae366f3e68bad73766b1cc"
+    },
+    {
+      "bytes": 3495,
+      "path": "math-analysis-thinking-methods/chapters/ch57-trig-function-series.md",
+      "sha256": "e461ca7249b11fdd2fa5209639a3bf5c56209289ee1c4d57a26a80a459a7a127"
+    },
+    {
+      "bytes": 3407,
+      "path": "math-analysis-thinking-methods/chapters/ch58-nonuniform-convergence.md",
+      "sha256": "12f1c964cc8452858f1c514cdcd7931fd3947b4de65091f41d402b79bba903a6"
+    },
+    {
+      "bytes": 3270,
+      "path": "math-analysis-thinking-methods/chapters/ch59-power-series-sums.md",
+      "sha256": "26493ba716729caf04cc3530e83bfa4ee9dea0cf1ce0b6daf17b7de43b5f25a9"
+    },
+    {
+      "bytes": 3649,
+      "path": "math-analysis-thinking-methods/chapters/ch60-fourier-series.md",
+      "sha256": "6161d696c3517dcadf7626eb534bda349df33741a08eb8ffaf163504cf187df3"
+    },
+    {
+      "bytes": 2532,
+      "path": "math-analysis-thinking-methods/cheatsheet.md",
+      "sha256": "41b82d9c6790b7c891e0499fefe27985175f062349364f3dbd15b4f108ead9c6"
+    },
+    {
+      "bytes": 4693,
+      "path": "math-analysis-thinking-methods/glossary.md",
+      "sha256": "99155bb98e6e92ff77aeda7891ed054bd28aa62b3f6ccb92695a11b455fd346d"
+    },
+    {
+      "bytes": 3755,
+      "path": "math-analysis-thinking-methods/patterns.md",
+      "sha256": "0121c3e1bc06739a74a3dc9f536b7e04f611d7c8219e7b45d013db022ec72c63"
+    }
+  ],
+  "source_tree_sha256": "5a94623ed7f2920aa0188782b665a92661574ef016eaa5444540e5ed6cb5ca2c"
+}

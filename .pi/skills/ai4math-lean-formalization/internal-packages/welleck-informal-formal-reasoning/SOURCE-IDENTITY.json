@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:29c03864cc296946",
+  "label": "welleck-informal-formal-reasoning-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "29c03864cc296946b3de96b48b270927dd13523b8708709f16940a6b9099d9d1",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

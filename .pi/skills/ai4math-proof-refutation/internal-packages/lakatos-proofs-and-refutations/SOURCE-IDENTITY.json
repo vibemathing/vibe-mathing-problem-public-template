@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:281564fcb747ce48",
+  "label": "lakatos-proofs-and-refutations-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "281564fcb747ce48a9702455c13d026f04b6e66e72608830451a2e9ed298303c",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

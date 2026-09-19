@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:b4ebf4a1a070f8bb",
+  "label": "danus-proof-orchestration-book-to-skill-delivery.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "b4ebf4a1a070f8bbb5c3e0ebdf04e21ed080f352dd1be46ac59882f49d0c7b6a",
+  "evidence_ceiling": "identity/safety observation only until source and license review"
+}

@@ -12,7 +12,7 @@ This file records the conceptual consolidation behind the nine project Skills. I
 
 ## Internal-package architecture
 
-All 31 audited packages have one primary owner among the eight top-level mathematical Skills. A package is physically preserved once in the private-local package vault and may be cross-referenced by other top-level Skills. Public repository files contain identity and routing metadata only while redistribution rights remain on HOLD. Internal packages are inert source material and are never additional Pi entries.
+All 31 audited packages have one primary owner among the eight top-level mathematical Skills. A complete package tree is physically bundled once under that owner's `internal-packages/` directory and may be referenced through repository-relative paths by other top-level Skills. Redistribution rights remain on HOLD even though the repository is self-contained. Internal packages are inert source material and are never additional Pi entries.
 
 ## Target capability layers
 

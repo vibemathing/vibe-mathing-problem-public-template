@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:056e3d4c4a2e8486",
+  "label": "ai-for-mathematics-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "056e3d4c4a2e84869d5c4ad00fd6ff51edbf9ff812202bd8e05d1a81e9e1161e",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

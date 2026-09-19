@@ -1,0 +1,15 @@
+{
+  "name": "archon-formalization",
+  "version": "1.0.0",
+  "generated": "2026-09-12",
+  "source": "Archon v0.3.3 supplied archive",
+  "files_required": [
+    "SKILL.md",
+    "glossary.md",
+    "patterns.md",
+    "cheatsheet.md",
+    "chapters/"
+  ],
+  "book_to_skill_spec": "virgiliojr94/book-to-skill master SKILL.md, sha 273a4e2eb074912426e9353b4d738750fe7d98a3",
+  "notes": "Repository/documentation corpus accepted as multi-document input; no claim that it is an ebook."
+}

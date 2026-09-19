@@ -1,0 +1,55 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "dong-ai4m-research-guide/SKILL.md",
+  "package_id": "dong-ai4m-research-guide",
+  "primary_owner": "ai4math-source-discovery",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 26115,
+  "source_family": "dongbin-ai4math",
+  "source_files": 8,
+  "source_rows": [
+    {
+      "bytes": 328,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "fe55b3f851906996301bc7ea706905d9c84b50f7e8fb431e6b455b3ec3c93b09"
+    },
+    {
+      "bytes": 4820,
+      "path": "dong-ai4m-research-guide/SKILL.md",
+      "sha256": "9a93ba5b3950a35eb28b2eda472d029b5549e6186c7d09b10fc48eca812f3053"
+    },
+    {
+      "bytes": 4022,
+      "path": "dong-ai4m-research-guide/chapters/ch01-orientation-and-foundations.md",
+      "sha256": "a19857c2c5a339fedb53871fd8b8d3aac4bd0d481937f6203b2bf553de5e0524"
+    },
+    {
+      "bytes": 5559,
+      "path": "dong-ai4m-research-guide/chapters/ch02-research-routes-and-formalization.md",
+      "sha256": "d7547596aeaab7643bfe2ab32f54220ac9ef2215d4afa915356df17928b51eab"
+    },
+    {
+      "bytes": 3804,
+      "path": "dong-ai4m-research-guide/chapters/ch03-understanding-first-math-research.md",
+      "sha256": "72f2659c35b03128c4d77e80ce02ca31e553c95cad9ecb179587ecb25d189187"
+    },
+    {
+      "bytes": 1724,
+      "path": "dong-ai4m-research-guide/cheatsheet.md",
+      "sha256": "ea7255240cb86919b54d3d9fc49467ca5b71d8cdce811bda58c4369928f7952c"
+    },
+    {
+      "bytes": 2596,
+      "path": "dong-ai4m-research-guide/glossary.md",
+      "sha256": "0f2e863a9b6d83ee50ae88e869b4987d24fd7ad32a351ff1ebd85dbaf5cdbb94"
+    },
+    {
+      "bytes": 3262,
+      "path": "dong-ai4m-research-guide/patterns.md",
+      "sha256": "ba1869294dd1d0725799abf7ad1677c2c27348c85270e9b267e4df7452b143c0"
+    }
+  ],
+  "source_tree_sha256": "30ed31f61bf7f8e1865dd3061fe2560dcbb3702f05d2affa41da79881e17ec18"
+}

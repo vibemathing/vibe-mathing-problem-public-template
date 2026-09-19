@@ -669,7 +669,7 @@
     "vendor/upstream",
     "build"
   ],
-  "harness_version": "2.0.0",
+  "harness_version": "2.1.0",
   "manifest_id": "harness-source:web-research-full",
   "profile": "web-research-full",
   "schema_version": "1.0.0"

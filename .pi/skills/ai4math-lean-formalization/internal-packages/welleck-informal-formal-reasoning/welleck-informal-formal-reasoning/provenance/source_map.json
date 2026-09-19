@@ -1,0 +1,214 @@
+{
+  "skill_name": "welleck-informal-formal-reasoning",
+  "generated": "2026-09-12",
+  "book_source": {
+    "title": "Bridging Informal and Formal Mathematical Reasoning with AI",
+    "speaker": "Sean Welleck",
+    "course": "Berkeley Advanced LLM Agents",
+    "lecture_date": "2025-04-14",
+    "uploaded_archive": "10_Berkeley_AgentsMOOC_Welleck讲座.zip",
+    "uploaded_files": {
+      "README.md": {
+        "status": "fully_read"
+      },
+      "course_page.html": {
+        "status": "fully_read"
+      },
+      "slides.pdf": {
+        "status": "corrupt_truncated",
+        "uploaded_bytes": 2354768,
+        "sha256": "ecb9a01470280d137cebd994a7ef3604c791d3df58bdfc7b4fcc1954c98d7190",
+        "structural_findings": [
+          "no /Type /Page",
+          "no /Type /Pages",
+          "no /Type /Catalog",
+          "no xref",
+          "no trailer",
+          "no %%EOF"
+        ],
+        "official_same_name_bytes": 18176794,
+        "official_url": "https://wellecks.com/data/welleck2025_berkeley_bridging.pdf",
+        "note": "Slide-by-slide completeness cannot be claimed from the uploaded PDF."
+      }
+    }
+  },
+  "supplemental_sources": [
+    {
+      "kind": "SOURCE_DERIVED",
+      "title": "Detailed Lecture 10 notes by Ayush Lokare",
+      "url": "https://ayush111111.github.io/Bridging-Informal-and-Formal-Mathematical-Reasoning-with-AI/",
+      "use": "section structure and lecture-specific method details"
+    },
+    {
+      "kind": "SOURCE_DERIVED",
+      "title": "Lean-STaR: Learning to Interleave Thinking and Proving",
+      "url": "https://arxiv.org/abs/2407.10040",
+      "use": "method and verified expert-iteration details"
+    },
+    {
+      "kind": "SOURCE_DERIVED",
+      "title": "Draft, Sketch, and Prove",
+      "url": "https://arxiv.org/abs/2210.12283",
+      "use": "DSP method and formal-sketch semantics"
+    },
+    {
+      "kind": "SOURCE_DERIVED",
+      "title": "miniCTX: Neural Theorem Proving with (Long-)Contexts",
+      "url": "https://arxiv.org/abs/2408.03350",
+      "use": "long-context benchmark and context-first proving"
+    },
+    {
+      "kind": "SOURCE_DERIVED",
+      "title": "Premise Selection for a Lean Hammer",
+      "url": "https://arxiv.org/abs/2506.07477",
+      "use": "post-lecture formal publication corroborating LeanHammer pipeline"
+    },
+    {
+      "kind": "SOURCE_DERIVED",
+      "title": "ImProver: Agent-Based Automated Proof Optimization",
+      "url": "https://arxiv.org/abs/2410.04753",
+      "use": "course-linked supplemental reading; proof optimization capability"
+    },
+    {
+      "kind": "SOURCE_DERIVED",
+      "title": "Sean Welleck official page",
+      "url": "https://wellecks.com/",
+      "use": "speaker/talk identity and official slide linkage"
+    }
+  ],
+  "capability_provenance": [
+    {
+      "capability": "verifier-gated proof-state/tactic loop",
+      "chapters": [
+        1,
+        2
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "Lean-STaR thought-before-tactic + expert iteration",
+      "chapters": [
+        2
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "parallel proof sampling/backtracking when thought-action scoring is weak",
+      "chapters": [
+        2
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "Draft-Sketch-Prove decomposition",
+      "chapters": [
+        3
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "LeanHammer premise selection / ATP / reconstruction",
+      "chapters": [
+        4
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "context-first research proving / miniCTX",
+      "chapters": [
+        5
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "metric-driven verified proof optimization / ImProver",
+      "chapters": [
+        6
+      ],
+      "classification": "SOURCE_DERIVED_SUPPLEMENTAL"
+    },
+    {
+      "capability": "cross-method routing and escalation ladder",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "classification": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "SELF_CHECK and negative-use boundaries",
+      "chapters": [],
+      "classification": "IMPLEMENTATION_DECISION"
+    }
+  ],
+  "book_map": [
+    {
+      "id": "ch01",
+      "topic": "informal vs formal; proof state/tactic loop",
+      "status": "processed"
+    },
+    {
+      "id": "ch02",
+      "topic": "Lean-STaR; informal thoughts; RL/expert iteration; search",
+      "status": "processed"
+    },
+    {
+      "id": "ch03",
+      "topic": "Draft-Sketch-Prove; formal sketches; gap filling",
+      "status": "processed"
+    },
+    {
+      "id": "ch04",
+      "topic": "LeanHammer; premise selection; retrieval; ATP/reconstruction",
+      "status": "processed"
+    },
+    {
+      "id": "ch05",
+      "topic": "research-level projects; LLMLean; miniCTX; long context",
+      "status": "processed"
+    },
+    {
+      "id": "ch06",
+      "topic": "course-linked ImProver supplemental; proof optimization",
+      "status": "processed"
+    }
+  ],
+  "concept_graph": {
+    "informal_reasoning": [
+      "Lean-STaR",
+      "Draft-Sketch-Prove",
+      "blueprint"
+    ],
+    "formal_verification": [
+      "proof-state loop",
+      "Lean-STaR",
+      "DSP gap closure",
+      "LeanHammer reconstruction",
+      "ImProver validity gate"
+    ],
+    "context": [
+      "premise selection",
+      "miniCTX",
+      "research dependency graph"
+    ],
+    "search_abstraction": [
+      "tactic search",
+      "thought+tactic",
+      "formal sketch",
+      "premise retrieval"
+    ],
+    "post_proof": [
+      "ImProver optimization"
+    ]
+  },
+  "method_dependency_graph": [
+    "context-first -> premise selection/strategy search",
+    "informal draft -> formal sketch -> local gap proving -> end-to-end verification",
+    "thought -> tactic -> verifier -> accepted next state/backtrack",
+    "verified proof -> metric-driven rewrite -> re-verification"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:5fcab9a2b14e5dd7",
+  "label": "lean4-math-formalization-2025-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "5fcab9a2b14e5dd795f57962ea69eb9205aeed985dc2d94dc14dbe7ac796b815",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and replay review"
+}

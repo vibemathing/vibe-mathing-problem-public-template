@@ -1,0 +1,80 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "cheng-math-logic",
+  "primary_owner": "ai4math-modeling-derivation",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 46588,
+  "source_family": "cheng-math-logic",
+  "source_files": 13,
+  "source_rows": [
+    {
+      "bytes": 8805,
+      "path": "SKILL.md",
+      "sha256": "d603f9ff7a0193ba656d2ab35967c5eda875e5e45a75b845478b6ed9cf6eab95"
+    },
+    {
+      "bytes": 326,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "be0e587334e840218034c123f185f72a1410990404442497364000e559ae3738"
+    },
+    {
+      "bytes": 3901,
+      "path": "chapters/ch01-math-origins.md",
+      "sha256": "230e8de877bffacbff7f5374a316cedb81dc8c731b98caf678b2510df67c0a51"
+    },
+    {
+      "bytes": 3505,
+      "path": "chapters/ch02-logic.md",
+      "sha256": "ec9f3bdee43302d1aef0fda39540a1dbadfe19ec96799fafa07c173afa80191e"
+    },
+    {
+      "bytes": 3657,
+      "path": "chapters/ch03-why-learn.md",
+      "sha256": "b8afd490528ae65f0458bcf054287eed1889e11ebe4e30c90f98ad285bde32e3"
+    },
+    {
+      "bytes": 3629,
+      "path": "chapters/ch04-good-math.md",
+      "sha256": "21b496c9e596bd1fd46b6919635ba7b0b7826ab92455770852046be7d480d1dd"
+    },
+    {
+      "bytes": 3356,
+      "path": "chapters/ch05-letters.md",
+      "sha256": "f9f1cb6f74f2757bfceb47e5d935de87c09b95029ee811ac414f15f3c350ded0"
+    },
+    {
+      "bytes": 3204,
+      "path": "chapters/ch06-formulas.md",
+      "sha256": "e643516636636ccd09fc9c14b4588c17df82085f416cdb5e482666a76806fdc1"
+    },
+    {
+      "bytes": 3494,
+      "path": "chapters/ch07-diagrams.md",
+      "sha256": "04578a14c2bc03f1afcbab3ea8a09789133318fd71da78e45ad9d95283e99985"
+    },
+    {
+      "bytes": 3631,
+      "path": "chapters/ch08-stories.md",
+      "sha256": "f89cd4981de9f5b07f64911de741f8fe424e6525721d9852264c24e4a160a7de"
+    },
+    {
+      "bytes": 2312,
+      "path": "cheatsheet.md",
+      "sha256": "abe24689bb35e8ab206468a3a0ff9166f1ddc0a5ffe88c2a5b10e4ee21c65a25"
+    },
+    {
+      "bytes": 3129,
+      "path": "glossary.md",
+      "sha256": "6720b00ded5f24b169cf9dd871af9454c17e34f9115f353a8eb4e40f586cd6ce"
+    },
+    {
+      "bytes": 3639,
+      "path": "patterns.md",
+      "sha256": "84d82fb96662487dcb33fa87b6120164e6ae7146ff30371f548021a2d3cb1e7c"
+    }
+  ],
+  "source_tree_sha256": "e0fe457728758d5f4f7fe093a52e58105baef583a358f5c4455732d04d4074d1"
+}

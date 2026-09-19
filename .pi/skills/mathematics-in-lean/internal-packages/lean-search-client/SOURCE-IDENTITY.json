@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:09d22df6351dec83",
+  "label": "lean-search-client-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "09d22df6351dec83853ef47c3bdec6d08f09c20600ebaaa3d2fa38617723e4f3",
+  "evidence_ceiling": "identity/safety observation only until controlled review"
+}

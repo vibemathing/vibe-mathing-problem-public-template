@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "T01",
+      "test_type": "trigger",
+      "prompt": "Design an evaluation suite for a multilingual math reasoning model that must work in Korean, Bengali, Arabic, and English.",
+      "should_trigger": true,
+      "expected_axis": "informal + cross-cutting",
+      "expected": [
+        "CAP-05",
+        "CAP-07",
+        "CAP-14",
+        "multilingual datasets",
+        "robustness"
+      ]
+    },
+    {
+      "id": "T02",
+      "test_type": "negative_trigger",
+      "prompt": "Solve x^2 - 5x + 6 = 0 and show the algebra.",
+      "should_trigger": false,
+      "expected": [
+        "ordinary math solving; no research-method request"
+      ]
+    },
+    {
+      "id": "T03",
+      "test_type": "method_selection",
+      "prompt": "Build a Lean 4 theorem prover that can retrieve mathlib lemmas and repair proofs after compiler errors.",
+      "should_trigger": true,
+      "expected_axis": "formal",
+      "expected": [
+        "CAP-09",
+        "retrieval",
+        "compile",
+        "compiler-guided repair",
+        "kernel acceptance"
+      ]
+    },
+    {
+      "id": "T04",
+      "test_type": "method_selection",
+      "prompt": "I am evaluating a geometry VLM. How do I tell whether it actually uses the diagram?",
+      "should_trigger": true,
+      "expected_axis": "multimodal",
+      "expected": [
+        "CAP-08",
+        "diagram ablation",
+        "MathVerse-style concern",
+        "symbolic grounding"
+      ]
+    },
+    {
+      "id": "T05",
+      "test_type": "method_selection",
+      "prompt": "Design an AI workflow to search for improved constructions on an open combinatorics problem.",
+      "should_trigger": true,
+      "expected_axis": "discovery",
+      "expected": [
+        "CAP-10",
+        "program/search candidates",
+        "domain evaluator",
+        "counterexample search",
+        "expert audit"
+      ]
+    },
+    {
+      "id": "T06",
+      "test_type": "method_selection",
+      "prompt": "Compare GRPO, DPO, and process reward models for training a math reasoner with executable answer checks.",
+      "should_trigger": true,
+      "expected_axis": "informal + training",
+      "expected": [
+        "CAP-13",
+        "reward design",
+        "process vs outcome",
+        "RL families"
+      ]
+    },
+    {
+      "id": "T07",
+      "test_type": "failure_recovery",
+      "prompt": "Our generated Lean proof reads perfectly but the kernel rejects line 17. What next?",
+      "should_trigger": true,
+      "expected_axis": "formal",
+      "expected": [
+        "localize failing goal",
+        "retrieve lemmas",
+        "regenerate smallest region",
+        "recompile"
+      ]
+    },
+    {
+      "id": "T08",
+      "test_type": "failure_recovery",
+      "prompt": "Five debating agents all agree, but their final answer fails a symbolic checker.",
+      "should_trigger": true,
+      "expected_axis": "cross-cutting",
+      "expected": [
+        "correlated errors",
+        "independent proposals",
+        "external verifier",
+        "dissent/diversity"
+      ]
+    },
+    {
+      "id": "T09",
+      "test_type": "trigger",
+      "prompt": "Which benchmarks should I use instead of GSM8K if I want to make a frontier-level claim in 2026?",
+      "should_trigger": true,
+      "expected_axis": "evaluation",
+      "expected": [
+        "CAP-05",
+        "saturation caveat",
+        "frontier/live/process-sensitive",
+        "protocol fields"
+      ]
+    },
+    {
+      "id": "T10",
+      "test_type": "freshness",
+      "prompt": "What is the latest best AI math benchmark result published in September 2026?",
+      "should_trigger": true,
+      "expected_axis": "evaluation",
+      "expected": [
+        "snapshot stale",
+        "fresh retrieval required",
+        "do not extrapolate from July 2026"
+      ]
+    },
+    {
+      "id": "T11",
+      "test_type": "negative_trigger",
+      "prompt": "Write a short poem about Euclid.",
+      "should_trigger": false,
+      "expected": [
+        "outside research methodology/literature scope"
+      ]
+    },
+    {
+      "id": "T12",
+      "test_type": "trigger",
+      "prompt": "Find me papers in this index on tool-integrated reasoning and process verification.",
+      "should_trigger": true,
+      "expected_axis": "literature navigation",
+      "expected": [
+        "CAP-11",
+        "query catalog",
+        "ToRA/PAL/PoT/PRM-related records"
+      ]
+    }
+  ]
+}

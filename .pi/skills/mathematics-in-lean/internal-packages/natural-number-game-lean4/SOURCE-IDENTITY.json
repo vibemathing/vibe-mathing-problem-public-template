@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:a25bbeb08a1049f8",
+  "label": "natural-number-game-lean4-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "a25bbeb08a1049f8b6a426899bd55a312b60a6970834c5ef04d648e6d1862b2f",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:2d903ecd0497407a",
+  "label": "mathematics-in-lean-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "2d903ecd0497407acf0e7bf9d60f9b21d35a3246a029987b6733cc65846e14b3",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:362bbd5cb8ad1805",
+  "label": "theorem-proving-in-lean-4-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "362bbd5cb8ad18059b246308e2893f4a80e32a99fdffb3a25592748d1343ff69",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

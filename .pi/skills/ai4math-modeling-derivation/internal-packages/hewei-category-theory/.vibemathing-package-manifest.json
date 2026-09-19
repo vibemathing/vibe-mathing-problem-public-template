@@ -1,0 +1,175 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "hewei-category-theory/SKILL.md",
+  "package_id": "hewei-category-theory",
+  "primary_owner": "ai4math-modeling-derivation",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 67818,
+  "source_family": "hewei-category-theory",
+  "source_files": 32,
+  "source_rows": [
+    {
+      "bytes": 331,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "43397d48079e2ba8c5a7fabdaf3aee418fb44605262b08dcc40367fe81e1eb55"
+    },
+    {
+      "bytes": 5321,
+      "path": "hewei-category-theory/SKILL.md",
+      "sha256": "992a82dcb906242cf6cde34c60371561cfb6d42325eacfbbe75115eca1efbcb4"
+    },
+    {
+      "bytes": 2387,
+      "path": "hewei-category-theory/chapters/ch01-categories.md",
+      "sha256": "66014e304a37de437434bdc308ab2d95763ee84a67b67276baf81625292f2afd"
+    },
+    {
+      "bytes": 2039,
+      "path": "hewei-category-theory/chapters/ch02-functors.md",
+      "sha256": "9637c6661c4af12bbf28e71e12f08e1ce6340eadeda3465df3931785569c3e65"
+    },
+    {
+      "bytes": 2123,
+      "path": "hewei-category-theory/chapters/ch03-natural-transformations.md",
+      "sha256": "e3b17d5fb319a099f64659d86d25834651552c4fec584c43655f82ca1df4287d"
+    },
+    {
+      "bytes": 1915,
+      "path": "hewei-category-theory/chapters/ch04-mono-epi.md",
+      "sha256": "9fa5e12ac672b9327e64e28db3c124a0a5aa1f4942b1ef39bd2ed19a38fd3796"
+    },
+    {
+      "bytes": 2073,
+      "path": "hewei-category-theory/chapters/ch05-subobjects-quotients.md",
+      "sha256": "4cb0c2dd1a9a689c7cbd5f0844c4366ea5cdc2605004a31772bc625089dd68fb"
+    },
+    {
+      "bytes": 1896,
+      "path": "hewei-category-theory/chapters/ch06-yoneda-representable.md",
+      "sha256": "25f886b9d55c238b44398d6a52a5433ba5f5a0a76e2e225a2e9a4733f4cc9bb5"
+    },
+    {
+      "bytes": 1804,
+      "path": "hewei-category-theory/chapters/ch07-projective-injective.md",
+      "sha256": "90ed0279960188dc141e7052768cee65d666cfe978a95211447737ed43ca4d55"
+    },
+    {
+      "bytes": 1831,
+      "path": "hewei-category-theory/chapters/ch08-limits.md",
+      "sha256": "8b042a2b62a870dd30c023fa57e48562635b62ae76892fc1061e95e4bfc23b98"
+    },
+    {
+      "bytes": 1725,
+      "path": "hewei-category-theory/chapters/ch09-equalizers-coequalizers.md",
+      "sha256": "e4820dbe84fa95fff050f39a827af8256a2b3c8240de006f6994a720435e6134"
+    },
+    {
+      "bytes": 1680,
+      "path": "hewei-category-theory/chapters/ch10-products-coproducts.md",
+      "sha256": "4365f92daf2861ba55072468cde48d4c2e347d676895114d271316171d774d58"
+    },
+    {
+      "bytes": 1752,
+      "path": "hewei-category-theory/chapters/ch11-pullbacks-pushouts.md",
+      "sha256": "bc23fc307fdbb14fc3eb9022f43630d621ecd3ba362c71ca81a2fce33e20c12a"
+    },
+    {
+      "bytes": 1727,
+      "path": "hewei-category-theory/chapters/ch12-completeness.md",
+      "sha256": "987db76d29568c51a528ecb346e7913117c80623384b811437dacf1cd241ba75"
+    },
+    {
+      "bytes": 1791,
+      "path": "hewei-category-theory/chapters/ch13-preserve-reflect-create-limits.md",
+      "sha256": "2380069a3b6b9e8c967b6a96699d579bdbdf5e22e50d30e78a31f975c0b7c947"
+    },
+    {
+      "bytes": 1708,
+      "path": "hewei-category-theory/chapters/ch14-adjunctions.md",
+      "sha256": "164d131d0c81906ef7d0460cf109d7d6aef4c2d076ccdf3191ef5f694e6302f0"
+    },
+    {
+      "bytes": 1921,
+      "path": "hewei-category-theory/chapters/ch15-adjoint-functor-theorems.md",
+      "sha256": "77f009f02dc8d653f3fe6962dd15d01747768dd88a0c1a96dc1779ea73237994"
+    },
+    {
+      "bytes": 1815,
+      "path": "hewei-category-theory/chapters/ch16-reflective-coreflective.md",
+      "sha256": "c74e77f3d9ba75d19f236ecbeb9f6d321121713657cf7798cf97af31f4c49b4e"
+    },
+    {
+      "bytes": 1810,
+      "path": "hewei-category-theory/chapters/ch17-cartesian-closed.md",
+      "sha256": "60c6176ccaf3717a5d6fd8e20f66d589b52519c86dd9dfb3eee35940897f62a0"
+    },
+    {
+      "bytes": 1854,
+      "path": "hewei-category-theory/chapters/ch18-monads.md",
+      "sha256": "0c33afa4fa1a7a93ce1e70d7623793542ea482e418bb8cf896d1d9c018a52f8a"
+    },
+    {
+      "bytes": 1875,
+      "path": "hewei-category-theory/chapters/ch19-beck-monadicity.md",
+      "sha256": "e569c5ff1f47422c30e10630f51f5d1e6e588c97c2e926d886a8abe6d2ecadb9"
+    },
+    {
+      "bytes": 1932,
+      "path": "hewei-category-theory/chapters/ch20-additive-categories.md",
+      "sha256": "825d0915a85374a3aac50a99cd825b2a37c9f8c2cf1ccc575bbf84ad77c82159"
+    },
+    {
+      "bytes": 1947,
+      "path": "hewei-category-theory/chapters/ch21-abelian-categories.md",
+      "sha256": "c5760cabfbc2c5d9b91eaed2972b4a97d4d4dff5432ffe34ec69e68bd7fb3e44"
+    },
+    {
+      "bytes": 2072,
+      "path": "hewei-category-theory/chapters/ch22-exact-sequences.md",
+      "sha256": "c3fba32e99776e2928dc66dbbef07e01ddafad19ecfded39ed185f28549bd13c"
+    },
+    {
+      "bytes": 1825,
+      "path": "hewei-category-theory/chapters/ch23-sheaf-definition.md",
+      "sha256": "f348e74d4bc8e92c5a11987f0a2fd5700c044b66edb91790c2eb0b58442e783d"
+    },
+    {
+      "bytes": 2038,
+      "path": "hewei-category-theory/chapters/ch24-etale-spaces.md",
+      "sha256": "5055871b3d2e7bfc23ae78d31a34bc57f78e43259b38a0fc11d41cd05a2ed23a"
+    },
+    {
+      "bytes": 1852,
+      "path": "hewei-category-theory/chapters/ch25-sheaf-category-properties.md",
+      "sha256": "735e92ff97588e544e7ca0e8b0e5acaa740b989a76a23b796a2189b599cca2aa"
+    },
+    {
+      "bytes": 2048,
+      "path": "hewei-category-theory/chapters/ch26-direct-inverse-image.md",
+      "sha256": "013ba7a63312cac3c94a8a800014f948c865aeb00fd85d000cc1fd40cf82ed01"
+    },
+    {
+      "bytes": 2356,
+      "path": "hewei-category-theory/chapters/ch27-grothendieck-sites-sheaves.md",
+      "sha256": "c8e877ccfa85656a0f224918bfc78fccd4bbcbfda61773cb51299687754152e6"
+    },
+    {
+      "bytes": 1855,
+      "path": "hewei-category-theory/cheatsheet.md",
+      "sha256": "33846c4af23aaee43bf1eb552ef7ee120632499d4537a9f07512c27d02379ebb"
+    },
+    {
+      "bytes": 3904,
+      "path": "hewei-category-theory/glossary.md",
+      "sha256": "57ad96799e55dbd9badac0c1859f70439bd1d76e102dc07df99363bb145d6255"
+    },
+    {
+      "bytes": 4611,
+      "path": "hewei-category-theory/patterns.md",
+      "sha256": "abc5f90e3946809d22f849b9086c1a89af33015ce045cd9fab721c69104b588b"
+    }
+  ],
+  "source_tree_sha256": "f81b3b6a1569067c07b2f6f07c40b3536f62143f1aa01215c6e8e449507c75e9"
+}

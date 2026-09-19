@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:b30c271e06f40e48",
+  "label": "leansearch-operator-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "b30c271e06f40e48a07562adbb56a1f5cc60cfb937b4e69845d3eb739dd0ccf0",
+  "evidence_ceiling": "identity/safety observation only until controlled review"
+}

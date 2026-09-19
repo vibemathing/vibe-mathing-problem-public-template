@@ -1,0 +1,110 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "lean4-metaprogramming/SKILL.md",
+  "package_id": "lean4-metaprogramming",
+  "primary_owner": "ai4math-lean-formalization",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 97929,
+  "source_family": "lean4-metaprogramming",
+  "source_files": 19,
+  "source_rows": [
+    {
+      "bytes": 316,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "71a6725a8ece0ffce5b36abf54834234f55c40695f2225149bac845bc4928a2f"
+    },
+    {
+      "bytes": 12607,
+      "path": "lean4-metaprogramming/SKILL.md",
+      "sha256": "eece525b565de04d733a9ce6b86024415a422a23d0bc254488cad926064b448c"
+    },
+    {
+      "bytes": 4696,
+      "path": "lean4-metaprogramming/chapters/ch01-introduction.md",
+      "sha256": "0c17741a25718805348929321c9b5fc5d9225441ccb0db2d1009943dabd84b44"
+    },
+    {
+      "bytes": 4906,
+      "path": "lean4-metaprogramming/chapters/ch02-overview.md",
+      "sha256": "e48423f69babbf6edc5695b58ad73a3ba7782ae5e8c45f0cf697a5107edf1720"
+    },
+    {
+      "bytes": 5118,
+      "path": "lean4-metaprogramming/chapters/ch03-expressions.md",
+      "sha256": "dc9b07c0dbe8e84051fb1d4ff563284c89acc2dbd8fdde3b98def6b9526d601d"
+    },
+    {
+      "bytes": 5887,
+      "path": "lean4-metaprogramming/chapters/ch04-metam.md",
+      "sha256": "775a90b0588b4ff4743a4a855498c8f22425769fdaf1b973ebb421c43dd5b8df"
+    },
+    {
+      "bytes": 5012,
+      "path": "lean4-metaprogramming/chapters/ch05-syntax.md",
+      "sha256": "994b22b20ee1ad9736121ef213f55c09ed3b1db3b4f269fd7302443e7843003d"
+    },
+    {
+      "bytes": 5008,
+      "path": "lean4-metaprogramming/chapters/ch06-macros.md",
+      "sha256": "1c7fe58b7d5080bc484675acb2d2b904b1785ca827286256c4bd7c0b4374c4b6"
+    },
+    {
+      "bytes": 5180,
+      "path": "lean4-metaprogramming/chapters/ch07-elaboration.md",
+      "sha256": "9a280d99955ef0ac5eb3bbeff6e760e604758c54a82c532f0d626964e978dae1"
+    },
+    {
+      "bytes": 4686,
+      "path": "lean4-metaprogramming/chapters/ch08-dsls.md",
+      "sha256": "96e923b3f6369afc7ebad579ecc496c9b679e56a566ad735fa8df350e94041dc"
+    },
+    {
+      "bytes": 5450,
+      "path": "lean4-metaprogramming/chapters/ch09-tactics.md",
+      "sha256": "a8f9c8665fbaf324aa51b5601d1c74d75aeb03491bb2ee0c5c9e788771d9ee28"
+    },
+    {
+      "bytes": 5173,
+      "path": "lean4-metaprogramming/chapters/ch10-cheat-sheet.md",
+      "sha256": "ad49e50244fce3c3d26e5c1b980b973378afe62dad185ba5a1a4bf1135b6e1e6"
+    },
+    {
+      "bytes": 5034,
+      "path": "lean4-metaprogramming/chapters/ch11-options.md",
+      "sha256": "5260ede12eeec2413caf6cc2b319bf22820dd5c3721deb7cdb3aed392c8cb9c9"
+    },
+    {
+      "bytes": 4735,
+      "path": "lean4-metaprogramming/chapters/ch12-pretty-printing.md",
+      "sha256": "307f54223d91db626c7aec49e61abbf4e62cb4b3de69079f306f5736a18d34c9"
+    },
+    {
+      "bytes": 2859,
+      "path": "lean4-metaprogramming/cheatsheet.md",
+      "sha256": "8a89386f33f15f39ffcb6c3cb3f16076bff00de51f627102d0c5a68b44ed0ad6"
+    },
+    {
+      "bytes": 5499,
+      "path": "lean4-metaprogramming/evals.md",
+      "sha256": "69dc9ce8260153cff10d40b1f0ba926c9badc4c65693cdc7bddcc8808264123f"
+    },
+    {
+      "bytes": 5052,
+      "path": "lean4-metaprogramming/glossary.md",
+      "sha256": "ccc2a9c72aa2e35f40f6933038a9173bdd22e29d7bc18c601522387548b34b63"
+    },
+    {
+      "bytes": 5981,
+      "path": "lean4-metaprogramming/patterns.md",
+      "sha256": "8d998fc6571685774f5e4b92a39e5d9dad64723f110e36a02731891190ab9ab9"
+    },
+    {
+      "bytes": 4730,
+      "path": "lean4-metaprogramming/provenance.md",
+      "sha256": "ad253dc32bb06b1bb2706372994ef1f0521a6c154d8f558b9d7325d49ecfe61d"
+    }
+  ],
+  "source_tree_sha256": "74925ac13e39eaa3c3452f41f1c4be4b3cb1af83e054c48401728bad4e40d58a"
+}

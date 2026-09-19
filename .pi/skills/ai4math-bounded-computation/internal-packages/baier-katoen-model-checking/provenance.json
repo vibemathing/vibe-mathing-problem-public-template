@@ -1,0 +1,434 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "role": "primary",
+      "title": "Principles of Model Checking",
+      "authors": [
+        "Christel Baier",
+        "Joost-Pieter Katoen"
+      ],
+      "edition": "first edition",
+      "coverage": "all readable main-book content, including appendix; bibliography/index processed as reference material"
+    },
+    {
+      "role": "secondary-validation",
+      "title": "Principles of Model Checking: Solutions to Selected Exercises",
+      "authors": [
+        "Christel Baier",
+        "Joost-Pieter Katoen"
+      ],
+      "coverage": "all readable supplied solution-manual content; draft status respected"
+    }
+  ],
+  "classification": {
+    "SOURCE_DERIVED": "Methods, definitions, preservation boundaries, algorithms, complexity claims, and failure conditions traceable to the listed source locations.",
+    "STRUCTURAL_SYNTHESIS": "Cross-chapter routing/recovery structure assembled from source-derived pieces; no new verification theorem is asserted.",
+    "IMPLEMENTATION_DECISION": "Skill architecture, progressive disclosure, evaluation format, and copyright-safe reconstruction choices."
+  },
+  "capabilities": {
+    "C01": {
+      "capability": "Verification task triage",
+      "locations": [
+        "Ch1 §§1.1–1.2",
+        "Ch2",
+        "Ch3",
+        "Ch5–6",
+        "Ch9–10"
+      ]
+    },
+    "C02": {
+      "capability": "Build a transition-system model",
+      "locations": [
+        "Ch2 §§2.1–2.2.6",
+        "Ch1 §1.2.1",
+        "Solution exercises 2.3, 2.7, 2.9, 2.11, 2.12"
+      ]
+    },
+    "C03": {
+      "capability": "Choose concurrency/communication semantics",
+      "locations": [
+        "Ch2 §§2.2.1–2.2.6"
+      ]
+    },
+    "C04": {
+      "capability": "Reachability, deadlock, and invariant checking",
+      "locations": [
+        "Ch3 §§3.1, 3.3.1; Algorithms 3–4",
+        "Solutions Ex.3.3 (BFS shortest counterexample)"
+      ]
+    },
+    "C05": {
+      "capability": "Classify safety, liveness, and fairness",
+      "locations": [
+        "Ch3 §§3.2–3.5"
+      ]
+    },
+    "C06": {
+      "capability": "Choose and validate fairness assumptions",
+      "locations": [
+        "Ch3 §3.5; Ch5 §5.1.6; Ch6 §6.5; Ch10 §10.6.5",
+        "Solutions Ex.3.14–3.19, 6.31"
+      ]
+    },
+    "C07": {
+      "capability": "Check a regular safety property",
+      "locations": [
+        "Ch4 §§4.1–4.2",
+        "Solutions Ex.4.1, 4.5, 4.6"
+      ]
+    },
+    "C08": {
+      "capability": "Check an omega-regular property",
+      "locations": [
+        "Ch4 §§4.3–4.4; Algorithm 8",
+        "Solutions Ex.4.24–4.27"
+      ]
+    },
+    "C09": {
+      "capability": "Specify and model-check LTL",
+      "locations": [
+        "Ch5 §§5.1–5.2; Algorithm 11",
+        "Solutions Ch5 selected exercises"
+      ]
+    },
+    "C10": {
+      "capability": "Choose LTL vs CTL vs CTL*",
+      "locations": [
+        "Ch6 §§6.1–6.3, 6.8",
+        "Solutions Ex.6.3, 6.8, 6.15"
+      ]
+    },
+    "C11": {
+      "capability": "Model-check CTL/CTL*",
+      "locations": [
+        "Ch6 §§6.4–6.6, 6.8"
+      ]
+    },
+    "C12": {
+      "capability": "Run symbolic CTL with ROBDDs",
+      "locations": [
+        "Ch6 §6.7",
+        "Solutions Ex.6.12"
+      ]
+    },
+    "C13": {
+      "capability": "Choose bisimulation or simulation abstraction",
+      "locations": [
+        "Ch7 §§7.1–7.6"
+      ]
+    },
+    "C14": {
+      "capability": "Use stutter-preserving abstraction",
+      "locations": [
+        "Ch7 §§7.7–7.8"
+      ]
+    },
+    "C15": {
+      "capability": "Apply partial-order reduction",
+      "locations": [
+        "Ch8 §§8.1–8.3",
+        "Solutions Ex.8.6–8.14"
+      ]
+    },
+    "C16": {
+      "capability": "Diagnose state-space explosion",
+      "locations": [
+        "Ch1 §1.2.1",
+        "Ch2 §2.3",
+        "Ch6 §6.7",
+        "Ch7–9"
+      ]
+    },
+    "C17": {
+      "capability": "Model a real-time system with timed automata",
+      "locations": [
+        "Ch9 §§9.1–9.2"
+      ]
+    },
+    "C18": {
+      "capability": "Model-check TCTL via regions",
+      "locations": [
+        "Ch9 §9.3; Thms 9.37, 9.46, 9.50, 9.61, 9.62, 9.68, 9.69"
+      ]
+    },
+    "C19": {
+      "capability": "Compute Markov-chain reachability probabilities",
+      "locations": [
+        "Ch10 §10.1.1–10.1.2; Thm 10.19"
+      ]
+    },
+    "C20": {
+      "capability": "Model-check PCTL/PCTL* on Markov chains",
+      "locations": [
+        "Ch10 §§10.2–10.4"
+      ]
+    },
+    "C21": {
+      "capability": "Check omega-regular probabilistic behavior",
+      "locations": [
+        "Ch10 §§10.3, 10.6.4"
+      ]
+    },
+    "C22": {
+      "capability": "Use probabilistic bisimulation",
+      "locations": [
+        "Ch10 §10.4.2"
+      ]
+    },
+    "C23": {
+      "capability": "Analyze MDP reachability and optimal schedulers",
+      "locations": [
+        "Ch10 §10.6.1–10.6.2; Lemma 10.102, Thm 10.105"
+      ]
+    },
+    "C24": {
+      "capability": "Analyze MDP long-run behavior with end components",
+      "locations": [
+        "Ch10 §§10.6.3–10.6.4; Algorithm 47"
+      ]
+    },
+    "C25": {
+      "capability": "Handle fairness in MDPs",
+      "locations": [
+        "Ch10 §10.6.5; Def 10.130, Lemma 10.131",
+        "Solutions Ex.10.29"
+      ]
+    },
+    "C26": {
+      "capability": "Diagnose a failed check",
+      "locations": [
+        "Ch1 §1.2.1–1.2.2"
+      ]
+    },
+    "C27": {
+      "capability": "Maintain verification provenance",
+      "locations": [
+        "Ch1 §1.2.1 Verification Organization"
+      ]
+    }
+  },
+  "structural_synthesis": {
+    "ROUTE-01": "Unified routing from model kind + property semantics + resource constraints to chapter/method. This combines the book’s chapter-local methods without adding a new verification theorem.",
+    "RECOVERY-01": "Single failure-recovery ladder (model/property/design/capacity) composed from Ch1 result analysis plus Ch6–10 reduction methods.",
+    "SELF_CHECK-01": "Pre/post method checks assembled from explicit assumptions and failure modes across chapters."
+  },
+  "implementation_decision": {
+    "ARCH-01": "Keep SKILL.md as controller/router and load chapter files on demand to satisfy book-to-skill progressive-disclosure guidance.",
+    "EVAL-01": "Use solution-manual exercises as secondary evaluation prompts because the booklet is explicitly a selected-solution draft; do not treat it as stronger authority than the main book.",
+    "COPYRIGHT-01": "Reconstruct examples and algorithms compactly; avoid long verbatim passages or raw book code."
+  },
+  "chapter_coverage": [
+    {
+      "id": "1",
+      "title": "System Verification",
+      "printed_pages": "1–18",
+      "core": "Operational verification loop: model + formal property -> check -> interpret result -> refine/reverify; distinguish verification from validation; manage state explosion and experiment provenance.",
+      "depends_on": [],
+      "feeds": [
+        "2",
+        "3",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Modelling Concurrent Systems",
+      "printed_pages": "19–88",
+      "core": "Transition systems, program graphs, interleaving, shared variables, handshaking, FIFO channels, nanoPromela, synchronous product, atomicity, state-space explosion.",
+      "depends_on": [
+        "A"
+      ],
+      "feeds": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Linear-Time Properties",
+      "printed_pages": "89–150",
+      "core": "Deadlock, paths/traces, trace equivalence, invariants, safety/bad prefixes, liveness, safety-liveness decomposition, fairness constraints and realizability.",
+      "depends_on": [
+        "2"
+      ],
+      "feeds": [
+        "4",
+        "5",
+        "7",
+        "8",
+        "10"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Regular Properties",
+      "printed_pages": "151–228",
+      "core": "Finite-word and Büchi automata, regular safety, omega-regular properties, product constructions, persistence checking, nested DFS.",
+      "depends_on": [
+        "2",
+        "3",
+        "A"
+      ],
+      "feeds": [
+        "5",
+        "10"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Linear Temporal Logic",
+      "printed_pages": "229–312",
+      "core": "LTL syntax/semantics, specification patterns, equivalences/normal forms, fairness encoding, LTL-to-GNBA/NBA construction, automata-based checking, complexity.",
+      "depends_on": [
+        "3",
+        "4"
+      ],
+      "feeds": [
+        "7",
+        "8",
+        "10"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Computation Tree Logic",
+      "printed_pages": "313–448",
+      "core": "CTL/CTL* branching-time semantics, bottom-up model checking, fixed points, fairness, witnesses/counterexamples, symbolic ROBDD checking, expressiveness vs LTL.",
+      "depends_on": [
+        "2",
+        "3",
+        "A"
+      ],
+      "feeds": [
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Equivalences and Abstraction",
+      "printed_pages": "449–594",
+      "core": "Bisimulation, simulation, trace/stutter relations, quotienting/refinement algorithms, logical preservation boundaries, divergence sensitivity.",
+      "depends_on": [
+        "3",
+        "5",
+        "6"
+      ],
+      "feeds": [
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Partial Order Reduction",
+      "printed_pages": "595–672",
+      "core": "Action independence, ample-set reduction for LTL\\X and branching time, dynamic/static POR, cycle provisos, sticky actions.",
+      "depends_on": [
+        "2",
+        "3",
+        "5",
+        "6",
+        "7"
+      ],
+      "feeds": []
+    },
+    {
+      "id": "9",
+      "title": "Timed Automata",
+      "printed_pages": "673–744",
+      "core": "Clocked models, time divergence/timelock/zenoness, TCTL, clock regions, finite region transition systems, PSPACE-complete TCTL checking.",
+      "depends_on": [
+        "2",
+        "6",
+        "7"
+      ],
+      "feeds": []
+    },
+    {
+      "id": "10",
+      "title": "Probabilistic Systems",
+      "printed_pages": "745–908",
+      "core": "Markov chains, PCTL/PCTL*, probabilistic bisimulation, costs/rewards, MDP schedulers, reachability/value iteration/LP, end components, omega-regular objectives, fairness.",
+      "depends_on": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "A"
+      ],
+      "feeds": []
+    },
+    {
+      "id": "A",
+      "title": "Appendix: Preliminaries",
+      "printed_pages": "909–930",
+      "core": "Symbols, formal languages, propositional logic, graphs, computational complexity.",
+      "depends_on": [],
+      "feeds": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    }
+  ],
+  "runtime_files": {
+    "ch01-system-verification.md": [
+      "Ch1 §§1.1–1.2 plus chapter limitations/organization"
+    ],
+    "ch02-modelling-concurrent-systems.md": [
+      "Ch2 §§2.1–2.3; selected solution exercises 2.3, 2.7, 2.9, 2.11, 2.12"
+    ],
+    "ch03-linear-time-properties.md": [
+      "Ch3 §§3.1–3.5; selected solution exercises including 3.3, 3.14–3.19"
+    ],
+    "ch04-regular-properties.md": [
+      "Ch4 §§4.1–4.4; selected solution exercises 4.1, 4.5–4.7, 4.24–4.27"
+    ],
+    "ch05-linear-temporal-logic.md": [
+      "Ch5 §§5.1–5.2; selected solution exercises 5.2–5.27"
+    ],
+    "ch06-computation-tree-logic.md": [
+      "Ch6 §§6.1–6.8; selected solution exercises 6.2–6.32"
+    ],
+    "ch07-equivalences-and-abstraction.md": [
+      "Ch7 §§7.1–7.8; selected solution exercises 7.1–7.30"
+    ],
+    "ch08-partial-order-reduction.md": [
+      "Ch8 §§8.1–8.3; selected solution exercises 8.1–8.14"
+    ],
+    "ch09-timed-automata.md": [
+      "Ch9 §§9.1–9.3; selected solution exercises 9.1–9.5"
+    ],
+    "ch10-probabilistic-systems.md": [
+      "Ch10 §§10.1–10.6; selected solution exercises 10.1, 10.2, 10.6, 10.16, 10.29"
+    ],
+    "ch11-preliminaries.md": [
+      "Appendix A §§A.1–A.5"
+    ]
+  },
+  "notes": [
+    "Bibliographic notes and the complete bibliography/index were processed for scope/terminology but are not reproduced as runtime reference lists.",
+    "Exercise material is used for worked checks and eval design rather than copied wholesale.",
+    "Long source passages and raw source code are intentionally omitted; examples are compact reconstructions."
+  ]
+}

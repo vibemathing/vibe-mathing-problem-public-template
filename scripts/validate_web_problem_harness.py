@@ -145,6 +145,34 @@ def content_snapshot(root: Path) -> dict[str, Any]:
     }
 
 
+def internal_package_snapshot(root: Path) -> dict[str, Any]:
+    rows: list[dict[str, Any]] = []
+    for path in sorted(root.rglob("*")):
+        if path.is_symlink():
+            raise ValueError(f"symlink in internal package: {path}")
+        if path.is_dir():
+            continue
+        if not path.is_file():
+            raise ValueError(f"non-regular internal package member: {path}")
+        if path.parent == root and path.name == ".vibemathing-package-manifest.json":
+            continue
+        data = path.read_bytes()
+        rows.append({
+            "path": path.relative_to(root).as_posix(),
+            "bytes": len(data),
+            "sha256": hashlib.sha256(data).hexdigest(),
+        })
+    digest = hashlib.sha256(
+        json.dumps(rows, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+    return {
+        "files": len(rows),
+        "bytes": sum(item["bytes"] for item in rows),
+        "tree_sha256": digest,
+        "rows": rows,
+    }
+
+
 def validate(root: Path) -> list[str]:
     root = root.resolve()
     errors: list[str] = []
@@ -447,12 +475,50 @@ def validate(root: Path) -> list[str]:
                 if not isinstance(item, dict):
                     errors.append("internal-package classification contains a non-object")
                     continue
-                if item.get("body_policy") != "private_local_complete_package_hold":
-                    errors.append(f"internal-package body policy mismatch: {item.get('package_id')}")
-                if item.get("public_body_included") is not False:
-                    errors.append(f"held internal-package body entered public metadata: {item.get('package_id')}")
-                if not set(item.get("cross_referenced_by", [])).issubset(INTERNAL_PACKAGE_TOP_SKILLS - {item.get('primary_owner')}):
-                    errors.append(f"invalid internal-package cross-reference: {item.get('package_id')}")
+                package_id = item.get("package_id")
+                owner = item.get("primary_owner")
+                if item.get("body_policy") != "bundled_complete_self_contained":
+                    errors.append(f"internal-package body policy mismatch: {package_id}")
+                if item.get("repository_body_included") is not True:
+                    errors.append(f"complete internal-package body missing: {package_id}")
+                if item.get("public_redistribution_admitted") is not False:
+                    errors.append(f"HOLD package incorrectly marked redistribution-admitted: {package_id}")
+                if not set(item.get("cross_referenced_by", [])).issubset(INTERNAL_PACKAGE_TOP_SKILLS - {owner}):
+                    errors.append(f"invalid internal-package cross-reference: {package_id}")
+                expected_relative = f".pi/skills/{owner}/internal-packages/{package_id}"
+                if item.get("repository_relative_path") != expected_relative:
+                    errors.append(f"internal-package repository path mismatch: {package_id}")
+                    continue
+                package_root = root / expected_relative
+                try:
+                    resolved = package_root.resolve(strict=True)
+                    resolved.relative_to(root / ".pi/skills")
+                except (OSError, ValueError):
+                    errors.append(f"internal-package path missing or escapes repository: {package_id}")
+                    continue
+                manifest_path = package_root / ".vibemathing-package-manifest.json"
+                try:
+                    manifest = load_json(manifest_path)
+                    observed = internal_package_snapshot(package_root)
+                    if manifest.get("package_id") != package_id or manifest.get("primary_owner") != owner:
+                        errors.append(f"internal-package manifest identity mismatch: {package_id}")
+                    if manifest.get("source_files") != observed["files"] or item.get("source_files") != observed["files"]:
+                        errors.append(f"internal-package file-count mismatch: {package_id}")
+                    if manifest.get("source_bytes") != observed["bytes"] or item.get("source_bytes") != observed["bytes"]:
+                        errors.append(f"internal-package byte-count mismatch: {package_id}")
+                    if manifest.get("source_tree_sha256") != observed["tree_sha256"] or item.get("source_tree_sha256") != observed["tree_sha256"]:
+                        errors.append(f"internal-package tree digest mismatch: {package_id}")
+                    if manifest.get("source_rows") != observed["rows"]:
+                        errors.append(f"internal-package per-file manifest mismatch: {package_id}")
+                    if manifest.get("rights_state") != "HOLD" or manifest.get("public_redistribution_admitted") is not False:
+                        errors.append(f"internal-package rights boundary mismatch: {package_id}")
+                    entry_relative = item.get("entry_relative_path")
+                    if not isinstance(entry_relative, str) or not (root / entry_relative).is_file():
+                        errors.append(f"internal-package entry missing: {package_id}")
+                    elif not entry_relative.startswith(expected_relative + "/") or not entry_relative.endswith("/SKILL.md"):
+                        errors.append(f"internal-package entry path mismatch: {package_id}")
+                except (OSError, ValueError, json.JSONDecodeError) as exc:
+                    errors.append(f"internal-package manifest invalid {package_id}: {exc}")
         except (OSError, ValueError, json.JSONDecodeError) as exc:
             errors.append(f"internal-package classification invalid: {exc}")
 
@@ -460,33 +526,49 @@ def validate(root: Path) -> list[str]:
         skill_id: {item.get("package_id") for item in classified_packages if isinstance(item, dict) and item.get("primary_owner") == skill_id}
         for skill_id in INTERNAL_PACKAGE_TOP_SKILLS
     }
+    physical_packages: set[str] = set()
     for skill_id in INTERNAL_PACKAGE_TOP_SKILLS:
         skill_dir = root / ".pi/skills" / skill_id
         registry_path = skill_dir / "INTERNAL-PACKAGES.json"
         routing_path = skill_dir / "references/internal-package-routing.md"
+        package_dir = skill_dir / "internal-packages"
         if not registry_path.is_file() or registry_path.is_symlink():
             errors.append(f"internal-package registry missing: {skill_id}")
             continue
         if not routing_path.is_file() or routing_path.is_symlink():
             errors.append(f"internal-package routing guide missing: {skill_id}")
+        if not package_dir.is_dir() or package_dir.is_symlink():
+            errors.append(f"internal-package body directory missing: {skill_id}")
+            actual_owned: set[str] = set()
+        else:
+            actual_owned = {path.name for path in package_dir.iterdir() if path.is_dir() and not path.is_symlink()}
+            physical_packages.update(actual_owned)
         try:
             registry = load_json(registry_path)
             if registry.get("top_level_skill") != skill_id:
                 errors.append(f"internal-package registry owner mismatch: {skill_id}")
-            owned = {item.get("package_id") for item in registry.get("owned_packages", []) if isinstance(item, dict)}
-            if owned != classified_by_owner[skill_id]:
+            if registry.get("body_availability") != "bundled_complete_self_contained":
+                errors.append(f"internal-package availability mismatch: {skill_id}")
+            owned_items = [item for item in registry.get("owned_packages", []) if isinstance(item, dict)]
+            owned = {item.get("package_id") for item in owned_items}
+            if owned != classified_by_owner[skill_id] or actual_owned != classified_by_owner[skill_id]:
                 errors.append(f"internal-package owned set mismatch: {skill_id}")
-            if any(item.get("public_body_included") is not False for item in registry.get("owned_packages", []) if isinstance(item, dict)):
-                errors.append(f"held package body flag mismatch: {skill_id}")
+            for owned_item in owned_items:
+                if owned_item.get("public_redistribution_admitted") is not False:
+                    errors.append(f"internal-package rights flag mismatch: {owned_item.get('package_id')}")
+                for key in ("body_relative_path", "entry_relative_path"):
+                    value = owned_item.get(key)
+                    if not isinstance(value, str) or value.startswith("/") or ".." in Path(value).parts:
+                        errors.append(f"unsafe internal-package registry path {key}: {owned_item.get('package_id')}")
         except (OSError, ValueError, json.JSONDecodeError) as exc:
             errors.append(f"internal-package registry invalid {skill_id}: {exc}")
-        if (skill_dir / "internal-packages").exists():
-            errors.append(f"HOLD package bodies must not enter the public repository: {skill_id}")
         entry = skill_dir / "SKILL.md"
         if entry.is_file():
             entry_text = entry.read_text(encoding="utf-8")
             if "INTERNAL-PACKAGES.json" not in entry_text or "references/internal-package-routing.md" not in entry_text:
                 errors.append(f"top-level Skill does not route internal packages: {skill_id}")
+    if physical_packages != {item.get("package_id") for item in classified_packages if isinstance(item, dict)}:
+        errors.append("physical internal-package set does not match the 31-package classification")
 
     skill_suite_bytes = 0
     consolidated_skill_ids = expected_skill_ids - {"solve"}

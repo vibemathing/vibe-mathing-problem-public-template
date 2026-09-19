@@ -1,0 +1,75 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "lean-search-client",
+  "primary_owner": "mathematics-in-lean",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 53353,
+  "source_family": "lean-search-client",
+  "source_files": 12,
+  "source_rows": [
+    {
+      "bytes": 11357,
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 8714,
+      "path": "SKILL.md",
+      "sha256": "8cbacacc261094f128b4a87cc72ed8b398d35e85b45316578203f03a33beab7d"
+    },
+    {
+      "bytes": 313,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "137424cda4776648fe91992e8e8394fc93ba4566526bf89fb02102e28e8cb00b"
+    },
+    {
+      "bytes": 4169,
+      "path": "chapters/ch01-orientation-routing.md",
+      "sha256": "e10bf8b8cfd13369dfe7d99fd3742dc35d4a2a1ccea4b61b6d95827f707b566b"
+    },
+    {
+      "bytes": 4205,
+      "path": "chapters/ch02-leansearch-natural-language.md",
+      "sha256": "9d7c4c8c8e01ca9272214d40c0d42fc23f94d144713ed3667d9a665ead1e6624"
+    },
+    {
+      "bytes": 4463,
+      "path": "chapters/ch03-goal-state-search.md",
+      "sha256": "29ead18ad219baf8223ff75da106edd8521114cc9bf83f1c8456c6c687d2c08a"
+    },
+    {
+      "bytes": 4193,
+      "path": "chapters/ch04-loogle-structural-search.md",
+      "sha256": "141ec9e85c34569eef3dade2dadb2a4977cdc36e1545e8d535eea08808a802e8"
+    },
+    {
+      "bytes": 4363,
+      "path": "chapters/ch05-suggestions-validation-cache.md",
+      "sha256": "4429a945e3b376d846fcf5b5dda5fc7df3c5e85ae1730256a7ebf1bff7e764b8"
+    },
+    {
+      "bytes": 4751,
+      "path": "chapters/ch06-configuration-testing-failures.md",
+      "sha256": "ecf88e3536efcea86678069765c6f7e1b15fcbf1aeda442134f314ed4e53f1af"
+    },
+    {
+      "bytes": 1812,
+      "path": "cheatsheet.md",
+      "sha256": "5c6e93c8d22cd72bd025a51397cb2c1791b912f0cc51a96923a854cfcba4d804"
+    },
+    {
+      "bytes": 1892,
+      "path": "glossary.md",
+      "sha256": "d511ee7ee620c16cb6d785e0497e4b1a3fdf45fa38f77d3a5506a3839c0fc536"
+    },
+    {
+      "bytes": 3121,
+      "path": "patterns.md",
+      "sha256": "79f39e071645f15833650f7d1be95a7d4d4db2baaf8f8f60cc05e2d614e00add"
+    }
+  ],
+  "source_tree_sha256": "7862787c43bf6d8f8ee715f51b9819afc79e1aa6eea0e19f1dfd43b963a9bf1b"
+}

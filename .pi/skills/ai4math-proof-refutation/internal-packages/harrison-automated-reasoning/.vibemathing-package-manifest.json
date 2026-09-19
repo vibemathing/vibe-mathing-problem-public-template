@@ -1,0 +1,95 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "harrison-automated-reasoning",
+  "primary_owner": "ai4math-proof-refutation",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 136952,
+  "source_family": "harrison-automated-reasoning",
+  "source_files": 16,
+  "source_rows": [
+    {
+      "bytes": 3525,
+      "path": "PACKAGE-MANIFEST.json",
+      "sha256": "bcd828a9d3b5cd161115b5aed1f0f34780f5e7d6070f624185342456b4089c23"
+    },
+    {
+      "bytes": 11997,
+      "path": "SKILL.md",
+      "sha256": "ff118ea75ad91b3978608aa0e7aa98f3959e7c2714756b0880d87d0f312efd45"
+    },
+    {
+      "bytes": 2297,
+      "path": "SOURCE-RECORD.json",
+      "sha256": "15af0591306f479fab6e2ea5d456517c3893a7231c6de8f62cf7d741ac4d7efa"
+    },
+    {
+      "bytes": 7017,
+      "path": "chapters/ch01-introduction-symbolic-foundations.md",
+      "sha256": "9e8fb00873f86105e5b5f8e66319b89796ea85875a4ab15ea0e54528581cfa52"
+    },
+    {
+      "bytes": 10424,
+      "path": "chapters/ch02-propositional-reasoning.md",
+      "sha256": "604b68e549b2b664849e397e3ba2a538721cd3ce999193d349e54b64b37060d0"
+    },
+    {
+      "bytes": 12326,
+      "path": "chapters/ch03-first-order-reasoning.md",
+      "sha256": "7ebb4e53c4fa52e64f1f88d72a4b9136eca4e9cab97fe45626ae5ed20fe50b38"
+    },
+    {
+      "bytes": 10777,
+      "path": "chapters/ch04-equality-rewriting.md",
+      "sha256": "55735142ae38d59c1fa4eea05ef8020a32d2b9cc15e71bb6a46cfabb32fa6966"
+    },
+    {
+      "bytes": 17618,
+      "path": "chapters/ch05-decision-procedures-smt.md",
+      "sha256": "faa88089c84b5c17b0738698a4a21f99beaaab0b03c57736742c8ad902a07be8"
+    },
+    {
+      "bytes": 11713,
+      "path": "chapters/ch06-interactive-theorem-proving.md",
+      "sha256": "e3703792b4690bc43a98be9f0a71f68217d6f3aef01801f8a26b4a1777e59cb5"
+    },
+    {
+      "bytes": 13054,
+      "path": "chapters/ch07-limitations-decidability.md",
+      "sha256": "ba0dab63c72cd8f78b68daed0f627ba71adb1cdd419a2718eb70f146af665903"
+    },
+    {
+      "bytes": 5943,
+      "path": "chapters/ch08-mathematical-background.md",
+      "sha256": "e9af2f3f4fcfe0e80fa22226cc7847cb9a7123194e3e30b3fb5c7c65ce0efa5f"
+    },
+    {
+      "bytes": 7302,
+      "path": "chapters/ch09-ocaml-symbolic-programming.md",
+      "sha256": "848154027f9b8f36d88c102e8092b49a0b476408c1b2548f5c250507e16c4392"
+    },
+    {
+      "bytes": 6132,
+      "path": "chapters/ch10-parsing-printing-formulas.md",
+      "sha256": "704a3dc861004211892be106959fbff8ef39502e1de4e4bf55da97acd6aa15dc"
+    },
+    {
+      "bytes": 3748,
+      "path": "cheatsheet.md",
+      "sha256": "97c894f0d28491408bdc65354b177aa074eb8a2f7be8e6ae2467bf0e5619a63f"
+    },
+    {
+      "bytes": 5963,
+      "path": "glossary.md",
+      "sha256": "57f696d403294660290fa64e4022f0ae0c1238957d63aeb4ab5832af727191b7"
+    },
+    {
+      "bytes": 7116,
+      "path": "patterns.md",
+      "sha256": "528a42efba1b1bd60d0bb198fa363689c93182cb986345c526a263f5a713dd46"
+    }
+  ],
+  "source_tree_sha256": "211d1c7785540e2e46735c3865038a766b9a13ec5d7e60268dbb46b6f3477529"
+}

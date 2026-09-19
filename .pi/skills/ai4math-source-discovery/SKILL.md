@@ -66,7 +66,7 @@ description: "数学问题发现与证据检索。用于界定研究问题、查
 
 ## Internal package routing
 
-Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies remain private-local while rights are on HOLD; this repository exposes routing metadata only.
+Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` before choosing source material. Load only the smallest applicable internal package. Complete package bodies are bundled under this top-level Skill. Use only repository-relative registry paths; rights remain HOLD and bundling does not grant publication or execution authority.
 
 ## Progressive disclosure
 

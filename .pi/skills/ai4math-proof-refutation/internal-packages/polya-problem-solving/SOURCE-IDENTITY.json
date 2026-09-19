@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:e504cfffbb2ffc05",
+  "label": "polya-problem-solving-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "e504cfffbb2ffc0559263882fec333f655a432a0ef641aa1c6bce092fa15e586",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

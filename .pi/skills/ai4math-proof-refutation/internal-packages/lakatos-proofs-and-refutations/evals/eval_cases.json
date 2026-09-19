@@ -1,0 +1,113 @@
+{
+  "realistic_user_prompt": "我在证明一个新的图论命题：对满足条件 A 的所有有限连通图，不变量 I 都等于 2。现在找到一个带“隧道”结构的反例，结论失败，但我证明里列出的三个引理在这个例子上似乎都成立。团队有人建议直接把定理限制到“无隧道图”。请按拉卡托斯的证明—反驳方法诊断：这个反例属于什么类型，我应先找隐藏假设还是先加限制？请重构证明分析，提出候选隐藏引理，并设计能区分这些候选的下一轮反例。",
+  "trigger_cases": [
+    {
+      "prompt": "我的定理碰到反例，但我不知道该改定理还是改证明。",
+      "should_trigger": true,
+      "route": "counterexample-triage"
+    },
+    {
+      "prompt": "形式证明器通过了，但实际模型给出反例，哪里可能出了问题？",
+      "should_trigger": true,
+      "route": "translation-procedure-audit"
+    },
+    {
+      "prompt": "这个定义为什么偏偏这样写？能从证明失败的地方解释它吗？",
+      "should_trigger": true,
+      "route": "heuristic-reconstruction"
+    },
+    {
+      "prompt": "两个证明得出的假设范围不同，我该怎么比较？",
+      "should_trigger": true,
+      "route": "proof-content-comparison"
+    }
+  ],
+  "negative_trigger_cases": [
+    {
+      "prompt": "计算 27×43。",
+      "should_trigger": false
+    },
+    {
+      "prompt": "把这段中文翻译成英语。",
+      "should_trigger": false
+    },
+    {
+      "prompt": "柯西不等式的标准陈述是什么？",
+      "should_trigger": false
+    },
+    {
+      "prompt": "检查这个 Lean 证明脚本能否编译。",
+      "should_trigger": false,
+      "note": "unless user asks methodological diagnosis of assumptions/formalization"
+    }
+  ],
+  "method_selection_cases": [
+    {
+      "condition": "global=True, local=True",
+      "expected": "Rule 2 lemma incorporation"
+    },
+    {
+      "condition": "global=True, local=False",
+      "expected": "hidden-lemma search + falsity-transfer check"
+    },
+    {
+      "condition": "global=False, local=True",
+      "expected": "Rule 4 lemma replacement/deeper proof"
+    },
+    {
+      "condition": "repeated safe restrictions unrelated to proof",
+      "expected": "exception-barring diagnosis; demand proof-linked condition"
+    },
+    {
+      "condition": "definition changes to disqualify counterexample",
+      "expected": "monster-barring audit"
+    },
+    {
+      "condition": "formal derivation valid, intended example fails",
+      "expected": "translation/model audit"
+    },
+    {
+      "condition": "definition appears arbitrary in textbook",
+      "expected": "proof-ancestor heuristic reconstruction"
+    }
+  ],
+  "failure_recovery_cases": [
+    {
+      "failure": "No explicit proof lemmas",
+      "recovery": "infer provisional lemma graph; label inferred assumptions"
+    },
+    {
+      "failure": "Several hidden lemmas fit",
+      "recovery": "design discriminating counterexamples"
+    },
+    {
+      "failure": "Every repair shrinks domain",
+      "recovery": "Rule 4 radical mode or Rule 5"
+    },
+    {
+      "failure": "Terminology determines counterexample status",
+      "recovery": "definition genealogy + dual interpretation report"
+    },
+    {
+      "failure": "Formal proof passes but application fails",
+      "recovery": "audit translation/model boundary"
+    }
+  ],
+  "fresh_agent_simulation": {
+    "input": "realistic_user_prompt",
+    "expected_route": [
+      "counterexample-triage",
+      "falsity-transfer-check",
+      "hidden-lemma-search"
+    ],
+    "expected_diagnosis": "Global counterexample with no currently identified local failure; current proof analysis is incomplete. Do not immediately accept the unrelated “no tunnels” restriction.",
+    "expected_actions": [
+      "expand each proof transformation into explicit dependencies",
+      "look for a hidden property whose failure is characteristic of the tunnel example",
+      "form at least two candidate hidden lemmas",
+      "design examples that preserve one candidate while violating the other",
+      "incorporate a condition only after it is tied to the proof dependency",
+      "state that the repaired theorem remains provisional"
+    ]
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "skill_name": "mathematics-in-lean",
+  "source": {
+    "title": "Mathematics in Lean",
+    "authors": [
+      "Jeremy Avigad",
+      "Patrick Massot"
+    ],
+    "release": "v4.19.0",
+    "date": "2025-08-08",
+    "pdf_pages": 212,
+    "sha256": "ed75ac71efaab1766212b424bab9c932f23d49d4b8e67323275aeffb39d02ca1",
+    "extraction_method": "pdftotext",
+    "extraction_mode": "technical",
+    "visual_reviewed_pages": 212
+  },
+  "compiler": {
+    "name": "book-to-skill",
+    "source_zip_sha256": "22ecfdceee82080bac92e4a2d0359bd88512c48adb31c84f335cc74cd4467e7a",
+    "mode": "full conversion",
+    "book_type": "technical",
+    "depth": "study"
+  },
+  "chapter_sources": [
+    {
+      "skill_file": "chapters/ch01-introduction.md",
+      "book_chapter": 1,
+      "title": "Introduction",
+      "printed_pages": "1–4",
+      "sections": [
+        "1.1 Getting Started",
+        "1.2 Overview"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch02-basics.md",
+      "book_chapter": 2,
+      "title": "Basics",
+      "printed_pages": "5–23",
+      "sections": [
+        "2.1 Calculating",
+        "2.2 Proving Identities in Algebraic Structures",
+        "2.3 Using Theorems and Lemmas",
+        "2.4 More examples using apply and rw",
+        "2.5 Proving Facts about Algebraic Structures"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch03-logic.md",
+      "book_chapter": 3,
+      "title": "Logic",
+      "printed_pages": "25–48",
+      "sections": [
+        "3.1 Implication and the Universal Quantifier",
+        "3.2 The Existential Quantifier",
+        "3.3 Negation",
+        "3.4 Conjunction and Iff",
+        "3.5 Disjunction",
+        "3.6 Sequences and Convergence"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch04-sets-and-functions.md",
+      "book_chapter": 4,
+      "title": "Sets and Functions",
+      "printed_pages": "49–64",
+      "sections": [
+        "4.1 Sets",
+        "4.2 Functions",
+        "4.3 The Schröder-Bernstein Theorem"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch05-elementary-number-theory.md",
+      "book_chapter": 5,
+      "title": "Elementary Number Theory",
+      "printed_pages": "65–84",
+      "sections": [
+        "5.1 Irrational Roots",
+        "5.2 Induction and Recursion",
+        "5.3 Infinitely Many Primes",
+        "5.4 More Induction"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch06-discrete-mathematics.md",
+      "book_chapter": 6,
+      "title": "Discrete Mathematics",
+      "printed_pages": "85–98",
+      "sections": [
+        "6.1 Finsets and Fintypes",
+        "6.2 Counting Arguments",
+        "6.3 Inductively Defined Types"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch07-structures.md",
+      "book_chapter": 7,
+      "title": "Structures",
+      "printed_pages": "99–120",
+      "sections": [
+        "7.1 Defining structures",
+        "7.2 Algebraic Structures",
+        "7.3 Building the Gaussian Integers"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch08-hierarchies.md",
+      "book_chapter": 8,
+      "title": "Hierarchies",
+      "printed_pages": "121–136",
+      "sections": [
+        "8.1 Basics",
+        "8.2 Morphisms",
+        "8.3 Sub-objects"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch09-groups-and-rings.md",
+      "book_chapter": 9,
+      "title": "Groups and Rings",
+      "printed_pages": "137–154",
+      "sections": [
+        "9.1 Monoids and Groups",
+        "9.2 Rings"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch10-linear-algebra.md",
+      "book_chapter": 10,
+      "title": "Linear algebra",
+      "printed_pages": "155–174",
+      "sections": [
+        "10.1 Vector spaces and linear maps",
+        "10.2 Subspaces and quotients",
+        "10.3 Endomorphisms",
+        "10.4 Matrices, bases and dimension"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch11-topology.md",
+      "book_chapter": 11,
+      "title": "Topology",
+      "printed_pages": "175–194",
+      "sections": [
+        "11.1 Filters",
+        "11.2 Metric spaces",
+        "11.3 Topological spaces"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch12-differential-calculus.md",
+      "book_chapter": 12,
+      "title": "Differential Calculus",
+      "printed_pages": "195–200",
+      "sections": [
+        "12.1 Elementary Differential Calculus",
+        "12.2 Differential Calculus in Normed Spaces"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch13-integration-and-measure-theory.md",
+      "book_chapter": 13,
+      "title": "Integration and Measure Theory",
+      "printed_pages": "201–204",
+      "sections": [
+        "13.1 Elementary Integration",
+        "13.2 Measure Theory",
+        "13.3 Integration"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    },
+    {
+      "skill_file": "chapters/ch14-index-and-navigation.md",
+      "book_chapter": 14,
+      "title": "Index",
+      "printed_pages": "205–208",
+      "sections": [
+        "Index"
+      ],
+      "provenance_type": "SOURCE_DERIVED"
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "route_lean_goal",
+      "purpose": "Classify a Lean goal and choose a proof family",
+      "trigger": "Any request to prove or debug a Lean/Mathlib theorem",
+      "source": [
+        "Ch2",
+        "Ch3",
+        "Ch5",
+        "Ch11"
+      ],
+      "type": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "name": "rewrite_and_normalize",
+      "purpose": "Use rw/calc/simp/change/dsimp/erw with controlled unfolding",
+      "trigger": "Equality or a theorem nearly matches",
+      "source": [
+        "2.1",
+        "3.1",
+        "3.4",
+        "5.4"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "apply_library_theorem",
+      "purpose": "Work backwards with apply/exact and search Mathlib effectively",
+      "trigger": "A library lemma likely closes or decomposes the goal",
+      "source": [
+        "2.3"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "dispatch_arithmetic",
+      "purpose": "Choose ring/noncomm_ring/abel/group/linarith/norm_num/omega/field_simp",
+      "trigger": "Algebraic or arithmetic residue",
+      "source": [
+        "2.1–2.5",
+        "5.3",
+        "6.2"
+      ],
+      "type": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "name": "prove_logical_structure",
+      "purpose": "Introduce/destruct quantifiers and connectives",
+      "trigger": "Goal/hypothesis has →, ∀, ∃, ¬, ∧, ∨, ↔",
+      "source": [
+        "Ch3"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "prove_extensional_equality",
+      "purpose": "Reduce functions/sets/structures to pointwise/components",
+      "trigger": "Equality of functions, sets, bundled structures",
+      "source": [
+        "3.6",
+        "4.1",
+        "7.1"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "design_induction",
+      "purpose": "Choose ordinary/strong/structural/well-founded induction",
+      "trigger": "Recursive data or decreasing argument",
+      "source": [
+        "5.2–5.4",
+        "6.3"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "work_with_sets_functions",
+      "purpose": "Reason via membership, image/preimage, injectivity/surjectivity",
+      "trigger": "Set/function goals",
+      "source": [
+        "Ch4"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "work_with_finite_objects",
+      "purpose": "Finset/Fintype counting, sums/products, pigeonhole",
+      "trigger": "Finite combinatorial goals",
+      "source": [
+        "Ch6"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "build_structures_and_instances",
+      "purpose": "Bundle data/proofs and register typeclass instances safely",
+      "trigger": "Defining mathematical structures or notation",
+      "source": [
+        "Ch7",
+        "Ch8"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "design_hierarchies",
+      "purpose": "Use extends/outParam/DFunLike/SetLike and avoid bad diamonds",
+      "trigger": "Reusable class/morphism/subobject hierarchy",
+      "source": [
+        "Ch8"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "formalize_groups_rings",
+      "purpose": "Use bundled morphisms, subobjects, quotients, ideals, polynomials",
+      "trigger": "Abstract algebra tasks",
+      "source": [
+        "Ch9"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "formalize_linear_algebra",
+      "purpose": "Linear maps/submodules/quotients/bases/matrices/dimension",
+      "trigger": "Linear algebra tasks",
+      "source": [
+        "Ch10"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "formalize_limits_topology",
+      "purpose": "Use filters, Tendsto, Eventually, metric/topological APIs",
+      "trigger": "Limits, continuity, compactness, closure",
+      "source": [
+        "Ch11"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "formalize_differential_calculus",
+      "purpose": "Use HasDerivAt/HasFDerivAt, continuous linear maps, asymptotics",
+      "trigger": "Derivative/differentiability tasks",
+      "source": [
+        "Ch12"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "formalize_measure_integration",
+      "purpose": "Use measurable spaces, measures, AE, integrability and integral theorems",
+      "trigger": "Measure/integration tasks",
+      "source": [
+        "Ch13"
+      ],
+      "type": "SOURCE_DERIVED"
+    },
+    {
+      "name": "recover_from_elaboration_failure",
+      "purpose": "Diagnose syntactic mismatch, inference ambiguity, coercions, missing assumptions",
+      "trigger": "Lean rejects an apparently valid step",
+      "source": [
+        "2.5",
+        "3.1",
+        "7.2",
+        "8.1",
+        "10.4",
+        "11.2"
+      ],
+      "type": "STRUCTURAL_SYNTHESIS"
+    }
+  ],
+  "synthesis_notes": [
+    {
+      "item": "Routing Policy in SKILL.md",
+      "provenance_type": "STRUCTURAL_SYNTHESIS",
+      "basis": "Cross-chapter synthesis of goal-shape tactics and domain-specific APIs."
+    },
+    {
+      "item": "Failure Recovery in SKILL.md",
+      "provenance_type": "STRUCTURAL_SYNTHESIS",
+      "basis": "Repeated source failure modes: syntactic rw mismatch, metavariables, typeclass ambiguity, coercions, totalized definitions."
+    },
+    {
+      "item": "SELF_CHECK in SKILL.md",
+      "provenance_type": "IMPLEMENTATION_DECISION",
+      "basis": "Added as an operational validation layer requested by the compilation task; criteria are grounded in book methods."
+    },
+    {
+      "item": "Version warning",
+      "provenance_type": "IMPLEMENTATION_DECISION",
+      "basis": "Source is release v4.19.0; names/signatures can evolve independently of the conceptual method."
+    }
+  ]
+}

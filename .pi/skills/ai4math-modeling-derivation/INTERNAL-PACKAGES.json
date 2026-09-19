@@ -1,46 +1,70 @@
 {
   "activation": "route_through_top_level_skill_only",
-  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "body_availability": "bundled_complete_self_contained",
   "owned_packages": [
     {
+      "body_relative_path": "internal-packages/cheng-math-logic",
       "capabilities": [
         "assumption exposure",
         "definition variation",
         "counterexample-guided boundary discovery"
       ],
+      "entry_relative_path": "internal-packages/cheng-math-logic/SKILL.md",
       "package_id": "cheng-math-logic",
-      "public_body_included": false,
-      "source_family": "cheng-math-logic"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 46588,
+      "source_family": "cheng-math-logic",
+      "source_files": 13,
+      "source_tree_sha256": "e0fe457728758d5f4f7fe093a52e58105baef583a358f5c4455732d04d4074d1"
     },
     {
+      "body_relative_path": "internal-packages/hewei-category-theory",
       "capabilities": [
         "universal constructions",
         "functorial translation",
         "naturality and adjunction routing"
       ],
+      "entry_relative_path": "internal-packages/hewei-category-theory/hewei-category-theory/SKILL.md",
       "package_id": "hewei-category-theory",
-      "public_body_included": false,
-      "source_family": "hewei-category-theory"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 67818,
+      "source_family": "hewei-category-theory",
+      "source_files": 32,
+      "source_tree_sha256": "f81b3b6a1569067c07b2f6f07c40b3536f62143f1aa01215c6e8e449507c75e9"
     },
     {
+      "body_relative_path": "internal-packages/houston-mathematical-thinking",
       "capabilities": [
         "statement parsing",
         "proof-language discipline",
         "example and counterexample use"
       ],
+      "entry_relative_path": "internal-packages/houston-mathematical-thinking/SKILL.md",
       "package_id": "houston-mathematical-thinking",
-      "public_body_included": false,
-      "source_family": "houston-mathematical-thinking"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 98588,
+      "source_family": "houston-mathematical-thinking",
+      "source_files": 43,
+      "source_tree_sha256": "86b8e2616639aaf0e0658d210d20bb47ad63e964e50bc1bb7fa7644e8d673b96"
     },
     {
+      "body_relative_path": "internal-packages/math-analysis-thinking-methods",
       "capabilities": [
         "expression normalization",
         "theorem precondition routing",
         "convergence-mode distinctions"
       ],
+      "entry_relative_path": "internal-packages/math-analysis-thinking-methods/math-analysis-thinking-methods/SKILL.md",
       "package_id": "math-analysis-thinking-methods",
-      "public_body_included": false,
-      "source_family": "math-analysis-thinking-methods"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 219444,
+      "source_family": "math-analysis-thinking-methods",
+      "source_files": 65,
+      "source_tree_sha256": "5a94623ed7f2920aa0188782b665a92661574ef016eaa5444540e5ed6cb5ca2c"
     }
   ],
   "referenced_packages": [
@@ -50,8 +74,10 @@
         "abstraction soundness",
         "state-space control"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-bounded-computation/internal-packages/baier-katoen-model-checking/SKILL.md",
       "package_id": "baier-katoen-model-checking",
-      "primary_owner": "ai4math-bounded-computation"
+      "primary_owner": "ai4math-bounded-computation",
+      "repository_relative_path": ".pi/skills/ai4math-bounded-computation/internal-packages/baier-katoen-model-checking"
     },
     {
       "capabilities": [
@@ -59,8 +85,10 @@
         "lemma incorporation",
         "conjecture and definition repair"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/lakatos-proofs-and-refutations/SKILL.md",
       "package_id": "lakatos-proofs-and-refutations",
-      "primary_owner": "ai4math-proof-refutation"
+      "primary_owner": "ai4math-proof-refutation",
+      "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/lakatos-proofs-and-refutations"
     },
     {
       "capabilities": [
@@ -68,10 +96,12 @@
         "backward reasoning",
         "heuristic-versus-proof separation"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/polya-problem-solving/SKILL.md",
       "package_id": "polya-problem-solving",
-      "primary_owner": "ai4math-proof-refutation"
+      "primary_owner": "ai4math-proof-refutation",
+      "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/polya-problem-solving"
     }
   ],
-  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "schema_version": "ai4math-top-skill-internal-package-registry.v2",
   "top_level_skill": "ai4math-modeling-derivation"
 }

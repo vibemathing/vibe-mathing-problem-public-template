@@ -1,0 +1,80 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "welleck-informal-formal-reasoning/SKILL.md",
+  "package_id": "welleck-informal-formal-reasoning",
+  "primary_owner": "ai4math-lean-formalization",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 62773,
+  "source_family": "welleck-informal-formal-reasoning",
+  "source_files": 13,
+  "source_rows": [
+    {
+      "bytes": 337,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "c346c9f54430361397a49f5ffcb237ab407a1a96477735c47aec000e46bf1488"
+    },
+    {
+      "bytes": 8236,
+      "path": "welleck-informal-formal-reasoning/SKILL.md",
+      "sha256": "99b5c37721a5817bc0209940cbdb9bb609a3538e38bd7269e9ed66681fdeb62d"
+    },
+    {
+      "bytes": 4703,
+      "path": "welleck-informal-formal-reasoning/chapters/ch01-bridge-and-verifier-loop.md",
+      "sha256": "8e3e2c578e5be001d555f3ddc1d7e1d77d241b5a558b5f2114a8532bf3143956"
+    },
+    {
+      "bytes": 6109,
+      "path": "welleck-informal-formal-reasoning/chapters/ch02-lean-star.md",
+      "sha256": "378db9f461424d20bec36990d335c8738826c01504a0fe11131eff09e775e39a"
+    },
+    {
+      "bytes": 6152,
+      "path": "welleck-informal-formal-reasoning/chapters/ch03-draft-sketch-prove.md",
+      "sha256": "d0a5d294cdd004655b8011847a69636b66330b82fde78a95dc68376b2bf2ef71"
+    },
+    {
+      "bytes": 6158,
+      "path": "welleck-informal-formal-reasoning/chapters/ch04-leanhammer.md",
+      "sha256": "2f416ce77ebb1a17761ba098a9ebb2cb54e06dfcd498c9cea0bc1e14ecd1c12f"
+    },
+    {
+      "bytes": 7081,
+      "path": "welleck-informal-formal-reasoning/chapters/ch05-minictx-research-context.md",
+      "sha256": "04c4e9a799f9f0dc841c973a6d28314878ac7ffe18ba82504413bb56d14a7a63"
+    },
+    {
+      "bytes": 5768,
+      "path": "welleck-informal-formal-reasoning/chapters/ch06-improver-proof-optimization.md",
+      "sha256": "2b82b3df047a0624ba8bc7a32f3584df19d1182eec58fa4904eb729f29488479"
+    },
+    {
+      "bytes": 2792,
+      "path": "welleck-informal-formal-reasoning/cheatsheet.md",
+      "sha256": "7ce778d190a70bef26ac60168b33b12588c5275c2c33aafd5d02b3f1e903a275"
+    },
+    {
+      "bytes": 2078,
+      "path": "welleck-informal-formal-reasoning/evals/cases.json",
+      "sha256": "3c1281a5e5c5e7924c3bcc912782bcc4abd046224b57c7d3c1027743f298e6b9"
+    },
+    {
+      "bytes": 3179,
+      "path": "welleck-informal-formal-reasoning/glossary.md",
+      "sha256": "16e95c611326c86d5780c50efa2d1d8eab41718af872045f49fa6e1e4015948e"
+    },
+    {
+      "bytes": 4125,
+      "path": "welleck-informal-formal-reasoning/patterns.md",
+      "sha256": "63ee28a6429def7614a4a5dec53ca025505fd9d5561b158d4f9b0924caef0151"
+    },
+    {
+      "bytes": 6055,
+      "path": "welleck-informal-formal-reasoning/provenance/source_map.json",
+      "sha256": "55c01581e7881d72f42f6940ee3b97d3cc2c446570e2dce6f615ccf61f3a7362"
+    }
+  ],
+  "source_tree_sha256": "4816bb4a915cfd3b1eb9d213b5ee35177934c5d04314df01f5a84e9c291afce7"
+}

@@ -1,66 +1,102 @@
 {
   "activation": "route_through_top_level_skill_only",
-  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "body_availability": "bundled_complete_self_contained",
   "owned_packages": [
     {
+      "body_relative_path": "internal-packages/archon-formalization",
       "capabilities": [
         "dependency-aware formalization",
         "plan/prove/review separation",
         "stalled-run diagnosis"
       ],
+      "entry_relative_path": "internal-packages/archon-formalization/SKILL.md",
       "package_id": "archon-formalization",
-      "public_body_included": false,
-      "source_family": "archon-formalization"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 85673,
+      "source_family": "archon-formalization",
+      "source_files": 22,
+      "source_tree_sha256": "aa90acee63c61f7e260274ef2b0353e8027b0a8259aeda10464ec1c7379c788b"
     },
     {
+      "body_relative_path": "internal-packages/jixia-lean-analyzer",
       "capabilities": [
         "toolchain matching",
         "InfoTree and declaration products",
         "static-analysis diagnostics"
       ],
+      "entry_relative_path": "internal-packages/jixia-lean-analyzer/jixia-lean-analyzer/SKILL.md",
       "package_id": "jixia-lean-analyzer",
-      "public_body_included": false,
-      "source_family": "jixia-lean-analyzer"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 65561,
+      "source_family": "jixia-lean-analyzer",
+      "source_files": 14,
+      "source_tree_sha256": "0a2e45893080483615b9487222da10723f12b844d7fd8b2104355af3977eb8f3"
     },
     {
+      "body_relative_path": "internal-packages/lean4-math-formalization-2025",
       "capabilities": [
         "statement translation",
         "proof-state reading",
         "abstraction-ladder control"
       ],
+      "entry_relative_path": "internal-packages/lean4-math-formalization-2025/lean4-math-formalization-2025/SKILL.md",
       "package_id": "lean4-math-formalization-2025",
-      "public_body_included": false,
-      "source_family": "lean4-math-formalization-2025"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 90032,
+      "source_family": "lean4-math-formalization-2025",
+      "source_files": 14,
+      "source_tree_sha256": "34002e1bed3f3b96de4f457a803f75f3ed3f00dfb8a642a0a8618e69e19a3a2a"
     },
     {
+      "body_relative_path": "internal-packages/lean4-metaprogramming",
       "capabilities": [
         "syntax/elaboration/kernel staging",
         "metavariable state and rollback",
         "generated-term validation"
       ],
+      "entry_relative_path": "internal-packages/lean4-metaprogramming/lean4-metaprogramming/SKILL.md",
       "package_id": "lean4-metaprogramming",
-      "public_body_included": false,
-      "source_family": "lean4-metaprogramming"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 97929,
+      "source_family": "lean4-metaprogramming",
+      "source_files": 19,
+      "source_tree_sha256": "74925ac13e39eaa3c3452f41f1c4be4b3cb1af83e054c48401728bad4e40d58a"
     },
     {
+      "body_relative_path": "internal-packages/welleck-informal-formal-reasoning",
       "capabilities": [
         "verifier hard boundary",
         "retrieval before brute force",
         "reasoning-proving interleaving"
       ],
+      "entry_relative_path": "internal-packages/welleck-informal-formal-reasoning/welleck-informal-formal-reasoning/SKILL.md",
       "package_id": "welleck-informal-formal-reasoning",
-      "public_body_included": false,
-      "source_family": "welleck-informal-formal-reasoning"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 62773,
+      "source_family": "welleck-informal-formal-reasoning",
+      "source_files": 13,
+      "source_tree_sha256": "4816bb4a915cfd3b1eb9d213b5ee35177934c5d04314df01f5a84e9c291afce7"
     },
     {
+      "body_relative_path": "internal-packages/xena-formalization-method",
       "capabilities": [
         "statement freezing",
         "API engineering",
         "normalize-before-automation and counterexample checks"
       ],
+      "entry_relative_path": "internal-packages/xena-formalization-method/SKILL.md",
       "package_id": "xena-formalization-method",
-      "public_body_included": false,
-      "source_family": "xena-formalization-method"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 236007,
+      "source_family": "xena-formalization-method",
+      "source_files": 33,
+      "source_tree_sha256": "8a33eff78bd36e5fb869c5c173ee217682a19fd8b38a4ad12c3dd884d21e6861"
     }
   ],
   "referenced_packages": [
@@ -70,8 +106,10 @@
         "dependency-preserving Skolemization",
         "higher-order unification limits"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/classical-type-theory/SKILL.md",
       "package_id": "classical-type-theory",
-      "primary_owner": "ai4math-proof-refutation"
+      "primary_owner": "ai4math-proof-refutation",
+      "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/classical-type-theory"
     },
     {
       "capabilities": [
@@ -79,8 +117,10 @@
         "syntax-sensitive search",
         "local validation of suggestions"
       ],
+      "entry_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/lean-search-client/SKILL.md",
       "package_id": "lean-search-client",
-      "primary_owner": "mathematics-in-lean"
+      "primary_owner": "mathematics-in-lean",
+      "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/lean-search-client"
     },
     {
       "capabilities": [
@@ -88,8 +128,10 @@
         "schema and revision pinning",
         "service diagnostics"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-toolchain-reproducibility/internal-packages/leansearch-operator/SKILL.md",
       "package_id": "leansearch-operator",
-      "primary_owner": "ai4math-toolchain-reproducibility"
+      "primary_owner": "ai4math-toolchain-reproducibility",
+      "repository_relative_path": ".pi/skills/ai4math-toolchain-reproducibility/internal-packages/leansearch-operator"
     },
     {
       "capabilities": [
@@ -97,8 +139,10 @@
         "weakest sufficient abstraction",
         "typeclasses filters and induction"
       ],
+      "entry_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/mathematics-in-lean-project-record/SKILL.md",
       "package_id": "mathematics-in-lean-project-record",
-      "primary_owner": "mathematics-in-lean"
+      "primary_owner": "mathematics-in-lean",
+      "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/mathematics-in-lean-project-record"
     },
     {
       "capabilities": [
@@ -106,8 +150,10 @@
         "library interface preference",
         "formal analysis patterns"
       ],
+      "entry_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/mathematics-in-lean-external-snapshot/mathematics-in-lean/SKILL.md",
       "package_id": "mathematics-in-lean-external-snapshot",
-      "primary_owner": "mathematics-in-lean"
+      "primary_owner": "mathematics-in-lean",
+      "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/mathematics-in-lean-external-snapshot"
     },
     {
       "capabilities": [
@@ -115,8 +161,10 @@
         "rewrite-to-recursion",
         "witness-based order"
       ],
+      "entry_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/natural-number-game-lean4/natural-number-game-lean4/SKILL.md",
       "package_id": "natural-number-game-lean4",
-      "primary_owner": "mathematics-in-lean"
+      "primary_owner": "mathematics-in-lean",
+      "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/natural-number-game-lean4"
     },
     {
       "capabilities": [
@@ -124,8 +172,10 @@
         "epsilon-filter translation",
         "totalization and type-boundary guards"
       ],
+      "entry_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/tao-analysis-lean/tao-analysis-lean/SKILL.md",
       "package_id": "tao-analysis-lean",
-      "primary_owner": "mathematics-in-lean"
+      "primary_owner": "mathematics-in-lean",
+      "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/tao-analysis-lean"
     },
     {
       "capabilities": [
@@ -133,10 +183,12 @@
         "constructor and recursor interfaces",
         "termination and typeclass inference"
       ],
+      "entry_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/theorem-proving-in-lean-4/SKILL.md",
       "package_id": "theorem-proving-in-lean-4",
-      "primary_owner": "mathematics-in-lean"
+      "primary_owner": "mathematics-in-lean",
+      "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/theorem-proving-in-lean-4"
     }
   ],
-  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "schema_version": "ai4math-top-skill-internal-package-registry.v2",
   "top_level_skill": "ai4math-lean-formalization"
 }

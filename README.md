@@ -2,7 +2,7 @@
 
 This repository contains one canonical ProblemContract plus a fixed, self-contained Vibe Mathing Harness snapshot.
 
-The repository is Pi-native: after you trust the project, Pi discovers only the project Skill entries declared in [`.pi/settings.json`](.pi/settings.json). Eight top-level mathematical Skills use auditable internal-package registries to route 31 source packages; HOLD source bodies remain private-local and are not public-template content. Start `pi` from the repository root, verify that the `.pi/skills/` entries are visible, and then choose one research mode:
+The repository is Pi-native: after you trust the project, Pi discovers only the project Skill entries declared in [`.pi/settings.json`](.pi/settings.json). Eight top-level mathematical Skills bundle and route all 31 complete source packages through repository-relative internal-package registries. Rights remain HOLD, so repository bundling does not itself authorize public redistribution. Start `pi` from the repository root, verify that the `.pi/skills/` entries are visible, and then choose one research mode:
 
 - **T1–T9 coordinator (one ChatGPT Project, one problem):** read `AGENTS.md`, then [`WEB_COORDINATOR.md`](WEB_COORDINATOR.md). The coordinator performs fresh-state preflight and emits nine bounded worker prompts; it is not a tenth mathematical lane.
 - **Issue-bound research worker:** read `AGENTS.md`, `WEB_BOOTSTRAP.md`, `HARNESS_SNAPSHOT.json`, `WEB_CONTEXT_BUNDLE.md`, and the Issue-bound Attempt/Route/Obligation.

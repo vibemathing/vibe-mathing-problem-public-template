@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:7b81be999328dab4",
+  "label": "hewei-category-theory-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "7b81be999328dab424ee9aa33345a33c2bc8dd46a982df74ba5e640d89a0f93b",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

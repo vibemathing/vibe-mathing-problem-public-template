@@ -1,76 +1,118 @@
 {
   "activation": "route_through_top_level_skill_only",
-  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "body_availability": "bundled_complete_self_contained",
   "owned_packages": [
     {
+      "body_relative_path": "internal-packages/classical-type-theory",
       "capabilities": [
         "type-directed search",
         "dependency-preserving Skolemization",
         "higher-order unification limits"
       ],
+      "entry_relative_path": "internal-packages/classical-type-theory/SKILL.md",
       "package_id": "classical-type-theory",
-      "public_body_included": false,
-      "source_family": "classical-type-theory"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 95276,
+      "source_family": "classical-type-theory",
+      "source_files": 20,
+      "source_tree_sha256": "d630f7a25600e1219efa30276dd7add0bef1033a2658a9a12cd42f59557b10ac"
     },
     {
+      "body_relative_path": "internal-packages/danus-proof-orchestration",
       "capabilities": [
         "producer/verifier separation",
         "fact-graph memory",
         "falsification before persistence"
       ],
+      "entry_relative_path": "internal-packages/danus-proof-orchestration/SKILL.md",
       "package_id": "danus-proof-orchestration",
-      "public_body_included": false,
-      "source_family": "danus-proof-orchestration"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 71790,
+      "source_family": "danus-proof-orchestration",
+      "source_files": 17,
+      "source_tree_sha256": "2b556383982d743b7c65c95a3ed95a2fec4f6184f26a2b131b955f4b330324bd"
     },
     {
+      "body_relative_path": "internal-packages/harrison-automated-reasoning",
       "capabilities": [
         "logic-fragment routing",
         "rewriting and decision-procedure scope",
         "LCF trust boundary"
       ],
+      "entry_relative_path": "internal-packages/harrison-automated-reasoning/SKILL.md",
       "package_id": "harrison-automated-reasoning",
-      "public_body_included": false,
-      "source_family": "harrison-automated-reasoning"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 136952,
+      "source_family": "harrison-automated-reasoning",
+      "source_files": 16,
+      "source_tree_sha256": "211d1c7785540e2e46735c3865038a766b9a13ec5d7e60268dbb46b6f3477529"
     },
     {
+      "body_relative_path": "internal-packages/lakatos-proofs-and-refutations",
       "capabilities": [
         "counterexample triage",
         "lemma incorporation",
         "conjecture and definition repair"
       ],
+      "entry_relative_path": "internal-packages/lakatos-proofs-and-refutations/SKILL.md",
       "package_id": "lakatos-proofs-and-refutations",
-      "public_body_included": false,
-      "source_family": "lakatos-proofs-and-refutations"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 133520,
+      "source_family": "lakatos-proofs-and-refutations",
+      "source_files": 19,
+      "source_tree_sha256": "a088acebbfa7f196e590d9e3dc8cf15ccdba181b86b93a175ae6e52fde58b5bc"
     },
     {
+      "body_relative_path": "internal-packages/polya-problem-solving",
       "capabilities": [
         "understand-plan-execute-review",
         "backward reasoning",
         "heuristic-versus-proof separation"
       ],
+      "entry_relative_path": "internal-packages/polya-problem-solving/SKILL.md",
       "package_id": "polya-problem-solving",
-      "public_body_included": false,
-      "source_family": "polya-problem-solving"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 57908,
+      "source_family": "polya-problem-solving",
+      "source_files": 18,
+      "source_tree_sha256": "904fc417c07f98bd14b14699d7cd53612635d617d37427d78a0d03066352614d"
     },
     {
+      "body_relative_path": "internal-packages/rethlas-math-reasoning",
       "capabilities": [
         "persistent proof state",
         "retrieval applicability checks",
         "strict verification and degraded-mode honesty"
       ],
+      "entry_relative_path": "internal-packages/rethlas-math-reasoning/SKILL.md",
       "package_id": "rethlas-math-reasoning",
-      "public_body_included": false,
-      "source_family": "rethlas-math-reasoning"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 77575,
+      "source_family": "rethlas-math-reasoning",
+      "source_files": 16,
+      "source_tree_sha256": "ed9c510c04371f92206795a1b847f5c5bf150010f6af205b65857131b3ab93de"
     },
     {
+      "body_relative_path": "internal-packages/strunk-elements-of-style",
       "capabilities": [
         "concise proof exposition",
         "explicit logical relations",
         "editing-versus-validation separation"
       ],
+      "entry_relative_path": "internal-packages/strunk-elements-of-style/SKILL.md",
       "package_id": "strunk-elements-of-style",
-      "public_body_included": false,
-      "source_family": "strunk-elements-of-style"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 94239,
+      "source_family": "strunk-elements-of-style",
+      "source_files": 15,
+      "source_tree_sha256": "41aef705f129d175e59a5fb07b9f3954a690e1e7753c6791df14ea0f51bc3d52"
     }
   ],
   "referenced_packages": [
@@ -80,8 +122,10 @@
         "verification-first experimentation",
         "informative failure"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/ai-for-mathematics/SKILL.md",
       "package_id": "ai-for-mathematics",
-      "primary_owner": "ai4math-source-discovery"
+      "primary_owner": "ai4math-source-discovery",
+      "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/ai-for-mathematics"
     },
     {
       "capabilities": [
@@ -89,8 +133,10 @@
         "definition variation",
         "counterexample-guided boundary discovery"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-modeling-derivation/internal-packages/cheng-math-logic/SKILL.md",
       "package_id": "cheng-math-logic",
-      "primary_owner": "ai4math-modeling-derivation"
+      "primary_owner": "ai4math-modeling-derivation",
+      "repository_relative_path": ".pi/skills/ai4math-modeling-derivation/internal-packages/cheng-math-logic"
     },
     {
       "capabilities": [
@@ -98,10 +144,12 @@
         "proof-language discipline",
         "example and counterexample use"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-modeling-derivation/internal-packages/houston-mathematical-thinking/SKILL.md",
       "package_id": "houston-mathematical-thinking",
-      "primary_owner": "ai4math-modeling-derivation"
+      "primary_owner": "ai4math-modeling-derivation",
+      "repository_relative_path": ".pi/skills/ai4math-modeling-derivation/internal-packages/houston-mathematical-thinking"
     }
   ],
-  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "schema_version": "ai4math-top-skill-internal-package-registry.v2",
   "top_level_skill": "ai4math-proof-refutation"
 }

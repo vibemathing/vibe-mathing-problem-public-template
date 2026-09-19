@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:a0b4fcd954c93f9e",
+  "label": "math-analysis-thinking-methods-delivery.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "a0b4fcd954c93f9e0392ea77282064c4fd677c00c9b41653ec750686eec0602a",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

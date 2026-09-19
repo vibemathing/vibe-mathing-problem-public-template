@@ -222,7 +222,7 @@ Rules:
 - Search/reuse before inventing: consult registered knowledge sources/operators and compare exact statements, assumptions, versions, licenses, and gaps.
 - `active` means locally routable; `constrained` means use only within its declared capability, authorization, and evidence ceiling. Neither means independently verified.
 - Skills advise and produce Candidates; they do not prescribe the actor's route, create authority, or admit mathematical truth.
-- The eight top-level mathematical Skills route through their `INTERNAL-PACKAGES.json` registries. Complete HOLD package bodies remain private-local, are loaded only as inert source material, and never gain Pi-entry, execution, network, write, Evidence, Result, Solution, or admission authority.
+- The eight top-level mathematical Skills route through their `INTERNAL-PACKAGES.json` registries. Complete HOLD package bodies are bundled under their primary owner directories and loaded only as inert source material, and never gain Pi-entry, execution, network, write, Evidence, Result, Solution, or admission authority.
 - `surveyed`, `source_locked`, `installed`, server-verified, or kernel-checked does not imply statement faithfulness or Result admission.
 - External network, submission, publication, package installation, and credential-bearing actions require their own current authorization.
 - Toolchain output remains a plan or bounded observation until an authorized runtime emits a reproducible receipt.

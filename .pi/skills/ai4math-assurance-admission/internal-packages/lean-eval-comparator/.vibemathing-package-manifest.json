@@ -1,0 +1,90 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "lean-eval-comparator",
+  "primary_owner": "ai4math-assurance-admission",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 68671,
+  "source_family": "lean-eval-comparator",
+  "source_files": 15,
+  "source_rows": [
+    {
+      "bytes": 11284,
+      "path": "SKILL.md",
+      "sha256": "a3ec25254cc895e9c2d4b2d00df1b2a15855d16eb4cfd1d385cbab53351d8a5d"
+    },
+    {
+      "bytes": 307,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "98079fb940a0d21d1ee07bfc6a566e2d3eb713b9183cb21cd1896305a0044d34"
+    },
+    {
+      "bytes": 4860,
+      "path": "chapters/ch01-architecture-and-trust-boundary.md",
+      "sha256": "2e83bd59bb84d5cda63c6da1f1ada24101455b63fc11e527db9c945d5ac8e90a"
+    },
+    {
+      "bytes": 5243,
+      "path": "chapters/ch02-installation-and-preflight.md",
+      "sha256": "3746d3dc4b265f0181f4d122d9e00567d2fb316b3f0c0bd4f999f7546b8e8a33"
+    },
+    {
+      "bytes": 4793,
+      "path": "chapters/ch03-workspace-execution-and-nanoda.md",
+      "sha256": "2eba287991903848acc57af737d6a644a4ecd4c403f606838a06c9e8dc2283e6"
+    },
+    {
+      "bytes": 4091,
+      "path": "chapters/ch04-scoring-and-eval-semantics.md",
+      "sha256": "c42536bbbb44cf6ff0793770e54fd27fa9e3abb261bab954dd88e053dd900ce1"
+    },
+    {
+      "bytes": 4464,
+      "path": "chapters/ch05-authoring-generation-and-catalog-integrity.md",
+      "sha256": "98ad1b998f22595bcdeca17ca55055c386c34307f47c5ce1c2a258136d4b253c"
+    },
+    {
+      "bytes": 4723,
+      "path": "chapters/ch06-failure-diagnosis.md",
+      "sha256": "705b071b2f9818dfdf2fd8026397c5ddc8ae52ce24699939ddd02defefb558f9"
+    },
+    {
+      "bytes": 5158,
+      "path": "chapters/ch07-security-model-and-invariants.md",
+      "sha256": "981d240378c5c6a3ca46462e718c8d7684d6eff0962ee57a95198278150e3dbc"
+    },
+    {
+      "bytes": 4934,
+      "path": "chapters/ch08-security-probes-and-regression-gates.md",
+      "sha256": "327d5ff761f7c2aa6723245e14761cd3f9f0e958351879a7332960dcd530d60d"
+    },
+    {
+      "bytes": 4716,
+      "path": "chapters/ch09-pin-governance-and-drift.md",
+      "sha256": "4d624b2dd98f263c1f9af0b997efb3d66f27eee17f384e66076447c7caf6c25f"
+    },
+    {
+      "bytes": 4744,
+      "path": "chapters/ch10-multi-hole-and-spec-quality.md",
+      "sha256": "b207bde4ff7b7f5d721eeac231f5dfaf15134d37ec4dd83298005f8124d6bf79"
+    },
+    {
+      "bytes": 2539,
+      "path": "cheatsheet.md",
+      "sha256": "b19298b1c7e442c55191d4c3c538a7fba7589ec773566e0d3b15b03a4112e3e2"
+    },
+    {
+      "bytes": 3315,
+      "path": "glossary.md",
+      "sha256": "338e370668c2ec9e8bae10620d879553586ad300fd2a4e5ad9a37a92031490e5"
+    },
+    {
+      "bytes": 3500,
+      "path": "patterns.md",
+      "sha256": "c32ebb4754f715898cf163e4057f561944c882bca9919a485aa6020108a56c77"
+    }
+  ],
+  "source_tree_sha256": "78f6f3e6a1272f5dd0c9841b215a9d1dec4fc2e61a548dfd3b90f27f4d12b136"
+}

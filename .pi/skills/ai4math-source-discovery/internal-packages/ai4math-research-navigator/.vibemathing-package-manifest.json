@@ -1,0 +1,195 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "ai4math-research-navigator/SKILL.md",
+  "package_id": "ai4math-research-navigator",
+  "primary_owner": "ai4math-source-discovery",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 152236,
+  "source_family": "ai4math-research-navigator",
+  "source_files": 36,
+  "source_rows": [
+    {
+      "bytes": 330,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "7a63f5376d7d1eb1886c928e37a8ad48c2dfdac8a57e28b137a0e7b48057c601"
+    },
+    {
+      "bytes": 548,
+      "path": "ai4math-research-navigator/README.md",
+      "sha256": "deb48d17e125ea9467774896b161b4c7b5adf6dcb775a41f9be3405affc7e14c"
+    },
+    {
+      "bytes": 7030,
+      "path": "ai4math-research-navigator/SKILL.md",
+      "sha256": "8cad63cea99f46f4993b12fe61e4d94c73dc1a3419d5c0cb2ed6f96550512c83"
+    },
+    {
+      "bytes": 431,
+      "path": "ai4math-research-navigator/THIRD_PARTY_NOTICES.md",
+      "sha256": "e4548193d188eb91d3658eee53df4587c16e5e3b66a274f91ab8dcb652770e8a"
+    },
+    {
+      "bytes": 1074,
+      "path": "ai4math-research-navigator/licenses/source-MIT.txt",
+      "sha256": "2e935e14fb0b698054ef440f9ae1109bf59d042ee20c5b74fd063c9f36d76fcd"
+    },
+    {
+      "bytes": 900,
+      "path": "ai4math-research-navigator/manifest.txt",
+      "sha256": "5763816377551368920b5fde5435685c0c0e61de60ad094ec0c9600758cd134d"
+    },
+    {
+      "bytes": 459,
+      "path": "ai4math-research-navigator/metadata.json",
+      "sha256": "33c0743863666dd993760c019c1f114bac0f2fb44a89f65258d0ef19f624bfa7"
+    },
+    {
+      "bytes": 5371,
+      "path": "ai4math-research-navigator/provenance/provenance_map.json",
+      "sha256": "e53e132e9ee19cfb9ea894304f4262f447008f8343c83b83565cf636525d98b6"
+    },
+    {
+      "bytes": 2212,
+      "path": "ai4math-research-navigator/references/benchmark-guide.md",
+      "sha256": "d0ce23635de61c16ae7002af378090796967d926051b5d6a5671302de5d7fce6"
+    },
+    {
+      "bytes": 2484,
+      "path": "ai4math-research-navigator/references/book-map.md",
+      "sha256": "ffeb12ea1bea116f6619d08928fef6343327e3ce06b40882aca79d38597eeca8"
+    },
+    {
+      "bytes": 9089,
+      "path": "ai4math-research-navigator/references/capability-library.md",
+      "sha256": "f9dae0ee60cffaa2d760e0963c6dfb16b5502aa43870ac86fde5adc55df206fe"
+    },
+    {
+      "bytes": 86325,
+      "path": "ai4math-research-navigator/references/catalog.jsonl",
+      "sha256": "2985194b8f01b4cf512aba856cd20296e9a27594c3837861c696b7e5fdbb9936"
+    },
+    {
+      "bytes": 2372,
+      "path": "ai4math-research-navigator/references/concept-graph.md",
+      "sha256": "59744ba34c12a5efea19fb8b844c2e36018dfdeec6fcb94981ad3b5438cf5b93"
+    },
+    {
+      "bytes": 2485,
+      "path": "ai4math-research-navigator/references/failure-modes.md",
+      "sha256": "b4d00acd86e3f5790550ed5f9d76dfc5208a6ba11e0a5ede67571247fa7eb339"
+    },
+    {
+      "bytes": 1790,
+      "path": "ai4math-research-navigator/references/method-dependency-graph.md",
+      "sha256": "1418ea6ce5cc0a6bb5dc7ae94327c376dacfbc28643d173879cf6e9b5b1bfefe"
+    },
+    {
+      "bytes": 1841,
+      "path": "ai4math-research-navigator/references/source-record.md",
+      "sha256": "2b487e0de79fc1e4cc496be53849f2f5f06d301bd733170215e721bfe79c8cb6"
+    },
+    {
+      "bytes": 1981,
+      "path": "ai4math-research-navigator/references/taxonomy-routing.md",
+      "sha256": "7fef709cef647f2c779005b5b99fe9c012443d2d45b533dc1e1c9a30217b5f42"
+    },
+    {
+      "bytes": 1587,
+      "path": "ai4math-research-navigator/references/visual-findings.md",
+      "sha256": "832758dd35235633b83857adfdbe0b606269a0c1f8ed601c755b880d1530b5b7"
+    },
+    {
+      "bytes": 1890,
+      "path": "ai4math-research-navigator/scripts/query_catalog.py",
+      "sha256": "e210f4e9a3ea49791e1f3db5a4bd0ee38b961fc943bfaed5203d27befba82bb4"
+    },
+    {
+      "bytes": 3439,
+      "path": "ai4math-research-navigator/scripts/validate_skill.py",
+      "sha256": "5924f6c6041c76e96f46afe3de30022ccae79c9d86287827a63c02ce557dbbdf"
+    },
+    {
+      "bytes": 328,
+      "path": "ai4math-research-navigator/templates/benchmark-card.md",
+      "sha256": "53f90c5c91be2ac5f1aff1d0b3a438fb08bbbaa1164bda50860634bf9e611662"
+    },
+    {
+      "bytes": 357,
+      "path": "ai4math-research-navigator/templates/method-comparison.md",
+      "sha256": "22ca3d0b510995a76158bbf483c9694cfbaff9b720a63f21a88d2eb648a9534e"
+    },
+    {
+      "bytes": 321,
+      "path": "ai4math-research-navigator/templates/research-plan.md",
+      "sha256": "f6ddc5ef9abda126e4f72e6a1ad36e6c3888a5026b7058d2b2c0e3e3ef2aa12b"
+    },
+    {
+      "bytes": 1907,
+      "path": "ai4math-research-navigator/tests/coverage-audit.md",
+      "sha256": "3393cf28782a5b4998830578cffa7b141be40ddab98daaa8a61b4a47dcae9c0d"
+    },
+    {
+      "bytes": 2015,
+      "path": "ai4math-research-navigator/tests/eval-results.md",
+      "sha256": "17f232e7deddc59bdf2fdfcae19cc1d0749e3b960f43d564f51f412858b7e2f1"
+    },
+    {
+      "bytes": 4429,
+      "path": "ai4math-research-navigator/tests/evals.json",
+      "sha256": "3e8246fab61088be0e0b6dc67958f9a644ec4ddb9153cf830e7e48c0fbe93ec1"
+    },
+    {
+      "bytes": 1584,
+      "path": "ai4math-research-navigator/tests/fresh-agent-simulation.md",
+      "sha256": "5c7cdb38a36c04a53dc4c53002a97c06276834aff5684d586d3922aee046aa6d"
+    },
+    {
+      "bytes": 2728,
+      "path": "ai4math-research-navigator/tests/independent-audit.md",
+      "sha256": "55f463b943936ea2ff1e1d721619ef7bcb4b86fd6d8d8f30f516aadf881f0b10"
+    },
+    {
+      "bytes": 565,
+      "path": "ai4math-research-navigator/tests/quality-scores.json",
+      "sha256": "c5916094a98609609001e8acb3a4c50236e1cdd87c00074270842c17c760bfe2"
+    },
+    {
+      "bytes": 685,
+      "path": "ai4math-research-navigator/workflows/discovery.md",
+      "sha256": "a6fa9d8cf5d6b07d0f17de483f9462127362ea8e2092299ab68abae25ce7cb21"
+    },
+    {
+      "bytes": 673,
+      "path": "ai4math-research-navigator/workflows/evaluation-design.md",
+      "sha256": "dc1d7e6d6d1ceaa69d296a4270e4919609532dd01abda21be7f51a8279fbc728"
+    },
+    {
+      "bytes": 621,
+      "path": "ai4math-research-navigator/workflows/formal-proving.md",
+      "sha256": "77add2a8c115d99717238951965b6dcf0de7b6b4cdc47cce6a7e01559b33291d"
+    },
+    {
+      "bytes": 596,
+      "path": "ai4math-research-navigator/workflows/multimodal-geometry.md",
+      "sha256": "f371738890d471877910954584229c56c4bd4aa346e34a566ff4c1a749565851"
+    },
+    {
+      "bytes": 536,
+      "path": "ai4math-research-navigator/workflows/recovery.md",
+      "sha256": "3b523e5b5ae983711cec8e0eba94b34d84ad8243730e710502886c81f945c992"
+    },
+    {
+      "bytes": 566,
+      "path": "ai4math-research-navigator/workflows/research-navigation.md",
+      "sha256": "7e1d82fe34c9a4f1e14b6013201e9c5e7f81686c8af8246f6525db072efa9db7"
+    },
+    {
+      "bytes": 687,
+      "path": "ai4math-research-navigator/workflows/system-design.md",
+      "sha256": "481dfe0b9dc1398d86ba3d4603b5316550e8b6898efa1ce891adc7d30e926468"
+    }
+  ],
+  "source_tree_sha256": "6d9fbf32513c7accaeed6ac00703f279e0dfc6f06bc9f22b596899cb3e8faf6e"
+}

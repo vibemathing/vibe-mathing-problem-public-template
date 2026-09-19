@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:d921e77320efdaa2",
+  "label": "ai4math-research-navigator-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "d921e77320efdaa290d30aec168fe9fcf98935c9772fe146370b57de06c4f3ea",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

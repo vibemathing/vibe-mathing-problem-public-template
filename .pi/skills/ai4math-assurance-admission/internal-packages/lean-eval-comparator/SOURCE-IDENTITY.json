@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:c161f958705b8f30",
+  "label": "lean-eval-comparator-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "c161f958705b8f3089ad908ea4753cc9e57b7bb2cd82719396bf29889a406a88",
+  "evidence_ceiling": "identity/safety observation only until verifier review"
+}

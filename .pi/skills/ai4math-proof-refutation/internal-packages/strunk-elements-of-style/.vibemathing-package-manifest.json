@@ -1,0 +1,90 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "strunk-elements-of-style",
+  "primary_owner": "ai4math-proof-refutation",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 94239,
+  "source_family": "strunk-elements-of-style",
+  "source_files": 15,
+  "source_rows": [
+    {
+      "bytes": 15837,
+      "path": "SKILL.md",
+      "sha256": "2d1ca4848baa0be35c2577af521fb40109a174db056fd625c62c8bdd5afecc6d"
+    },
+    {
+      "bytes": 5616,
+      "path": "chapters/appendix-a-modern-applicability.md",
+      "sha256": "a600ab87c345fc203048717adacd8e8e4cdd240ceff5cc3da30da2a8f5353041"
+    },
+    {
+      "bytes": 6347,
+      "path": "chapters/appendix-b-provenance.md",
+      "sha256": "6e7fb4dae14e98b2311c4a852b81835f7d53b8ccc16c8554776f78c17e389b9c"
+    },
+    {
+      "bytes": 4624,
+      "path": "chapters/ch01-introductory.md",
+      "sha256": "4516856d9303eb94ba446572f1d6807a70d1709ba2cc22f5dd28e5a7a683b4a3"
+    },
+    {
+      "bytes": 7679,
+      "path": "chapters/ch02-elementary-rules-of-usage.md",
+      "sha256": "cfe27ebb75db590bc404015bdd16441c0223fbac94cca54b71ccf91b6a23f163"
+    },
+    {
+      "bytes": 10343,
+      "path": "chapters/ch03-elementary-principles-of-composition.md",
+      "sha256": "18b435828ce12d29ad06c7d31de147d6063a581c07e18012f1f1cd275b106331"
+    },
+    {
+      "bytes": 6045,
+      "path": "chapters/ch04-matters-of-form.md",
+      "sha256": "fd5e57791ad544acb10bd204556f4fac811b3c1c374ddb4b77d4a0dae0ac84ef"
+    },
+    {
+      "bytes": 4131,
+      "path": "chapters/ch05-reference-a-l.md",
+      "sha256": "371502060164b5fddc59926e8066abc19612edf9959198835d11806bd0197919"
+    },
+    {
+      "bytes": 3759,
+      "path": "chapters/ch05-reference-m-w.md",
+      "sha256": "f06f35373133b1db959b75bce3b5f2d7185d21de84df8cac584dd67a5a61f631"
+    },
+    {
+      "bytes": 5837,
+      "path": "chapters/ch05-words-and-expressions-commonly-misused.md",
+      "sha256": "35339d3bdfb521fcc6bfaf777508d3cee88ba9ab859bc96916d42ef741f502d5"
+    },
+    {
+      "bytes": 3927,
+      "path": "chapters/ch06-spelling.md",
+      "sha256": "6b26e9718adc4eaa48c11ac50bab4c601481d3003564b54de8cd9bf312d291c5"
+    },
+    {
+      "bytes": 4888,
+      "path": "chapters/ch07-exercises.md",
+      "sha256": "450670f9c6bc89799e43cbc1cdb0fa56b0c1cf769dd519c1a7e991cb009768f3"
+    },
+    {
+      "bytes": 3509,
+      "path": "cheatsheet.md",
+      "sha256": "966fd46e2d5511ae6bcf9dfd507678e996caee9f1cc6f3d2efe4f85449616e91"
+    },
+    {
+      "bytes": 3779,
+      "path": "glossary.md",
+      "sha256": "b29f27d2f2d64f3c3c30b36914d0c1a598179178a7fed9b973497d6d9ee4d136"
+    },
+    {
+      "bytes": 7918,
+      "path": "patterns.md",
+      "sha256": "50d8d1d27614ada876c73073e3c146c467b25d8f8fcf7ad5cf74829d2ece5eb0"
+    }
+  ],
+  "source_tree_sha256": "41aef705f129d175e59a5fb07b9f3954a690e1e7753c6791df14ea0f51bc3d52"
+}

@@ -1,16 +1,22 @@
 {
   "activation": "route_through_top_level_skill_only",
-  "body_availability": "private_local_complete_packages_public_metadata_only",
+  "body_availability": "bundled_complete_self_contained",
   "owned_packages": [
     {
+      "body_relative_path": "internal-packages/lean-eval-comparator",
       "capabilities": [
         "pristine-versus-edited comparison",
         "isolated elaboration",
         "pin and security audit"
       ],
+      "entry_relative_path": "internal-packages/lean-eval-comparator/SKILL.md",
       "package_id": "lean-eval-comparator",
-      "public_body_included": false,
-      "source_family": "lean-eval-comparator"
+      "public_redistribution_admitted": false,
+      "rights_state": "HOLD",
+      "source_bytes": 68671,
+      "source_family": "lean-eval-comparator",
+      "source_files": 15,
+      "source_tree_sha256": "78f6f3e6a1272f5dd0c9841b215a9d1dec4fc2e61a548dfd3b90f27f4d12b136"
     }
   ],
   "referenced_packages": [
@@ -20,8 +26,10 @@
         "abstraction soundness",
         "state-space control"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-bounded-computation/internal-packages/baier-katoen-model-checking/SKILL.md",
       "package_id": "baier-katoen-model-checking",
-      "primary_owner": "ai4math-bounded-computation"
+      "primary_owner": "ai4math-bounded-computation",
+      "repository_relative_path": ".pi/skills/ai4math-bounded-computation/internal-packages/baier-katoen-model-checking"
     },
     {
       "capabilities": [
@@ -29,8 +37,10 @@
         "fact-graph memory",
         "falsification before persistence"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/danus-proof-orchestration/SKILL.md",
       "package_id": "danus-proof-orchestration",
-      "primary_owner": "ai4math-proof-refutation"
+      "primary_owner": "ai4math-proof-refutation",
+      "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/danus-proof-orchestration"
     },
     {
       "capabilities": [
@@ -38,8 +48,10 @@
         "rewriting and decision-procedure scope",
         "LCF trust boundary"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/harrison-automated-reasoning/SKILL.md",
       "package_id": "harrison-automated-reasoning",
-      "primary_owner": "ai4math-proof-refutation"
+      "primary_owner": "ai4math-proof-refutation",
+      "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/harrison-automated-reasoning"
     },
     {
       "capabilities": [
@@ -47,8 +59,10 @@
         "retrieval applicability checks",
         "strict verification and degraded-mode honesty"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/rethlas-math-reasoning/SKILL.md",
       "package_id": "rethlas-math-reasoning",
-      "primary_owner": "ai4math-proof-refutation"
+      "primary_owner": "ai4math-proof-refutation",
+      "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/rethlas-math-reasoning"
     },
     {
       "capabilities": [
@@ -56,8 +70,10 @@
         "retrieval before brute force",
         "reasoning-proving interleaving"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/welleck-informal-formal-reasoning/welleck-informal-formal-reasoning/SKILL.md",
       "package_id": "welleck-informal-formal-reasoning",
-      "primary_owner": "ai4math-lean-formalization"
+      "primary_owner": "ai4math-lean-formalization",
+      "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/welleck-informal-formal-reasoning"
     },
     {
       "capabilities": [
@@ -65,10 +81,12 @@
         "API engineering",
         "normalize-before-automation and counterexample checks"
       ],
+      "entry_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/xena-formalization-method/SKILL.md",
       "package_id": "xena-formalization-method",
-      "primary_owner": "ai4math-lean-formalization"
+      "primary_owner": "ai4math-lean-formalization",
+      "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/xena-formalization-method"
     }
   ],
-  "schema_version": "ai4math-top-skill-internal-package-registry.v1",
+  "schema_version": "ai4math-top-skill-internal-package-registry.v2",
   "top_level_skill": "ai4math-assurance-admission"
 }

@@ -1,0 +1,125 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "archon-formalization",
+  "primary_owner": "ai4math-lean-formalization",
+  "public_redistribution_admitted": false,
+  "rights_state": "HOLD",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 85673,
+  "source_family": "archon-formalization",
+  "source_files": 22,
+  "source_rows": [
+    {
+      "bytes": 7061,
+      "path": "SKILL.md",
+      "sha256": "cd43f0eaa5e40b1579925a0de5ded5be4412e6e10667ecbb7de2d7ada5d3253f"
+    },
+    {
+      "bytes": 330,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "8167345fc8e8993c4aba4249586b2c1c86143bc0a7c2e0637a73528b206a6666"
+    },
+    {
+      "bytes": 5043,
+      "path": "chapters/ch01-orientation-fit.md",
+      "sha256": "f5233f70469a2ce8d6626fb0936389c1a7f996fe29c47d0c8b81941d30c3b4b9"
+    },
+    {
+      "bytes": 4665,
+      "path": "chapters/ch02-bootstrap-state.md",
+      "sha256": "3713eaf143c70124f3d5595a6c3e5425311509ddbcfe329ebb327d246952092b"
+    },
+    {
+      "bytes": 5316,
+      "path": "chapters/ch03-blueprint-dag.md",
+      "sha256": "2a078fd4c7699dedcdafedb69e1bec28324ecf95550b8c409e99a30e220b1ea3"
+    },
+    {
+      "bytes": 4858,
+      "path": "chapters/ch04-loop.md",
+      "sha256": "cf1195c7830dec90f1e7afce751fa648a559469fa5c7eb170fd8fcf57018203d"
+    },
+    {
+      "bytes": 4523,
+      "path": "chapters/ch05-prover-modes.md",
+      "sha256": "b16be25b1eb423b49d636859e71d782a20e2dd5e6df55ec5506b29ffa72d27a6"
+    },
+    {
+      "bytes": 4509,
+      "path": "chapters/ch06-lean-execution.md",
+      "sha256": "285b84e69ca6142c37805032e5b8d9cd9244286ee42dfa2d98d8a322358e8a70"
+    },
+    {
+      "bytes": 4586,
+      "path": "chapters/ch07-strategy-convergence.md",
+      "sha256": "08d7f3b739321f1e28c5081a61a7e0fcfef4bb917f12addf6060fb6a2395d298"
+    },
+    {
+      "bytes": 4557,
+      "path": "chapters/ch08-engines-subagents.md",
+      "sha256": "e2138e19699fae56cafbbc3f7147d38d8adcb7b47b7687f8e6bfe1e0d79323f5"
+    },
+    {
+      "bytes": 4565,
+      "path": "chapters/ch09-safety-recovery.md",
+      "sha256": "0216dfba12c937d17a64d7031ca1e850bce0061181cb0e488d29b42471b35d96"
+    },
+    {
+      "bytes": 3963,
+      "path": "chapters/ch10-multilane.md",
+      "sha256": "22fd4b3e5ca12bbfea736849ed2840c360fc2b76488dfdf3cfc70969b7f2d8ae"
+    },
+    {
+      "bytes": 4331,
+      "path": "chapters/ch11-references.md",
+      "sha256": "790beefdd32c5d5c71c36bea78e5d42f6b8f8fd14cae030f0987e9520e654791"
+    },
+    {
+      "bytes": 4290,
+      "path": "chapters/ch12-cross-project.md",
+      "sha256": "299b3690f33bd486c5c61bfeb03c94c195c02cac819b71907ee9a19acf821641"
+    },
+    {
+      "bytes": 3964,
+      "path": "chapters/ch13-observability.md",
+      "sha256": "eee3fed485664b575dea2265b81a7aac936783472903c2ac64970103c020080e"
+    },
+    {
+      "bytes": 4963,
+      "path": "chapters/ch14-completion-failures.md",
+      "sha256": "672507bc849758fc73fd0b26d559ff1290d0c0bce03cb8bec43d39de72cf3906"
+    },
+    {
+      "bytes": 2194,
+      "path": "cheatsheet.md",
+      "sha256": "ab414cff0782af015f454f5e0244a12aee6bb7de282159ee952968a49dbb89ce"
+    },
+    {
+      "bytes": 1671,
+      "path": "evals.json",
+      "sha256": "a9438516c1ea8a8b6e88c68a5584b7fbae02b8ad4489eda09f3ceceeb0ae8609"
+    },
+    {
+      "bytes": 2442,
+      "path": "glossary.md",
+      "sha256": "295a5dce2434da849e6e577b2f72609db7c4fbbe716c794eff1d53f289c258ea"
+    },
+    {
+      "bytes": 477,
+      "path": "manifest.json",
+      "sha256": "6664f45dd3dbb9b42a6b001f9ecc1bcf4ee7125815003df81b5cc0ab5bd8fefe"
+    },
+    {
+      "bytes": 3032,
+      "path": "patterns.md",
+      "sha256": "de3e4ab9a577a7b72d015ded870d41c5a250623f95591e506351420dac3aac48"
+    },
+    {
+      "bytes": 4333,
+      "path": "provenance.json",
+      "sha256": "7bf010c076fba968d699744beb077c4c0f7cbe725a61ecc7887fe880dd430a3f"
+    }
+  ],
+  "source_tree_sha256": "aa90acee63c61f7e260274ef2b0353e8027b0a8259aeda10464ec1c7379c788b"
+}
