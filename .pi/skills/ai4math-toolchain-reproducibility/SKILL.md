@@ -57,3 +57,7 @@ description: "网页版数学工具链规划入口。用于选择符号、数值
 ## Boundaries
 
 `ToolPlan` 不是执行回执；计划可行、CI 通过、PR 合并或模型自评都不是 Evidence、Result 或 Solution。实际执行必须由网页渠道之外的受信、受预算 Harness 完成并独立回读。
+
+## Progressive disclosure
+
+Read `references/consolidated-core.md` for capability records, maturity levels, reuse-first selection, environment locks, bounded execution plans, archive/dependency security, multi-stage search/analyzer pipelines, comparator semantics, reproducibility tiers, failure taxonomy and recovery.

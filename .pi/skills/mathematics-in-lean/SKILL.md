@@ -20,3 +20,7 @@ Use this Skill when the current obligation calls for a Lean 4/Mathlib formalizat
 ## Failure behavior
 
 If the pinned toolchain is unavailable, the statement is ambiguous, or required imports cannot be established, return a bounded formalization plan and the precise obstruction. Never fabricate compilation or kernel receipts.
+
+## Progressive disclosure
+
+Read `references/consolidated-core.md` before substantial proof work. It consolidates goal-shape routing, equality/sets/induction/algebra/order/topology/analysis/linear-algebra/quotient/measure patterns, theorem search, tactic selection, elaboration diagnosis, abstraction control and formalization integrity from the reviewed Lean-oriented source families. The text is project-authored and does not redistribute source chapters.

@@ -29,3 +29,7 @@ Return a bounded review with:
 - `recommendation`: `reject | revise | eligible_for_independent_admission_review`.
 
 The output is a Candidate review only. This Skill cannot write truth ledgers, sign verifier receipts, or admit a Result or Solution.
+
+## Progressive disclosure
+
+Read `references/consolidated-core.md` for the capability matrix, receipt validation, independence analysis, statement-faithfulness audit, proof/counterexample/computation review, conflict handling, adversarial probes and admission recommendation semantics consolidated from the reviewed assurance sources.

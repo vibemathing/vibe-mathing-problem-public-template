@@ -46,6 +46,7 @@ REQUIRED_CONTROL_FILES = {
     ".pi/AGENTS.md",
     ".pi/settings.json",
     ".pi/skills/README.md",
+    ".pi/skills/CONSOLIDATION-MAP.md",
     "problem-library/records/canonical-problems.jsonl",
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
@@ -377,6 +378,33 @@ def validate(root: Path) -> list[str]:
                 errors.append(f"Pi Skill frontmatter description missing: {skill_id}")
         if snapshot_skills.get(skill_id) != item:
             errors.append(f"active Skill does not match snapshot: {skill_id}")
+
+    consolidation_map = root / ".pi/skills/CONSOLIDATION-MAP.md"
+    if consolidation_map.is_file():
+        consolidation_text = consolidation_map.read_text(encoding="utf-8")
+        if "31 packages from 29 source families" not in consolidation_text:
+            errors.append("Skill consolidation map lacks the audited 31-package/29-family boundary")
+        if consolidation_map.stat().st_size < 7000:
+            errors.append("Skill consolidation map is unexpectedly thin")
+    skill_suite_bytes = 0
+    for skill_id in expected_skill_ids:
+        skill_dir = root / ".pi/skills" / str(skill_id)
+        core = skill_dir / "references/consolidated-core.md"
+        if not core.is_file() or core.is_symlink():
+            errors.append(f"consolidated Skill core missing: {skill_id}")
+            continue
+        if core.stat().st_size < 3500:
+            errors.append(f"consolidated Skill core is unexpectedly thin: {skill_id}")
+        skill_suite_bytes += sum(
+            path.stat().st_size
+            for path in skill_dir.rglob("*")
+            if path.is_file() and not path.is_symlink()
+        )
+        entry = skill_dir / "SKILL.md"
+        if entry.is_file() and "references/consolidated-core.md" not in entry.read_text(encoding="utf-8"):
+            errors.append(f"Skill entry does not route to its consolidated core: {skill_id}")
+    if skill_suite_bytes < 100000:
+        errors.append("designated Pi Skill suite is unexpectedly thin")
 
     bootstrap = root / "WEB_BOOTSTRAP.md"
     if bootstrap.is_file():

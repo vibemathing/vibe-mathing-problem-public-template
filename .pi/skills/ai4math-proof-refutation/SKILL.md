@@ -66,8 +66,13 @@ Route status：open / blocked / refuted / closed，与 Claim status 分开记录
 - 动作：将该 route 标记 refuted，检查反例是否也反驳原 Claim，并保留其他独立路线。
 - 验收：没有原命题反例时，Claim 仍为 blocked/open，而不是 refuted。
 
+## Progressive disclosure
+
+Read `references/consolidated-core.md` for the proof-state model, route lenses, lemma discipline, counterexample taxonomy, conjecture repair, automated-reasoning limits, failed-route memory, novelty test, and closure boundary.
+
 ## References
 
+- `references/consolidated-core.md`：31-package review set中证明、反驳、猜想修复、自动推理和防循环方法的项目原创综合。
 - `references/source-map.md`：证明、审稿、proof DAG 与批判性思考来源映射。
 - `references/pressure-tests.md`：错误命题、DAG 完整性、路线状态与隐藏缺口压力场景。
 

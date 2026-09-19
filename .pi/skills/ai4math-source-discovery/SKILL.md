@@ -64,8 +64,13 @@ description: "数学问题发现与证据检索。用于界定研究问题、查
 - 动作：显式查询 candidates，保留 source status、许可和 admission 状态；只生成待审 shortlist，不启动计算。
 - 验收：每项均标为 `research_eligible=false`，唯一下一步是来源/陈述准入或 ProblemContract 冻结。
 
+## Progressive disclosure
+
+Read `references/consolidated-core.md` for the full source-question model, authority hierarchy, applicability audit, conflict handling, handoff contract, and anti-loop rules distilled from the reviewed AI4Math source families.
+
 ## References
 
+- `references/consolidated-core.md`：31-package review set中与来源发现、研究导航、适用性和反循环有关的项目原创综合。
 - `references/source-map.md`：研究方法与检索供应链映射。
 - `references/pressure-tests.md`：查新与摘要误用压力场景。
 

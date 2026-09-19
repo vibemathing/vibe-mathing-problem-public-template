@@ -54,8 +54,13 @@ Status：coherent / coherent-after-reframing / blocked。
 - 动作：指出对象切换，重构为“全局量 → 分解 → 局部切片”。
 - 验收：状态为 `coherent-after-reframing` 并保留原目标差异。
 
+## Progressive disclosure
+
+Read `references/consolidated-core.md` for the full representation record, definition audit, abstraction ladder, typed derivation ledger, invariant tests, structural translations, approximation discipline, and recovery rules.
+
 ## References
 
+- `references/consolidated-core.md`：31-package review set中建模、抽象、推导与反模型方法的项目原创综合。
 - `references/source-map.md`：推导方法来源和未吸收边界。
 - `references/pressure-tests.md`：隐藏假设压力场景。
 

@@ -14,6 +14,8 @@ This directory is the self-contained, project-local mathematical Skill suite for
 | `ai4math-assurance-admission` | Candidate-only assurance recommendation | constrained |
 | `ai4math-toolchain-reproducibility` | Tool/source identity and reproducibility planning | constrained |
 
+The suite is backed by [`CONSOLIDATION-MAP.md`](CONSOLIDATION-MAP.md), which accounts for the audited 31-package / 29-source-family review set. Every Skill routes to a substantial `references/consolidated-core.md`; unresolved-license source bodies are not redistributed.
+
 The canonical research actor owns mathematical strategy and may select, combine, change, or ignore these capabilities. Skill output is candidate-only unless an independent verifier and admission gate establish more. No Skill may create its own authority, call self-review independent, or turn runtime/transport success into a Result.
 
 Do not add user-global, controller, session-fleet, compute-node, credential-bearing, or private-only Skills here. A new public Skill requires source and license review, bounded dependencies, pressure tests, explicit failure semantics, and snapshot/validator updates.

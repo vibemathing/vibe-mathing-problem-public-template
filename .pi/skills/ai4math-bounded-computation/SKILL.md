@@ -85,8 +85,13 @@ status = "symbolically-checked" if delta == 0 else "not-verified"
 - 动作：先运行 `python3 scripts/compute_plan.py --kind batch-search --n 1e8 --ops-per-sample 200 --dtype f32`，按 `route` 选择 GPU 或 CPU；GPU 命中候选后用 SymPy/mpmath 精确复核。
 - 验收：执行记录含路由决策、库版本、命中样本与复核结果；GPU 结果只标 `numeric-check`。
 
+## Progressive disclosure
+
+Read `references/consolidated-core.md` for computation-request typing, exact/symbolic/numeric/solver/randomized routing, completeness conditions, counterexample validation, resource controls, reproducibility receipts, and evidence ceilings.
+
 ## References
 
+- `references/consolidated-core.md`：31-package review set中有界计算、可证伪实验和可复现性方法的项目原创综合。
 - `references/source-map.md`：CAS、数值方法和 OEIS 来源映射。
 - `references/tool-catalog.md`：数学工具、运行时、用法、profile 与证据边界。
 - `references/pressure-tests.md`：数值/符号证据越权压力场景。

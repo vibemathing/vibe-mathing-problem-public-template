@@ -70,8 +70,13 @@ rg -n '\b(sorry|admit)\b' .
 - 动作：记录 timeout、预算、工具链和未闭合义务。
 - 验收：状态为 blocked/timeout，不把原命题标记 refuted。
 
+## Progressive disclosure
+
+Read `references/consolidated-core.md` for statement translation, environment preflight, proof-state and shape routing, theorem search, diagnosis order, metaprogramming/static-analysis boundaries, project-scale formalization, trust audits, and replay receipts.
+
 ## References
 
+- `references/consolidated-core.md`：31-package review set中 Lean 形式化、检索、分析器、元编程与非形式/形式桥接的项目原创综合。
 - `references/source-map.md`：Lean Skill、receipt、adapter 与 faithfulness checker 的来源和限制。
 - `references/pressure-tests.md`：占位证明、证据新鲜度、claim strength、失败分类与陈述忠实性压力场景。
 
