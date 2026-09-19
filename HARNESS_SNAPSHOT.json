@@ -76,7 +76,7 @@
     "sha256": "748b0c20b71a528f106cac7a9f0afd470e783fad35ee497ed98c9a1cc56063c7",
     "version": "2.2.0"
   },
-  "built_at": "2026-09-19T10:29:01+08:00",
+  "built_at": "2026-09-19T10:31:28+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -7258,12 +7258,12 @@
       "sha256": "748b0c20b71a528f106cac7a9f0afd470e783fad35ee497ed98c9a1cc56063c7"
     },
     {
-      "bytes": 25099,
+      "bytes": 25606,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_web_context_bundle.py",
-      "sha256": "23f40efdd3e3da4472c8797d9c5ce582c5fb05e965fbb8c24725a9973d448454"
+      "sha256": "e4b5448ac4bf275e7b04195835e99854f2da9dcc31f484d0387a0625b05087f1"
     },
     {
       "bytes": 8700,
@@ -7290,12 +7290,12 @@
       "sha256": "5707edb54599592e5bce3e588b0e1f310284afcd0688b26c85431df6e60ec3e5"
     },
     {
-      "bytes": 5592,
+      "bytes": 6321,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/test_web_context_bundle.py",
-      "sha256": "f32e217d564e3d0eca7cc9696a14b3c5ebad4dc2999d1b174449e5654dbbda48"
+      "sha256": "b1742c9ca1cd3e4d7a43d747a3bc73c768ddc05bc3b508ac61e219e9ecbbc2dd"
     },
     {
       "bytes": 5864,
@@ -7346,12 +7346,12 @@
       "sha256": "af0b5c71e79cca2a5d6d56eb30d78670d6439d93c1bc212dc0a0766772da1a71"
     },
     {
-      "bytes": 44876,
+      "bytes": 44896,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "809433b37c5a5f10ef13cc47146284df5812c0c1c1fc5c0695d017c6ba8be1c7"
+      "sha256": "5ba10b685f710eac4a6dd1eb7f2f7dc31146e4651c84662595503d21f45c543c"
     },
     {
       "bytes": 2410,
@@ -7502,10 +7502,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "5fbc4604d84e13781b307b1a17d7af16ebe7a4be",
+    "commit": "8389c7217cb9aa010c5f39d8f3c821e09bd648a6",
     "repository": "reviewed-public-export",
     "source_manifest_sha256": "a1fd8592d55cf199d3ff04519faff808f74f53e312ad17c851eaf3e1e256d2cc",
     "worktree_dirty": false
   },
-  "tree_sha256": "aa7624be708cea6294ce255333fb56a47418711edee6d030ed2a63a4fd44e7ae"
+  "tree_sha256": "19c225f20555e3e2dd52d32e5e1f63651347dfa2a8c13e3f2272c65f8a4edf8b"
 }
