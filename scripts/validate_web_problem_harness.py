@@ -47,6 +47,7 @@ REQUIRED_CONTROL_FILES = {
     ".pi/settings.json",
     ".pi/skills/README.md",
     ".pi/skills/CONSOLIDATION-MAP.md",
+    ".pi/skills/SOURCE-ABSTRACTION-MAP.json",
     "problem-library/records/canonical-problems.jsonl",
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
@@ -386,6 +387,31 @@ def validate(root: Path) -> list[str]:
             errors.append("Skill consolidation map lacks the audited 31-package/29-family boundary")
         if consolidation_map.stat().st_size < 7000:
             errors.append("Skill consolidation map is unexpectedly thin")
+    abstraction_map_path = root / ".pi/skills/SOURCE-ABSTRACTION-MAP.json"
+    if abstraction_map_path.is_file():
+        try:
+            abstraction_map = load_json(abstraction_map_path)
+            packages = abstraction_map.get("packages", [])
+            package_ids = [item.get("package_id") for item in packages if isinstance(item, dict)]
+            source_families = {item.get("source_family") for item in packages if isinstance(item, dict)}
+            if len(packages) != 31 or len(package_ids) != len(set(package_ids)):
+                errors.append("Skill source abstraction map must contain 31 unique packages")
+            if len(source_families) != 29 or None in source_families:
+                errors.append("Skill source abstraction map must contain exactly 29 source families")
+            for item in packages:
+                if not isinstance(item, dict):
+                    errors.append("Skill source abstraction map contains a non-object package")
+                    continue
+                if item.get("source_body_redistributed") is not False:
+                    errors.append(f"held source body redistribution is forbidden: {item.get('package_id')}")
+                targets = item.get("primary_skills", [])
+                if not targets or not set(targets).issubset(expected_skill_ids):
+                    errors.append(f"invalid Skill abstraction targets: {item.get('package_id')}")
+                if not item.get("extracted_capabilities"):
+                    errors.append(f"empty Skill abstraction: {item.get('package_id')}")
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            errors.append(f"Skill source abstraction map invalid: {exc}")
+
     skill_suite_bytes = 0
     for skill_id in expected_skill_ids:
         skill_dir = root / ".pi/skills" / str(skill_id)
