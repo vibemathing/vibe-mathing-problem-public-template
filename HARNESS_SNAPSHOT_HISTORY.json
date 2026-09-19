@@ -34,6 +34,13 @@
       "importer_policy_sha256": "a7650a8ba5be3fef370914b24a49b1118f57dc12f41980f21b11ef2b0a8267c1",
       "source_manifest_sha256": "94cff861e217ccfec6122b3c79b828a24afc03784c8572018772fb2bfcc35766",
       "tree_sha256": "33bd7beeecb49814d39a9649a5fad73917e97b66fcb2998fd0b82833aa794b57"
+    },
+    {
+      "harness_snapshot_sha256": "7d3fd838bd5127eb5b40369d3f78c98ea9a896726bfd43e5163aed14a193ab5f",
+      "harness_version": "1.6.0",
+      "importer_policy_sha256": "a7650a8ba5be3fef370914b24a49b1118f57dc12f41980f21b11ef2b0a8267c1",
+      "source_manifest_sha256": "fc859a518adcd35a70a6b3f7b493342cf7d8951f77383fbf14007491ffb9011c",
+      "tree_sha256": "86a24b63371f2d9ae678a5a7c0a1a4198d6fbda2cb9b29c8d8f6a1abf1c5296f"
     }
   ],
   "repository": "vibemathing/vibe-mathing-problem-public-template",

@@ -10,23 +10,25 @@
 - ProblemContract SHA-256: `e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940`
 - Problem lifecycle: `draft`
 - Problem admission: `preview_unadmitted`
-- Harness suite: `harness-source:web-research-full` `1.5.1`
-- Suite manifest SHA-256: `94cff861e217ccfec6122b3c79b828a24afc03784c8572018772fb2bfcc35766`
-- Harness snapshot SHA-256: `96819115c4bc07b48d294be5be343132ec05771648a4a3bcaa14df71259580da`
+- Harness suite: `harness-source:web-research-full` `1.6.0`
+- Suite manifest SHA-256: `fc859a518adcd35a70a6b3f7b493342cf7d8951f77383fbf14007491ffb9011c`
+- Harness snapshot SHA-256: `7d3fd838bd5127eb5b40369d3f78c98ea9a896726bfd43e5163aed14a193ab5f`
 - Channel: `chatgpt-web-github-issue-pr-writer`
+- Project runtime: `Pi` with exact entries from `.pi/settings.json`
 
 ## Required read order
 
 1. `AGENTS.md`
-2. `WEB_CHANNEL_PROFILE.json`
-3. `HARNESS_SNAPSHOT.json`
-4. `WEB_CONTEXT_BUNDLE.md`
-5. `WEB_ACTIVE_SKILLS.json`
-6. `problem-library/records/canonical-problems.jsonl`
-7. `research/records/failed-routes.jsonl`
-8. the current route and obligation packet named by the Issue
-9. exactly the owner Skill files selected by `WEB_ACTIVE_SKILLS.json`
-10. `WEB_OUTPUT_CONTRACT.json`
+2. `.pi/settings.json`
+3. `WEB_CHANNEL_PROFILE.json`
+4. `HARNESS_SNAPSHOT.json`
+5. `WEB_CONTEXT_BUNDLE.md`
+6. `WEB_ACTIVE_SKILLS.json`
+7. `problem-library/records/canonical-problems.jsonl`
+8. `research/records/failed-routes.jsonl`
+9. the current route and obligation packet named by the Issue
+10. exactly the owner Skill files selected by `WEB_ACTIVE_SKILLS.json`
+11. `WEB_OUTPUT_CONTRACT.json`
 
 Return a `web-bootstrap-ack.schema.json` object before mathematical work. Hashes shown here are manifest-declared values; do not claim to have recomputed them in chat.
 
