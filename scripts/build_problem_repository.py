@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTROL = ROOT / "governance/control-plane"
 DEFAULT_MANIFEST = CONTROL / "harness-source-manifest.v1.json"
 DEFAULT_TEMPLATE = ROOT
-BUILDER_VERSION = "2.1.0"
+BUILDER_VERSION = "2.2.0"
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
 PI_SKILL_STATUS = {
     "solve": "active",
@@ -373,7 +373,16 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     write_json(output / "WEB_ACTIVE_SKILLS.json", active)
     file_policy["WEB_ACTIVE_SKILLS.json"] = ("web_channel", "harness")
 
-    (output / "WEB_CONTEXT_BUNDLE.md").write_text(render_context(output), encoding="utf-8")
+    (output / "WEB_CONTEXT_BUNDLE.md").write_text(
+        render_context(
+            output,
+            attempt_id=args.context_attempt_id,
+            route_id=args.context_route_id,
+            graph_id=args.context_graph_id,
+            obligation_id=args.context_obligation_id,
+        ),
+        encoding="utf-8",
+    )
     os.chmod(output / "WEB_CONTEXT_BUNDLE.md", 0o644)
 
     output_contract = {
@@ -568,6 +577,10 @@ def main() -> int:
     parser.add_argument("--attempts-file", type=Path)
     parser.add_argument("--failed-routes-file", type=Path)
     parser.add_argument("--obligation-graphs-file", type=Path)
+    parser.add_argument("--context-attempt-id")
+    parser.add_argument("--context-route-id")
+    parser.add_argument("--context-graph-id")
+    parser.add_argument("--context-obligation-id")
     parser.add_argument("--source-manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
     parser.add_argument("--json", action="store_true")

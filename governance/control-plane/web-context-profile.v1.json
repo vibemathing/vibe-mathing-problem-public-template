@@ -1,0 +1,23 @@
+{
+  "budgets": {
+    "max_attempt_catalog": 32,
+    "max_dependency_closure": 64,
+    "max_failed_route_catalog": 24,
+    "max_graph_catalog": 32,
+    "max_list_items": 32,
+    "max_obligation_catalog": 96,
+    "max_operator_catalog": 64,
+    "max_package_catalog": 64,
+    "max_source_catalog": 64,
+    "max_text_chars": 768
+  },
+  "max_chars": 90000,
+  "profile_id": "web-execution-context:bounded-v2",
+  "schema_version": "1.0.0",
+  "selection": {
+    "active_lifecycle_priority": ["running", "planned"],
+    "ambiguous_policy": "catalog_only_fail_closed",
+    "default_obligation": "root_obligation",
+    "explicit_selector_fields": ["attempt_id", "route_id", "graph_id", "obligation_id"]
+  }
+}

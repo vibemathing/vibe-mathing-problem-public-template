@@ -67,6 +67,8 @@ REQUIRED_CONTROL_FILES = {
     "governance/control-plane/container-skill-source-lock.v1.schema.json",
     "governance/control-plane/harness-snapshot-manifest.v1.schema.json",
     "governance/control-plane/harness-snapshot-history.v1.schema.json",
+    "governance/control-plane/web-context-profile.v1.schema.json",
+    "governance/control-plane/web-context-profile.v1.json",
     "scripts/build_problem_repository.py",
     "scripts/build_web_context_bundle.py",
     "scripts/sync_problem_repository_harness.py",
@@ -76,6 +78,7 @@ REQUIRED_CONTROL_FILES = {
     "scripts/validate_web_attempt.py",
     "scripts/validate_web_pr_diff.py",
     "scripts/import_web_attempt.py",
+    "scripts/test_web_context_bundle.py",
 }
 FORBIDDEN_PARTS = {".private", ".lake", "sessions", "vendor"}
 FORBIDDEN_LOCAL_RUNTIME_FILES = {
@@ -327,6 +330,46 @@ def validate(root: Path) -> list[str]:
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         errors.append(f"web control JSON invalid: {exc}")
         profile = {}
+
+    try:
+        context_profile = load_json(root / "governance/control-plane/web-context-profile.v1.json")
+        context_profile_schema = root / "governance/control-plane/web-context-profile.v1.schema.json"
+        errors.extend(f"execution-context profile: {message}" for message in validate_schema(context_profile, context_profile_schema))
+        bundle_path = root / "WEB_CONTEXT_BUNDLE.md"
+        bundle_text = bundle_path.read_text(encoding="utf-8")
+        if len(bundle_text) > context_profile.get("max_chars", 0):
+            errors.append("WEB_CONTEXT_BUNDLE exceeds the configured execution-context budget")
+        marker = "```json\n"
+        if marker not in bundle_text or "\n```" not in bundle_text.rsplit(marker, 1)[-1]:
+            errors.append("WEB_CONTEXT_BUNDLE lacks its generated JSON payload")
+        else:
+            payload_text = bundle_text.split(marker, 1)[1].rsplit("\n```", 1)[0]
+            payload = json.loads(payload_text)
+            if payload.get("context_bundle_version") != "2.0.0":
+                errors.append("WEB_CONTEXT_BUNDLE version is not 2.0.0")
+            if payload.get("context_policy") != context_profile:
+                errors.append("WEB_CONTEXT_BUNDLE execution-context profile drift")
+            if payload.get("problem_contract_sha256") != canonical_json_sha256(problem):
+                errors.append("WEB_CONTEXT_BUNDLE ProblemContract digest mismatch")
+            digest_input = dict(payload)
+            digest_input.pop("context_payload_sha256", None)
+            if payload.get("context_payload_sha256") != canonical_json_sha256(digest_input):
+                errors.append("WEB_CONTEXT_BUNDLE payload digest mismatch")
+            selection = payload.get("context_selection", {})
+            valid_statuses = {
+                "ready", "no_active_execution_context", "ambiguous_attempt", "ambiguous_graph",
+                "missing_graph", "missing_attempt", "missing_root_obligation", "invalid_selector",
+                "inconsistent_selector", "inconsistent_execution_identity", "cross_problem_reference",
+            }
+            if selection.get("status") not in valid_statuses:
+                errors.append("WEB_CONTEXT_BUNDLE has an unknown context-selection status")
+            if selection.get("status") == "ready" and not selection.get("research_ready"):
+                errors.append("ready execution context is not marked research_ready")
+            if selection.get("status") != "ready" and selection.get("research_ready"):
+                errors.append("non-ready execution context is marked research_ready")
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        errors.append(f"execution-context bundle invalid: {exc}")
+        context_profile = {}
 
     try:
         source_manifest = load_json(root / "governance/control-plane/harness-source-manifest.v1.json")

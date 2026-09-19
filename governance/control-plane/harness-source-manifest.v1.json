@@ -633,6 +633,42 @@
       "rewrite_policy": "replace_from_source",
       "source_path": "fixtures/lean-proof",
       "target_path": "fixtures/lean-proof"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "web_channel",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "governance/control-plane/web-context-profile.v1.schema.json",
+      "target_path": "governance/control-plane/web-context-profile.v1.schema.json"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "web_channel",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "governance/control-plane/web-context-profile.v1.json",
+      "target_path": "governance/control-plane/web-context-profile.v1.json"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "web_channel",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/test_web_context_bundle.py",
+      "target_path": "scripts/test_web_context_bundle.py"
     }
   ],
   "excluded_container_skill_ids": [
@@ -669,7 +705,7 @@
     "vendor/upstream",
     "build"
   ],
-  "harness_version": "2.1.0",
+  "harness_version": "2.2.0",
   "manifest_id": "harness-source:web-research-full",
   "profile": "web-research-full",
   "schema_version": "1.0.0"

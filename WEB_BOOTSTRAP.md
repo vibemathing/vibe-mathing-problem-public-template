@@ -10,7 +10,7 @@
 - ProblemContract SHA-256: `e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940`
 - Problem lifecycle: `draft`
 - Problem admission: `preview_unadmitted`
-- Harness suite: `harness-source:web-research-full` `2.1.0`
+- Harness suite: `harness-source:web-research-full` `2.2.0`
 - Suite manifest SHA-256: `5692b9bcf36a392a97c1f6b562342d16fe65a74547c526cf1dcee6d894053ea9`
 - Harness snapshot SHA-256: `3a35a263e547d43a9a48ae9a3032c6e6fcb5d3173d3a39c75b3ba49e4303731c`
 - Channel: `chatgpt-web-github-issue-pr-writer`
@@ -20,9 +20,10 @@
 
 1. `AGENTS.md`
 2. `.pi/settings.json`
-3. `WEB_CHANNEL_PROFILE.json`
-4. `HARNESS_SNAPSHOT.json`
-5. `WEB_CONTEXT_BUNDLE.md`
+3. `governance/control-plane/web-context-profile.v1.json`
+4. `WEB_CHANNEL_PROFILE.json`
+5. `HARNESS_SNAPSHOT.json`
+6. `WEB_CONTEXT_BUNDLE.md`
 6. `WEB_ACTIVE_SKILLS.json`
 7. `problem-library/records/canonical-problems.jsonl`
 8. `research/records/failed-routes.jsonl`
@@ -30,7 +31,7 @@
 10. exactly the owner Skill files selected by `WEB_ACTIVE_SKILLS.json`
 11. `WEB_OUTPUT_CONTRACT.json`
 
-Return a `web-bootstrap-ack.schema.json` object before mathematical work. Hashes shown here are manifest-declared values; do not claim to have recomputed them in chat.
+Return a `web-bootstrap-ack.schema.json` object before mathematical work. Hashes shown here are manifest-declared values; do not claim to have recomputed them in chat. The context profile is a hard budget and selector policy: an ambiguous or missing execution identity is catalog-only and fail-closed.
 
 ## Coordinator-only planning mode
 

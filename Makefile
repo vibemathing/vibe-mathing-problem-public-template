@@ -9,3 +9,4 @@ check:
 
 check-full: check
 	python3 scripts/test_obligation_harness.py
+	python3 scripts/test_web_context_bundle.py
