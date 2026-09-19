@@ -14,7 +14,7 @@
         "replace machine-local validator paths with repository-local validation",
         "bind Web use to Attempt/Route/Obligation/Candidate output only",
         "redact a session-shaped identifier from the distributed changelog",
-        "retained as historical source evidence; not distributed or loaded by the designated Pi Skill suite"
+        "load as the candidate-only cross-domain operator library without transferring mathematical strategy ownership"
       ],
       "distributed_snapshot": {
         "bytes": 1327684,
@@ -47,7 +47,7 @@
         "version": "0.3.0"
       },
       "source_status": "content_locked_pending_source_commit",
-      "web_status": "historical_source_only"
+      "web_status": "active"
     },
     {
       "adaptations": [

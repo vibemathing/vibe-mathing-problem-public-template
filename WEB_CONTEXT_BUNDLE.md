@@ -18,25 +18,32 @@ This file is generated from repository truth and bounded for the web channel. It
 {
   "active_skills": [
     {
-      "entry": ".pi/skills/ai4math-assurance-admission/SKILL.md",
-      "entry_sha256": "c1fee24e444faeab4f22c7c4ed0b2d1611f9bf58d85e8631aab6d01da72503cc",
-      "skill_id": "ai4math-assurance-admission",
+      "entry": ".pi/skills/solve/SKILL.md",
+      "entry_sha256": "ff557dc3fc2fa10df4b21e8bef251a37928f5572ccf0092c79f0d9ab90a00ec0",
+      "skill_id": "solve",
+      "version": "0.3.0",
+      "web_status": "active"
+    },
+    {
+      "entry": ".pi/skills/mathematics-in-lean/SKILL.md",
+      "entry_sha256": "58a1647bb4e6bf8934a31655be6f0ca623093d46145298ed7ccec5de0dffd00d",
+      "skill_id": "mathematics-in-lean",
+      "version": "1.1.0",
+      "web_status": "active"
+    },
+    {
+      "entry": ".pi/skills/prove2me/SKILL.md",
+      "entry_sha256": "535dfa98839d78543d9c00259ccb3a1a3647933a0f7c0bad6062ae079bb1b190",
+      "skill_id": "prove2me",
       "version": "1.1.0",
       "web_status": "constrained"
     },
     {
-      "entry": ".pi/skills/ai4math-bounded-computation/SKILL.md",
-      "entry_sha256": "58720c5d7c73519108938a289cd2cd46ed3388325fff4dd7290510c695441d4b",
-      "skill_id": "ai4math-bounded-computation",
+      "entry": ".pi/skills/ai4math-source-discovery/SKILL.md",
+      "entry_sha256": "0f2776c32224c313c943164e77b206c12472cb030c0f0d6a82c20e2dc161520d",
+      "skill_id": "ai4math-source-discovery",
       "version": "1.1.0",
-      "web_status": "constrained"
-    },
-    {
-      "entry": ".pi/skills/ai4math-lean-formalization/SKILL.md",
-      "entry_sha256": "4975006512820c130e041bcec460dc6667c5c8550f84420d7a514366b3a821e8",
-      "skill_id": "ai4math-lean-formalization",
-      "version": "1.1.0",
-      "web_status": "constrained"
+      "web_status": "active"
     },
     {
       "entry": ".pi/skills/ai4math-modeling-derivation/SKILL.md",
@@ -53,30 +60,30 @@ This file is generated from repository truth and bounded for the web channel. It
       "web_status": "active"
     },
     {
-      "entry": ".pi/skills/ai4math-source-discovery/SKILL.md",
-      "entry_sha256": "0f2776c32224c313c943164e77b206c12472cb030c0f0d6a82c20e2dc161520d",
-      "skill_id": "ai4math-source-discovery",
+      "entry": ".pi/skills/ai4math-bounded-computation/SKILL.md",
+      "entry_sha256": "58720c5d7c73519108938a289cd2cd46ed3388325fff4dd7290510c695441d4b",
+      "skill_id": "ai4math-bounded-computation",
       "version": "1.1.0",
-      "web_status": "active"
+      "web_status": "constrained"
+    },
+    {
+      "entry": ".pi/skills/ai4math-lean-formalization/SKILL.md",
+      "entry_sha256": "4975006512820c130e041bcec460dc6667c5c8550f84420d7a514366b3a821e8",
+      "skill_id": "ai4math-lean-formalization",
+      "version": "1.1.0",
+      "web_status": "constrained"
+    },
+    {
+      "entry": ".pi/skills/ai4math-assurance-admission/SKILL.md",
+      "entry_sha256": "c1fee24e444faeab4f22c7c4ed0b2d1611f9bf58d85e8631aab6d01da72503cc",
+      "skill_id": "ai4math-assurance-admission",
+      "version": "1.1.0",
+      "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/ai4math-toolchain-reproducibility/SKILL.md",
       "entry_sha256": "c436ffc08a36b6be58aef825790789db8b840049948720d7a846ef5d7766ff14",
       "skill_id": "ai4math-toolchain-reproducibility",
-      "version": "1.1.0",
-      "web_status": "constrained"
-    },
-    {
-      "entry": ".pi/skills/mathematics-in-lean/SKILL.md",
-      "entry_sha256": "58a1647bb4e6bf8934a31655be6f0ca623093d46145298ed7ccec5de0dffd00d",
-      "skill_id": "mathematics-in-lean",
-      "version": "1.1.0",
-      "web_status": "active"
-    },
-    {
-      "entry": ".pi/skills/prove2me/SKILL.md",
-      "entry_sha256": "535dfa98839d78543d9c00259ccb3a1a3647933a0f7c0bad6062ae079bb1b190",
-      "skill_id": "prove2me",
       "version": "1.1.0",
       "web_status": "constrained"
     }

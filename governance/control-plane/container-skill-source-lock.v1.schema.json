@@ -40,7 +40,7 @@
       "required": ["skill_id", "web_status", "source_identity", "source_status", "source_snapshot", "distributed_snapshot", "adaptations", "evidence_ceiling"],
       "properties": {
         "skill_id": {"enum": ["solve", "math-toolchain"]},
-        "web_status": {"enum": ["historical_source_only"]},
+        "web_status": {"enum": ["active", "historical_source_only"]},
         "source_identity": {"type": "string", "minLength": 1},
         "source_status": {"enum": ["content_locked_pending_source_commit", "container_observed_content_locked"]},
         "source_snapshot": {"$ref": "#/$defs/snapshot"},

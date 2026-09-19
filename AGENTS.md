@@ -202,9 +202,10 @@ Determine the role from the direct task, machine profile, actual principal, and 
 
 ## 6. Skill routing: use the designated Pi suite
 
-Pi exposes exactly the nine project Skill entries in `.pi/settings.json`. The canonical research actor selects, combines, changes, or ignores them according to the current mathematical need; no router Skill owns research strategy.
+Pi exposes exactly ten project Skill entries in `.pi/settings.json`: the complete `solve` operator library and nine specialized mathematical capability Skills. The canonical research actor selects, combines, changes, or ignores them according to the current mathematical need. `solve` proposes bounded operators and switching/stopping decisions but never owns the actor's mathematical strategy.
 
 ```text
+solve                                  cross-domain operator selection and bounded method control
 ai4math-source-discovery            sources, prior art, statement comparison
 ai4math-modeling-derivation         models, definitions, transformations, derivations
 ai4math-proof-refutation            proof construction, adversarial audit, counterexamples

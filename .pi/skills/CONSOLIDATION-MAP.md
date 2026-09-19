@@ -6,7 +6,7 @@ This file records the conceptual consolidation behind the nine project Skills. I
 
 - The review set contains **31 packages from 29 source families**; two pairs are duplicate-source variants.
 - The audited source packages remain non-publication inputs unless their own source and license gates pass.
-- The public Skill suite contains independently written operational abstractions: decision rules, failure semantics, evidence boundaries, and reusable workflows. It does not copy chapters, examples, or package text from a source whose redistribution status is unresolved.
+- The public Skill suite contains the restored complete `solve` operator library plus nine independently written operational abstractions: decision rules, failure semantics, evidence boundaries, and reusable workflows. It does not copy chapters, examples, or package text from a source whose redistribution status is unresolved.
 - A source being reviewed here does not make it installed, activated, trusted, evidence-capable, or verifier-admitted.
 - The canonical research actor chooses mathematical routes. Skills expose capabilities; they do not prescribe a mandatory route or phase plan.
 
@@ -14,6 +14,7 @@ This file records the conceptual consolidation behind the nine project Skills. I
 
 | Target Skill | Consolidated responsibility |
 |---|---|
+| `solve` | cross-domain operator catalog, bounded method selection, outcome logging, switching and stopping |
 | `ai4math-source-discovery` | statement/source identity, research navigation, retrieval, applicability and provenance |
 | `ai4math-modeling-derivation` | definitions, representations, abstraction, invariant-preserving translation and derivation audits |
 | `ai4math-proof-refutation` | proof search, counterexample analysis, conjecture repair, proof obligations and failed-route memory |

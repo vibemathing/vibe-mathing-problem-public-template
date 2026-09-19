@@ -86,6 +86,7 @@ PRIVATE_REPOSITORY_LOCATOR = re.compile(
     r"\b(?:vibemathing|tradecatlabs)/[A-Za-z0-9_.-]*internal[A-Za-z0-9_.-]*\b"
 )
 PI_SKILL_STATUS = {
+    "solve": "active",
     "mathematics-in-lean": "active",
     "prove2me": "constrained",
     "ai4math-source-discovery": "active",
@@ -307,15 +308,18 @@ def validate(root: Path) -> list[str]:
         locked_skills = {item.get("skill_id"): item for item in container_lock.get("skills", []) if isinstance(item, dict)}
         expected_locked = {"solve", "math-toolchain"}
         if set(locked_skills) != expected_locked:
-            errors.append("container Skill lock must preserve exactly the two historical source identities")
-        for skill_id in expected_locked:
+            errors.append("container Skill lock must preserve exactly the two source identities")
+        expected_lock_status = {"solve": "active", "math-toolchain": "historical_source_only"}
+        for skill_id, expected_status in expected_lock_status.items():
             locked = locked_skills.get(skill_id, {})
-            if locked.get("web_status") != "historical_source_only":
-                errors.append(f"legacy container Skill must be historical_source_only: {skill_id}")
+            if locked.get("web_status") != expected_status:
+                errors.append(f"container Skill status mismatch: {skill_id}")
             if locked.get("evidence_ceiling") != "candidate_only":
                 errors.append(f"container Skill evidence ceiling must be candidate_only: {skill_id}")
-            if (root / ".pi/skills" / skill_id).exists():
-                errors.append(f"legacy container Skill must not be active in the designated Pi suite: {skill_id}")
+        if not (root / ".pi/skills/solve/SKILL.md").is_file():
+            errors.append("solve operator library must be present and active")
+        if (root / ".pi/skills/math-toolchain").exists():
+            errors.append("legacy math-toolchain Skill must not be active in the designated Pi suite")
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         errors.append(f"container Skill lock invalid: {exc}")
 
@@ -338,7 +342,7 @@ def validate(root: Path) -> list[str]:
     expected_skill_ids = set(expected_skill_status)
     actual_skill_ids = {item.get("skill_id") for item in active.get("skills", []) if isinstance(item, dict)}
     if actual_skill_ids != expected_skill_ids:
-        errors.append(f"WEB_ACTIVE_SKILLS must contain exactly the 9 bundled Web research Skills: {sorted(actual_skill_ids)}")
+        errors.append(f"WEB_ACTIVE_SKILLS must contain exactly the 10 bundled Web research Skills: {sorted(actual_skill_ids)}")
     for item in active.get("skills", []):
         if isinstance(item, dict) and item.get("skill_id") in expected_skill_status:
             if item.get("web_status") != expected_skill_status[item["skill_id"]]:
@@ -413,19 +417,22 @@ def validate(root: Path) -> list[str]:
             errors.append(f"Skill source abstraction map invalid: {exc}")
 
     skill_suite_bytes = 0
+    consolidated_skill_ids = expected_skill_ids - {"solve"}
     for skill_id in expected_skill_ids:
         skill_dir = root / ".pi/skills" / str(skill_id)
+        skill_suite_bytes += sum(
+            path.stat().st_size
+            for path in skill_dir.rglob("*")
+            if path.is_file() and not path.is_symlink()
+        )
+        if skill_id not in consolidated_skill_ids:
+            continue
         core = skill_dir / "references/consolidated-core.md"
         if not core.is_file() or core.is_symlink():
             errors.append(f"consolidated Skill core missing: {skill_id}")
             continue
         if core.stat().st_size < 3500:
             errors.append(f"consolidated Skill core is unexpectedly thin: {skill_id}")
-        skill_suite_bytes += sum(
-            path.stat().st_size
-            for path in skill_dir.rglob("*")
-            if path.is_file() and not path.is_symlink()
-        )
         entry = skill_dir / "SKILL.md"
         if entry.is_file() and "references/consolidated-core.md" not in entry.read_text(encoding="utf-8"):
             errors.append(f"Skill entry does not route to its consolidated core: {skill_id}")
