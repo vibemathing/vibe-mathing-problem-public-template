@@ -279,6 +279,17 @@ def select_execution_context(
                 )
 
     if selected_attempt is not None:
+        active_lifecycles = set(profile["selection"]["active_lifecycle_priority"])
+        if selected_attempt.get("lifecycle") not in active_lifecycles:
+            return (
+                {
+                    "status": "inactive_attempt",
+                    "research_ready": False,
+                    "reason": "selected Attempt is historical/inactive; create or select a running or planned Attempt",
+                    "selectors": selectors,
+                },
+                None,
+            )
         attempt_route = selected_attempt.get("route_id")
         if route_id is not None and attempt_route not in {None, route_id}:
             return (

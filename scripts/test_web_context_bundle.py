@@ -131,6 +131,16 @@ class ContextBundleTests(unittest.TestCase):
             self.assertEqual(selected["graph"]["selected_obligation_id"], "obligation:test")
             self.assertEqual(selected["attempt"]["attempt_id"], "attempt:test")
 
+    def test_inactive_attempt_never_becomes_research_ready(self) -> None:
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            copy_context_inputs(root)
+            (root / "research/records/attempts.jsonl").write_text(json.dumps(attempt("attempt:test", "completed")) + "\n", encoding="utf-8")
+            (root / "research/records/obligation-graphs.jsonl").write_text(json.dumps(graph()) + "\n", encoding="utf-8")
+            payload = parse_payload(render_context(root, attempt_id="attempt:test", graph_id="graph:test"))
+            self.assertEqual(payload["context_selection"]["status"], "inactive_attempt")
+            self.assertFalse(payload["context_selection"]["research_ready"])
+
     def test_budget_is_hard(self) -> None:
         with self.assertRaises(RuntimeError):
             render_context(ROOT, max_chars=1000)

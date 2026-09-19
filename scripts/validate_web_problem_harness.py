@@ -380,7 +380,7 @@ def validate(root: Path) -> list[str]:
             selection = payload.get("context_selection", {})
             valid_statuses = {
                 "ready", "no_active_execution_context", "ambiguous_attempt", "ambiguous_graph",
-                "missing_graph", "missing_attempt", "missing_root_obligation", "invalid_selector",
+                "missing_graph", "missing_attempt", "inactive_attempt", "missing_root_obligation", "invalid_selector",
                 "inconsistent_selector", "inconsistent_execution_identity", "cross_problem_reference",
             }
             if selection.get("status") not in valid_statuses:
