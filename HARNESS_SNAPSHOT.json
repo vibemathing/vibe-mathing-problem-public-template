@@ -69,7 +69,7 @@
     "sha256": "7b379a296349c41df76489cd0c80f53626430df933cf5f7aabbeec87b92697e2",
     "version": "1.8.0"
   },
-  "built_at": "2026-09-19T09:13:55+08:00",
+  "built_at": "2026-09-19T09:15:30+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -155,12 +155,20 @@
       "sha256": "87d3c47cc1421e16773c689f171625eadc72d1356eccc722d075911875b581dc"
     },
     {
-      "bytes": 1902,
+      "bytes": 2001,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/skills/README.md",
-      "sha256": "f22f64c29ebd727ee199c419d84324d1aab090490c4bc3d373d77f6bc17f841a"
+      "sha256": "4f5516608a8d65a0c57105fc30b711b6eb8d0bac01f0be336c865cca7fb9e2b2"
+    },
+    {
+      "bytes": 17659,
+      "layer": "math_layer",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/skills/SOURCE-ABSTRACTION-MAP.json",
+      "sha256": "03bdad96cd0913079661016741ec1b730bb00e4221a3231fec5b709325e7907a"
     },
     {
       "bytes": 456,
@@ -1339,12 +1347,12 @@
       "sha256": "af0b5c71e79cca2a5d6d56eb30d78670d6439d93c1bc212dc0a0766772da1a71"
     },
     {
-      "bytes": 28407,
+      "bytes": 30162,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "eca48292c2bce0ce4baaf4471e6b96723cc0e2b6822e964b48169d83629f3c42"
+      "sha256": "a1d841f59dc595384ebc7864db4e95e52d85df0001e41da8612e883cfa53167a"
     },
     {
       "bytes": 2410,
@@ -1495,10 +1503,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "2d0754d915bfb698c1c966f64063650e658899c7",
+    "commit": "b5ebfbe2fc43f0cb25e9005344d35ded35075019",
     "repository": "reviewed-public-export",
     "source_manifest_sha256": "4612a040b865286fe26add206d5ac7ed0f57584e8e7a4b97ac6411731d6457e6",
     "worktree_dirty": false
   },
-  "tree_sha256": "e720b65392ee4095f3cf2fd0b33895c1660fa107195289ecf7c1df62658b23ed"
+  "tree_sha256": "cc79e46d1e1d41f484317186c88e038f8dba0901e2e3e40265187a3c3af8bc63"
 }
