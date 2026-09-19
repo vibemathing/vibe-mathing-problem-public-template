@@ -43,8 +43,9 @@ REQUIRED_CONTROL_FILES = {
     "WEB_OUTPUT_CONTRACT.json",
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
-    ".codex/AGENTS.md",
-    ".codex/skills/README.md",
+    ".pi/AGENTS.md",
+    ".pi/settings.json",
+    ".pi/skills/README.md",
     "problem-library/records/canonical-problems.jsonl",
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
@@ -82,6 +83,17 @@ REQUIRED_EXCLUDED_CONTAINER_SKILLS = {"auto-goal", "auto-tmux", "nvidia-private-
 PRIVATE_REPOSITORY_LOCATOR = re.compile(
     r"\b(?:vibemathing|tradecatlabs)/[A-Za-z0-9_.-]*internal[A-Za-z0-9_.-]*\b"
 )
+PI_SKILL_STATUS = {
+    "vibe-mathing-router": "active",
+    "math-discovery": "active",
+    "math-derivation": "active",
+    "math-proof": "active",
+    "math-computation": "constrained",
+    "math-formalization": "constrained",
+    "outcome-space-search": "constrained",
+    "solve": "active",
+    "math-toolchain": "constrained",
+}
 MUTABLE_RECORDS = {
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
@@ -295,7 +307,7 @@ def validate(root: Path) -> list[str]:
         if {key: value.get("web_status") for key, value in locked_skills.items()} != expected_locked:
             errors.append("container Skill lock must admit exactly solve=active and math-toolchain=constrained")
         for skill_id, expected_status in expected_locked.items():
-            skill_root = root / ".codex/skills" / skill_id
+            skill_root = root / ".pi/skills" / skill_id
             if not skill_root.is_dir() or skill_root.is_symlink():
                 errors.append(f"distributed container Skill missing: {skill_id}")
                 continue
@@ -327,17 +339,7 @@ def validate(root: Path) -> list[str]:
         errors.append(f"WEB_ACTIVE_SKILLS invalid: {exc}")
         active = {"skills": []}
     snapshot_skills = {item.get("skill_id"): item for item in snapshot.get("active_skills", []) if isinstance(item, dict)}
-    expected_skill_status = {
-        "vibe-mathing-router": "active",
-        "math-discovery": "active",
-        "math-derivation": "active",
-        "math-computation": "constrained",
-        "math-proof": "active",
-        "math-formalization": "constrained",
-        "outcome-space-search": "constrained",
-        "solve": "active",
-        "math-toolchain": "constrained",
-    }
+    expected_skill_status = PI_SKILL_STATUS
     expected_skill_ids = set(expected_skill_status)
     actual_skill_ids = {item.get("skill_id") for item in active.get("skills", []) if isinstance(item, dict)}
     if actual_skill_ids != expected_skill_ids:
@@ -346,8 +348,21 @@ def validate(root: Path) -> list[str]:
         if isinstance(item, dict) and item.get("skill_id") in expected_skill_status:
             if item.get("web_status") != expected_skill_status[item["skill_id"]]:
                 errors.append(f"WEB Skill status mismatch: {item.get('skill_id')}")
-    if (root / ".codex/skills/nvidia-private-compute").exists():
+    if (root / ".codex").exists():
+        errors.append("legacy .codex runtime tree must not enter a Pi-native problem repository")
+    if (root / ".pi/skills/nvidia-private-compute").exists():
         errors.append("nvidia-private-compute is host-only and must not enter Web problem repositories")
+    try:
+        pi_settings = load_json(root / ".pi/settings.json")
+        expected_paths = [f"skills/{skill_id}/SKILL.md" for skill_id in PI_SKILL_STATUS]
+        if pi_settings.get("skills") != expected_paths:
+            errors.append(".pi/settings.json must list exactly the admitted project Skill entries in canonical order")
+        if pi_settings.get("enableSkillCommands") is not True:
+            errors.append(".pi/settings.json must enable Skill commands")
+        if set(pi_settings) != {"skills", "enableSkillCommands"}:
+            errors.append(".pi/settings.json contains undeclared project runtime settings")
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        errors.append(f"Pi settings invalid: {exc}")
     for item in active.get("skills", []):
         if not isinstance(item, dict):
             errors.append("WEB_ACTIVE_SKILLS contains non-object")
@@ -359,6 +374,14 @@ def validate(root: Path) -> list[str]:
             continue
         if item.get("entry_sha256") != sha256_file(entry):
             errors.append(f"active Skill digest mismatch: {skill_id}")
+        if entry.parent.name != skill_id or entry.parent.parent != root / ".pi/skills":
+            errors.append(f"active Skill entry is outside the canonical Pi Skill directory: {skill_id}")
+        else:
+            head = entry.read_text(encoding="utf-8")[:4096]
+            if not re.search(rf"(?m)^name:\s*{re.escape(str(skill_id))}\s*$", head):
+                errors.append(f"Pi Skill frontmatter name mismatch: {skill_id}")
+            if not re.search(r"(?m)^description:\s*\S", head):
+                errors.append(f"Pi Skill frontmatter description missing: {skill_id}")
         if snapshot_skills.get(skill_id) != item:
             errors.append(f"active Skill does not match snapshot: {skill_id}")
 

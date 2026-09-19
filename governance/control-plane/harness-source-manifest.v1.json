@@ -1,13 +1,27 @@
 {
   "schema_version": "1.0.0",
   "manifest_id": "harness-source:web-research-full",
-  "harness_version": "1.5.1",
+  "harness_version": "1.6.0",
   "profile": "web-research-full",
   "global_excludes": [
-    ".git", ".private", ".lake", "__pycache__", "*.pyc", "*.pyo",
-    "sessions", "raw", "derived", "staging", "vendor/upstream", "build"
+    ".git",
+    ".private",
+    ".lake",
+    "__pycache__",
+    "*.pyc",
+    "*.pyo",
+    "sessions",
+    "raw",
+    "derived",
+    "staging",
+    "vendor/upstream",
+    "build"
   ],
-  "excluded_container_skill_ids": ["auto-goal", "auto-tmux", "nvidia-private-compute"],
+  "excluded_container_skill_ids": [
+    "auto-goal",
+    "auto-tmux",
+    "nvidia-private-compute"
+  ],
   "generated_files": [
     "WEB_CHANNEL_PROFILE.json",
     "WEB_ACTIVE_SKILLS.json",
@@ -38,7 +52,7 @@
     },
     {
       "source_path": "governance/tasks/0027-web-gpt-github-chat-research-harness/WEB_CODEX_AGENTS.md",
-      "target_path": ".codex/AGENTS.md",
+      "target_path": ".pi/AGENTS.md",
       "kind": "file",
       "layer": "math_layer",
       "required": true,
@@ -50,7 +64,7 @@
     },
     {
       "source_path": ".codex/skills",
-      "target_path": ".codex/skills",
+      "target_path": ".pi/skills",
       "kind": "tree",
       "layer": "math_layer",
       "required": true,
@@ -58,11 +72,15 @@
       "privacy_class": "internal_code",
       "rewrite_policy": "replace_from_source",
       "license_ref": null,
-      "excludes": ["nvidia-private-compute", "__pycache__", "*.pyc"]
+      "excludes": [
+        "nvidia-private-compute",
+        "__pycache__",
+        "*.pyc"
+      ]
     },
     {
       "source_path": "governance/tasks/0027-web-gpt-github-chat-research-harness/container-skill-snapshots/solve",
-      "target_path": ".codex/skills/solve",
+      "target_path": ".pi/skills/solve",
       "kind": "tree",
       "layer": "math_layer",
       "required": true,
@@ -70,11 +88,14 @@
       "privacy_class": "internal_code",
       "rewrite_policy": "replace_from_source",
       "license_ref": null,
-      "excludes": ["__pycache__", "*.pyc"]
+      "excludes": [
+        "__pycache__",
+        "*.pyc"
+      ]
     },
     {
       "source_path": "governance/tasks/0027-web-gpt-github-chat-research-harness/container-skill-snapshots/math-toolchain",
-      "target_path": ".codex/skills/math-toolchain",
+      "target_path": ".pi/skills/math-toolchain",
       "kind": "tree",
       "layer": "math_layer",
       "required": true,
@@ -82,7 +103,10 @@
       "privacy_class": "internal_code",
       "rewrite_policy": "replace_from_source",
       "license_ref": null,
-      "excludes": ["__pycache__", "*.pyc"]
+      "excludes": [
+        "__pycache__",
+        "*.pyc"
+      ]
     },
     {
       "source_path": "requirements.txt",
@@ -505,7 +529,10 @@
       "privacy_class": "public_code",
       "rewrite_policy": "replace_from_source",
       "license_ref": null,
-      "excludes": ["__pycache__", "*.pyc"]
+      "excludes": [
+        "__pycache__",
+        "*.pyc"
+      ]
     },
     {
       "source_path": "scripts/validate_mathematical_reasoning_discipline.py",
@@ -697,7 +724,11 @@
       "privacy_class": "public_code",
       "rewrite_policy": "replace_from_source",
       "license_ref": null,
-      "excludes": [".lake", "__pycache__", "*.pyc"]
+      "excludes": [
+        ".lake",
+        "__pycache__",
+        "*.pyc"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Project Skills
 
-这里记录中央项目 active skills；问题仓库 builder 会按 Web profile 生成不同的固定 Skill 集合。每个目录只有一个稳定 owner；上游方法先进入受控 source snapshot，经过 owner mapping、依赖适配和压力测试后才能分发。
+这里记录问题仓库随仓分发的 Pi 项目级 Skills。每个目录只有一个稳定 owner；Pi 在项目被信任后，从 `.pi/settings.json` 声明的精确入口按需加载。上游方法必须先进入受控 source snapshot，经过 owner mapping、依赖适配和压力测试后才能分发。
 
 | Skill | 单一职责 |
 |---|---|
@@ -19,4 +19,4 @@
 
 数学定理、形式包、序列、对象数据库、公式与算法复用统一读取 `governance/control-plane/math-knowledge-source.v1.json` 和 `math-knowledge-operators.v1.json`。所有命中先形成 `KnowledgeHit`/`ReusePlan`/Candidate，不直接创建 EvidenceLink、Result 或 Solution。
 
-当前已发布的 Web Harness 1.2.4 fleet 仍固定原 8 个 Skills：router/discovery/derivation/proof/solve 为 active，computation/formalization/math-toolchain 为 constrained。private internal builder 1.3.0 已把 `outcome-space-search` 0.2.0 作为第 9 个物理副本纳入 synthetic snapshot，但 `web_status=inactive`；向模板和既有问题仓激活/rollout 必须另行通过 candidate-write/identity/privacy 回归，不能把目录存在解释为已激活或已 rollout。`solve` 固定 0.3.0；`math-toolchain` 固定 0.2.0 且只生成 ToolPlan。`nvidia-private-compute`、`auto-goal`、`auto-tmux` 不进入 Web 问题仓。
+Pi-native Harness 1.6.0 固定九个项目 Skill：router/discovery/derivation/proof/solve 为 `active`，computation/formalization/outcome-space-search/math-toolchain 为 `constrained`。`.pi/settings.json` 是精确加载清单，`WEB_ACTIVE_SKILLS.json` 保存版本、入口摘要和 Web 能力状态；两者必须由验证器对账。`solve` 固定为 candidate-only，`math-toolchain` 只生成 ToolPlan。`nvidia-private-compute`、`auto-goal`、`auto-tmux` 以及 Root 会话编排 Skill 不进入单问题仓库。

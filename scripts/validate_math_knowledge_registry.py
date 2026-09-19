@@ -82,7 +82,7 @@ def main() -> int:
         operators = json.loads((control / "math-knowledge-operators.v1.json").read_text(encoding="utf-8"))
         source_schema = json.loads((control / "math-knowledge-source.schema.json").read_text(encoding="utf-8"))
         operator_schema = json.loads((control / "math-knowledge-operators.schema.json").read_text(encoding="utf-8"))
-        errors = validate(source, operators, source_schema, operator_schema, root / ".codex/skills")
+        errors = validate(source, operators, source_schema, operator_schema, root / ".pi/skills")
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         errors = [str(exc)]
         source = {"sources": []}

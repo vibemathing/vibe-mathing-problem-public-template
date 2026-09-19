@@ -24,7 +24,7 @@
       "additionalProperties": false,
       "required": ["ref", "sha256"],
       "properties": {
-        "ref": {"const": ".codex/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json"},
+        "ref": {"const": ".pi/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json"},
         "sha256": {"$ref": "#/$defs/rawDigest"}
       }
     },

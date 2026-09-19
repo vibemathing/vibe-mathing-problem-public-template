@@ -43,9 +43,9 @@ Read in this order:
 8. `research/records/failed-routes.jsonl`;
 9. `research/records/attempts.jsonl`;
 10. `research/records/obligation-graphs.jsonl`;
-11. `.codex/skills/outcome-space-search/SKILL.md`;
-12. `.codex/skills/outcome-space-search/references/web-gpt-parallel-tree.md`;
-13. `.codex/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json`;
+11. `.pi/skills/outcome-space-search/SKILL.md`;
+12. `.pi/skills/outcome-space-search/references/web-gpt-parallel-tree.md`;
+13. `.pi/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json`;
 14. `WEB_OUTPUT_CONTRACT.json`.
 
 Then freeze and report:

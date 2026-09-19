@@ -6,4 +6,4 @@
 
 - `governance/strategy/VIBEMATH_POINT_LINE_FACE_BODY_METAMODEL_v0.1.md`：PLFB 唯一概念根与 F04/F05 分面；
 - `governance/strategy/OSPS_DYNAMIC_OUTCOME_GRAPH_MODEL_v0.1.md`：何时需要 Outcome 分解、frontier 和重规划；
-- `.codex/skills/outcome-space-search/SKILL.md`：candidate-only、无执行/授权/Evidence/Result 的调用边界。
+- `.pi/skills/outcome-space-search/SKILL.md`：candidate-only、无执行/授权/Evidence/Result 的调用边界。

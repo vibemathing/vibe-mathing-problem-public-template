@@ -51,7 +51,7 @@
   "required_agent_surfaces": [
     "AGENTS.md",
     ".github/AGENTS.md",
-    ".codex/AGENTS.md",
+    ".pi/AGENTS.md",
     "governance/harness/PROJECT_AGENTS.md",
     "governance/standards/AGENTS.md",
     "problem-library/AGENTS.md",

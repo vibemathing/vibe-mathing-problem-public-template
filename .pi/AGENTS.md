@@ -1,6 +1,6 @@
-# Web Mathematical Skills Guide
+# Pi Mathematical Skills Guide
 
-This directory contains the fixed Skills available to the single-problem Web GPT + GitHub workflow. It does not import user-level Skills or activate upstream repositories.
+This directory contains the fixed, project-local Skills available to the single-problem Pi research workflow. Pi loads them only after project trust is granted. The repository does not vendor user-level Skills, activate upstream repositories, or grant any Skill authority over Evidence, Result, or Solution admission.
 
 ## Mandatory reasoning discipline
 
@@ -8,7 +8,7 @@ This directory contains the fixed Skills available to the single-problem Web GPT
 
 Every selected Skill inherits `governance/standards/MATHEMATICAL_REASONING_DISCIPLINE.md`: definition/scope freeze precedes derivation; dependencies and explicit witnesses must be reviewable; candidates must face counterexamples, invariants, monovariants/termination, extremal/symmetry/probability assumptions, scale/boundary checks, and evidence ceilings. Finite testing is not induction, and contraposition cannot reverse or invert an implication.
 
-Use `vibe-mathing-router` to choose exactly one `active` or explicitly permitted `constrained` primary owner Skill for the current obligation. `inactive` Skills are bundled for review only and must not be selected:
+Use `vibe-mathing-router` to choose exactly one `active` or explicitly permitted `constrained` primary owner Skill for the current obligation. Pi discovers only the exact project entries declared in `.pi/settings.json`; `inactive` Skills are bundled for review only and must not be selected:
 
 ```text
 math-discovery -> identify objects, exact statements, sources, and prior art

@@ -62,8 +62,8 @@
       "distributed_snapshot": {
         "version": "0.2.0",
         "files": 4,
-        "bytes": 3407,
-        "tree_sha256": "79f5b458ccad3ec120a8719ddf1d05bea5f5339131f902cf4f3bb011b10c3c21"
+        "bytes": 3413,
+        "tree_sha256": "a029553a609e3695f3de21c1c74f1b65c811ada617173176e6135ff13078d461"
       },
       "adaptations": [
         "remove runtime command execution",

@@ -1,0 +1,14 @@
+{
+  "skills": [
+    "skills/vibe-mathing-router/SKILL.md",
+    "skills/math-discovery/SKILL.md",
+    "skills/math-derivation/SKILL.md",
+    "skills/math-proof/SKILL.md",
+    "skills/math-computation/SKILL.md",
+    "skills/math-formalization/SKILL.md",
+    "skills/outcome-space-search/SKILL.md",
+    "skills/solve/SKILL.md",
+    "skills/math-toolchain/SKILL.md"
+  ],
+  "enableSkillCommands": true
+}

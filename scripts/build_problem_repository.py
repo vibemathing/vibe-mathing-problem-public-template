@@ -24,8 +24,19 @@ ROOT = Path(__file__).resolve().parents[1]
 TASK = ROOT / "governance/tasks/0027-web-gpt-github-chat-research-harness"
 DEFAULT_MANIFEST = TASK / "harness-source-manifest.v1.json"
 DEFAULT_TEMPLATE = TASK / "problem-repository-template"
-BUILDER_VERSION = "1.5.1"
+BUILDER_VERSION = "1.6.0"
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
+PI_SKILL_STATUS = {
+    "vibe-mathing-router": "active",
+    "math-discovery": "active",
+    "math-derivation": "active",
+    "math-proof": "active",
+    "math-computation": "constrained",
+    "math-formalization": "constrained",
+    "outcome-space-search": "constrained",
+    "solve": "active",
+    "math-toolchain": "constrained",
+}
 MUTABLE_GENERATED = {
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
@@ -277,7 +288,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         relative = candidate.relative_to(template)
         if excluded_skill_ids.intersection(relative.parts):
             raise RuntimeError(f"excluded container Skill in problem repository template: {relative}")
-        if relative.as_posix() == "WEB_BOOTSTRAP.md.in":
+        if relative.as_posix() in {"WEB_BOOTSTRAP.md.in", ".pi/settings.json.in"}:
             continue
         target = output / relative
         if target.exists():
@@ -285,9 +296,27 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         copy_regular(candidate, target)
         file_policy[relative.as_posix()] = ("web_channel", "harness")
 
-    # Container Skill snapshots remain immutable source evidence. Their scoped
-    # AGENTS files receive a generated inheritance overlay only in the built
-    # problem repository, so every effective Agent surface carries the policy.
+    pi_skills_root = output / ".pi/skills"
+    discovered_pi_skills = {
+        path.parent.name: path
+        for path in sorted(pi_skills_root.glob("*/SKILL.md"))
+        if path.is_file() and not path.is_symlink()
+    }
+    if set(discovered_pi_skills) != set(PI_SKILL_STATUS):
+        raise RuntimeError(
+            "Pi Skill suite mismatch: "
+            f"expected={sorted(PI_SKILL_STATUS)} actual={sorted(discovered_pi_skills)}"
+        )
+    pi_settings = {
+        "skills": [f"skills/{skill_id}/SKILL.md" for skill_id in PI_SKILL_STATUS],
+        "enableSkillCommands": True,
+    }
+    write_json(output / ".pi/settings.json", pi_settings)
+    file_policy[".pi/settings.json"] = ("math_layer", "harness")
+
+    # Skill snapshots remain immutable source evidence. Their scoped AGENTS
+    # files receive a generated inheritance overlay only in the built problem
+    # repository, so every effective Agent surface carries the policy.
     apply_reasoning_agent_overlays(output)
 
     canonical_path = output / "problem-library/records/canonical-problems.jsonl"
@@ -319,19 +348,8 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     write_json(output / "WEB_CHANNEL_PROFILE.json", profile)
     file_policy["WEB_CHANNEL_PROFILE.json"] = ("web_channel", "harness")
 
-    web_status = {
-        "vibe-mathing-router": "active",
-        "math-discovery": "active",
-        "math-derivation": "active",
-        "math-proof": "active",
-        "math-computation": "constrained",
-        "math-formalization": "constrained",
-        "outcome-space-search": "constrained",
-        "solve": "active",
-        "math-toolchain": "constrained",
-    }
     skills: list[dict[str, Any]] = []
-    for version_path in sorted((output / ".codex/skills").glob("*/VERSION")):
+    for version_path in sorted((output / ".pi/skills").glob("*/VERSION")):
         skill_id = version_path.parent.name
         entry = version_path.parent / "SKILL.md"
         if not entry.is_file():
@@ -341,7 +359,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             "version": version_path.read_text(encoding="utf-8").strip(),
             "entry": entry.relative_to(output).as_posix(),
             "entry_sha256": sha256_file(entry),
-            "web_status": web_status.get(skill_id, "inactive"),
+            "web_status": PI_SKILL_STATUS.get(skill_id, "inactive"),
         })
     active = {"schema_version": "1.0.0", "skills": skills}
     write_json(output / "WEB_ACTIVE_SKILLS.json", active)

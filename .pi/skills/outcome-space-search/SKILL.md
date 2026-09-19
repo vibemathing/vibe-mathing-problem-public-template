@@ -104,7 +104,7 @@ Reject a lane if its statement or closure predicate is not independently reviewa
 Write a candidate plan conforming to `references/osps-plan.schema.json`, then run when command execution is permitted:
 
 ```bash
-python3 .codex/skills/outcome-space-search/scripts/validate_osps_plan.py \
+python3 .pi/skills/outcome-space-search/scripts/validate_osps_plan.py \
   --file research/artifacts/candidates/<candidate-id>/osps-plan.json
 ```
 

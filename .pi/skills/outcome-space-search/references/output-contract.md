@@ -59,7 +59,7 @@ research/artifacts/source-notes/<note-id>-osps-analysis.json
 不得写入：
 
 ```text
-.codex/skills/**
+.pi/skills/**
 governance/**
 problem-library/records/**
 research/schema/**
