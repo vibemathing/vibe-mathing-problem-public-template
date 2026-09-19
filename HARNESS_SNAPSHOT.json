@@ -76,7 +76,7 @@
     "sha256": "748b0c20b71a528f106cac7a9f0afd470e783fad35ee497ed98c9a1cc56063c7",
     "version": "2.2.0"
   },
-  "built_at": "2026-09-19T10:25:09+08:00",
+  "built_at": "2026-09-19T10:29:01+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -6618,12 +6618,12 @@
       "sha256": "3f899616e5b8b6462d6bf3fcbc3a56be6b44a3bdc1730cf35cfc60abb67207a2"
     },
     {
-      "bytes": 37820,
+      "bytes": 38756,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "WEB_CONTEXT_BUNDLE.md",
-      "sha256": "a827c91cd9159a04f5e8bae0a7516682a16f17445fae35e55e252f877ccd048d"
+      "sha256": "85d0f4cc82278ed7b51828f8cedf09dfaf7acbf11d22ba3f2ddb05ce66fc4cf9"
     },
     {
       "bytes": 8939,
@@ -7258,12 +7258,12 @@
       "sha256": "748b0c20b71a528f106cac7a9f0afd470e783fad35ee497ed98c9a1cc56063c7"
     },
     {
-      "bytes": 24051,
+      "bytes": 25099,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_web_context_bundle.py",
-      "sha256": "bec7a328e6fa24f75d5d8b334c2084b399ceaaa43ba56d1e787aea90adad24aa"
+      "sha256": "23f40efdd3e3da4472c8797d9c5ce582c5fb05e965fbb8c24725a9973d448454"
     },
     {
       "bytes": 8700,
@@ -7290,12 +7290,12 @@
       "sha256": "5707edb54599592e5bce3e588b0e1f310284afcd0688b26c85431df6e60ec3e5"
     },
     {
-      "bytes": 5389,
+      "bytes": 5592,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/test_web_context_bundle.py",
-      "sha256": "54594167a75247d4568a2a0a32661a97873bd719bc62c3960c85483b1df364ce"
+      "sha256": "f32e217d564e3d0eca7cc9696a14b3c5ebad4dc2999d1b174449e5654dbbda48"
     },
     {
       "bytes": 5864,
@@ -7346,12 +7346,12 @@
       "sha256": "af0b5c71e79cca2a5d6d56eb30d78670d6439d93c1bc212dc0a0766772da1a71"
     },
     {
-      "bytes": 43296,
+      "bytes": 44876,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "4f049dadac9f9dddd8790d1567571ee1d8618fa7524c17bf2074af80dfeb8244"
+      "sha256": "809433b37c5a5f10ef13cc47146284df5812c0c1c1fc5c0695d017c6ba8be1c7"
     },
     {
       "bytes": 2410,
@@ -7502,10 +7502,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "9b0c64efdee4dd47e3277f2cacde09b323eac5ea",
+    "commit": "5fbc4604d84e13781b307b1a17d7af16ebe7a4be",
     "repository": "reviewed-public-export",
     "source_manifest_sha256": "a1fd8592d55cf199d3ff04519faff808f74f53e312ad17c851eaf3e1e256d2cc",
     "worktree_dirty": false
   },
-  "tree_sha256": "84a945c4d5ee6cb0bc4bb4d060862e12be6165325bff1688e7e570fc6912f91b"
+  "tree_sha256": "aa7624be708cea6294ce255333fb56a47418711edee6d030ed2a63a4fd44e7ae"
 }
