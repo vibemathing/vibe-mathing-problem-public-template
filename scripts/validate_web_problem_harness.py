@@ -84,15 +84,15 @@ PRIVATE_REPOSITORY_LOCATOR = re.compile(
     r"\b(?:vibemathing|tradecatlabs)/[A-Za-z0-9_.-]*internal[A-Za-z0-9_.-]*\b"
 )
 PI_SKILL_STATUS = {
-    "vibe-mathing-router": "active",
-    "math-discovery": "active",
-    "math-derivation": "active",
-    "math-proof": "active",
-    "math-computation": "constrained",
-    "math-formalization": "constrained",
-    "outcome-space-search": "constrained",
-    "solve": "active",
-    "math-toolchain": "constrained",
+    "mathematics-in-lean": "active",
+    "prove2me": "constrained",
+    "ai4math-source-discovery": "active",
+    "ai4math-modeling-derivation": "active",
+    "ai4math-proof-refutation": "active",
+    "ai4math-bounded-computation": "constrained",
+    "ai4math-lean-formalization": "constrained",
+    "ai4math-assurance-admission": "constrained",
+    "ai4math-toolchain-reproducibility": "constrained",
 }
 MUTABLE_RECORDS = {
     "research/records/attempts.jsonl",
@@ -303,24 +303,17 @@ def validate(root: Path) -> list[str]:
         if not REQUIRED_EXCLUDED_CONTAINER_SKILLS.issubset(set(container_lock.get("excluded_skill_ids", []))):
             errors.append("container Skill lock lacks required Web exclusions")
         locked_skills = {item.get("skill_id"): item for item in container_lock.get("skills", []) if isinstance(item, dict)}
-        expected_locked = {"solve": "active", "math-toolchain": "constrained"}
-        if {key: value.get("web_status") for key, value in locked_skills.items()} != expected_locked:
-            errors.append("container Skill lock must admit exactly solve=active and math-toolchain=constrained")
-        for skill_id, expected_status in expected_locked.items():
-            skill_root = root / ".pi/skills" / skill_id
-            if not skill_root.is_dir() or skill_root.is_symlink():
-                errors.append(f"distributed container Skill missing: {skill_id}")
-                continue
-            observed = content_snapshot(skill_root)
-            expected_snapshot = locked_skills.get(skill_id, {}).get("distributed_snapshot", {})
-            for field in ("files", "bytes", "tree_sha256"):
-                if observed.get(field) != expected_snapshot.get(field):
-                    errors.append(f"distributed container Skill {field} mismatch: {skill_id}")
-            version_path = skill_root / "VERSION"
-            if version_path.is_file() and version_path.read_text(encoding="utf-8").strip() != expected_snapshot.get("version"):
-                errors.append(f"distributed container Skill version mismatch: {skill_id}")
-            if locked_skills.get(skill_id, {}).get("evidence_ceiling") != "candidate_only":
+        expected_locked = {"solve", "math-toolchain"}
+        if set(locked_skills) != expected_locked:
+            errors.append("container Skill lock must preserve exactly the two historical source identities")
+        for skill_id in expected_locked:
+            locked = locked_skills.get(skill_id, {})
+            if locked.get("web_status") != "historical_source_only":
+                errors.append(f"legacy container Skill must be historical_source_only: {skill_id}")
+            if locked.get("evidence_ceiling") != "candidate_only":
                 errors.append(f"container Skill evidence ceiling must be candidate_only: {skill_id}")
+            if (root / ".pi/skills" / skill_id).exists():
+                errors.append(f"legacy container Skill must not be active in the designated Pi suite: {skill_id}")
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         errors.append(f"container Skill lock invalid: {exc}")
 

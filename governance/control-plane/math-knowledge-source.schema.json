@@ -91,7 +91,7 @@
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": {"enum": ["math-discovery", "math-derivation", "math-computation", "math-proof", "math-formalization"]}
+          "items": {"enum": ["ai4math-source-discovery", "ai4math-modeling-derivation", "ai4math-bounded-computation", "ai4math-proof-refutation", "ai4math-lean-formalization"]}
         },
         "notes": {"type": "string"}
       }

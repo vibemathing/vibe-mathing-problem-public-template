@@ -18,67 +18,67 @@ This file is generated from repository truth and bounded for the web channel. It
 {
   "active_skills": [
     {
-      "entry": ".pi/skills/math-computation/SKILL.md",
-      "entry_sha256": "80c447221725ec198bee4b104d43ca28425110a7dac17afa9cad56ec69b57f48",
-      "skill_id": "math-computation",
-      "version": "0.6.0",
+      "entry": ".pi/skills/ai4math-assurance-admission/SKILL.md",
+      "entry_sha256": "c20468c5fab97118ba574c766c474ad7ed14d6a1aa6a2458e1cf59275cf1d30d",
+      "skill_id": "ai4math-assurance-admission",
+      "version": "1.0.0",
       "web_status": "constrained"
     },
     {
-      "entry": ".pi/skills/math-derivation/SKILL.md",
-      "entry_sha256": "3f3b567729f1e5dd24f87e832fdac702577f4add14b8cf6be12d538e1fe787c1",
-      "skill_id": "math-derivation",
-      "version": "0.4.0",
-      "web_status": "active"
-    },
-    {
-      "entry": ".pi/skills/math-discovery/SKILL.md",
-      "entry_sha256": "ceb54d773cd970ca42d0243fb1a39b109cab3ffdbe2dd87b98b43539f988d471",
-      "skill_id": "math-discovery",
-      "version": "0.4.0",
-      "web_status": "active"
-    },
-    {
-      "entry": ".pi/skills/math-formalization/SKILL.md",
-      "entry_sha256": "8ade921dacd277f425f424064a6002806c057f160555081dbdb4ec05c1f5ea05",
-      "skill_id": "math-formalization",
-      "version": "0.5.0",
+      "entry": ".pi/skills/ai4math-bounded-computation/SKILL.md",
+      "entry_sha256": "eadbd8b93d7927c85247378fe17eebebe89bfaf3d23b0e0c5499ad0a66f5f605",
+      "skill_id": "ai4math-bounded-computation",
+      "version": "1.0.0",
       "web_status": "constrained"
     },
     {
-      "entry": ".pi/skills/math-proof/SKILL.md",
-      "entry_sha256": "61006c732ad69e73f56be126acb6fa9e25c866e18733ce1f0f3863c1f8eea80f",
-      "skill_id": "math-proof",
-      "version": "0.5.0",
-      "web_status": "active"
-    },
-    {
-      "entry": ".pi/skills/math-toolchain/SKILL.md",
-      "entry_sha256": "f6514e01358aa2e40f8b7e3bb9221fd9abca6b7ff37ec6920f2c2cf537533f7b",
-      "skill_id": "math-toolchain",
-      "version": "0.2.0",
+      "entry": ".pi/skills/ai4math-lean-formalization/SKILL.md",
+      "entry_sha256": "d7200af5ed58b7bafefb531dee309e4085eada329be618dee67c3f2f61dbbc08",
+      "skill_id": "ai4math-lean-formalization",
+      "version": "1.0.0",
       "web_status": "constrained"
     },
     {
-      "entry": ".pi/skills/outcome-space-search/SKILL.md",
-      "entry_sha256": "fd18e69615443a3a251b6233c6d868e778bfef700fc85dd27cd02c01b0ff875b",
-      "skill_id": "outcome-space-search",
-      "version": "0.3.0",
+      "entry": ".pi/skills/ai4math-modeling-derivation/SKILL.md",
+      "entry_sha256": "b98bd8c1f3a9640a080143ebd5deae4d43fff00318063bf9b5e86db40f2da088",
+      "skill_id": "ai4math-modeling-derivation",
+      "version": "1.0.0",
+      "web_status": "active"
+    },
+    {
+      "entry": ".pi/skills/ai4math-proof-refutation/SKILL.md",
+      "entry_sha256": "10342bc2b6c3e0f8cdf747afeb7e3aae7dd3ef2f5af9faaac470cdd3e3d6701d",
+      "skill_id": "ai4math-proof-refutation",
+      "version": "1.0.0",
+      "web_status": "active"
+    },
+    {
+      "entry": ".pi/skills/ai4math-source-discovery/SKILL.md",
+      "entry_sha256": "de0c419b8c4e4e185bb5e299cb5b759a4c328dddcb7a2eea9198600e9fc9526f",
+      "skill_id": "ai4math-source-discovery",
+      "version": "1.0.0",
+      "web_status": "active"
+    },
+    {
+      "entry": ".pi/skills/ai4math-toolchain-reproducibility/SKILL.md",
+      "entry_sha256": "c7dab252042407c3a8c0c4fe7f8fb5f1d9336e379b37647094b88d953c5319c2",
+      "skill_id": "ai4math-toolchain-reproducibility",
+      "version": "1.0.0",
       "web_status": "constrained"
     },
     {
-      "entry": ".pi/skills/solve/SKILL.md",
-      "entry_sha256": "ff557dc3fc2fa10df4b21e8bef251a37928f5572ccf0092c79f0d9ab90a00ec0",
-      "skill_id": "solve",
-      "version": "0.3.0",
+      "entry": ".pi/skills/mathematics-in-lean/SKILL.md",
+      "entry_sha256": "111d841454e8dd110ca7c9daa8132c0a84a2dfdda6c0ee7aa1e917a9eb85493b",
+      "skill_id": "mathematics-in-lean",
+      "version": "1.0.0",
       "web_status": "active"
     },
     {
-      "entry": ".pi/skills/vibe-mathing-router/SKILL.md",
-      "entry_sha256": "4eeaf34d99f7fd5b357a9ea7b255df45bcbc26d052f2e31e015741ac40c0778c",
-      "skill_id": "vibe-mathing-router",
-      "version": "0.5.0",
-      "web_status": "active"
+      "entry": ".pi/skills/prove2me/SKILL.md",
+      "entry_sha256": "8140d0e64c643c52cfdb6db06267b28c35c29f3985bdd284b7f3779fca231737",
+      "skill_id": "prove2me",
+      "version": "1.0.0",
+      "web_status": "constrained"
     }
   ],
   "attempts": [],
@@ -88,61 +88,61 @@ This file is generated from repository truth and bounded for the web channel. It
       "evidence_ceiling": "discovery_only",
       "external_effect": "none",
       "operator_id": "op:identify-mathematical-object",
-      "owner_skill": "math-discovery"
+      "owner_skill": "ai4math-source-discovery"
     },
     {
       "evidence_ceiling": "candidate_only",
       "external_effect": "read_local",
       "operator_id": "op:search-formal-theorem",
-      "owner_skill": "math-discovery"
+      "owner_skill": "ai4math-source-discovery"
     },
     {
       "evidence_ceiling": "candidate_only",
       "external_effect": "read_network",
       "operator_id": "op:search-mathematical-database",
-      "owner_skill": "math-discovery"
+      "owner_skill": "ai4math-source-discovery"
     },
     {
       "evidence_ceiling": "candidate_only",
       "external_effect": "read_local",
       "operator_id": "op:resolve-formal-package",
-      "owner_skill": "math-formalization"
+      "owner_skill": "ai4math-lean-formalization"
     },
     {
       "evidence_ceiling": "candidate_only",
       "external_effect": "none",
       "operator_id": "op:compare-statements",
-      "owner_skill": "math-proof"
+      "owner_skill": "ai4math-proof-refutation"
     },
     {
       "evidence_ceiling": "candidate_only",
       "external_effect": "none",
       "operator_id": "op:compose-reuse-plan",
-      "owner_skill": "math-proof"
+      "owner_skill": "ai4math-proof-refutation"
     },
     {
       "evidence_ceiling": "candidate_only",
       "external_effect": "none",
       "operator_id": "op:prove-reuse-gap",
-      "owner_skill": "math-proof"
+      "owner_skill": "ai4math-proof-refutation"
     },
     {
       "evidence_ceiling": "candidate_only",
       "external_effect": "bounded_candidate_build",
       "operator_id": "op:build-formal-candidate",
-      "owner_skill": "math-formalization"
+      "owner_skill": "ai4math-lean-formalization"
     },
     {
       "evidence_ceiling": "verifier_receipt",
       "external_effect": "bounded_candidate_build",
       "operator_id": "op:verify-formal-candidate",
-      "owner_skill": "math-formalization"
+      "owner_skill": "ai4math-lean-formalization"
     },
     {
       "evidence_ceiling": "verifier_receipt",
       "external_effect": "none",
       "operator_id": "op:review-reuse-semantics",
-      "owner_skill": "math-proof"
+      "owner_skill": "ai4math-proof-refutation"
     }
   ],
   "knowledge_sources": [

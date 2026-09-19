@@ -1,22 +1,19 @@
-# Project Skills
+# Project Pi Skills
 
-这里记录问题仓库随仓分发的 Pi 项目级 Skills。每个目录只有一个稳定 owner；Pi 在项目被信任后，从 `.pi/settings.json` 声明的精确入口按需加载。上游方法必须先进入受控 source snapshot，经过 owner mapping、依赖适配和压力测试后才能分发。
+This directory is the self-contained, project-local mathematical Skill suite for a single-problem repository. Pi loads only the exact entries declared in `../settings.json` after the project is trusted.
 
-| Skill | 单一职责 |
-|---|---|
-| `vibe-mathing-router` | 根据当前瓶颈选择一个主流程 |
-| `outcome-space-search` | PLFB F04：构造 candidate-only Outcome plan、去重并选择可解释 frontier |
-| `math-discovery` | 研究问题、检索、来源和证据图 |
-| `math-derivation` | 公式推导与假设/近似边界 |
-| `math-computation` | 符号、数值与反例计算 |
-| `math-proof` | 自然语言证明与证明义务审计 |
-| `math-formalization` | proof assistant 形式化与 kernel 验证 |
-| `nvidia-private-compute` | 数学客户端白名单内的固定私密 GPU canary |
+| Skill | Responsibility | Status |
+|---|---|---|
+| `mathematics-in-lean` | Lean 4/Mathlib proof engineering | active |
+| `prove2me` | External Lean theorem workflow | constrained |
+| `ai4math-source-discovery` | Sources, prior art, and statement comparison | active |
+| `ai4math-modeling-derivation` | Modeling, definitions, and derivations | active |
+| `ai4math-proof-refutation` | Proofs, refutations, and adversarial audit | active |
+| `ai4math-bounded-computation` | Bounded exact/numeric experiments | constrained |
+| `ai4math-lean-formalization` | Statement-faithful Lean candidates | constrained |
+| `ai4math-assurance-admission` | Candidate-only assurance recommendation | constrained |
+| `ai4math-toolchain-reproducibility` | Tool/source identity and reproducibility planning | constrained |
 
-问题库中的 CandidateObservation 只归 `math-discovery`，且始终 `research_eligible=false`。工具调研按 `surveyed → source_locked → installed → smoke_checked → evidence_capable → verifier_admitted` 逐层准入；只有项目 runtime probe 支持的能力才能进入 owner 路由。
+The canonical research actor owns mathematical strategy and may select, combine, change, or ignore these capabilities. Skill output is candidate-only unless an independent verifier and admission gate establish more. No Skill may create its own authority, call self-review independent, or turn runtime/transport success into a Result.
 
-对已准入开放问题，`outcome-space-search` 可先把根目标展开为少量 `OutcomeNode × Route × Method` frontier lanes；每条 lane 只交给一个数学执行 owner。skills 在 `persistent_research` 下仍按“一题一个 worker、一个有界 step、一个 checkpoint”工作；所谓并行 frontier 不授权并发 worker。skills 负责数学路线，Harness 负责 session/scope/配额；路线失败追加 failed-route 后换路，checkpoint 进展摘要和 Goal 文案都不能升级为 Result。
-
-数学定理、形式包、序列、对象数据库、公式与算法复用统一读取 `governance/control-plane/math-knowledge-source.v1.json` 和 `math-knowledge-operators.v1.json`。所有命中先形成 `KnowledgeHit`/`ReusePlan`/Candidate，不直接创建 EvidenceLink、Result 或 Solution。
-
-Pi-native Harness 1.6.0 固定九个项目 Skill：router/discovery/derivation/proof/solve 为 `active`，computation/formalization/outcome-space-search/math-toolchain 为 `constrained`。`.pi/settings.json` 是精确加载清单，`WEB_ACTIVE_SKILLS.json` 保存版本、入口摘要和 Web 能力状态；两者必须由验证器对账。`solve` 固定为 candidate-only，`math-toolchain` 只生成 ToolPlan。`nvidia-private-compute`、`auto-goal`、`auto-tmux` 以及 Root 会话编排 Skill 不进入单问题仓库。
+Do not add user-global, controller, session-fleet, compute-node, credential-bearing, or private-only Skills here. A new public Skill requires source and license review, bounded dependencies, pressure tests, explicit failure semantics, and snapshot/validator updates.
