@@ -1,0 +1,10 @@
+{
+  "activation_status": "active",
+  "entry": "SKILL.md",
+  "entry_sha256": "ab738413035daab83448217762e3798607cec0f9b1e9b501a4ca574b19c1e7af",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": false,
+  "registry": null,
+  "schema_version": "1.0.0",
+  "skill_id": "solve"
+}

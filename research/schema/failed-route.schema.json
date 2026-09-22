@@ -7,6 +7,7 @@
   "required": [
     "route_id",
     "problem_id",
+    "problem_contract_sha256",
     "route",
     "blocker",
     "conclusion",
@@ -17,6 +18,7 @@
   "properties": {
     "route_id": {"type": "string", "pattern": "^route:[a-z0-9][a-z0-9.-]*$"},
     "problem_id": {"type": "string", "pattern": "^problem:[a-z0-9][a-z0-9.-]*$"},
+    "problem_contract_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "route": {"type": "string", "minLength": 1, "description": "尝试过的攻击路线/方法/方向"},
     "blocker": {"type": "string", "minLength": 1, "description": "走不通的根因（登记当时能写出的最具体原因）"},
     "conclusion": {

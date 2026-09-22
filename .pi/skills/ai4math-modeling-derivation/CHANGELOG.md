@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.4.0 - 2026-09-21
+
+### Added
+- Add a subordinate problem-anchor and minimal-route audit for statement identity, complexity budgets, actor-requested candidate comparison, cheap falsifiers, and drift detection.
+
+### Reason
+- Absorb the remaining domain-neutral idea-refinement mechanisms without importing ML publication scores, mandatory route portfolios, review loops, or a new top-level Skill.
+
+### Affected
+- `SKILL.md`, `VERSION`, `references/index.md`, and `references/problem-anchor-and-minimal-route-audit.md`.
+
+### Validation
+- Strict Skill validation and targeted digest/reference checks are required; full Harness remains subject to the existing stale snapshot reconciliation.
+
+### Risk
+- Candidate sources have unresolved exact upstream rights and are paper-oriented, so only independently rewritten mathematical boundary rules were retained.
+
+### Rollback
+- Restore version 1.3.0, remove the subordinate reference, and restore the prior progressive-disclosure block.
+
+### Source
+- Pattern-only review of `idea-creator`, `idea-evaluator`, and `research-refine` snapshots bound by SHA-256 in the reference.
+
 ## 1.3.0
 
 - Bundle every owned original Skill package completely under `internal-packages/` with byte-level manifests.

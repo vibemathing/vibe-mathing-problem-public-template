@@ -42,13 +42,33 @@ Eight top-level mathematical Skills provide stable Pi entrypoints. Thirty-one au
 - Original files remain byte-identical. The only added file inside each package root is `.vibemathing-package-manifest.json`.
 - Each manifest records the original entry path, source file count, source bytes, per-file digests and tree digest.
 
+## Scoped policy files
+
+Internal package trees intentionally contain no nested `AGENTS.md`. This is a
+safety choice: inert source instructions must not create additional Pi scope,
+execution authority, or an accidental policy overlay. The repository root and
+owning top-level Skill contracts govern the package; adding a nested policy
+requires an explicit architecture review and corresponding overlay test.
+
 ## Authority
 
 Internal packages are inert references. They are not Pi entries, workers, verifiers or admission authorities. They cannot grant network, execution, write or publication permission and cannot create Evidence, Result, Solution or Closed state.
 
 ## Rights and publication boundary
 
-The current source review remains `HOLD_ALL`; bundling inside this repository does not claim that public redistribution rights are admitted. Each package manifest and registry keeps `public_redistribution_admitted=false`. Pushing or publishing the complete package bodies remains blocked until source-specific rights review closes or the user supplies adequate permission.
+The 31 bundled packages are project-authored by Vibe Mathing maintainers and are
+released under the repository MIT License. Each package is bound to its
+immutable content-tree digest and the direct-owner attestation at
+`governance/control-plane/project-authored-package-rights-attestation.v1.json`.
+The package manifests and per-Skill registries must retain
+`rights_state=ADMITTED`; the classification must retain
+`public_redistribution_admitted=true`; and the rights matrix is the canonical
+rights record that binds both values to the owner attestation and immutable tree
+digest for this template release.
+
+This publication admission does not activate the packages or turn them into
+mathematical evidence. External material retrieved later through a knowledge
+source remains governed by its own source-specific license and attribution.
 
 ## Mechanical invariants
 
@@ -63,4 +83,5 @@ Validation requires:
 - every registry path remaining repository-relative and resolving inside `.pi/skills/`;
 - no symlinks, unsafe paths, external private locators or machine-specific dependencies;
 - every top-level entry linking its registry and routing guide;
-- internal packages absent from `.pi/settings.json` and therefore not activated independently.
+- internal packages absent from `.pi/settings.json` and therefore not activated independently;
+- every admitted package is bound to the project MIT license, owner attestation and immutable tree digest.

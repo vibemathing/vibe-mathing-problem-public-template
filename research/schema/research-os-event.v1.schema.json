@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/research-os-event.v1.json",
+  "title": "Vibe Mathing Mathematical Research OS cognitive event v1",
+  "description": "An append-only, hash-chained, non-authoritative cognitive event. It records seven Research OS functions by reference and cannot create Evidence, Result, Solution, or route authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "ledger_id",
+    "sequence",
+    "event_id",
+    "event_kind",
+    "recorded_at",
+    "previous_event_sha256",
+    "event_sha256",
+    "problem_contract",
+    "object_kind",
+    "object_id",
+    "payload",
+    "producer",
+    "non_authoritative"
+  ],
+  "properties": {
+    "schema_version": {"const": "research-os-event.v1"},
+    "ledger_id": {"const": "research-os-cognitive-events"},
+    "sequence": {"type": "integer", "minimum": 1},
+    "event_id": {"type": "string", "pattern": "^research-os-event:[a-z0-9][a-z0-9.-]*$"},
+    "event_kind": {
+      "enum": [
+        "working_set_created",
+        "example_recorded",
+        "conjecture_recorded",
+        "proof_dependency_linked",
+        "refutation_recorded",
+        "connection_recorded",
+        "verification_linked",
+        "working_set_superseded"
+      ]
+    },
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "previous_event_sha256": {
+      "oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]
+    },
+    "event_sha256": {"$ref": "#/$defs/sha256"},
+    "problem_contract": {"$ref": "#/$defs/problemContract"},
+    "object_kind": {
+      "enum": ["working_set", "example", "conjecture", "proof_dependency", "refutation", "connection", "verification"]
+    },
+    "object_id": {"$ref": "#/$defs/typedId"},
+    "payload": {"$ref": "#/$defs/payload"},
+    "producer": {"const": "research-os-cognitive-projection"},
+    "non_authoritative": {"const": true}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"event_kind": {"const": "working_set_created"}}},
+      "then": {
+        "properties": {
+          "object_kind": {"const": "working_set"},
+          "object_id": {"pattern": "^research-os:[a-z0-9][a-z0-9.-]*$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"event_kind": {"const": "example_recorded"}}},
+      "then": {
+        "properties": {
+          "object_kind": {"const": "example"},
+          "object_id": {"pattern": "^example:[a-z0-9][a-z0-9.-]*$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"event_kind": {"const": "conjecture_recorded"}}},
+      "then": {
+        "properties": {
+          "object_kind": {"const": "conjecture"},
+          "object_id": {"pattern": "^conjecture:[a-z0-9][a-z0-9.-]*$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"event_kind": {"const": "proof_dependency_linked"}}},
+      "then": {
+        "properties": {
+          "object_kind": {"const": "proof_dependency"},
+          "object_id": {"pattern": "^obligation:[a-z0-9][a-z0-9.-]*$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"event_kind": {"const": "refutation_recorded"}}},
+      "then": {
+        "properties": {
+          "object_kind": {"const": "refutation"},
+          "object_id": {"pattern": "^refutation:[a-z0-9][a-z0-9.-]*$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"event_kind": {"const": "connection_recorded"}}},
+      "then": {
+        "properties": {
+          "object_kind": {"const": "connection"},
+          "object_id": {"pattern": "^connection:[a-z0-9][a-z0-9.-]*$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"event_kind": {"const": "verification_linked"}}},
+      "then": {
+        "properties": {
+          "object_kind": {"const": "verification"},
+          "object_id": {"pattern": "^verification:[a-z0-9][a-z0-9.-]*$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"event_kind": {"const": "working_set_superseded"}}},
+      "then": {
+        "properties": {
+          "object_kind": {"const": "working_set"},
+          "object_id": {"pattern": "^research-os:[a-z0-9][a-z0-9.-]*$"}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "problemId": {"type": "string", "pattern": "^problem:[a-z0-9][a-z0-9.-]*$"},
+    "typedId": {
+      "type": "string",
+      "pattern": "^(problem|outcome|obligation|candidate|evidence-link|admission|example|conjecture|refutation|connection|source|observation|artifact|definition|literature|task|job|research-os|verification):[a-z0-9][a-z0-9.-]*$"
+    },
+    "typedIdArray": {
+      "type": "array",
+      "maxItems": 4096,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/typedId"}
+    },
+    "problemContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problem_id", "problem_contract_sha256", "statement_sha256", "scope_sha256"],
+      "properties": {
+        "problem_id": {"$ref": "#/$defs/problemId"},
+        "problem_contract_sha256": {"$ref": "#/$defs/sha256"},
+        "statement_sha256": {"$ref": "#/$defs/sha256"},
+        "scope_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "claims_ceiling", "refs", "note"],
+      "properties": {
+        "action": {"enum": ["recorded", "revised", "linked", "superseded", "invalidated"]},
+        "claims_ceiling": {"const": "candidate_only"},
+        "refs": {"$ref": "#/$defs/typedIdArray"},
+        "statement_sha256": {
+          "oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]
+        },
+        "scope_sha256": {
+          "oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]
+        },
+        "artifact_sha256": {
+          "oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]
+        },
+        "coverage": {"enum": ["single_witness", "finite_sample", "subclass", "general", "unknown"]},
+        "note": {"type": "string", "minLength": 1, "maxLength": 8000}
+      }
+    }
+  }
+}

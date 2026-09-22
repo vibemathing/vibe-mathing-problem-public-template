@@ -248,6 +248,7 @@ def load_obligation_state(project_root: Path) -> dict[str, Any]:
             raise ObligationError(f"Attempt 未绑定 current ObligationGraph：{attempt_id}")
 
     candidate_index: dict[str, dict[str, Any]] = {}
+    artifact_locators: set[str] = set()
     registry = load_verifier_registry(project_root)
     for candidate in candidates:
         _validate_schema(project_root, "candidate-artifact.schema.json", candidate, "Candidate")
@@ -259,7 +260,9 @@ def load_obligation_state(project_root: Path) -> dict[str, Any]:
             raise ObligationError(f"Candidate 引用未知 graph：{candidate_id}")
         if any(
             candidate[field] != graph[field]
-            for field in ("problem_id", "attempt_id", "graph_id")
+            for field in (
+                "problem_id", "attempt_id", "graph_id", "route_id", "problem_contract_sha256"
+            )
         ):
             raise ObligationError(f"Candidate 与 graph 身份不一致：{candidate_id}")
         obligation = obligations_by_graph[graph["graph_id"]].get(candidate["obligation_id"])
@@ -270,7 +273,11 @@ def load_obligation_state(project_root: Path) -> dict[str, Any]:
         generator = registry.get(candidate["generator"])
         if generator is None or generator.get("role") != "generator":
             raise ObligationError(f"Candidate generator 未注册：{candidate['generator']}")
-        artifact = _trusted_artifact(project_root, candidate["artifact"]["locator"])
+        artifact_locator = candidate["artifact"]["locator"]
+        if artifact_locator in artifact_locators:
+            raise ObligationError(f"Candidate artifact locator 重复：{artifact_locator}")
+        artifact_locators.add(artifact_locator)
+        artifact = _trusted_artifact(project_root, artifact_locator)
         if sha256_file(artifact) != candidate["artifact"]["sha256"]:
             raise ObligationError(f"Candidate artifact digest 不匹配：{candidate_id}")
         candidate_index[candidate_id] = candidate
@@ -285,6 +292,12 @@ def load_obligation_state(project_root: Path) -> dict[str, Any]:
         candidate = candidate_index.get(link["candidate_id"])
         if candidate is None:
             raise ObligationError(f"EvidenceLink 引用未知 Candidate：{link_id}")
+        graph = graph_index[candidate["graph_id"]]
+        if any(
+            link[field] != candidate[field]
+            for field in ("graph_id", "obligation_id", "route_id", "problem_id", "problem_contract_sha256")
+        ):
+            raise ObligationError(f"EvidenceLink 与 Candidate/ProblemContract 身份不一致：{link_id}")
         unknown_invalidations = [value for value in link["invalidates"] if value not in link_index]
         if unknown_invalidations:
             raise ObligationError(
@@ -501,6 +514,10 @@ def obligation_result_gate(
         raise ObligationConflict("root proof 与 counterexample 同时闭合")
     if result.get("obligation_graph_id") != graph_id:
         raise ObligationError("Result obligation_graph_id 与 Attempt 不一致")
+    if result.get("problem_contract_sha256") != graph.get("problem_contract_sha256"):
+        raise ObligationError("Result ProblemContract digest 与 ObligationGraph 不一致")
+    if result.get("route_id") != graph.get("route_id"):
+        raise ObligationError("Result route_id 与 ObligationGraph 不一致")
     root_id = graph["root_obligation_id"]
     root_obligation = state["obligations_by_graph"][graph_id][root_id]
     if result.get("root_obligation_id") != root_id:

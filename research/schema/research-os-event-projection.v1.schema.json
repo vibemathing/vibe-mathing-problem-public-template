@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/research-os-event-projection.v1.json",
+  "title": "Vibe Mathing Research OS event projection v1",
+  "description": "A deterministic, non-authoritative, candidate-only projection of a Research OS event ledger. It contains references and digests, not mathematical truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "projection_id",
+    "ledger_id",
+    "ledger_path",
+    "ledger_sha256",
+    "chain_head_sha256",
+    "problem_contract",
+    "owner_snapshot_sha256",
+    "owner_ledgers",
+    "claims_ceiling",
+    "event_count",
+    "current_object_count",
+    "managed_ref_count",
+    "opaque_ref_count",
+    "opaque_ref_ids",
+    "objects",
+    "generated_at",
+    "non_authoritative",
+    "non_mathematical_truth",
+    "projection_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "research-os-event-projection.v1"},
+    "projection_id": {"type": "string", "pattern": "^research-os-projection:[a-z0-9][a-z0-9.-]*$"},
+    "ledger_id": {"const": "research-os-cognitive-events"},
+    "ledger_path": {"type": "string", "minLength": 1, "pattern": "^[^/][^\\n]*$"},
+    "ledger_sha256": {"$ref": "#/$defs/sha256"},
+    "chain_head_sha256": {"$ref": "#/$defs/sha256"},
+    "problem_contract": {"$ref": "#/$defs/problemContract"},
+    "owner_snapshot_sha256": {"$ref": "#/$defs/sha256"},
+    "owner_ledgers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/ownerLedger"}
+    },
+    "claims_ceiling": {"const": "candidate_only"},
+    "event_count": {"type": "integer", "minimum": 1},
+    "current_object_count": {"type": "integer", "minimum": 1},
+    "managed_ref_count": {"type": "integer", "minimum": 0},
+    "opaque_ref_count": {"type": "integer", "minimum": 0},
+    "opaque_ref_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "maxItems": 4096,
+      "items": {"$ref": "#/$defs/typedId"}
+    },
+    "objects": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4096,
+      "items": {"$ref": "#/$defs/objectProjection"}
+    },
+    "generated_at": {"type": "string", "format": "date-time"},
+    "non_authoritative": {"const": true},
+    "non_mathematical_truth": {"const": true},
+    "projection_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "typedId": {
+      "type": "string",
+      "pattern": "^(problem|outcome|obligation|candidate|evidence-link|admission|example|conjecture|refutation|connection|source|observation|artifact|definition|literature|task|job|research-os|verification):[a-z0-9][a-z0-9.-]*$"
+    },
+    "ownerLedger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_kind", "path", "present", "sha256", "record_count"],
+      "properties": {
+        "owner_kind": {"enum": ["problem", "attempt", "obligation-graph", "candidate", "evidence-link"]},
+        "path": {"type": "string", "minLength": 1, "pattern": "^[^/][^\\n]*$"},
+        "present": {"type": "boolean"},
+        "sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "record_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "problemContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["problem_id", "problem_contract_sha256", "statement_sha256", "scope_sha256", "owner_locator"],
+      "properties": {
+        "problem_id": {"type": "string", "pattern": "^problem:[a-z0-9][a-z0-9.-]*$"},
+        "problem_contract_sha256": {"$ref": "#/$defs/sha256"},
+        "statement_sha256": {"$ref": "#/$defs/sha256"},
+        "scope_sha256": {"$ref": "#/$defs/sha256"},
+        "owner_locator": {"const": "problem-library/records/canonical-problems.jsonl"}
+      }
+    },
+    "objectProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "object_kind",
+        "object_id",
+        "latest_event_id",
+        "latest_sequence",
+        "event_kind",
+        "action",
+        "effective_status",
+        "history_count",
+        "refs",
+        "statement_sha256",
+        "scope_sha256",
+        "artifact_sha256",
+        "coverage",
+        "note_sha256"
+      ],
+      "properties": {
+        "object_kind": {"enum": ["working_set", "example", "conjecture", "proof_dependency", "refutation", "connection", "verification"]},
+        "object_id": {"$ref": "#/$defs/typedId"},
+        "latest_event_id": {"type": "string", "pattern": "^research-os-event:[a-z0-9][a-z0-9.-]*$"},
+        "latest_sequence": {"type": "integer", "minimum": 1},
+        "event_kind": {"enum": ["working_set_created", "example_recorded", "conjecture_recorded", "proof_dependency_linked", "refutation_recorded", "connection_recorded", "verification_linked", "working_set_superseded"]},
+        "action": {"enum": ["recorded", "revised", "linked", "superseded", "invalidated"]},
+        "effective_status": {"enum": ["current", "superseded", "invalidated"]},
+        "history_count": {"type": "integer", "minimum": 1},
+        "refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 4096,
+          "items": {"$ref": "#/$defs/typedId"}
+        },
+        "statement_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "scope_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "artifact_sha256": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "coverage": {"oneOf": [{"type": "null"}, {"enum": ["single_witness", "finite_sample", "subclass", "general", "unknown"]}]},
+        "note_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": [
     "schema_version", "receipt_id", "decision", "channel", "repository", "packet",
-    "harness_snapshot_sha256", "problem_id", "attempt_id", "route_id", "graph_id",
+    "harness_snapshot_sha256", "problem_id", "problem_contract_sha256", "attempt_id", "route_id", "graph_id",
     "obligation_id", "candidate_records", "append_target", "importer", "imported_at"
   ],
   "properties": {
@@ -26,6 +26,7 @@
     },
     "harness_snapshot_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "problem_id": {"type": "string", "pattern": "^problem:[a-z0-9][a-z0-9.-]*$"},
+    "problem_contract_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "attempt_id": {"type": "string", "pattern": "^attempt:[a-z0-9][a-z0-9.-]*$"},
     "route_id": {"type": "string", "pattern": "^route:[a-z0-9][a-z0-9.-]*$"},
     "graph_id": {"type": "string", "pattern": "^graph:[a-z0-9][a-z0-9.-]*$"},

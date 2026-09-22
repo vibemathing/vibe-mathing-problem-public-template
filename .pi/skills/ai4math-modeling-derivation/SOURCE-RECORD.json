@@ -1,0 +1,12 @@
+{
+  "entry": "SKILL.md",
+  "entry_sha256": "46afe238dec24e7b2bd6ec414f675a3af91f20d1ca5ff777bf37f2e971ccc924",
+  "license_ref": "LICENSE",
+  "public_redistribution_admitted": false,
+  "rights_state": "PROJECT_MAINTAINED_PENDING_RELEASE_REVIEW",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-modeling-derivation",
+  "source_kind": "project-maintained-consolidation",
+  "source_revision": "maintenance/pi-native-skill-system-v1",
+  "source_url": "https://github.com/vibemathing/vibe-mathing-problem-public-template"
+}

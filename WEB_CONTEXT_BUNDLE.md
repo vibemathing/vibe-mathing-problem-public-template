@@ -10,7 +10,7 @@ This file is generated from repository truth and bounded by `governance/control-
 4. Check `context_selection.status`. Only `ready` permits mathematical work; `no_active_execution_context` is maintenance/pre-admission only; ambiguous, inconsistent, missing, or invalid states are fail-closed.
 5. Treat the bundle as a bounded navigation cache. Fresh repository ledgers and live GitHub state outrank it; compare the input-ledger digests before relying on a selected context.
 6. When `ready`, use only the selected Attempt/Route/ObligationGraph/Obligation and its bounded dependency closure. The catalogs are navigation indexes, not permission grants.
-7. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. Complete package bodies are bundled at repository-relative paths; rights remain HOLD and bundling does not grant publication or execution authority.
+7. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal package before inventing a method. Complete project-authored package bodies are bundled at repository-relative paths and are MIT-licensed; package admission does not grant execution, mathematical-evidence, or Result authority.
 8. Search registered mathematical knowledge sources before inventing a new theorem.
 9. Never claim that Issue, PR, AI review, merge, Actions status, package build, search hit, test success, or this context closes mathematics.
 
@@ -20,11 +20,53 @@ This file is generated from repository truth and bounded by `governance/control-
 {
   "active_skills": [
     {
-      "entry": ".pi/skills/solve/SKILL.md",
-      "entry_sha256": "ff557dc3fc2fa10df4b21e8bef251a37928f5572ccf0092c79f0d9ab90a00ec0",
-      "skill_id": "solve",
-      "version": "0.3.0",
+      "entry": ".pi/skills/ai4math-assurance-admission/SKILL.md",
+      "entry_sha256": "e295dce9cf8a4c7acb9bec6d1eeb3212fdf3fb8e4cd4f9607db8e2f9ef27e150",
+      "skill_id": "ai4math-assurance-admission",
+      "version": "1.5.0",
+      "web_status": "constrained"
+    },
+    {
+      "entry": ".pi/skills/ai4math-bounded-computation/SKILL.md",
+      "entry_sha256": "d51dbb3acff9e64eed65d31f82653ab646c71339eb836ca270bdebb9a3891dec",
+      "skill_id": "ai4math-bounded-computation",
+      "version": "1.6.0",
+      "web_status": "constrained"
+    },
+    {
+      "entry": ".pi/skills/ai4math-lean-formalization/SKILL.md",
+      "entry_sha256": "0c5a5a2813666f2512ccbc521655ef162152d2e203c52067649e4829fa0b1917",
+      "skill_id": "ai4math-lean-formalization",
+      "version": "1.3.0",
+      "web_status": "constrained"
+    },
+    {
+      "entry": ".pi/skills/ai4math-modeling-derivation/SKILL.md",
+      "entry_sha256": "46afe238dec24e7b2bd6ec414f675a3af91f20d1ca5ff777bf37f2e971ccc924",
+      "skill_id": "ai4math-modeling-derivation",
+      "version": "1.4.0",
       "web_status": "active"
+    },
+    {
+      "entry": ".pi/skills/ai4math-proof-refutation/SKILL.md",
+      "entry_sha256": "04299f01da1ebb5ce2fff3718aa52b856cab372993509541c7671600bb3047bd",
+      "skill_id": "ai4math-proof-refutation",
+      "version": "1.4.0",
+      "web_status": "active"
+    },
+    {
+      "entry": ".pi/skills/ai4math-source-discovery/SKILL.md",
+      "entry_sha256": "5791ea4ccefa687b83b70f2d7dbf738abf7e11c16a457761336cc8c8ef3ffc04",
+      "skill_id": "ai4math-source-discovery",
+      "version": "1.4.0",
+      "web_status": "active"
+    },
+    {
+      "entry": ".pi/skills/ai4math-toolchain-reproducibility/SKILL.md",
+      "entry_sha256": "3b48a38d46c7610795c6201bd58ef4b58e6d07f5a6034c0e1e084c782ae08579",
+      "skill_id": "ai4math-toolchain-reproducibility",
+      "version": "1.4.0",
+      "web_status": "constrained"
     },
     {
       "entry": ".pi/skills/mathematics-in-lean/SKILL.md",
@@ -41,57 +83,15 @@ This file is generated from repository truth and bounded by `governance/control-
       "web_status": "constrained"
     },
     {
-      "entry": ".pi/skills/ai4math-source-discovery/SKILL.md",
-      "entry_sha256": "c831f416f09193c3354f615b776da9693eda002da643cd14246294a7aabd2fd6",
-      "skill_id": "ai4math-source-discovery",
-      "version": "1.3.0",
+      "entry": ".pi/skills/solve/SKILL.md",
+      "entry_sha256": "ab738413035daab83448217762e3798607cec0f9b1e9b501a4ca574b19c1e7af",
+      "skill_id": "solve",
+      "version": "0.4.0",
       "web_status": "active"
-    },
-    {
-      "entry": ".pi/skills/ai4math-modeling-derivation/SKILL.md",
-      "entry_sha256": "cfcd1e46903cf8a5b5dd504a3e39d3a1e0d5fe5a5b1b532f50ced6580667de1b",
-      "skill_id": "ai4math-modeling-derivation",
-      "version": "1.3.0",
-      "web_status": "active"
-    },
-    {
-      "entry": ".pi/skills/ai4math-proof-refutation/SKILL.md",
-      "entry_sha256": "2ae3f923089576c9bc7c9ee7e0f16595ed9d49374d0fd5df6a1742feec4290d3",
-      "skill_id": "ai4math-proof-refutation",
-      "version": "1.3.0",
-      "web_status": "active"
-    },
-    {
-      "entry": ".pi/skills/ai4math-bounded-computation/SKILL.md",
-      "entry_sha256": "0eba4c14b7069b9aaf55d3184e048fddeb8d86d27b5ddaca460a2a184509b38c",
-      "skill_id": "ai4math-bounded-computation",
-      "version": "1.3.0",
-      "web_status": "constrained"
-    },
-    {
-      "entry": ".pi/skills/ai4math-lean-formalization/SKILL.md",
-      "entry_sha256": "0c5a5a2813666f2512ccbc521655ef162152d2e203c52067649e4829fa0b1917",
-      "skill_id": "ai4math-lean-formalization",
-      "version": "1.3.0",
-      "web_status": "constrained"
-    },
-    {
-      "entry": ".pi/skills/ai4math-assurance-admission/SKILL.md",
-      "entry_sha256": "7262ba1d79702ddd3907c2206bf4faa6743f4982dc8802b0eb9fa4ae9859b1bd",
-      "skill_id": "ai4math-assurance-admission",
-      "version": "1.3.0",
-      "web_status": "constrained"
-    },
-    {
-      "entry": ".pi/skills/ai4math-toolchain-reproducibility/SKILL.md",
-      "entry_sha256": "d36b1c8f6c7cd6ea17ac3cc10bf12875d91aa4277f4e48f198c499b3082551de",
-      "skill_id": "ai4math-toolchain-reproducibility",
-      "version": "1.3.0",
-      "web_status": "constrained"
     }
   ],
   "context_bundle_version": "2.0.0",
-  "context_payload_sha256": "b917d0bfa0163c1dde07fdea913df211e78c490a5c0a0843ce0075c6860f6bc4",
+  "context_payload_sha256": "f647e8d50e66e6a7f00e599a078ac7ece5e8e6b39b1746df4eab1aa9e0365037",
   "context_policy": {
     "budgets": {
       "max_attempt_catalog": 32,
@@ -188,7 +188,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "ai-for-mathematics",
           "primary_owner": "ai4math-source-discovery",
           "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/ai-for-mathematics",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 96401,
           "source_files": 11
         },
@@ -205,7 +205,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "ai4math-research-navigator",
           "primary_owner": "ai4math-source-discovery",
           "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/ai4math-research-navigator",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 152236,
           "source_files": 36
         },
@@ -222,7 +222,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "archon-formalization",
           "primary_owner": "ai4math-lean-formalization",
           "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/archon-formalization",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 85673,
           "source_files": 22
         },
@@ -240,7 +240,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "baier-katoen-model-checking",
           "primary_owner": "ai4math-bounded-computation",
           "repository_relative_path": ".pi/skills/ai4math-bounded-computation/internal-packages/baier-katoen-model-checking",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 187243,
           "source_files": 20
         },
@@ -257,7 +257,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "cheng-math-logic",
           "primary_owner": "ai4math-modeling-derivation",
           "repository_relative_path": ".pi/skills/ai4math-modeling-derivation/internal-packages/cheng-math-logic",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 46588,
           "source_files": 13
         },
@@ -274,7 +274,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "classical-type-theory",
           "primary_owner": "ai4math-proof-refutation",
           "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/classical-type-theory",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 95276,
           "source_files": 20
         },
@@ -291,7 +291,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "danus-proof-orchestration",
           "primary_owner": "ai4math-proof-refutation",
           "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/danus-proof-orchestration",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 71790,
           "source_files": 17
         },
@@ -308,7 +308,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "dong-ai4m-research-guide",
           "primary_owner": "ai4math-source-discovery",
           "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/dong-ai4m-research-guide",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 26115,
           "source_files": 8
         },
@@ -325,7 +325,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "dongbin-ai4m",
           "primary_owner": "ai4math-source-discovery",
           "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/dongbin-ai4m",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 43210,
           "source_files": 8
         },
@@ -342,7 +342,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "harrison-automated-reasoning",
           "primary_owner": "ai4math-proof-refutation",
           "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/harrison-automated-reasoning",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 136952,
           "source_files": 16
         },
@@ -359,7 +359,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "hewei-category-theory",
           "primary_owner": "ai4math-modeling-derivation",
           "repository_relative_path": ".pi/skills/ai4math-modeling-derivation/internal-packages/hewei-category-theory",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 67818,
           "source_files": 32
         },
@@ -376,7 +376,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "houston-mathematical-thinking",
           "primary_owner": "ai4math-modeling-derivation",
           "repository_relative_path": ".pi/skills/ai4math-modeling-derivation/internal-packages/houston-mathematical-thinking",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 98588,
           "source_files": 43
         },
@@ -393,7 +393,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "jixia-lean-analyzer",
           "primary_owner": "ai4math-lean-formalization",
           "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/jixia-lean-analyzer",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 65561,
           "source_files": 14
         },
@@ -410,8 +410,8 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "lakatos-proofs-and-refutations",
           "primary_owner": "ai4math-proof-refutation",
           "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/lakatos-proofs-and-refutations",
-          "rights_state": "HOLD",
-          "source_bytes": 133520,
+          "rights_state": "ADMITTED",
+          "source_bytes": 133466,
           "source_files": 19
         },
         {
@@ -427,7 +427,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "lean-eval-comparator",
           "primary_owner": "ai4math-assurance-admission",
           "repository_relative_path": ".pi/skills/ai4math-assurance-admission/internal-packages/lean-eval-comparator",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 68671,
           "source_files": 15
         },
@@ -444,7 +444,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "lean-search-client",
           "primary_owner": "mathematics-in-lean",
           "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/lean-search-client",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 53353,
           "source_files": 12
         },
@@ -461,7 +461,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "lean4-math-formalization-2025",
           "primary_owner": "ai4math-lean-formalization",
           "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/lean4-math-formalization-2025",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 90032,
           "source_files": 14
         },
@@ -478,7 +478,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "lean4-metaprogramming",
           "primary_owner": "ai4math-lean-formalization",
           "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/lean4-metaprogramming",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 97929,
           "source_files": 19
         },
@@ -495,7 +495,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "lean4-self-study-resources",
           "primary_owner": "ai4math-source-discovery",
           "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/lean4-self-study-resources",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 27378,
           "source_files": 8
         },
@@ -512,7 +512,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "leansearch-operator",
           "primary_owner": "ai4math-toolchain-reproducibility",
           "repository_relative_path": ".pi/skills/ai4math-toolchain-reproducibility/internal-packages/leansearch-operator",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 66182,
           "source_files": 17
         },
@@ -529,7 +529,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "math-analysis-thinking-methods",
           "primary_owner": "ai4math-modeling-derivation",
           "repository_relative_path": ".pi/skills/ai4math-modeling-derivation/internal-packages/math-analysis-thinking-methods",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 219444,
           "source_files": 65
         },
@@ -546,7 +546,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "mathematics-in-lean-external-snapshot",
           "primary_owner": "mathematics-in-lean",
           "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/mathematics-in-lean-external-snapshot",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 119810,
           "source_files": 18
         },
@@ -563,7 +563,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "mathematics-in-lean-project-record",
           "primary_owner": "mathematics-in-lean",
           "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/mathematics-in-lean-project-record",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 160516,
           "source_files": 21
         },
@@ -580,7 +580,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "natural-number-game-lean4",
           "primary_owner": "mathematics-in-lean",
           "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/natural-number-game-lean4",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 101871,
           "source_files": 26
         },
@@ -597,7 +597,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "polya-problem-solving",
           "primary_owner": "ai4math-proof-refutation",
           "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/polya-problem-solving",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 57908,
           "source_files": 18
         },
@@ -615,7 +615,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "rethlas-math-reasoning",
           "primary_owner": "ai4math-proof-refutation",
           "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/rethlas-math-reasoning",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 77575,
           "source_files": 16
         },
@@ -632,7 +632,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "strunk-elements-of-style",
           "primary_owner": "ai4math-proof-refutation",
           "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/strunk-elements-of-style",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 94239,
           "source_files": 15
         },
@@ -649,7 +649,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "tao-analysis-lean",
           "primary_owner": "mathematics-in-lean",
           "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/tao-analysis-lean",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 104196,
           "source_files": 19
         },
@@ -666,7 +666,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "theorem-proving-in-lean-4",
           "primary_owner": "mathematics-in-lean",
           "repository_relative_path": ".pi/skills/mathematics-in-lean/internal-packages/theorem-proving-in-lean-4",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 112153,
           "source_files": 17
         },
@@ -683,7 +683,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "welleck-informal-formal-reasoning",
           "primary_owner": "ai4math-lean-formalization",
           "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/welleck-informal-formal-reasoning",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 62773,
           "source_files": 13
         },
@@ -701,7 +701,7 @@ This file is generated from repository truth and bounded by `governance/control-
           "package_id": "xena-formalization-method",
           "primary_owner": "ai4math-lean-formalization",
           "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/xena-formalization-method",
-          "rights_state": "HOLD",
+          "rights_state": "ADMITTED",
           "source_bytes": 236007,
           "source_files": 33
         }
@@ -996,7 +996,14 @@ This file is generated from repository truth and bounded by `governance/control-
     "schema_version": "1.0.0",
     "sources": [
       {
+        "content_sha256": "6fee90c62489f30e5fdb88ede1dec93e590a14c09b72ee9eadf48efd4b082813",
+        "license": {
+          "attribution": "Vibe Mathing maintainers",
+          "name": "project-template-fixture"
+        },
+        "quote": "This is a non-research placeholder. Replace it with exactly one reviewed public ProblemContract before creating a public problem repository.",
         "retrieved_at": "2026-09-06T00:00:00Z",
+        "revision": "template-placeholder-v1",
         "source": "Vibe Mathing public Web Harness",
         "source_record_id": "public-template-placeholder-v1",
         "url": "https://github.com/vibemathing/vibe-mathing-problem-public-template"
@@ -1010,7 +1017,7 @@ This file is generated from repository truth and bounded by `governance/control-
     "title": "Vibe Mathing public problem repository template placeholder",
     "updated_at": "2026-09-06T00:00:00Z"
   },
-  "problem_contract_sha256": "e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940",
+  "problem_contract_sha256": "f9236ddb5a3e6f9b9c0701df3ce6ddcab5391b930ee374a25b99207450f88027",
   "selected_execution_context": null
 }
 ```

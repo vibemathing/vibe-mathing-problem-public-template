@@ -14,6 +14,8 @@
     "record_scope",
     "title",
     "statement_excerpt",
+    "source_quote",
+    "content_sha256",
     "status",
     "difficulty",
     "categories",
@@ -48,11 +50,11 @@
     },
     "source_page": {
       "type": "string",
-      "format": "uri"
+      "pattern": "^https://[^\\s]+$"
     },
     "detail_url": {
       "type": "string",
-      "format": "uri"
+      "pattern": "^https://[^\\s]+$"
     },
     "record_scope": {
       "enum": [
@@ -68,6 +70,14 @@
     "statement_excerpt": {
       "type": "string",
       "minLength": 1
+    },
+    "source_quote": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
     },
     "status": {
       "enum": [
@@ -105,14 +115,18 @@
       "type": "array",
       "items": {
         "type": "string",
-        "format": "uri"
+        "pattern": "^https://[^\\s]+$"
       }
     },
     "source_revision": {
-      "type": [
-        "object",
-        "null"
-      ]
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision_id", "content_sha256"],
+      "properties": {
+        "revision_id": {"type": "string", "minLength": 1},
+        "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "source_commit": {"type": ["string", "null"], "minLength": 1}
+      }
     },
     "retrieved_at": {
       "type": "string",
@@ -132,11 +146,8 @@
           "minLength": 1
         },
         "url": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "uri"
+          "type": ["string", "null"],
+          "pattern": "^https://[^\\s]+$"
         },
         "attribution": {
           "type": "string",

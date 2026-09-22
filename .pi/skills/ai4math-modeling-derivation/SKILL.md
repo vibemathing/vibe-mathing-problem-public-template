@@ -60,11 +60,12 @@ Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` befor
 
 ## Progressive disclosure
 
-Read `references/consolidated-core.md` for the full representation record, definition audit, abstraction ladder, typed derivation ledger, invariant tests, structural translations, approximation discipline, and recovery rules.
+Read `references/consolidated-core.md` for the full representation record, definition audit, abstraction ladder, typed derivation ledger, invariant tests, structural translations, approximation discipline, and recovery rules. When a vague direction, competing representation, or growing mechanism risks changing the original problem, load `references/problem-anchor-and-minimal-route-audit.md` to freeze the anchor, compare only actor-requested candidates, and enforce a complexity budget.
 
 ## References
 
 - `references/consolidated-core.md`：31-package review set中建模、抽象、推导与反模型方法的项目原创综合。
+- `references/problem-anchor-and-minimal-route-audit.md`：问题锚定、最小充分机制、候选表示比较和漂移检查。
 - `references/source-map.md`：推导方法来源和未吸收边界。
 - `references/pressure-tests.md`：隐藏假设压力场景。
 

@@ -7,6 +7,9 @@
   "required": [
     "attempt_id",
     "problem_id",
+    "route_id",
+    "obligation_graph_id",
+    "problem_contract_sha256",
     "generator",
     "objective",
     "method",

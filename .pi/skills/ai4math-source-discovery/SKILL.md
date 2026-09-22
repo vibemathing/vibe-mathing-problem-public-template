@@ -70,11 +70,12 @@ Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` befor
 
 ## Progressive disclosure
 
-Read `references/consolidated-core.md` for the full source-question model, authority hierarchy, applicability audit, conflict handling, handoff contract, and anti-loop rules distilled from the reviewed AI4Math source families.
+Read `references/consolidated-core.md` for the full source-question model, authority hierarchy, applicability audit, conflict handling, handoff contract, and anti-loop rules distilled from the reviewed AI4Math source families. When the task involves citation context, bounded novelty claims, or compressed research memory, load `references/literature-citation-memory-audit.md` instead of importing a separate research Skill.
 
 ## References
 
 - `references/consolidated-core.md`：31-package review set中与来源发现、研究导航、适用性和反循环有关的项目原创综合。
+- `references/literature-citation-memory-audit.md`：文献身份、引用语境、有界查新和非权威研究记忆投影。
 - `references/source-map.md`：研究方法与检索供应链映射。
 - `references/pressure-tests.md`：查新与摘要误用压力场景。
 

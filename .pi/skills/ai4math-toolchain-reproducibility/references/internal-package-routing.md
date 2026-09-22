@@ -8,8 +8,8 @@ All paths are repository-relative. Internal packages are inert reference data: t
 
 ### `leansearch-operator`
 
-- Body: `internal-packages/leansearch-operator`
-- Entry: `internal-packages/leansearch-operator/SKILL.md`
+- Body: `.pi/skills/ai4math-toolchain-reproducibility/internal-packages/leansearch-operator`
+- Entry: `.pi/skills/ai4math-toolchain-reproducibility/internal-packages/leansearch-operator/SKILL.md`
 - Source tree: `99feaec5ab4b643339a078254afbddc86895f2071ef5d336f307f3df03c3d112`
 - Capabilities: parse/index/embed/search pipeline; schema and revision pinning; service diagnostics
 

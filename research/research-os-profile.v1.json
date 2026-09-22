@@ -1,0 +1,242 @@
+{
+  "$schema": "https://vibe-mathing.local/schema/research-os-profile.v1.json",
+  "schema_version": "1.0.0",
+  "profile_id": "research-os-public-template-v1",
+  "status": "pilot",
+  "claim_boundary": "candidate_only_no_mathematical_truth",
+  "problem_scope": "single_problem_contract",
+  "capabilities": [
+    {
+      "capability_id": "ros.schema.profile",
+      "kind": "schema",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "research/schema/research-os-profile.v1.schema.json",
+      "source_sha256": "4985771403c5c2c4150f64031d344ace39935d3baa423f601f78e4df1a2bec99",
+      "evidence_ceiling": "control_plane_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 -m json.tool research/schema/research-os-profile.v1.schema.json"]
+    },
+    {
+      "capability_id": "ros.schema.working-set",
+      "kind": "schema",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "research/schema/research-os-working-set.v1.schema.json",
+      "source_sha256": "d84ac83897cb7b4e8a3db13ecf3d99ae073f18390652c6d90980254c3a9035c1",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 -m json.tool research/schema/research-os-working-set.v1.schema.json"]
+    },
+    {
+      "capability_id": "ros.schema.event",
+      "kind": "schema",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "research/schema/research-os-event.v1.schema.json",
+      "source_sha256": "7ede189a0b9de488c19113b68da7f4ca63c29d9df6b3187106c1cbeed431319c",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 -m json.tool research/schema/research-os-event.v1.schema.json"]
+    },
+    {
+      "capability_id": "ros.schema.projection",
+      "kind": "schema",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "research/schema/research-os-event-projection.v1.schema.json",
+      "source_sha256": "102851f81637205133c290cf12dcf2097fceabbfeafff4f1b6749a5c1b26d8e3",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 -m json.tool research/schema/research-os-event-projection.v1.schema.json"]
+    },
+    {
+      "capability_id": "ros.schema.metadata-boundary",
+      "kind": "schema",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "research/schema/research-os-metadata-boundary.v1.schema.json",
+      "source_sha256": "4edaa391291eb03bea9727ed43f01a1d0de83a17011fc1c2903a68be6160afc8",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 -m json.tool research/schema/research-os-metadata-boundary.v1.schema.json"]
+    },
+    {
+      "capability_id": "ros.validator.profile",
+      "kind": "validator",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "scripts/validate_research_os_production_readiness.py",
+      "source_sha256": "a4e473516371342fc8164733dcd3d4f83ae4a7719f4d82a5df4c68cf5dcc677b",
+      "evidence_ceiling": "control_plane_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 scripts/test_validate_research_os_production_readiness.py"]
+    },
+    {
+      "capability_id": "ros.validator.working-set",
+      "kind": "validator",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "scripts/validate_research_os_working_set.py",
+      "source_sha256": "95359497cdd4959f8432cc357f4da1fc7fb5bd19c201ae9297439d1e97eecca0",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 scripts/test_validate_research_os_working_set.py"]
+    },
+    {
+      "capability_id": "ros.validator.event",
+      "kind": "validator",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "scripts/validate_research_os_events.py",
+      "source_sha256": "69e6ca1e1db7c4d584f0795cd6f3d045eb1c33cb79263d473faebc64cb52e3a4",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 scripts/test_validate_research_os_events.py"]
+    },
+    {
+      "capability_id": "ros.validator.metadata-boundary",
+      "kind": "validator",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "scripts/validate_research_os_metadata.py",
+      "source_sha256": "e891b8e9fc2e96c6219b4357136c1a323b4ad9aebd8e4ce47357ba0c7a72a3c2",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 scripts/test_validate_research_os_metadata.py"]
+    },
+    {
+      "capability_id": "ros.runtime.writer-projector",
+      "kind": "runtime",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "scripts/vibe_mathing/research_os.py",
+      "source_sha256": "bf92857422941a2dc7c697185c424424e3889d8235c4f580cf47f74af786fb3a",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "isolated_event_ledger_only",
+      "validation_commands": ["python3 scripts/test_research_os_runtime.py"]
+    },
+    {
+      "capability_id": "ros.cli.projection",
+      "kind": "cli",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "scripts/project_research_os.py",
+      "source_sha256": "7409e8cf9711679cb506ebbe1a8c8715be58920c5ff35d06abe840889ca297dc",
+      "evidence_ceiling": "candidate_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 scripts/project_research_os.py --help"]
+    },
+    {
+      "capability_id": "ros.test.runtime",
+      "kind": "test",
+      "owner": "problem-repository-harness",
+      "status": "implemented_isolated",
+      "source": "scripts/test_research_os_runtime.py",
+      "source_sha256": "b88c45497f96c524cd98d75f6fe76a914642b9f07dcd434d5dfbcee998f0efd7",
+      "evidence_ceiling": "control_plane_only",
+      "side_effect_policy": "read_only",
+      "validation_commands": ["python3 scripts/test_research_os_runtime.py"]
+    }
+  ],
+  "deferred_capabilities": [
+    {
+      "capability_id": "ros.producer.typed-api",
+      "status": "deferred",
+      "reason": "当前 writer 是隔离 proof point，不是受控 producer SDK。",
+      "trigger": "先完成 producer identity、权限 receipt 和 typed event builder。"
+    },
+    {
+      "capability_id": "ros.feedback.typed-loop",
+      "status": "deferred",
+      "reason": "失败路线、反例和 verifier 输出尚未自动转成 typed candidate-only feedback。",
+      "trigger": "建立 feedback taxonomy、去重、冲突和独立复核测试。"
+    },
+    {
+      "capability_id": "ros.query.bounded-api",
+      "status": "deferred",
+      "reason": "当前只有确定性 projection CLI，没有查询索引或分页 API。",
+      "trigger": "先冻结 freshness、分页、脱敏和访问边界。"
+    },
+    {
+      "capability_id": "ros.actor.integration",
+      "status": "deferred",
+      "reason": "模板不携带 local/Web actor、lease、session 或调度控制面。",
+      "trigger": "具体项目另行证明 actor 与 Research OS 的权限绑定。"
+    },
+    {
+      "capability_id": "ros.ledger.durable-production",
+      "status": "blocked",
+      "reason": "没有中央账本拓扑、归档、备份和容量策略。",
+      "trigger": "先完成 per-problem ledger、恢复、rotation 和 rollback 合同。"
+    },
+    {
+      "capability_id": "ros.independent-review",
+      "status": "blocked",
+      "reason": "模板检查不能伪造独立维护者 provenance。",
+      "trigger": "由项目外部独立 reviewer 绑定 base/head、scope 和 runtime。"
+    },
+    {
+      "capability_id": "ros.schema.migration",
+      "status": "deferred",
+      "reason": "v1 只读合同尚未提供兼容 reader 和迁移回执。",
+      "trigger": "新增 schema version registry 与历史 replay 后再迁移。"
+    },
+    {
+      "capability_id": "ros.view.read-only",
+      "status": "deferred",
+      "reason": "没有 UI、图查询或受控 export。",
+      "trigger": "先定义 bounded query 和 stale projection 的可见语义。"
+    }
+  ],
+  "gates": [
+    {
+      "gate_id": "gate.candidate-boundary",
+      "title": "candidate-only 与 metadata 边界",
+      "status": "enforced",
+      "checks": ["claims_ceiling 固定为 candidate_only", "metadata validator 拒绝秘密、隐藏推理、路线指令和数学正文标记。"]
+    },
+    {
+      "gate_id": "gate.owner-binding",
+      "title": "ProblemContract 与 owner ledger 身份绑定",
+      "status": "enforced",
+      "checks": ["managed ref 必须解析到当前问题仓 owner ledger", "缺失或漂移的 owner ledger 必须 fail-closed。"]
+    },
+    {
+      "gate_id": "gate.persistence",
+      "title": "隔离事件链与 WAL 恢复",
+      "status": "enforced",
+      "checks": ["event chain、exactly-once、WAL 和 symlink 边界有回归测试", "只允许显式的仓内 event ledger，不自动创建中央真相源。"]
+    },
+    {
+      "gate_id": "gate.public-profile",
+      "title": "公开模板自包含 profile",
+      "status": "enforced",
+      "checks": ["所有能力 source 都是仓内 regular file 并绑定 digest", "检查命令不访问网络、凭据或私密控制面。"]
+    },
+    {
+      "gate_id": "gate.math-truth-boundary",
+      "title": "数学 truth-plane 隔离",
+      "status": "enforced",
+      "checks": ["Research OS 不写 Problem、Candidate、Evidence、Result 或 Solution 真相源", "运行结束、projection 或验证 PASS 不能表示数学闭合。"]
+    }
+  ],
+  "validation_commands": [
+    "python3 scripts/validate_research_os_production_readiness.py --strict",
+    "python3 scripts/test_validate_research_os_production_readiness.py",
+    "python3 scripts/validate_research_os_metadata.py --strict",
+    "python3 scripts/test_validate_research_os_metadata.py",
+    "python3 scripts/validate_research_os_working_set.py",
+    "python3 scripts/test_validate_research_os_working_set.py",
+    "python3 scripts/validate_research_os_events.py",
+    "python3 scripts/test_validate_research_os_events.py",
+    "python3 scripts/test_research_os_runtime.py"
+  ],
+  "non_claims": [
+    "本 profile 只证明公开模板中存在隔离 Research OS 能力，不证明 production-ready。",
+    "working set、event ledger 和 projection 永远是 non-authoritative、candidate_only metadata。",
+    "Research OS 不授予 actor 路线、phase、next lemma、tool order 或 send authority。",
+    "任何数学 Evidence、Result、Solution 和 closure 不由本 profile 产生，仍必须走既有独立验证与准入链。",
+    "模板 placeholder、有限样例、测试 PASS 和运行完成不等于具体问题已准入或已解决。"
+  ]
+}

@@ -8,11 +8,13 @@ import json
 import os
 import re
 import sys
+sys.dont_write_bytecode = True
 from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
+from validate_agent_identity import validate as validate_agent_identity
 from validate_mathematical_reasoning_discipline import validate as validate_reasoning_discipline
 from vibe_mathing.reasoning import strip_reasoning_agent_overlay
 from vibe_mathing.web_channel import (
@@ -33,15 +35,26 @@ REQUIRED_CONTROL_FILES = {
     "requirements.txt",
     "requirements-web-harness.txt",
     "AGENTS.md",
+    "LICENSE",
+    "NOTICE",
+    "CODEOWNERS",
+    "SECURITY.md",
+    "RELEASE-CHECKLIST.md",
     ".github/AGENTS.md",
     ".github/workflows/web-candidate-gate.yml",
+    "governance/INDEX.md",
+    "governance/context/CONTEXT-ROUTER.md",
+    "governance/context/AGENT-ENTRY.md",
+    "governance/context/PROJECT_OPERATING_MODEL.md",
     "governance/harness/PROJECT_AGENTS.md",
+    "governance/retrospective/README.md",
     "WEB_BOOTSTRAP.md",
     "WEB_COORDINATOR.md",
     "WEB_CONTEXT_BUNDLE.md",
     "WEB_CHANNEL_PROFILE.json",
     "WEB_ACTIVE_SKILLS.json",
     "WEB_OUTPUT_CONTRACT.json",
+    "WEB_REPOSITORY_ADMISSION.json",
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
     ".pi/AGENTS.md",
@@ -50,14 +63,23 @@ REQUIRED_CONTROL_FILES = {
     ".pi/skills/CONSOLIDATION-MAP.md",
     ".pi/skills/SOURCE-ABSTRACTION-MAP.json",
     ".pi/skills/INTERNAL-PACKAGE-CLASSIFICATION.json",
+    ".pi/skills/INTERNAL-PACKAGE-RIGHTS-MATRIX.json",
+    ".pi/skills/internal-package-rights-matrix.schema.json",
     ".pi/skills/INTERNAL-PACKAGE-ARCHITECTURE.md",
+    "problem-library/records/problems.jsonl",
     "problem-library/records/canonical-problems.jsonl",
+    "problem-library/schema/problem.schema.json",
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
+    "research/schema/failed-route.schema.json",
+    "research/schema/web-import-receipt.schema.json",
+    "research/verifiers.json",
     "research/records/obligation-graphs.jsonl",
     "research/records/candidate-artifacts.jsonl",
     "research/records/evidence-links.jsonl",
     "result-library/records/results.jsonl",
+    "result-library/indexes/solutions.json",
+    "result-library/schema/solutions-index.schema.json",
     "governance/control-plane/mathematical-reasoning-discipline.schema.json",
     "governance/control-plane/mathematical-reasoning-discipline.v1.json",
     "governance/control-plane/math-knowledge-source.v1.json",
@@ -70,16 +92,22 @@ REQUIRED_CONTROL_FILES = {
     "governance/control-plane/harness-snapshot-history.v1.schema.json",
     "governance/control-plane/web-context-profile.v1.schema.json",
     "governance/control-plane/web-context-profile.v1.json",
+    "governance/control-plane/repository-admission-receipt.schema.json",
     "scripts/build_problem_repository.py",
     "scripts/build_web_context_bundle.py",
     "scripts/sync_problem_repository_harness.py",
+    "scripts/validate_agent_identity.py",
     "scripts/validate_mathematical_reasoning_discipline.py",
     "scripts/validate_math_knowledge_registry.py",
     "scripts/validate_web_problem_harness.py",
+    "scripts/validate_research_spaces.py",
     "scripts/validate_web_attempt.py",
     "scripts/validate_web_pr_diff.py",
     "scripts/import_web_attempt.py",
     "scripts/test_web_context_bundle.py",
+    "scripts/test_research_spaces.py",
+    "scripts/test_builder_sync.py",
+    "scripts/validate_release_readiness.py",
 }
 FORBIDDEN_PARTS = {".private", ".lake", "sessions", "vendor"}
 FORBIDDEN_LOCAL_RUNTIME_FILES = {
@@ -114,12 +142,14 @@ INTERNAL_PACKAGE_TOP_SKILLS = {
     "ai4math-toolchain-reproducibility",
 }
 MUTABLE_RECORDS = {
+    "problem-library/records/problems.jsonl",
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
     "research/records/obligation-graphs.jsonl",
     "research/records/candidate-artifacts.jsonl",
     "research/records/evidence-links.jsonl",
     "result-library/records/results.jsonl",
+    "result-library/indexes/solutions.json",
 }
 
 
@@ -184,6 +214,7 @@ def validate(root: Path) -> list[str]:
         path = root / relative
         if not path.is_file() or path.is_symlink():
             errors.append(f"required regular file missing: {relative}")
+    errors.extend(f"agent identity: {message}" for message in validate_agent_identity(root))
     errors.extend(f"reasoning discipline: {message}" for message in validate_reasoning_discipline(root))
 
     try:
@@ -230,6 +261,30 @@ def validate(root: Path) -> list[str]:
             errors.append(f"digest mismatch: {relative}")
     if listed and snapshot.get("tree_sha256") != tree_digest(listed):
         errors.append("Harness tree digest mismatch")
+    identity_excludes = set(snapshot.get("digest_excludes", []))
+    expected_identity_excludes = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
+    if identity_excludes != expected_identity_excludes:
+        errors.append("snapshot digest_excludes drift")
+    allowed_snapshot_members = set(paths) | identity_excludes | MUTABLE_RECORDS
+    actual_members: set[str] = set()
+    for path in root.rglob("*"):
+        if ".git" in path.parts:
+            continue
+        relative = path.relative_to(root).as_posix()
+        if path.is_dir() and path.name == "__pycache__":
+            errors.append(f"runtime cache directory is not allowed: {relative}")
+            continue
+        if path.is_file() and path.suffix == ".pyc":
+            errors.append(f"runtime bytecode is not allowed: {relative}")
+            continue
+        if path.is_file() and not path.is_symlink():
+            actual_members.add(relative)
+    extras = sorted(actual_members - allowed_snapshot_members)
+    if extras:
+        errors.append(f"unlisted snapshot members: {extras[0]} (and {len(extras)-1} more)")
+    missing_members = sorted(allowed_snapshot_members - actual_members)
+    if missing_members:
+        errors.append(f"snapshot contract member missing: {missing_members[0]}")
     repository_identity = snapshot.get("repository_identity", {})
     if repository_identity.get("full_name") != snapshot.get("repository"):
         errors.append("snapshot repository identity/full name mismatch")
@@ -289,6 +344,18 @@ def validate(root: Path) -> list[str]:
         output_contract = load_json(root / "WEB_OUTPUT_CONTRACT.json")
         if output_contract.get("channel") != profile.get("channel_id"):
             errors.append("WEB_OUTPUT_CONTRACT channel mismatch")
+        if output_contract.get("capability_status") != profile.get("capability_status"):
+            errors.append("WEB_OUTPUT_CONTRACT capability status drift")
+        if output_contract.get("operational_admission") != profile.get("operational_admission"):
+            errors.append("WEB_OUTPUT_CONTRACT operational admission drift")
+        admission = load_json(root / "WEB_REPOSITORY_ADMISSION.json")
+        admission_schema = root / "governance/control-plane/repository-admission-receipt.schema.json"
+        errors.extend(f"repository admission receipt: {message}" for message in validate_schema(admission, admission_schema))
+        if admission.get("repository") != snapshot.get("repository"):
+            errors.append("WEB_REPOSITORY_ADMISSION repository mismatch")
+        expected_decision = "ADMITTED" if profile.get("operational_admission") == "admitted_problem_repository_namespace" else "BLOCK"
+        if admission.get("decision") != expected_decision:
+            errors.append("WEB_REPOSITORY_ADMISSION decision does not match operational admission")
         if output_contract.get("allowed_write_paths") != profile.get("allowed_repository_write_paths"):
             errors.append("WEB_OUTPUT_CONTRACT allowed paths drift")
         if output_contract.get("prohibited_write_paths") != profile.get("prohibited_repository_write_paths"):
@@ -317,8 +384,13 @@ def validate(root: Path) -> list[str]:
         }
         if freshness != expected_freshness:
             errors.append("WEB_OUTPUT_CONTRACT state freshness policy drift")
-        if profile.get("operational_admission") != "admitted_problem_repository_namespace":
-            errors.append("Web candidate namespace is not operationally admitted")
+        if profile.get("operational_admission") not in {
+            "admitted_problem_repository_namespace",
+            "synthetic_only_pending_permission_and_ruleset_smoke",
+        }:
+            errors.append("Web candidate namespace has an unknown operational admission state")
+        if profile.get("operational_admission") == "synthetic_only_pending_permission_and_ruleset_smoke" and profile.get("capability_status") != "user_observed_pending_smoke_check":
+            errors.append("synthetic Web namespace must remain explicitly pending smoke-check")
         required_operations = {
             "issue_create", "candidate_branch_create", "candidate_file_create", "candidate_file_update",
             "candidate_file_delete", "commit_create", "pull_request_create", "pull_request_review",
@@ -489,6 +561,26 @@ def validate(root: Path) -> list[str]:
         if snapshot_skills.get(skill_id) != item:
             errors.append(f"active Skill does not match snapshot: {skill_id}")
 
+    for skill_id in expected_skill_ids:
+        skill_root = root / ".pi/skills" / skill_id
+        source_record_path = skill_root / "SOURCE-RECORD.json"
+        project_config_path = skill_root / "PROJECT-CONFIG.json"
+        try:
+            source_record = load_json(source_record_path)
+            project_config = load_json(project_config_path)
+            entry = skill_root / "SKILL.md"
+            entry_digest = sha256_file(entry)
+            if source_record.get("skill_id") != skill_id or source_record.get("entry_sha256") != entry_digest:
+                errors.append(f"Skill SOURCE-RECORD identity/digest mismatch: {skill_id}")
+            if project_config.get("skill_id") != skill_id or project_config.get("entry_sha256") != entry_digest:
+                errors.append(f"Skill PROJECT-CONFIG identity/digest mismatch: {skill_id}")
+            if source_record.get("public_redistribution_admitted") is not False:
+                errors.append(f"Skill source record must remain fail-closed before release: {skill_id}")
+            if project_config.get("evidence_ceiling") != "candidate_only":
+                errors.append(f"Skill evidence ceiling mismatch: {skill_id}")
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            errors.append(f"Skill source/config record invalid {skill_id}: {exc}")
+
     consolidation_map = root / ".pi/skills/CONSOLIDATION-MAP.md"
     if consolidation_map.is_file():
         consolidation_text = consolidation_map.read_text(encoding="utf-8")
@@ -546,8 +638,8 @@ def validate(root: Path) -> list[str]:
                     errors.append(f"internal-package body policy mismatch: {package_id}")
                 if item.get("repository_body_included") is not True:
                     errors.append(f"complete internal-package body missing: {package_id}")
-                if item.get("public_redistribution_admitted") is not False:
-                    errors.append(f"HOLD package incorrectly marked redistribution-admitted: {package_id}")
+                if item.get("public_redistribution_admitted") is not True:
+                    errors.append(f"project-authored package is not redistribution-admitted: {package_id}")
                 if not set(item.get("cross_referenced_by", [])).issubset(INTERNAL_PACKAGE_TOP_SKILLS - {owner}):
                     errors.append(f"invalid internal-package cross-reference: {package_id}")
                 expected_relative = f".pi/skills/{owner}/internal-packages/{package_id}"
@@ -575,8 +667,8 @@ def validate(root: Path) -> list[str]:
                         errors.append(f"internal-package tree digest mismatch: {package_id}")
                     if manifest.get("source_rows") != observed["rows"]:
                         errors.append(f"internal-package per-file manifest mismatch: {package_id}")
-                    if manifest.get("rights_state") != "HOLD" or manifest.get("public_redistribution_admitted") is not False:
-                        errors.append(f"internal-package rights boundary mismatch: {package_id}")
+                    if manifest.get("rights_state") != "ADMITTED" or manifest.get("public_redistribution_admitted") is not True:
+                        errors.append(f"internal-package MIT rights boundary mismatch: {package_id}")
                     entry_relative = item.get("entry_relative_path")
                     if not isinstance(entry_relative, str) or not (root / entry_relative).is_file():
                         errors.append(f"internal-package entry missing: {package_id}")
@@ -586,6 +678,32 @@ def validate(root: Path) -> list[str]:
                     errors.append(f"internal-package manifest invalid {package_id}: {exc}")
         except (OSError, ValueError, json.JSONDecodeError) as exc:
             errors.append(f"internal-package classification invalid: {exc}")
+
+    rights_matrix_path = root / ".pi/skills/INTERNAL-PACKAGE-RIGHTS-MATRIX.json"
+    rights_schema_path = root / ".pi/skills/internal-package-rights-matrix.schema.json"
+    try:
+        rights_matrix = load_json(rights_matrix_path)
+        errors.extend(
+            f"package rights matrix: {message}"
+            for message in validate_schema(rights_matrix, rights_schema_path)
+        )
+        rights_by_id = {
+            item.get("package_id"): item
+            for item in rights_matrix.get("packages", [])
+            if isinstance(item, dict)
+        }
+        classified_ids = {
+            item.get("package_id")
+            for item in classified_packages
+            if isinstance(item, dict)
+        }
+        if set(rights_by_id) != classified_ids:
+            errors.append("package rights matrix/classification package set mismatch")
+        for package_id, item in rights_by_id.items():
+            if item.get("rights_state") != "ADMITTED" or item.get("public_redistribution_admitted") is not True:
+                errors.append(f"rights matrix project-authored MIT admission mismatch: {package_id}")
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        errors.append(f"package rights matrix invalid: {exc}")
 
     classified_by_owner = {
         skill_id: {item.get("package_id") for item in classified_packages if isinstance(item, dict) and item.get("primary_owner") == skill_id}
@@ -619,8 +737,8 @@ def validate(root: Path) -> list[str]:
             if owned != classified_by_owner[skill_id] or actual_owned != classified_by_owner[skill_id]:
                 errors.append(f"internal-package owned set mismatch: {skill_id}")
             for owned_item in owned_items:
-                if owned_item.get("public_redistribution_admitted") is not False:
-                    errors.append(f"internal-package rights flag mismatch: {owned_item.get('package_id')}")
+                if owned_item.get("public_redistribution_admitted") is not True or owned_item.get("rights_state") != "ADMITTED":
+                    errors.append(f"internal-package MIT rights flag mismatch: {owned_item.get('package_id')}")
                 for key in ("body_relative_path", "entry_relative_path"):
                     value = owned_item.get(key)
                     if not isinstance(value, str) or value.startswith("/") or ".." in Path(value).parts:
@@ -634,6 +752,16 @@ def validate(root: Path) -> list[str]:
                 errors.append(f"top-level Skill does not route internal packages: {skill_id}")
     if physical_packages != {item.get("package_id") for item in classified_packages if isinstance(item, dict)}:
         errors.append("physical internal-package set does not match the 31-package classification")
+    for skill_id in INTERNAL_PACKAGE_TOP_SKILLS:
+        routing_path = root / ".pi/skills" / skill_id / "references/internal-package-routing.md"
+        if not routing_path.is_file():
+            continue
+        routing_text = routing_path.read_text(encoding="utf-8")
+        if "- Body: `internal-packages/" in routing_text or "- Entry: `internal-packages/" in routing_text:
+            errors.append(f"routing guide uses a non-root-relative package path: {skill_id}")
+        for referenced in re.findall(r"`(\\.pi/skills/[^`]+)`", routing_text):
+            if not (root / referenced).is_file() and not (root / referenced).is_dir():
+                errors.append(f"routing guide points to missing path: {referenced}")
 
     skill_suite_bytes = 0
     consolidated_skill_ids = expected_skill_ids - {"solve"}

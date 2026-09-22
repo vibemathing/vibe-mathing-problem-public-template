@@ -526,7 +526,7 @@ def render_context(
             "source_bytes": item.get("source_bytes"),
             "entry_relative_path": item.get("entry_relative_path"),
             "repository_relative_path": item.get("repository_relative_path"),
-            "rights_state": "HOLD" if item.get("public_redistribution_admitted") is False else "REVIEW",
+            "rights_state": "ADMITTED" if item.get("public_redistribution_admitted") is True else "HOLD",
         })
     package_catalog = {
         "total": len(packages),
@@ -607,7 +607,7 @@ This file is generated from repository truth and bounded by `governance/control-
 4. Check `context_selection.status`. Only `ready` permits mathematical work; `no_active_execution_context` is maintenance/pre-admission only; ambiguous, inconsistent, missing, or invalid states are fail-closed.
 5. Treat the bundle as a bounded navigation cache. Fresh repository ledgers and live GitHub state outrank it; compare the input-ledger digests before relying on a selected context.
 6. When `ready`, use only the selected Attempt/Route/ObligationGraph/Obligation and its bounded dependency closure. The catalogs are navigation indexes, not permission grants.
-7. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal source package before inventing a method. Complete package bodies are bundled at repository-relative paths; rights remain HOLD and bundling does not grant publication or execution authority.
+7. Read the selected top-level Skill's `INTERNAL-PACKAGES.json`; route to the smallest applicable internal package before inventing a method. Complete project-authored package bodies are bundled at repository-relative paths and are MIT-licensed; package admission does not grant execution, mathematical-evidence, or Result authority.
 8. Search registered mathematical knowledge sources before inventing a new theorem.
 9. Never claim that Issue, PR, AI review, merge, Actions status, package build, search hit, test success, or this context closes mathematics.
 

@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.4.0 - 2026-09-21
+
+### Added
+- Add the subordinate `microclaim-proof-audit.md` reference for line-by-line proof obligations, dependency closure, attack cases, and route/Claim status separation.
+
+### Reason
+- Absorb the useful proof-checking pattern under the existing proof owner instead of adding a parallel Skill or truth ledger.
+
+### Affected
+- `SKILL.md`, `VERSION`, `references/index.md`, and the new subordinate reference.
+
+### Validation
+- Targeted entry/version/reference and WEB_ACTIVE_SKILLS digest checks pass; full Harness remains blocked by the known stale snapshot/manifest baseline.
+
+### Risk
+- The reviewed candidate's exact upstream identity and redistribution rights remain unresolved; no source body was imported.
+
+### Rollback
+- Restore version 1.3.0 and remove the new reference and navigation entries.
+
+### Source
+- Pattern-only review of the `proof-checker` candidate snapshot; `proof-writer` and `formula-derivation` were rejected as duplicate owner surfaces.
+
 ## 1.3.0
 
 - Bundle every owned original Skill package completely under `internal-packages/` with byte-level manifests.

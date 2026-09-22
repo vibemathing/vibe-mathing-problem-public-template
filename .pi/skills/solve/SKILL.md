@@ -20,7 +20,7 @@ description: "跨学科问题求解算子库。Use when an AI agent must frame, 
 
 - 只查一个事实、翻译、摘要或按已知步骤执行时，不要触发本 Skill；领域知识不是算子。
 - 本 Skill 不执行 shell、网络、实验、化学合成、代码修改或任何副作用，也不授予工具权限。
-- 不要默认把 477 个条目全部放进上下文；先检索 catalog 和 taxonomy，再按问题加载少量 pack。
+- 不要默认把 553 个条目全部放进上下文；先检索 catalog 和 taxonomy，再按问题加载少量 pack。
 - 所有当前条目均是 `experimental`/reference-only 内容，不等于生产验证；证据不足时必须标记
   `inconclusive`，不能把模型自述当作通过。
 - 医疗、法律、化学安全、金融和其他高风险事项只提供方法论参考，必须遵循外部安全政策并升级人工/专业审查。
@@ -133,7 +133,7 @@ description: "跨学科问题求解算子库。Use when an AI agent must frame, 
 - [references/index.md](references/index.md)：延迟加载顺序、文件职责和边界。
 - [references/catalog.json](references/catalog.json)：完整 pack 注册、计数和相对路径入口。
 - [references/taxonomy/problem-solving-methodology.json](references/taxonomy/problem-solving-methodology.json)：母领域/功能双轴分类。
-- [references/packs/](references/packs/)：417 个 source 与 60 个 derived 条目。
+- [references/packs/](references/packs/)：496 个 source 与 57 个 derived 条目。
 - [references/problem-solving-operator-pack.schema.json](references/problem-solving-operator-pack.schema.json)：本包可独立使用的 Core Schema 副本。
 - [references/selection-protocol.md](references/selection-protocol.md)：输入最小集、候选选择、停止和切换。
 - [references/output-contract.md](references/output-contract.md)：宽松结果和证据标签。
@@ -145,9 +145,9 @@ description: "跨学科问题求解算子库。Use when an AI agent must frame, 
 - 包名固定为 `solve`，当前版本见 [VERSION](VERSION)；不再另建 `operator`、`think` 等同义 Skill。
 - 内容源是仓库根目录的 `operators/`；本包是可安装的发布快照，不能成为第二个内容真相源。
 - 刷新前先通过源库校验，再同步 catalog、清单、taxonomy、schema 和全部 packs；同步后重新校验包内相对路径。
-- 当前 56 个 pack、417 个 source、60 个 derived、477 个总条目均属于参考库 Profile，不代表效果已经验证。
+- 当前 57 个 pack、496 个 source、57 个 derived、553 个总条目均属于参考库 Profile，不代表效果已经验证。
 - 来源包括 `docs/PROBLEM_SOLVING_OPERATOR_ARCHITECTURE_PRD.md`、`docs/OPERATOR_SPEC.md`、
   `contracts/problem-solving-operator-pack.schema.json` 和 `operators/` 参考库；外部事实必须另行核验。
-- Last updated: `2026-09-05`；运行 `validate-skill.sh --strict` 和包内 operator-library 校验；失败时停止发布，
+- Last updated: `2026-09-20`；运行包内 operator-library 校验和模板 Harness 校验；失败时停止发布，
   不静默删减条目。
 - 不把完整算子表塞进本文件；本文件只负责触发、边界、最小流程和调用契约。

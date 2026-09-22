@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/research-os-working-set.v1.json",
+  "title": "Vibe Mathing Mathematical Research OS Working Set v1",
+  "description": "A candidate-only, reference-only cognitive working-set projection. It records seven mathematical research functions without becoming a Problem, Evidence, Result, or Solution truth source.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_kind",
+    "record_id",
+    "record_version",
+    "problem_contract",
+    "claims_ceiling",
+    "frame",
+    "examples",
+    "conjectures",
+    "proof_dependencies",
+    "refutations",
+    "connections",
+    "verification",
+    "supersedes",
+    "created_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_kind": {"const": "math-research-os-working-set"},
+    "record_id": {"$ref": "#/$defs/recordId"},
+    "record_version": {"type": "integer", "minimum": 1},
+    "problem_contract": {"$ref": "#/$defs/problemContract"},
+    "claims_ceiling": {"const": "candidate_only"},
+    "frame": {"$ref": "#/$defs/frame"},
+    "examples": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {"$ref": "#/$defs/example"}
+    },
+    "conjectures": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {"$ref": "#/$defs/conjecture"}
+    },
+    "proof_dependencies": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {"$ref": "#/$defs/proofDependency"}
+    },
+    "refutations": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {"$ref": "#/$defs/refutation"}
+    },
+    "connections": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {"$ref": "#/$defs/connection"}
+    },
+    "verification": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {"$ref": "#/$defs/verification"}
+    },
+    "supersedes": {
+      "oneOf": [
+        {"$ref": "#/$defs/recordId"},
+        {"type": "null"}
+      ]
+    },
+    "supersession_reason": {"type": "string", "minLength": 1, "maxLength": 4000},
+    "created_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "recordId": {
+      "type": "string",
+      "pattern": "^research-os:[a-z0-9][a-z0-9.-]*$"
+    },
+    "problemId": {
+      "type": "string",
+      "pattern": "^problem:[a-z0-9][a-z0-9.-]*$"
+    },
+    "typedId": {
+      "type": "string",
+      "pattern": "^(problem|outcome|obligation|candidate|evidence-link|admission|example|conjecture|refutation|connection|source|observation|artifact|definition|literature|task|job):[a-z0-9][a-z0-9.-]*$"
+    },
+    "locator": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "pattern": "^(?!/)(?![A-Za-z]:\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]+$"
+    },
+    "typedIdArray": {
+      "type": "array",
+      "maxItems": 4096,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/typedId"}
+    },
+    "stringArray": {
+      "type": "array",
+      "maxItems": 256,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 4000}
+    },
+    "problemContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "problem_id",
+        "problem_contract_sha256",
+        "statement_sha256",
+        "scope_sha256",
+        "owner_locator"
+      ],
+      "properties": {
+        "problem_id": {"$ref": "#/$defs/problemId"},
+        "problem_contract_sha256": {"$ref": "#/$defs/sha256"},
+        "statement_sha256": {"$ref": "#/$defs/sha256"},
+        "scope_sha256": {"$ref": "#/$defs/sha256"},
+        "owner_locator": {"const": "problem-library/records/canonical-problems.jsonl"}
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "question_summary",
+        "domain_note",
+        "quantifier_note",
+        "definition_refs",
+        "assumption_notes",
+        "open_boundary_notes"
+      ],
+      "properties": {
+        "status": {"enum": ["incomplete", "frozen", "needs_review"]},
+        "question_summary": {"type": "string", "minLength": 1, "maxLength": 8000},
+        "domain_note": {"type": "string", "minLength": 1, "maxLength": 8000},
+        "quantifier_note": {"type": "string", "minLength": 1, "maxLength": 8000},
+        "definition_refs": {"$ref": "#/$defs/typedIdArray"},
+        "assumption_notes": {"$ref": "#/$defs/stringArray"},
+        "open_boundary_notes": {"$ref": "#/$defs/stringArray"},
+        "obligation_refs": {"$ref": "#/$defs/typedIdArray"}
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locator", "sha256", "media_type"],
+      "properties": {
+        "locator": {"$ref": "#/$defs/locator"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "media_type": {"type": "string", "minLength": 1, "maxLength": 200}
+      }
+    },
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "example_id",
+        "kind",
+        "coverage",
+        "status",
+        "artifact",
+        "notes"
+      ],
+      "properties": {
+        "example_id": {"type": "string", "pattern": "^example:[a-z0-9][a-z0-9.-]*$"},
+        "kind": {
+          "enum": [
+            "base_case",
+            "edge_case",
+            "construction",
+            "counterexample_candidate",
+            "finite_observation",
+            "random_observation",
+            "literature_example",
+            "negative_example",
+            "other"
+          ]
+        },
+        "coverage": {"enum": ["single_witness", "finite_sample", "subclass", "general", "unknown"]},
+        "status": {"enum": ["observed", "reproducible", "contradicted", "unresolved", "superseded"]},
+        "artifact": {"$ref": "#/$defs/artifactRef"},
+        "source_refs": {"$ref": "#/$defs/typedIdArray"},
+        "notes": {"type": "string", "minLength": 1, "maxLength": 8000}
+      }
+    },
+    "conjecture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "conjecture_id",
+        "outcome_ref",
+        "statement_sha256",
+        "scope_sha256",
+        "relation_role",
+        "status",
+        "falsifier_notes"
+      ],
+      "properties": {
+        "conjecture_id": {"type": "string", "pattern": "^conjecture:[a-z0-9][a-z0-9.-]*$"},
+        "outcome_ref": {"type": "string", "pattern": "^outcome:[a-z0-9][a-z0-9.-]*$"},
+        "statement_sha256": {"$ref": "#/$defs/sha256"},
+        "scope_sha256": {"$ref": "#/$defs/sha256"},
+        "relation_role": {
+          "enum": [
+            "root",
+            "specialization",
+            "strengthening",
+            "weakening",
+            "generalization",
+            "reduction",
+            "obstruction",
+            "quantitative",
+            "constructive",
+            "other"
+          ]
+        },
+        "status": {"enum": ["candidate_only", "verification_pending", "invalidated", "superseded"]},
+        "origin_refs": {"$ref": "#/$defs/typedIdArray"},
+        "falsifier_notes": {"type": "string", "minLength": 1, "maxLength": 8000}
+      }
+    },
+    "proofDependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "obligation_ref",
+        "statement_sha256",
+        "role",
+        "status"
+      ],
+      "properties": {
+        "obligation_ref": {"type": "string", "pattern": "^obligation:[a-z0-9][a-z0-9.-]*$"},
+        "statement_sha256": {"$ref": "#/$defs/sha256"},
+        "role": {
+          "enum": [
+            "definition",
+            "lemma",
+            "reduction",
+            "construction",
+            "invariant",
+            "boundary",
+            "faithfulness",
+            "termination",
+            "other"
+          ]
+        },
+        "status": {"enum": ["open", "covered", "blocked", "invalidated", "superseded"]},
+        "dependency_refs": {"$ref": "#/$defs/typedIdArray"}
+      }
+    },
+    "refutation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "refutation_id",
+        "candidate_ref",
+        "target_ref",
+        "kind",
+        "coverage",
+        "status",
+        "notes"
+      ],
+      "properties": {
+        "refutation_id": {"type": "string", "pattern": "^refutation:[a-z0-9][a-z0-9.-]*$"},
+        "candidate_ref": {"type": "string", "pattern": "^candidate:[a-z0-9][a-z0-9.-]*$"},
+        "target_ref": {"type": "string", "pattern": "^(problem|outcome|conjecture):[a-z0-9][a-z0-9.-]*$"},
+        "kind": {"enum": ["assumption_failure", "conjecture_counterexample", "root_counterexample_candidate", "route_failure", "model_mismatch"]},
+        "coverage": {"enum": ["single_witness", "finite_sample", "subclass", "general", "unknown"]},
+        "status": {"enum": ["candidate_only", "verification_pending", "rejected", "invalidated", "superseded"]},
+        "artifact": {"$ref": "#/$defs/artifactRef"},
+        "notes": {"type": "string", "minLength": 1, "maxLength": 8000}
+      }
+    },
+    "connection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "connection_id",
+        "source_ref",
+        "target_ref",
+        "relation_type",
+        "status",
+        "basis_note"
+      ],
+      "properties": {
+        "connection_id": {"type": "string", "pattern": "^connection:[a-z0-9][a-z0-9.-]*$"},
+        "source_ref": {"$ref": "#/$defs/typedId"},
+        "target_ref": {"$ref": "#/$defs/typedId"},
+        "relation_type": {"enum": ["analogy", "known_result", "definition_bridge", "method_transfer", "specializes", "generalizes", "equivalence_candidate", "conflict", "prior_art", "other"]},
+        "status": {"enum": ["candidate", "linked", "rejected", "superseded"]},
+        "basis_ref": {"$ref": "#/$defs/typedId"},
+        "basis_note": {"type": "string", "minLength": 1, "maxLength": 8000}
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verification_id",
+        "candidate_ref",
+        "statement_sha256",
+        "scope_sha256",
+        "status",
+        "evidence_refs",
+        "admission_refs",
+        "notes"
+      ],
+      "properties": {
+        "verification_id": {"type": "string", "pattern": "^verification:[a-z0-9][a-z0-9.-]*$"},
+        "candidate_ref": {"type": "string", "pattern": "^candidate:[a-z0-9][a-z0-9.-]*$"},
+        "statement_sha256": {"$ref": "#/$defs/sha256"},
+        "scope_sha256": {"$ref": "#/$defs/sha256"},
+        "status": {"enum": ["unverified", "pending", "linked", "conflict", "rejected"]},
+        "evidence_refs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^evidence-link:[a-z0-9][a-z0-9.-]*$"}
+        },
+        "admission_refs": {
+          "type": "array",
+          "maxItems": 256,
+          "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^admission:[a-z0-9][a-z0-9.-]*$"}
+        },
+        "notes": {"type": "string", "minLength": 1, "maxLength": 8000}
+      }
+    }
+  }
+}

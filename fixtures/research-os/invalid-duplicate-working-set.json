@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "math-research-os-working-set",
+  "record_id": "research-os:template-working-set-v1",
+  "record_version": 1,
+  "problem_contract": {
+    "problem_id": "problem:template-placeholder",
+    "problem_contract_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "statement_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "scope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "owner_locator": "problem-library/records/canonical-problems.jsonl"
+  },
+  "claims_ceiling": "candidate_only",
+  "frame": {
+    "status": "incomplete",
+    "question_summary": "Invalid duplicate fixture.",
+    "domain_note": "Synthetic.",
+    "quantifier_note": "Synthetic.",
+    "definition_refs": [],
+    "assumption_notes": ["Duplicate identities must be rejected."],
+    "open_boundary_notes": ["This is not a result."],
+    "obligation_refs": []
+  },
+  "examples": [
+    {
+      "example_id": "example:duplicate",
+      "kind": "finite_observation",
+      "coverage": "single_witness",
+      "status": "observed",
+      "artifact": {
+        "locator": "fixtures/research-os/synthetic.txt",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "text/plain"
+      },
+      "notes": "First duplicate entry."
+    },
+    {
+      "example_id": "example:duplicate",
+      "kind": "finite_observation",
+      "coverage": "single_witness",
+      "status": "observed",
+      "artifact": {
+        "locator": "fixtures/research-os/synthetic.txt",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "media_type": "text/plain"
+      },
+      "notes": "Second duplicate entry."
+    }
+  ],
+  "conjectures": [],
+  "proof_dependencies": [],
+  "refutations": [],
+  "connections": [],
+  "verification": [],
+  "supersedes": null,
+  "created_at": "2026-01-01T00:00:00Z"
+}

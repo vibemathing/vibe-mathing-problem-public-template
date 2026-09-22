@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.4.0 - 2026-09-21
+
+### Added
+- Add the subordinate `literature-citation-memory-audit.md` reference for source identity, citation context, bounded novelty claims, and non-authoritative research-memory projection.
+
+### Reason
+- Absorb reusable research-intake patterns without creating or activating another top-level Skill.
+
+### Affected
+- `SKILL.md`, `VERSION`, `references/index.md`, and the new subordinate reference.
+
+### Validation
+- Targeted entry/version/reference and WEB_ACTIVE_SKILLS digest checks pass; full Harness remains blocked by the known stale snapshot/manifest baseline.
+
+### Risk
+- Upstream identity and redistribution rights for the reviewed candidates remain unresolved; no source body was imported.
+
+### Rollback
+- Restore version 1.3.0 and remove the new reference and navigation entries.
+
+### Source
+- Pattern-only review of `research-lit`, `citation-audit`, `research-wiki`, and `novelty-check` candidate snapshots bound by SHA-256 in the reference.
+
 ## 1.3.0
 
 - Bundle every owned original Skill package completely under `internal-packages/` with byte-level manifests.

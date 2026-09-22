@@ -8,9 +8,9 @@ AI，而不是把方法写成一组不可审计的长提示词。
 | 项目 | 内容 |
 |---|---|
 | Skill 名称 | `solve` |
-| 当前版本 | `0.3.0` |
+| 当前版本 | `0.4.0` |
 | 用途 | 选择、执行和复盘问题求解方法 |
-| 内容规模 | 56 个 pack；417 source + 60 derived = 477 条目 |
+| 内容规模 | 57 个 pack；496 source + 57 derived = 553 条目 |
 | 状态 | `experimental` / reference-only |
 | 内容真相源 | 仓库根 `operators/` |
 
@@ -30,7 +30,7 @@ skills/solve/
     ├── catalog.json                 # pack 注册
     ├── source-inventory.json        # 完整性清单
     ├── taxonomy/                    # 双轴分类
-    ├── packs/                       # 56 个内容包
+    ├── packs/                       # 57 个内容包
     └── *.schema.json                # Core Schema 副本
 ```
 

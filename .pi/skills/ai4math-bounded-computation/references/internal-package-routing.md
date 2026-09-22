@@ -8,8 +8,8 @@ All paths are repository-relative. Internal packages are inert reference data: t
 
 ### `baier-katoen-model-checking`
 
-- Body: `internal-packages/baier-katoen-model-checking`
-- Entry: `internal-packages/baier-katoen-model-checking/SKILL.md`
+- Body: `.pi/skills/ai4math-bounded-computation/internal-packages/baier-katoen-model-checking`
+- Entry: `.pi/skills/ai4math-bounded-computation/internal-packages/baier-katoen-model-checking/SKILL.md`
 - Source tree: `ff7acf50db44bcf9ba47b1c76990149ee42ee301c22ca8347c0912b0919cc977`
 - Capabilities: model/property separation; abstraction soundness; state-space control
 

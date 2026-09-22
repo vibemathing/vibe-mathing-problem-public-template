@@ -8,8 +8,8 @@ All paths are repository-relative. Internal packages are inert reference data: t
 
 ### `lean-eval-comparator`
 
-- Body: `internal-packages/lean-eval-comparator`
-- Entry: `internal-packages/lean-eval-comparator/SKILL.md`
+- Body: `.pi/skills/ai4math-assurance-admission/internal-packages/lean-eval-comparator`
+- Entry: `.pi/skills/ai4math-assurance-admission/internal-packages/lean-eval-comparator/SKILL.md`
 - Source tree: `78f6f3e6a1272f5dd0c9841b215a9d1dec4fc2e61a548dfd3b90f27f4d12b136`
 - Capabilities: pristine-versus-edited comparison; isolated elaboration; pin and security audit
 

@@ -8,50 +8,50 @@ All paths are repository-relative. Internal packages are inert reference data: t
 
 ### `classical-type-theory`
 
-- Body: `internal-packages/classical-type-theory`
-- Entry: `internal-packages/classical-type-theory/SKILL.md`
+- Body: `.pi/skills/ai4math-proof-refutation/internal-packages/classical-type-theory`
+- Entry: `.pi/skills/ai4math-proof-refutation/internal-packages/classical-type-theory/SKILL.md`
 - Source tree: `d630f7a25600e1219efa30276dd7add0bef1033a2658a9a12cd42f59557b10ac`
 - Capabilities: type-directed search; dependency-preserving Skolemization; higher-order unification limits
 
 ### `danus-proof-orchestration`
 
-- Body: `internal-packages/danus-proof-orchestration`
-- Entry: `internal-packages/danus-proof-orchestration/SKILL.md`
+- Body: `.pi/skills/ai4math-proof-refutation/internal-packages/danus-proof-orchestration`
+- Entry: `.pi/skills/ai4math-proof-refutation/internal-packages/danus-proof-orchestration/SKILL.md`
 - Source tree: `2b556383982d743b7c65c95a3ed95a2fec4f6184f26a2b131b955f4b330324bd`
 - Capabilities: producer/verifier separation; fact-graph memory; falsification before persistence
 
 ### `harrison-automated-reasoning`
 
-- Body: `internal-packages/harrison-automated-reasoning`
-- Entry: `internal-packages/harrison-automated-reasoning/SKILL.md`
+- Body: `.pi/skills/ai4math-proof-refutation/internal-packages/harrison-automated-reasoning`
+- Entry: `.pi/skills/ai4math-proof-refutation/internal-packages/harrison-automated-reasoning/SKILL.md`
 - Source tree: `211d1c7785540e2e46735c3865038a766b9a13ec5d7e60268dbb46b6f3477529`
 - Capabilities: logic-fragment routing; rewriting and decision-procedure scope; LCF trust boundary
 
 ### `lakatos-proofs-and-refutations`
 
-- Body: `internal-packages/lakatos-proofs-and-refutations`
-- Entry: `internal-packages/lakatos-proofs-and-refutations/SKILL.md`
+- Body: `.pi/skills/ai4math-proof-refutation/internal-packages/lakatos-proofs-and-refutations`
+- Entry: `.pi/skills/ai4math-proof-refutation/internal-packages/lakatos-proofs-and-refutations/SKILL.md`
 - Source tree: `a088acebbfa7f196e590d9e3dc8cf15ccdba181b86b93a175ae6e52fde58b5bc`
 - Capabilities: counterexample triage; lemma incorporation; conjecture and definition repair
 
 ### `polya-problem-solving`
 
-- Body: `internal-packages/polya-problem-solving`
-- Entry: `internal-packages/polya-problem-solving/SKILL.md`
+- Body: `.pi/skills/ai4math-proof-refutation/internal-packages/polya-problem-solving`
+- Entry: `.pi/skills/ai4math-proof-refutation/internal-packages/polya-problem-solving/SKILL.md`
 - Source tree: `904fc417c07f98bd14b14699d7cd53612635d617d37427d78a0d03066352614d`
 - Capabilities: understand-plan-execute-review; backward reasoning; heuristic-versus-proof separation
 
 ### `rethlas-math-reasoning`
 
-- Body: `internal-packages/rethlas-math-reasoning`
-- Entry: `internal-packages/rethlas-math-reasoning/SKILL.md`
+- Body: `.pi/skills/ai4math-proof-refutation/internal-packages/rethlas-math-reasoning`
+- Entry: `.pi/skills/ai4math-proof-refutation/internal-packages/rethlas-math-reasoning/SKILL.md`
 - Source tree: `ed9c510c04371f92206795a1b847f5c5bf150010f6af205b65857131b3ab93de`
 - Capabilities: persistent proof state; retrieval applicability checks; strict verification and degraded-mode honesty
 
 ### `strunk-elements-of-style`
 
-- Body: `internal-packages/strunk-elements-of-style`
-- Entry: `internal-packages/strunk-elements-of-style/SKILL.md`
+- Body: `.pi/skills/ai4math-proof-refutation/internal-packages/strunk-elements-of-style`
+- Entry: `.pi/skills/ai4math-proof-refutation/internal-packages/strunk-elements-of-style/SKILL.md`
 - Source tree: `41aef705f129d175e59a5fb07b9f3954a690e1e7753c6791df14ea0f51bc3d52`
 - Capabilities: concise proof exposition; explicit logical relations; editing-versus-validation separation
 

@@ -18,10 +18,10 @@ solve/
     ├── output-contract.md                         # 结果与证据标签
     ├── quality-checklist.md                       # 发布前质量门禁
     ├── problem-solving-operator-pack.schema.json  # 本包可独立校验的 Core Schema 副本
-    ├── catalog.json                               # 56 个 pack、计数和引用入口
-    ├── source-inventory.json                      # 417 个 source 的完整性基线
+    ├── catalog.json                               # 57 个 pack、计数和引用入口
+    ├── source-inventory.json                      # 496 个 source 的完整性基线
     ├── taxonomy/problem-solving-methodology.json  # 母领域与功能分类双轴索引
-    ├── packs/*.json                               # 56 个领域 pack，417 source + 60 derived
+    ├── packs/*.json                               # 57 个领域 pack，496 source + 57 derived
     └── pressure-scenario.md                       # Skill 边界压力场景
 ```
 

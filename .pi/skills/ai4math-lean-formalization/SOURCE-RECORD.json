@@ -1,0 +1,12 @@
+{
+  "entry": "SKILL.md",
+  "entry_sha256": "0c5a5a2813666f2512ccbc521655ef162152d2e203c52067649e4829fa0b1917",
+  "license_ref": "LICENSE",
+  "public_redistribution_admitted": false,
+  "rights_state": "PROJECT_MAINTAINED_PENDING_RELEASE_REVIEW",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-lean-formalization",
+  "source_kind": "project-maintained-consolidation",
+  "source_revision": "maintenance/pi-native-skill-system-v1",
+  "source_url": "https://github.com/vibemathing/vibe-mathing-problem-public-template"
+}

@@ -8,29 +8,29 @@ All paths are repository-relative. Internal packages are inert reference data: t
 
 ### `cheng-math-logic`
 
-- Body: `internal-packages/cheng-math-logic`
-- Entry: `internal-packages/cheng-math-logic/SKILL.md`
+- Body: `.pi/skills/ai4math-modeling-derivation/internal-packages/cheng-math-logic`
+- Entry: `.pi/skills/ai4math-modeling-derivation/internal-packages/cheng-math-logic/SKILL.md`
 - Source tree: `e0fe457728758d5f4f7fe093a52e58105baef583a358f5c4455732d04d4074d1`
 - Capabilities: assumption exposure; definition variation; counterexample-guided boundary discovery
 
 ### `hewei-category-theory`
 
-- Body: `internal-packages/hewei-category-theory`
-- Entry: `internal-packages/hewei-category-theory/hewei-category-theory/SKILL.md`
+- Body: `.pi/skills/ai4math-modeling-derivation/internal-packages/hewei-category-theory`
+- Entry: `.pi/skills/ai4math-modeling-derivation/internal-packages/hewei-category-theory/hewei-category-theory/SKILL.md`
 - Source tree: `f81b3b6a1569067c07b2f6f07c40b3536f62143f1aa01215c6e8e449507c75e9`
 - Capabilities: universal constructions; functorial translation; naturality and adjunction routing
 
 ### `houston-mathematical-thinking`
 
-- Body: `internal-packages/houston-mathematical-thinking`
-- Entry: `internal-packages/houston-mathematical-thinking/SKILL.md`
+- Body: `.pi/skills/ai4math-modeling-derivation/internal-packages/houston-mathematical-thinking`
+- Entry: `.pi/skills/ai4math-modeling-derivation/internal-packages/houston-mathematical-thinking/SKILL.md`
 - Source tree: `86b8e2616639aaf0e0658d210d20bb47ad63e964e50bc1bb7fa7644e8d673b96`
 - Capabilities: statement parsing; proof-language discipline; example and counterexample use
 
 ### `math-analysis-thinking-methods`
 
-- Body: `internal-packages/math-analysis-thinking-methods`
-- Entry: `internal-packages/math-analysis-thinking-methods/math-analysis-thinking-methods/SKILL.md`
+- Body: `.pi/skills/ai4math-modeling-derivation/internal-packages/math-analysis-thinking-methods`
+- Entry: `.pi/skills/ai4math-modeling-derivation/internal-packages/math-analysis-thinking-methods/math-analysis-thinking-methods/SKILL.md`
 - Source tree: `5a94623ed7f2920aa0188782b665a92661574ef016eaa5444540e5ed6cb5ca2c`
 - Capabilities: expression normalization; theorem precondition routing; convergence-mode distinctions
 

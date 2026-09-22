@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.4.0 - 2026-09-21
+
+### Added
+- Add the subordinate `runtime-profile-plan.md` reference for low-intrusion profiler selection, scale variables, observer effect, bounded artifacts, instrumentation rollback, and not-executed ToolPlans.
+- Add a complete reference index and strict entry sections for triggers, boundaries, quick reference, examples, references, and maintenance.
+
+### Reason
+- Absorb reusable runtime-profiling design without granting execution, instrumentation, GPU, cloud, or mathematical-evidence authority.
+
+### Affected
+- `SKILL.md`, `VERSION`, entry digest metadata, `references/index.md`, and the new subordinate reference.
+
+### Validation
+- Strict Skill validation and targeted entry/version/digest checks pass; full Harness remains blocked by the known stale snapshot/manifest baseline.
+
+### Risk
+- Profiling suggestions can cause observer effects or excessive traces; actual execution remains outside this constrained Skill.
+
+### Rollback
+- Restore version 1.3.0, previous entry digest metadata, and remove the new profile reference/index/navigation.
+
+### Source
+- Pattern-only review of the `system-profile` snapshot bound by SHA-256 in the reference.
+
 ## 1.3.0
 
 - Bundle every owned original Skill package completely under `internal-packages/` with byte-level manifests.

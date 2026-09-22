@@ -1,4 +1,5 @@
 {
+  "enableSkillCommands": true,
   "skills": [
     "skills/solve/SKILL.md",
     "skills/mathematics-in-lean/SKILL.md",
@@ -10,6 +11,5 @@
     "skills/ai4math-lean-formalization/SKILL.md",
     "skills/ai4math-assurance-admission/SKILL.md",
     "skills/ai4math-toolchain-reproducibility/SKILL.md"
-  ],
-  "enableSkillCommands": true
+  ]
 }

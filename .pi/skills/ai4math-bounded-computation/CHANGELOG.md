@@ -1,5 +1,74 @@
 # Changelog
 
+## 1.6.0 - 2026-09-21
+
+### Added
+- Extend the experiment-integrity reference with oracle provenance, model-output-as-ground-truth rejection, minimal sanity runs, and an explicit scale-up gate.
+
+### Reason
+- Preserve the useful integrity checks from an experiment bridge without importing deployment, GPU queues, cloud lifecycle, automatic debugging, or paper workflow automation.
+
+### Affected
+- `VERSION` and `references/experiment-integrity-audit.md`; the top-level entry contract and digest are unchanged.
+
+### Validation
+- Strict Skill validation and targeted version/reference checks are required; full Harness remains subject to the existing stale snapshot reconciliation.
+
+### Risk
+- The reviewed candidate is ML-runtime-oriented and has unresolved exact upstream rights; only independently rewritten domain-neutral checks were retained.
+
+### Rollback
+- Restore version 1.5.0 and remove the oracle/sanity/scale-up additions and source binding.
+
+### Source
+- Pattern-only review of the `experiment-bridge` snapshot bound by SHA-256 in the reference.
+
+## 1.5.0 - 2026-09-21
+
+### Added
+- Extend the subordinate experiment-integrity reference with claim-driven experiment design, discriminating evidence, single-factor ablation, sensitivity analysis, aggregation, and negative-result handling.
+
+### Reason
+- Absorb reusable experiment-planning and result-analysis methods without importing ML paper workflows, automatic run queues, or a new top-level Skill.
+
+### Affected
+- `VERSION` and `references/experiment-integrity-audit.md`; the top-level entry contract and digest are unchanged.
+
+### Validation
+- Strict Skill validation and targeted version/reference checks pass; full Harness remains blocked by the known stale snapshot/manifest baseline.
+
+### Risk
+- The reviewed candidates are ML/paper-oriented and have unresolved exact upstream rights, so only domain-neutral bounded methods were rewritten.
+
+### Rollback
+- Restore version 1.4.0 and remove the second-batch sections and source bindings from the subordinate reference.
+
+### Source
+- Pattern-only review of `experiment-plan`, `ablation-planner`, and `analyze-results` snapshots bound by SHA-256 in the reference.
+
+## 1.4.0 - 2026-09-21
+
+### Added
+- Add the subordinate `experiment-integrity-audit.md` reference for experiment identity, coverage, failure semantics, bounded resources, and independent replay.
+
+### Reason
+- Absorb reusable experiment-audit behavior without importing automated research loops, cloud execution, or another top-level Skill.
+
+### Affected
+- `SKILL.md`, `VERSION`, `references/index.md`, and the new subordinate reference.
+
+### Validation
+- Targeted entry/version/reference and WEB_ACTIVE_SKILLS digest checks pass; full Harness remains blocked by the known stale snapshot/manifest baseline.
+
+### Risk
+- The reviewed candidate's exact upstream identity and redistribution rights remain unresolved; no source body was imported.
+
+### Rollback
+- Restore version 1.3.0 and remove the new reference and navigation entries.
+
+### Source
+- Pattern-only review of the `experiment-audit` candidate snapshot bound by SHA-256 in the reference.
+
 ## 1.3.0
 
 - Bundle every owned original Skill package completely under `internal-packages/` with byte-level manifests.

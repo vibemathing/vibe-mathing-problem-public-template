@@ -1,6 +1,6 @@
 # solve References
 
-这里是 `solve` Skill 的自包含参考层。读取顺序是“先目录、后分类、再局部 pack”，避免把 477 个条目
+这里是 `solve` Skill 的自包含参考层。读取顺序是“先目录、后分类、再局部 pack”，避免把 553 个条目
 一次性塞入模型上下文。
 
 ## 延迟加载顺序
@@ -20,8 +20,8 @@
 
 | 文件 | 作用 |
 |---|---|
-| `catalog.json` | 注册 56 个 pack、计数、Profile 和相对路径 |
-| `source-inventory.json` | 独立证明 417 个 source 条目没有漏项 |
+| `catalog.json` | 注册 57 个 pack、计数、Profile 和相对路径 |
+| `source-inventory.json` | 独立证明 496 个 source 条目没有漏项 |
 | `taxonomy/problem-solving-methodology.json` | 将母领域来源与问题求解功能分成两条索引轴 |
 | `packs/*.json` | 保存 `MentalModelSpec`、`OperatorSpec` 和 `MethodSpec` |
 | `problem-solving-operator-pack.schema.json` | 提供本包可独立使用的 Core 结构校验 |

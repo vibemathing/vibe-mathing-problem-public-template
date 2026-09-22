@@ -39,12 +39,14 @@ PI_SKILL_STATUS = {
     "ai4math-toolchain-reproducibility": "constrained",
 }
 MUTABLE_GENERATED = {
+    "problem-library/records/problems.jsonl",
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
     "research/records/obligation-graphs.jsonl",
     "research/records/candidate-artifacts.jsonl",
     "research/records/evidence-links.jsonl",
     "result-library/records/results.jsonl",
+    "result-library/indexes/solutions.json",
 }
 PRELOADED_RECORDS = {
     "research/records/attempts.jsonl": "attempts_file",
@@ -117,6 +119,14 @@ def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
     os.chmod(path, 0o644)
+
+
+def remove_runtime_noise(root: Path) -> None:
+    for path in sorted(root.rglob("*"), reverse=True):
+        if path.is_dir() and path.name == "__pycache__":
+            shutil.rmtree(path)
+        elif path.is_file() and path.suffix == ".pyc":
+            path.unlink()
 
 
 def filtered_jsonl(source: Path, problem_id: str) -> str:
@@ -199,6 +209,53 @@ def read_problem(path: Path, root: Path) -> dict[str, Any]:
     return problem
 
 
+def enforce_public_rights(root: Path) -> None:
+    """Never turn a complete internal package vault into a public release by accident."""
+    classification_path = root / ".pi/skills/INTERNAL-PACKAGE-CLASSIFICATION.json"
+    matrix_path = root / ".pi/skills/INTERNAL-PACKAGE-RIGHTS-MATRIX.json"
+    matrix_schema_path = root / ".pi/skills/internal-package-rights-matrix.schema.json"
+    if not classification_path.is_file() or not matrix_path.is_file() or not matrix_schema_path.is_file():
+        raise RuntimeError("public build requires package classification, rights matrix, and rights schema")
+    classification = json.loads(classification_path.read_text(encoding="utf-8"))
+    matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
+    validate_json(matrix, matrix_schema_path, "package rights matrix")
+    packages = classification.get("packages")
+    rights_packages = matrix.get("packages")
+    if not isinstance(packages, list) or not packages or not isinstance(rights_packages, list):
+        raise RuntimeError("public build requires non-empty package classification and rights records")
+    rights_by_id = {
+        package.get("package_id"): package
+        for package in rights_packages
+        if isinstance(package, dict) and isinstance(package.get("package_id"), str)
+    }
+    classified_ids = {
+        package.get("package_id")
+        for package in packages
+        if isinstance(package, dict) and isinstance(package.get("package_id"), str)
+    }
+    if classified_ids != set(rights_by_id):
+        raise RuntimeError("public build blocked: package classification and rights matrix do not match")
+    blocked = []
+    for package in packages:
+        if not isinstance(package, dict):
+            blocked.append("<invalid-package-record>")
+            continue
+        package_id = str(package.get("package_id", "<missing-package-id>"))
+        rights = rights_by_id.get(package_id, {})
+        if (
+            package.get("public_redistribution_admitted") is not True
+            or rights.get("public_redistribution_admitted") is not True
+            or rights.get("rights_state") != "ADMITTED"
+        ):
+            blocked.append(package_id)
+    if blocked:
+        raise RuntimeError(
+            "public build blocked: package redistribution is not admitted for "
+            + ", ".join(sorted(blocked))
+            + "; public body export is unavailable until the rights receipts are complete"
+        )
+
+
 def build(args: argparse.Namespace) -> dict[str, Any]:
     root = args.project_root.resolve()
     output = args.output.resolve()
@@ -213,6 +270,8 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         dirty = True
         built_at = "1970-01-01T00:00:00Z"
     source_repo = source_repository(root)
+    if args.visibility == "public":
+        enforce_public_rights(root)
     if dirty and not args.allow_dirty_source:
         raise RuntimeError("source worktree is dirty; production Harness snapshots require an immutable committed source")
     if source_repo == "local/unbound" and not args.allow_dirty_source:
@@ -223,9 +282,9 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     if problem.get("lifecycle") != "active" and not args.allow_draft_problem:
         raise RuntimeError("ProblemContract is not active; production problem repositories require lifecycle=active")
     canonical_ledger = args.canonical_ledger.resolve() if args.canonical_ledger else root / DEFAULT_CANONICAL_LEDGER
-    admitted = problem_is_admitted(problem, canonical_ledger)
+    admitted = problem_is_admitted(problem, canonical_ledger) and problem.get("lifecycle") == "active"
     if not admitted and not args.allow_unadmitted_problem:
-        raise RuntimeError("ProblemContract is not an exact record in the canonical ledger")
+        raise RuntimeError("ProblemContract is not an active exact record in the canonical ledger")
     problem_admission = "canonical_admitted" if admitted else "preview_unadmitted"
     if (args.repository_database_id is None) != (args.repository_node_id is None):
         raise RuntimeError("repository database ID and node ID must be supplied together")
@@ -336,6 +395,16 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         path = output / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         source_argument = PRELOADED_RECORDS.get(relative)
+        if relative == "result-library/indexes/solutions.json":
+            write_json(
+                path,
+                {
+                    "generated_at": "1970-01-01T00:00:00Z",
+                    "result_ids": [],
+                    "schema_version": "2.0.0",
+                },
+            )
+            continue
         if source_argument:
             configured = getattr(args, source_argument)
             source = configured.resolve() if configured else root / relative
@@ -355,6 +424,15 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     profile = json.loads((root / "governance/control-plane/web-research-channel.v1.json").read_text(encoding="utf-8"))
     write_json(output / "WEB_CHANNEL_PROFILE.json", profile)
     file_policy["WEB_CHANNEL_PROFILE.json"] = ("web_channel", "harness")
+    admission_path = output / "WEB_REPOSITORY_ADMISSION.json"
+    admission_schema_path = root / "governance/control-plane/repository-admission-receipt.schema.json"
+    admission = json.loads(admission_path.read_text(encoding="utf-8"))
+    admission["repository"] = args.repository
+    validate_json(admission, admission_schema_path, "repository admission receipt")
+    expected_admission = "ADMITTED" if profile.get("operational_admission") == "admitted_problem_repository_namespace" else "BLOCK"
+    if admission.get("decision") != expected_admission:
+        raise RuntimeError("repository admission receipt does not match the current Web profile")
+    write_json(admission_path, admission)
 
     skills: list[dict[str, Any]] = []
     for version_path in sorted((output / ".pi/skills").glob("*/VERSION")):
@@ -388,6 +466,8 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     output_contract = {
         "schema_version": "1.0.0",
         "channel": profile["channel_id"],
+        "capability_status": profile["capability_status"],
+        "operational_admission": profile["operational_admission"],
         "bootstrap_ack_schema": "research/schema/web-bootstrap-ack.schema.json",
         "attempt_packet_schema": "research/schema/web-attempt-packet.schema.json",
         "allowed_write_paths": profile["allowed_repository_write_paths"],
@@ -528,16 +608,22 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     (output / "WEB_BOOTSTRAP.md").write_text(bootstrap, encoding="utf-8")
     os.chmod(output / "WEB_BOOTSTRAP.md", 0o644)
 
-    validation = subprocess.run(
+    validation_commands = [
         [sys.executable, str(output / "scripts/validate_web_problem_harness.py"), "--project-root", str(output)],
-        text=True,
-        capture_output=True,
-        timeout=180,
-        check=False,
-    )
-    if validation.returncode != 0:
-        detail = (validation.stdout + "\n" + validation.stderr).strip()
-        raise RuntimeError(f"generated self-contained repository failed validation: {detail}")
+        [sys.executable, str(output / "scripts/validate_research_spaces.py"), "--project-root", str(output)],
+    ]
+    for validation_command in validation_commands:
+        validation = subprocess.run(
+            validation_command,
+            text=True,
+            capture_output=True,
+            timeout=180,
+            check=False,
+        )
+        if validation.returncode != 0:
+            detail = (validation.stdout + "\n" + validation.stderr).strip()
+            raise RuntimeError(f"generated self-contained repository failed validation: {detail}")
+    remove_runtime_noise(output)
 
     report = {
         "decision": "PASS",
@@ -594,9 +680,22 @@ def main() -> int:
     if args.repository_database_id is not None and args.repository_database_id < 1:
         print("BLOCK: invalid repository database ID", file=sys.stderr)
         return 1
+    requested_output = args.output.resolve()
+    staging_output = requested_output.parent / f".{requested_output.name}.staging-{os.getpid()}"
     try:
+        if requested_output.exists():
+            if not requested_output.is_dir() or any(requested_output.iterdir()):
+                raise RuntimeError(f"output must not exist or must be an empty directory: {requested_output}")
+            requested_output.rmdir()
+        if staging_output.exists():
+            raise RuntimeError(f"staging output already exists: {staging_output}")
+        args.output = staging_output
         report = build(args)
+        os.replace(staging_output, requested_output)
+        report["output"] = str(requested_output)
     except (OSError, ValueError, RuntimeError, json.JSONDecodeError) as exc:
+        if staging_output.exists() and staging_output.is_dir():
+            shutil.rmtree(staging_output, ignore_errors=True)
         print(f"BLOCK: {exc}", file=sys.stderr)
         return 1
     print(json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2) if args.json else (

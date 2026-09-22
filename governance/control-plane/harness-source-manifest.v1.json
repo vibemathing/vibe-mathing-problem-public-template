@@ -37,6 +37,21 @@
       "target_path": "requirements-math-tools.txt"
     },
     {
+      "excludes": [
+        "__pycache__",
+        "*.pyc"
+      ],
+      "kind": "tree",
+      "layer": "math_layer",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "internal_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": ".pi/skills",
+      "target_path": ".pi/skills"
+    },
+    {
       "excludes": [],
       "kind": "file",
       "layer": "research_core",
@@ -361,6 +376,18 @@
       "target_path": "research/README.md"
     },
     {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "research/research-os-profile.v1.json",
+      "target_path": "research/research-os-profile.v1.json"
+    },
+    {
       "excludes": [
         "persistent-worker-checkpoint.schema.json",
         "resume-session-receipt.schema.json"
@@ -437,6 +464,138 @@
       "rewrite_policy": "replace_from_source",
       "source_path": "scripts/vibe_mathing",
       "target_path": "scripts/vibe_mathing"
+    },
+    {
+      "excludes": ["__pycache__", "*.pyc"],
+      "kind": "tree",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "fixtures/research-os",
+      "target_path": "fixtures/research-os"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/project_research_os.py",
+      "target_path": "scripts/project_research_os.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/validate_research_os_events.py",
+      "target_path": "scripts/validate_research_os_events.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/validate_research_os_metadata.py",
+      "target_path": "scripts/validate_research_os_metadata.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/validate_research_os_production_readiness.py",
+      "target_path": "scripts/validate_research_os_production_readiness.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/validate_research_os_working_set.py",
+      "target_path": "scripts/validate_research_os_working_set.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/test_research_os_runtime.py",
+      "target_path": "scripts/test_research_os_runtime.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/test_validate_research_os_events.py",
+      "target_path": "scripts/test_validate_research_os_events.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/test_validate_research_os_metadata.py",
+      "target_path": "scripts/test_validate_research_os_metadata.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/test_validate_research_os_production_readiness.py",
+      "target_path": "scripts/test_validate_research_os_production_readiness.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/test_validate_research_os_working_set.py",
+      "target_path": "scripts/test_validate_research_os_working_set.py"
     },
     {
       "excludes": [],

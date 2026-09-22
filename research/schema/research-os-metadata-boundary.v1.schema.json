@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/research-os-metadata-boundary.v1.json",
+  "title": "Research OS metadata boundary envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_version",
+    "metadata_kind",
+    "object_id",
+    "claims_ceiling",
+    "non_authoritative",
+    "non_mathematical_truth",
+    "status",
+    "summary",
+    "refs",
+    "digests"
+  ],
+  "properties": {
+    "$schema": {"type": "string", "format": "uri"},
+    "schema_version": {"const": "1.0.0"},
+    "metadata_kind": {"enum": ["working_set", "event", "projection", "feedback", "health", "export"]},
+    "object_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]{1,119}:[^\\s]{1,200}$"},
+    "claims_ceiling": {"const": "candidate_only"},
+    "non_authoritative": {"const": true},
+    "non_mathematical_truth": {"const": true},
+    "status": {"enum": ["candidate", "current", "superseded", "invalidated", "blocked", "pending", "unverified", "not_observed", "stale"]},
+    "summary": {"type": "string", "minLength": 1, "maxLength": 512},
+    "bounded_reason": {"type": "string", "minLength": 1, "maxLength": 1000},
+    "labels": {"type": "array", "maxItems": 16, "items": {"type": "string", "pattern": "^[a-z][a-z0-9_.-]{0,63}$"}, "uniqueItems": true},
+    "scope_ref": {"type": "string", "pattern": "^scope:[0-9a-f]{64}$"},
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {
+        "kind": {"enum": ["bounded", "finite", "unknown", "not_applicable"]},
+        "count": {"type": "integer", "minimum": 0, "maximum": 1000000000},
+        "domain_ref": {"type": "string", "pattern": "^[a-z][a-z0-9-]{1,119}:[^\\s]{1,200}$"}
+      }
+    },
+    "refs": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "ref_kind", "trust", "observation"],
+        "properties": {
+          "ref": {"type": "string", "pattern": "^[a-z][a-z0-9-]{1,63}:[^\\s]{1,240}$"},
+          "ref_kind": {"enum": ["problem", "attempt", "obligation", "candidate", "evidence-link", "source", "outcome", "admission", "artifact", "research-os", "definition", "literature"]},
+          "trust": {"enum": ["managed", "unowned"]},
+          "observation": {"enum": ["observed", "not_observed", "unverified", "stale"]}
+        }
+      }
+    },
+    "digests": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "sha256"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[a-z][a-z0-9_.-]{0,63}$"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    }
+  }
+}

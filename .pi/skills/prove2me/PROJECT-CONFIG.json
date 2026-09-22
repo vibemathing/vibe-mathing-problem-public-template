@@ -1,0 +1,10 @@
+{
+  "activation_status": "constrained",
+  "entry": "SKILL.md",
+  "entry_sha256": "535dfa98839d78543d9c00259ccb3a1a3647933a0f7c0bad6062ae079bb1b190",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": false,
+  "registry": null,
+  "schema_version": "1.0.0",
+  "skill_id": "prove2me"
+}

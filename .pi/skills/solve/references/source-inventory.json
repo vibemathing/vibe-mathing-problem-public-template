@@ -7,7 +7,7 @@
     "title": "用户提供的跨领域思维模型与方法论完整性基线"
   },
   "spec": {
-    "expected_source_entries": 417,
+    "expected_source_entries": 496,
     "domains": [
       {
         "id": "research",
@@ -1038,7 +1038,7 @@
       {
         "id": "problem-solving-methodology",
         "title": "通用问题求解方法论",
-        "expected_count": 11,
+        "expected_count": 8,
         "entries": [
           {"source_key": "problem-solving-methodology.task-framing", "name": "Task Framing", "name_zh": "任务定框", "expected_kind": "OperatorSpec"},
           {"source_key": "problem-solving-methodology.problem-space-model", "name": "Problem Space and Operators", "name_zh": "问题空间与算子", "expected_kind": "MentalModelSpec"},
@@ -1047,10 +1047,7 @@
           {"source_key": "problem-solving-methodology.heuristic-search", "name": "Selective Heuristic Search", "name_zh": "选择性启发式搜索", "expected_kind": "OperatorSpec"},
           {"source_key": "problem-solving-methodology.constructive-witness", "name": "Constructive Witness", "name_zh": "构造性见证", "expected_kind": "OperatorSpec"},
           {"source_key": "problem-solving-methodology.look-back-evaluation", "name": "Look-back Evaluation", "name_zh": "回看评估", "expected_kind": "OperatorSpec"},
-          {"source_key": "problem-solving-methodology.metacognitive-monitoring", "name": "Metacognitive Monitoring", "name_zh": "元认知监控", "expected_kind": "OperatorSpec"},
-          {"source_key": "problem-solving-methodology.claim-candidate-result-separation", "name": "Claim Candidate Result Separation", "name_zh": "声明、候选与结果分离", "expected_kind": "MentalModelSpec"},
-          {"source_key": "problem-solving-methodology.evidence-capability-admission", "name": "Evidence Capability Admission", "name_zh": "证据能力接纳", "expected_kind": "OperatorSpec"},
-          {"source_key": "problem-solving-methodology.failed-route-memory", "name": "Failed Route Memory", "name_zh": "失败路线记忆", "expected_kind": "OperatorSpec"}
+          {"source_key": "problem-solving-methodology.metacognitive-monitoring", "name": "Metacognitive Monitoring", "name_zh": "元认知监控", "expected_kind": "OperatorSpec"}
         ]
       },
       {
@@ -1260,16 +1257,13 @@
       {
         "id": "formal-logic-automated-reasoning",
         "title": "形式逻辑与自动推理",
-        "expected_count": 8,
+        "expected_count": 5,
         "entries": [
           {"source_key": "formal-logic-automated-reasoning.formal-problem-specification", "name": "Formal Problem Specification", "name_zh": "形式问题规约", "expected_kind": "MethodSpec"},
           {"source_key": "formal-logic-automated-reasoning.syntax-semantics-separation", "name": "Syntax Semantics Separation", "name_zh": "语法语义分离", "expected_kind": "MentalModelSpec"},
           {"source_key": "formal-logic-automated-reasoning.satisfiability-countermodel-search", "name": "Satisfiability and Countermodel Search", "name_zh": "可满足性与反模型搜索", "expected_kind": "OperatorSpec"},
           {"source_key": "formal-logic-automated-reasoning.proof-state-subgoal-decomposition", "name": "Proof State Subgoal Decomposition", "name_zh": "证明状态子目标分解", "expected_kind": "OperatorSpec"},
-          {"source_key": "formal-logic-automated-reasoning.kernel-checked-proof-evidence", "name": "Kernel Checked Proof Evidence", "name_zh": "内核核验的证明证据", "expected_kind": "MethodSpec"},
-          {"source_key": "formal-logic-automated-reasoning.statement-identity-audit", "name": "Statement Identity Audit", "name_zh": "陈述身份审计", "expected_kind": "OperatorSpec"},
-          {"source_key": "formal-logic-automated-reasoning.exact-strength-audit", "name": "Exact Strength Audit", "name_zh": "精确强度审计", "expected_kind": "OperatorSpec"},
-          {"source_key": "formal-logic-automated-reasoning.placeholder-reachability-audit", "name": "Placeholder Reachability Audit", "name_zh": "占位符可达性审计", "expected_kind": "OperatorSpec"}
+          {"source_key": "formal-logic-automated-reasoning.kernel-checked-proof-evidence", "name": "Kernel Checked Proof Evidence", "name_zh": "内核核验的证明证据", "expected_kind": "MethodSpec"}
         ]
       },
       {
@@ -1547,6 +1541,523 @@
           {"source_key": "spectroscopy-structure-elucidation.all-evidence-structure-consistency", "name": "All-Evidence Structure Consistency", "name_zh": "全证据结构一致性检查", "expected_kind": "MethodSpec"},
           {"source_key": "spectroscopy-structure-elucidation.reference-spectrum-condition-audit", "name": "Reference Spectrum Condition Audit", "name_zh": "参考谱与条件审计", "expected_kind": "MethodSpec"}
         ]
+      },
+      {
+        "id": "programming-principles-101",
+        "title": "《编程的原则》101 条原则：具体算子",
+        "expected_count": 85,
+        "entries": [
+          {
+            "source_key": "programming-principles-101.kiss",
+            "name": "KISS",
+            "name_zh": "KISS原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.dry",
+            "name": "DRY",
+            "name_zh": "DRY",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.yagni",
+            "name": "YAGNI",
+            "name_zh": "YAGNI",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.pie",
+            "name": "Program Intently and Expressively",
+            "name_zh": "PIE",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.slap",
+            "name": "Single Level of Abstraction Principle",
+            "name_zh": "SLAP",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.ocp",
+            "name": "Open-Closed Principle",
+            "name_zh": "OCP",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.meaningful-naming",
+            "name": "Meaningful Naming",
+            "name_zh": "名字很重要",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.communication",
+            "name": "Communication",
+            "name_zh": "交流",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.simplicity",
+            "name": "Simplicity",
+            "name_zh": "简洁",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.flexibility",
+            "name": "Flexibility",
+            "name_zh": "灵活性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.effect-locality",
+            "name": "Effect Locality",
+            "name_zh": "效应局部化",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.minimal-repetition",
+            "name": "Minimal Repetition",
+            "name_zh": "重复最少化",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.logic-data-cohesion",
+            "name": "Logic and Data Cohesion",
+            "name_zh": "逻辑与数据的一体化",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.symmetry",
+            "name": "Symmetry",
+            "name_zh": "对称性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.declarative-expression",
+            "name": "Declarative Expression",
+            "name_zh": "声明式表",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.change-rate",
+            "name": "Change Rate",
+            "name_zh": "变动率",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.abstraction",
+            "name": "Abstraction",
+            "name_zh": "抽象",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.encapsulation",
+            "name": "Encapsulation",
+            "name_zh": "封装",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.information-hiding",
+            "name": "Information Hiding",
+            "name_zh": "信息隐藏",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.packaging",
+            "name": "Packaging",
+            "name_zh": "打包",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.separation-of-concerns",
+            "name": "Separation of Concerns",
+            "name_zh": "关注点分离",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.adequacy-completeness-primitiveness",
+            "name": "Adequacy, Completeness and Primitiveness",
+            "name_zh": "充足性、完整性、原始性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.strategy-implementation-separation",
+            "name": "Strategy and Implementation Separation",
+            "name_zh": "策略和实现的分离",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.interface-implementation-separation",
+            "name": "Interface and Implementation Separation",
+            "name_zh": "接口与实现的分离",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.single-source-of-truth",
+            "name": "Single Source of Truth",
+            "name_zh": "单一引用点",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.divide-and-conquer",
+            "name": "Divide and Conquer",
+            "name_zh": "分治",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.nonfunctional-requirements",
+            "name": "Non-functional Requirements",
+            "name_zh": "软件架构的非功能需求",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.changeability",
+            "name": "Changeability",
+            "name_zh": "易变性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.interoperability",
+            "name": "Interoperability",
+            "name_zh": "互操作性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.efficiency",
+            "name": "Efficiency",
+            "name_zh": "效率性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.reliability",
+            "name": "Reliability",
+            "name_zh": "可靠性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.testability",
+            "name": "Testability",
+            "name_zh": "可测试性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.reusability",
+            "name": "Reusability",
+            "name_zh": "可复用性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.simplicity-principle",
+            "name": "Simplicity Principle",
+            "name_zh": "简单性原理",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.isomorphism-principle",
+            "name": "Isomorphism Principle",
+            "name_zh": "同构原理",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.symmetry-principle",
+            "name": "Symmetry Principle",
+            "name_zh": "对称原理",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.hierarchy-principle",
+            "name": "Hierarchy Principle",
+            "name_zh": "层次原理",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.linearity-principle",
+            "name": "Linearity Principle",
+            "name_zh": "线性原理",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.clarity-principle",
+            "name": "Clarity Principle",
+            "name_zh": "清晰原理",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.safety-principle",
+            "name": "Safety Principle",
+            "name_zh": "安全原理",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.modularity-principle",
+            "name": "Modularity Principle",
+            "name_zh": "模块化原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.unix-clarity",
+            "name": "UNIX Clarity Principle",
+            "name_zh": "清晰原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.composition-principle",
+            "name": "Composition Principle",
+            "name_zh": "组合原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.separation-principle",
+            "name": "UNIX Separation Principle",
+            "name_zh": "分离原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.unix-simplicity",
+            "name": "UNIX Simplicity Principle",
+            "name_zh": "简单原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.parsimony-principle",
+            "name": "Parsimony Principle",
+            "name_zh": "简约原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.transparency-principle",
+            "name": "Transparency Principle",
+            "name_zh": "透明性原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.robustness-principle",
+            "name": "Robustness Principle",
+            "name_zh": "健壮性原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.expressiveness-principle",
+            "name": "Expressiveness Principle",
+            "name_zh": "表达性原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.least-surprise",
+            "name": "Least Surprise",
+            "name_zh": "最小意外原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.silence-principle",
+            "name": "Silence Principle",
+            "name_zh": "沉默原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.repair-principle",
+            "name": "Repair Principle",
+            "name_zh": "修复原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.economy-principle",
+            "name": "Economy Principle",
+            "name_zh": "经济原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.generation-principle",
+            "name": "Generation Principle",
+            "name_zh": "生成原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.optimization-principle",
+            "name": "Optimization Principle",
+            "name_zh": "优化原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.diversity-principle",
+            "name": "Diversity Principle",
+            "name_zh": "多样性原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.extensibility-principle",
+            "name": "Extensibility Principle",
+            "name_zh": "可扩展性原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.small-is-beautiful",
+            "name": "Small Is Beautiful",
+            "name_zh": "小就是美",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.do-one-thing",
+            "name": "Do One Thing",
+            "name_zh": "工作唯一",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.early-prototyping",
+            "name": "Early Prototyping",
+            "name_zh": "尽早创建原型",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.portability-over-efficiency",
+            "name": "Portability over Efficiency",
+            "name_zh": "可移植性优先于效率",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.text-data",
+            "name": "Text Data",
+            "name_zh": "文本数据",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.software-leverage",
+            "name": "Software Leverage",
+            "name_zh": "充分利用软件的杠杆效应",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.shell-glue",
+            "name": "Shell Glue",
+            "name_zh": "活用shell脚本",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.noninteractive-interface",
+            "name": "Non-interactive Interface",
+            "name_zh": "避开交互式用户接口",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.filter-oriented-design",
+            "name": "Filter-oriented Design",
+            "name_zh": "过滤器化",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.cohesion-audit",
+            "name": "Cohesion Audit",
+            "name_zh": "内聚度",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.coupling-audit",
+            "name": "Coupling Audit",
+            "name_zh": "耦合度",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.orthogonality-audit",
+            "name": "Orthogonality Audit",
+            "name_zh": "正交性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.reversibility-audit",
+            "name": "Reversibility Audit",
+            "name_zh": "可逆性",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.code-smell-triage",
+            "name": "Code Smell Triage",
+            "name_zh": "代码中的“坏味”",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.technical-debt-management",
+            "name": "Technical Debt Management",
+            "name_zh": "技术负债",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.boy-scout-improvement",
+            "name": "Boy Scout Improvement",
+            "name_zh": "童子军规则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.design-by-contract",
+            "name": "Design by Contract",
+            "name_zh": "契约式设计",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.dogfooding",
+            "name": "Dogfooding",
+            "name_zh": "内部测试",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.rubber-duck-debugging",
+            "name": "Rubber Duck Debugging",
+            "name_zh": "橡皮鸭调试法",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.brooks-law-response",
+            "name": "Brooks' Law Response",
+            "name_zh": "布鲁克斯法则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.conway-law-alignment",
+            "name": "Conway's Law Alignment",
+            "name_zh": "康威定律",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.broken-windows-repair",
+            "name": "Broken Windows Repair",
+            "name_zh": "破窗效应",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.entropy-control",
+            "name": "Entropy Control",
+            "name_zh": "熵增原理",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.eighty-ten-ten-boundary-check",
+            "name": "80-10-10 Boundary Check",
+            "name_zh": "80-10-10原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.joshua-tree-naming",
+            "name": "Joshua Tree Naming",
+            "name_zh": "约书亚树原则",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.second-system-control",
+            "name": "Second-System Control",
+            "name_zh": "第二系统综合征",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.reinventing-the-wheel-check",
+            "name": "Reinventing the Wheel Check",
+            "name_zh": "重新发明车轮",
+            "expected_kind": "OperatorSpec"
+          },
+          {
+            "source_key": "programming-principles-101.yak-shaving-recovery",
+            "name": "Yak Shaving Recovery",
+            "name_zh": "给牦牛剃毛",
+            "expected_kind": "OperatorSpec"
+          }
+        ]
       }
     ],
     "reference_frameworks": [
@@ -1555,6 +2066,12 @@
         "title": "User-provided Cross-Domain Method Map",
         "uri": "conversation://cross-domain-method-map",
         "note": "用户在当前项目需求中提供的跨领域方法清单与操作模式。"
+      },
+      {
+        "id": "ref:programming-principles-101-book",
+        "title": "《编程的原则：改善代码质量的101个方法》",
+        "uri": "conversation://programming-principles-101-materials",
+        "note": "用户提供的正文与下载包；正文 SHA-256 为 d5b8b2f430a79db54b1206e5a12f38af88832fce322099bcc7bb4090e8b1d0df，下载包 SHA-256 为 26c41fb680e04996bb0da10351f734f8d71675dcba7d1313fec50d861673bab7。仅登记提炼后的方法来源，不复制全文。"
       },
       {
         "id": "ref:cs2023",

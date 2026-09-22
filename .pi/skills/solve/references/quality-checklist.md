@@ -21,7 +21,7 @@
 
 - [ ] `references/index.md` 覆盖每个 Markdown 参考文件。
 - [ ] catalog、taxonomy、inventory、schema 和全部 pack 的相对路径在包内解析。
-- [ ] 包内保持 56 个 pack、417 个 source、60 个 derived、477 个总条目。
+- [ ] 包内保持 57 个 pack、496 个 source、57 个 derived、553 个总条目。
 - [ ] 内容副本与 `operators/` 一致；内容变更只能从源库刷新。
 
 ## 安全和维护

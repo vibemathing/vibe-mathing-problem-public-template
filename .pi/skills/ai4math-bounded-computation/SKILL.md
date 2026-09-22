@@ -91,11 +91,12 @@ Read `INTERNAL-PACKAGES.json` and `references/internal-package-routing.md` befor
 
 ## Progressive disclosure
 
-Read `references/consolidated-core.md` for computation-request typing, exact/symbolic/numeric/solver/randomized routing, completeness conditions, counterexample validation, resource controls, reproducibility receipts, and evidence ceilings.
+Read `references/consolidated-core.md` for computation-request typing, exact/symbolic/numeric/solver/randomized routing, completeness conditions, counterexample validation, resource controls, reproducibility receipts, and evidence ceilings. Before a costly or verdict-bearing experiment, load `references/experiment-integrity-audit.md` to freeze identity, coverage, failure semantics and replay boundaries.
 
 ## References
 
 - `references/consolidated-core.md`：31-package review set中有界计算、可证伪实验和可复现性方法的项目原创综合。
+- `references/experiment-integrity-audit.md`：实验前契约、覆盖范围、失败语义和独立复验边界。
 - `references/source-map.md`：CAS、数值方法和 OEIS 来源映射。
 - `references/tool-catalog.md`：数学工具、运行时、用法、profile 与证据边界。
 - `references/pressure-tests.md`：数值/符号证据越权压力场景。

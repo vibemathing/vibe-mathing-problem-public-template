@@ -44,6 +44,7 @@
     "routine_human_steps_required": false
   },
   "bootstrap_ack_schema": "research/schema/web-bootstrap-ack.schema.json",
+  "capability_status": "user_observed_pending_smoke_check",
   "channel": "chatgpt-web-github-issue-pr-writer",
   "forbidden_claims": [
     "established",
@@ -66,6 +67,7 @@
     "max_packet_bytes": 262144,
     "max_total_changed_bytes": 8388608
   },
+  "operational_admission": "synthetic_only_pending_permission_and_ruleset_smoke",
   "prohibited_github_operations": [
     "repository_create",
     "direct_default_branch_write",

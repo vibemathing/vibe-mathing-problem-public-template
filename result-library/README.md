@@ -34,12 +34,13 @@ result-library/
 3. 当前有效证据包含独立且接受的 `statement_faithfulness`；
 4. 以上证据绑定可复查 locator 与 SHA-256，且没有被账本中的后续记录失效；
 5. Result 与 Attempt 引用同一个 Problem，证据 verifier 不等于候选 generator。
+6. Result、Attempt、Route、ObligationGraph 和 ProblemContract digest 必须逐字段一致；缺失或漂移即拒绝。
 
 `outcome` 表示数学结果，`evidence` 表示验证能力集合；`refuted` 不是证据等级。证据能力构成偏序，不使用 `numeric < symbolic < human < kernel` 的伪全序。
 
 `prior_art_review` 可记录归因和新颖性审查，但当前不作为“数学上已证明/已反驳”的准入替代物。它不能替代直接验证，直接验证也不能自动证明新颖性。
 
-`solutions.json` 必须由校验器重算并核对，不接受绕过 `results.jsonl` 的手工答案。
+`solutions.json` 必须由校验器重算并核对，不接受绕过 `results.jsonl` 的手工答案。它始终包含 schema 版本、生成时间和唯一 `result_ids`；空索引是合法的初始状态。
 
 按 Problem 导出时，`ResearchBundle.disposition` 从当前 Solution View 派生为 `solved|refuted|open`。若同一 Problem 同时存在已准入 proof 与 counterexample，研究空间校验和导出命令都会非零失败；系统不会任选一侧，也不会把冲突伪装成 open。
 

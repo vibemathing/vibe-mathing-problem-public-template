@@ -46,6 +46,10 @@ def build_candidates(root: Path, packet: dict[str, Any]) -> list[dict[str, Any]]
     if obligation is None:
         raise RuntimeError("obligation disappeared after packet validation")
     statement_digest = obligation["statement_sha256"]
+    if packet["problem_contract_sha256"] != graph["problem_contract_sha256"]:
+        raise RuntimeError("packet ProblemContract digest differs from ObligationGraph")
+    if packet["route_id"] != graph["route_id"] or packet["attempt_id"] != graph["attempt_id"]:
+        raise RuntimeError("packet execution identity differs from ObligationGraph")
     source_refs = [source_ref_text(ref) for ref in packet["source_refs"]]
     records: list[dict[str, Any]] = []
     for candidate in packet["candidate_artifacts"]:
@@ -56,7 +60,9 @@ def build_candidates(root: Path, packet: dict[str, Any]) -> list[dict[str, Any]]
             "candidate_id": candidate["candidate_id"],
             "graph_id": packet["graph_id"],
             "obligation_id": packet["obligation_id"],
+            "route_id": packet["route_id"],
             "problem_id": packet["problem_id"],
+            "problem_contract_sha256": packet["problem_contract_sha256"],
             "attempt_id": packet["attempt_id"],
             "statement_sha256": statement_digest,
             "kind": candidate["kind"],
@@ -114,6 +120,7 @@ def import_packet(root: Path, packet_path: Path) -> dict[str, Any]:
         "packet": {"path": packet_relative, "sha256": packet_sha},
         "harness_snapshot_sha256": packet["harness_snapshot_sha256"],
         "problem_id": packet["problem_id"],
+        "problem_contract_sha256": packet["problem_contract_sha256"],
         "attempt_id": packet["attempt_id"],
         "route_id": packet["route_id"],
         "graph_id": packet["graph_id"],

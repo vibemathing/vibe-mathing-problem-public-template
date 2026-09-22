@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.4.0 - 2026-09-20
+
+### Changed
+
+- 从 `vibe-harness-cn/operators` 刷新完整发布快照，新增 `programming-principles-101` pack 的 85 个 source 算子。
+- 同步 catalog、source inventory、taxonomy 以及全部 pack；参考库从 56/417/60/477 更新为 57/496/57/553（pack/source/derived/total）。
+- 保持 Skill 自包含路径、`candidate_only` evidence ceiling 和按需加载边界不变。
+
+### Validation
+
+- 源库与模板内 references 均通过 `validate_harness.py --operator-library`：496/496 source、57/57 derived、553 total。
+- 更新后重新计算 `SKILL.md` 的受管 entry digest；未修改远端或源仓。
+
+### Rollback
+
+- 使用本次刷新前的目标快照清单恢复 `.pi/skills/solve/`，不回滚源仓历史或执行 destructive Git 操作。
+
 ## 0.3.0 - 2026-09-05
 
 ### Added

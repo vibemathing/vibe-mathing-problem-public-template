@@ -1,0 +1,10 @@
+{
+  "activation_status": "constrained",
+  "entry": "SKILL.md",
+  "entry_sha256": "0c5a5a2813666f2512ccbc521655ef162152d2e203c52067649e4829fa0b1917",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": true,
+  "registry": "INTERNAL-PACKAGES.json",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-lean-formalization"
+}

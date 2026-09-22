@@ -95,10 +95,21 @@ def load_verifier_registry(project_root: Path) -> dict[str, dict[str, Any]]:
             isinstance(item, str) and item for item in capabilities
         ):
             raise EvidenceError(f"{principal_id}: capabilities 无效")
-        if entry["role"] == "verifier" and not isinstance(entry.get("policy"), str):
-            raise EvidenceError(f"{principal_id}: verifier 缺少 policy")
-        if entry["role"] == "generator" and entry.get("policy") is not None:
-            raise EvidenceError(f"{principal_id}: generator 不应声明 verifier policy")
+        if entry["role"] == "verifier":
+            if not isinstance(entry.get("policy"), str):
+                raise EvidenceError(f"{principal_id}: verifier 缺少 policy")
+            if not isinstance(entry.get("policy_version"), str) or not entry["policy_version"]:
+                raise EvidenceError(f"{principal_id}: verifier 缺少 policy_version")
+            if entry.get("independence_class") != "independent-verifier":
+                raise EvidenceError(f"{principal_id}: verifier independence_class 无效")
+            _expected_policy_digest(entry)
+            if not isinstance(entry.get("toolchain_allowlist"), list):
+                raise EvidenceError(f"{principal_id}: verifier 缺少 toolchain_allowlist")
+        if entry["role"] == "generator":
+            if entry.get("policy") is not None or entry.get("policy_version") is not None or entry.get("policy_digest") is not None:
+                raise EvidenceError(f"{principal_id}: generator 不应声明 verifier policy")
+            if entry.get("independence_class") != "candidate-generator":
+                raise EvidenceError(f"{principal_id}: generator independence_class 无效")
         entries[principal_id] = entry
     return entries
 
@@ -114,6 +125,106 @@ def _validate_schema(schema_path: Path, value: dict[str, Any], label: str) -> No
     )
     if errors:
         raise EvidenceError(f"{label} schema 无效：{errors[0].message}")
+
+
+def _canonical_sha256(value: Any) -> str:
+    encoded = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _expected_policy_digest(principal: dict[str, Any]) -> str:
+    policy = principal.get("policy")
+    version = principal.get("policy_version")
+    if not isinstance(policy, str) or not isinstance(version, str):
+        raise EvidenceError("verifier 缺少 policy/version")
+    expected = hashlib.sha256(f"{policy}\n{version}".encode()).hexdigest()
+    if principal.get("policy_digest") != expected:
+        raise EvidenceError(f"verifier policy digest 不一致：{principal.get('id')}")
+    return expected
+
+
+def _bind_receipt(
+    *, project_root: Path, receipt: dict[str, Any], principal: dict[str, Any], inputs: list[dict[str, Any]] | None
+) -> None:
+    policy_digest = _expected_policy_digest(principal)
+    toolchain = receipt.get("toolchain")
+    if toolchain is not None:
+        allowlist = principal.get("toolchain_allowlist", [])
+        if not any(
+            all(toolchain.get(key) == allowed.get(key) for key in ("id", "version", "fingerprint"))
+            for allowed in allowlist
+        ):
+            raise EvidenceError("receipt toolchain 不在 verifier allowlist")
+    command = receipt["command"]
+    normalized_inputs = inputs or []
+    command_digest = _canonical_sha256(command)
+    inputs_digest = _canonical_sha256(normalized_inputs)
+    replay_id = "replay:" + _canonical_sha256({"command_sha256": command_digest, "inputs_sha256": inputs_digest})
+    receipt["verifier_identity"] = {
+        "id": principal["id"],
+        "trust_domain": principal["trust_domain"],
+        "policy_version": principal["policy_version"],
+        "policy_digest": policy_digest,
+        "registry_sha256": sha256_file(project_root / "research" / "verifiers.json"),
+        "independence_class": "independent-verifier",
+    }
+    receipt["replay"] = {
+        "replay_id": replay_id,
+        "command_sha256": command_digest,
+        "inputs_sha256": inputs_digest,
+    }
+    unsigned = dict(receipt)
+    unsigned.pop("signature", None)
+    receipt["signature"] = {
+        "algorithm": "sha256-receipt-attestation-v1",
+        "signer": principal["id"],
+        "value": _canonical_sha256(unsigned),
+    }
+
+
+def _verify_receipt_bindings(
+    *, project_root: Path, receipt: dict[str, Any], principal: dict[str, Any]
+) -> None:
+    expected_policy_digest = _expected_policy_digest(principal)
+    identity = receipt.get("verifier_identity", {})
+    if identity != {
+        "id": principal.get("id"),
+        "trust_domain": principal.get("trust_domain"),
+        "policy_version": principal.get("policy_version"),
+        "policy_digest": expected_policy_digest,
+        "registry_sha256": sha256_file(project_root / "research" / "verifiers.json"),
+        "independence_class": "independent-verifier",
+    }:
+        raise EvidenceError("receipt verifier identity/policy/registry binding 不一致")
+    inputs = receipt.get("inputs", [])
+    command = receipt.get("command", {})
+    command_digest = _canonical_sha256(command)
+    inputs_digest = _canonical_sha256(inputs)
+    toolchain = receipt.get("toolchain")
+    if toolchain is not None:
+        allowlist = principal.get("toolchain_allowlist", [])
+        if not any(
+            all(toolchain.get(key) == allowed.get(key) for key in ("id", "version", "fingerprint"))
+            for allowed in allowlist
+        ):
+            raise EvidenceError("receipt toolchain 不在 verifier allowlist")
+    replay = receipt.get("replay", {})
+    expected_replay = {
+        "replay_id": "replay:" + _canonical_sha256({"command_sha256": command_digest, "inputs_sha256": inputs_digest}),
+        "command_sha256": command_digest,
+        "inputs_sha256": inputs_digest,
+    }
+    if replay != expected_replay:
+        raise EvidenceError("receipt replay identity 不一致")
+    signature = receipt.get("signature", {})
+    unsigned = dict(receipt)
+    unsigned.pop("signature", None)
+    if signature != {
+        "algorithm": "sha256-receipt-attestation-v1",
+        "signer": principal.get("id"),
+        "value": _canonical_sha256(unsigned),
+    }:
+        raise EvidenceError("receipt signature/attestation 不一致")
 
 
 def _load_output_json(path: Path) -> dict[str, Any]:
@@ -303,6 +414,12 @@ def create_evidence_receipt(
         },
         "command": {"executor": executor, "argv": command, "exit_code": 0},
     }
+    _bind_receipt(project_root=project_root, receipt=receipt, principal=principal, inputs=None)
+    _validate_schema(
+        project_root / "research" / "schema" / "evidence-receipt.schema.json",
+        receipt,
+        "证据回执",
+    )
     receipt_path = project_root / receipt_locator
     encoded = (json.dumps(receipt, ensure_ascii=False, sort_keys=True, indent=2) + "\n").encode()
     if receipt_path.is_file():
@@ -400,6 +517,7 @@ def create_obligation_evidence_receipt(
         receipt["inputs"] = inputs
     if toolchain is not None:
         receipt["toolchain"] = toolchain
+    _bind_receipt(project_root=project_root, receipt=receipt, principal=principal, inputs=inputs)
     _validate_schema(
         project_root / "research" / "schema" / "evidence-receipt.schema.json",
         receipt,
@@ -447,6 +565,7 @@ def verify_obligation_evidence_receipt(
     verifier_entry = registry.get(receipt.get("verifier"))
     if verifier_entry is None or verifier_entry.get("role") != "verifier":
         raise EvidenceError(f"未注册 verifier：{receipt.get('verifier')}")
+    _verify_receipt_bindings(project_root=project_root, receipt=receipt, principal=verifier_entry)
     capability = receipt.get("capability")
     if capability not in verifier_entry.get("capabilities", []):
         raise EvidenceError(f"verifier 未注册 capability={capability}")
@@ -529,6 +648,7 @@ def verify_evidence_receipt(
         receipt,
         "证据回执",
     )
+    _verify_receipt_bindings(project_root=project_root, receipt=receipt, principal=verifier_entry)
     for field in ("evidence_id", "capability", "verdict", "verifier", "checked_at"):
         if receipt.get(field) != evidence.get(field):
             raise EvidenceError(f"回执字段与 Result 不一致：{field}")

@@ -1,0 +1,10 @@
+{
+  "activation_status": "active",
+  "entry": "SKILL.md",
+  "entry_sha256": "ddefbff20ddae7fa3cb2d644217b967db88bf6347db77256c03df46bdb4fd69e",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": false,
+  "registry": "INTERNAL-PACKAGES.json",
+  "schema_version": "1.0.0",
+  "skill_id": "mathematics-in-lean"
+}

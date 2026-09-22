@@ -27,8 +27,12 @@
     {
       "source": "project fixture",
       "source_record_id": null,
-      "url": "https://github.com/tradecatlabs/vibe-mathing-cn",
-      "retrieved_at": "2026-08-13T00:00:00Z"
+      "url": "https://github.com/vibemathing/vibe-mathing-problem-public-template",
+      "retrieved_at": "2026-08-13T00:00:00Z",
+      "revision": "fixture-revision-1",
+      "content_sha256": "2c2a1ca2e4f34f1a9a9e3bd0c74b22c999b776a299c60d5f9dd2c5d2275ecf0d",
+      "quote": "对所有实数 x，x^2 >= x。",
+      "license": {"name": "CC0-1.0", "attribution": "Vibe Mathing synthetic fixture"}
     }
   ],
   "acceptance": {
