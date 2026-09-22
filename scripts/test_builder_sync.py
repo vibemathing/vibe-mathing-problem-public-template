@@ -10,12 +10,24 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from build_problem_repository import enforce_public_rights
+from build_problem_repository import BUILDER_VERSION, enforce_public_rights, read_suite_version
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class BuilderSyncTests(unittest.TestCase):
+    def test_version_file_is_the_single_suite_version_source(self) -> None:
+        declared = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+        manifest = json.loads((ROOT / "governance/control-plane/harness-source-manifest.v1.json").read_text(encoding="utf-8"))
+        self.assertEqual(read_suite_version(ROOT), declared)
+        self.assertEqual(BUILDER_VERSION, declared)
+        self.assertEqual(manifest["harness_version"], declared)
+        with tempfile.TemporaryDirectory(prefix="vibe-invalid-version-") as directory:
+            invalid_root = Path(directory)
+            (invalid_root / "VERSION").write_text("latest\n", encoding="utf-8")
+            with self.assertRaisesRegex(RuntimeError, "semantic version"):
+                read_suite_version(invalid_root)
+
     def test_builder_has_public_rights_gate_and_runtime_cleanup(self) -> None:
         text = (ROOT / "scripts/build_problem_repository.py").read_text(encoding="utf-8")
         self.assertIn("enforce_public_rights", text)

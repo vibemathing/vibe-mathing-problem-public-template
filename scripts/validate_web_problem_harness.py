@@ -31,6 +31,7 @@ from vibe_mathing.web_channel import (
 REQUIRED_CONTROL_FILES = {
     ".gitignore",
     "README.md",
+    "VERSION",
     "Makefile",
     "requirements.txt",
     "requirements-web-harness.txt",
@@ -217,10 +218,23 @@ def validate(root: Path) -> list[str]:
     errors.extend(f"agent identity: {message}" for message in validate_agent_identity(root))
     errors.extend(f"reasoning discipline: {message}" for message in validate_reasoning_discipline(root))
 
+    suite_version: str | None = None
+    try:
+        version_path = root / "VERSION"
+        if version_path.is_symlink():
+            raise ValueError("VERSION must not be a symbolic link")
+        suite_version = version_path.read_text(encoding="utf-8").strip()
+        if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", suite_version):
+            raise ValueError("VERSION must contain one semantic version")
+    except (OSError, ValueError) as exc:
+        errors.append(f"suite version invalid: {exc}")
+
     try:
         snapshot = load_json(root / "HARNESS_SNAPSHOT.json")
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         return errors + [f"cannot load Harness snapshot: {exc}"]
+    if suite_version is not None and snapshot.get("harness_version") != suite_version:
+        errors.append("VERSION and Harness snapshot version mismatch")
     schema_path = root / "governance/control-plane/harness-snapshot-manifest.v1.schema.json"
     if not schema_path.is_file():
         errors.append("missing Harness snapshot schema")
@@ -469,6 +483,8 @@ def validate(root: Path) -> list[str]:
         source_manifest = load_json(root / "governance/control-plane/harness-source-manifest.v1.json")
         source_manifest_schema = root / "governance/control-plane/harness-source-manifest.v1.schema.json"
         errors.extend(f"source manifest: {message}" for message in validate_schema(source_manifest, source_manifest_schema))
+        if suite_version is not None and source_manifest.get("harness_version") != suite_version:
+            errors.append("VERSION and source manifest version mismatch")
         excluded_container_skills = set(source_manifest.get("excluded_container_skill_ids", []))
         if not REQUIRED_EXCLUDED_CONTAINER_SKILLS.issubset(excluded_container_skills):
             errors.append("source manifest must exclude auto-goal, auto-tmux and nvidia-private-compute")

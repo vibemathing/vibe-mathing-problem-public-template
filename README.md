@@ -1,6 +1,6 @@
 # Vibe Mathing Single-Problem Research Repository
 
-This repository contains one canonical ProblemContract plus a fixed, self-contained Vibe Mathing Harness snapshot.
+This repository contains one canonical ProblemContract plus a fixed, self-contained Vibe Mathing Harness snapshot. The root [`VERSION`](VERSION) file is the single semantic-version source for the builder, source manifest, generated snapshot, and release checks.
 
 The repository is Pi-native: after you trust the project, Pi discovers only the ten project Skill entries declared in [`.pi/settings.json`](.pi/settings.json). This checked-in repository is the generic template, not a bound research repository: `problem:template-placeholder` remains an inert draft fixture and no mathematical actor may start here. Live repository admission is recorded separately in [`WEB_REPOSITORY_ADMISSION.json`](WEB_REPOSITORY_ADMISSION.json); the template Web transport remains synthetic until a concrete problem repository receives fresh live receipts. The AI4Math Skills bundle and route 31 complete project-authored internal reference packages through repository-relative registries. They are MIT-licensed and bound to the owner attestation and immutable package tree digests in [`project-authored-package-rights-attestation.v1.json`](governance/control-plane/project-authored-package-rights-attestation.v1.json). Start `pi` from the repository root, verify the `.pi/skills/` entries, and then choose a maintenance or instantiation mode:
 

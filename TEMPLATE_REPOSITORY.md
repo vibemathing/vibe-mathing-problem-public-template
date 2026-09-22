@@ -3,7 +3,9 @@
 This is the **generic public template**. It contains the complete fixed
 Pi-native research Harness, its bounded Web transport profile, and one explicit
 inert placeholder ProblemContract. The template is not a research repository
-and must not be bound to, or start an actor for, any mathematical problem.
+and must not be bound to, or start an actor for, any mathematical problem. Root
+`VERSION` is the only suite-version truth; builder, source manifest and snapshot
+must match it exactly or fail closed.
 
 ## Placeholder policy
 

@@ -152,6 +152,7 @@ research actor 保有数学策略自主权；协调器只能检查身份、权�
 |---|---|---|
 | `.pi/` | Pi project integration | settings、entry Skills、只读 package registry；禁止 session/runtime/secret |
 | `.pi/skills/` | Skill suite owner | 顶层入口、metadata、references、内部包和套件索引；不放动态状态 |
+| `VERSION` | release owner | 全仓唯一语义版本真相；builder、source manifest、snapshot 和 release check 必须精确一致 |
 | `problem-library/` | Problem/source owner | source snapshot、CandidateObservation、canonical ProblemContract；raw 不人工编辑 |
 | `research/records/` | research ledger/importer | schema 约束的记录流；按 append-only/importer 规则写入 |
 | `research/` Research OS | candidate-only metadata owner | working set/event/projection 与边界检查；不产生 Evidence、Result、Solution 或 admission |

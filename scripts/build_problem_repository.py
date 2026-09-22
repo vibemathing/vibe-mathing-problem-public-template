@@ -24,7 +24,20 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTROL = ROOT / "governance/control-plane"
 DEFAULT_MANIFEST = CONTROL / "harness-source-manifest.v1.json"
 DEFAULT_TEMPLATE = ROOT
-BUILDER_VERSION = "2.2.0"
+VERSION_PATTERN = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+$")
+
+
+def read_suite_version(root: Path = ROOT) -> str:
+    path = root / "VERSION"
+    if not path.is_file() or path.is_symlink():
+        raise RuntimeError("VERSION must be a regular file")
+    value = path.read_text(encoding="utf-8").strip()
+    if not VERSION_PATTERN.fullmatch(value):
+        raise RuntimeError("VERSION must contain one semantic version")
+    return value
+
+
+BUILDER_VERSION = read_suite_version()
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
 PI_SKILL_STATUS = {
     "solve": "active",
@@ -278,6 +291,9 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         raise RuntimeError("source repository identity is unbound; production Harness snapshots require an exact GitHub source")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     validate_json(manifest, CONTROL / "harness-source-manifest.v1.schema.json", "source manifest")
+    suite_version = read_suite_version(root)
+    if manifest.get("harness_version") != suite_version or BUILDER_VERSION != suite_version:
+        raise RuntimeError("VERSION, builder and source manifest versions must match exactly")
     problem = read_problem(args.problem_file.resolve(), root)
     if problem.get("lifecycle") != "active" and not args.allow_draft_problem:
         raise RuntimeError("ProblemContract is not active; production problem repositories require lifecycle=active")
