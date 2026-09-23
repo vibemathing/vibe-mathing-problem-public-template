@@ -33,19 +33,17 @@ from vibe_mathing.research_os import (
 )
 
 
-TEMPLATE_PROBLEM_ID = "problem:template-placeholder"
+FIXTURE_PROBLEM_ID = "problem:sympy-counterexample-fixture"
 
 
 def _read_problem() -> dict[str, Any]:
-    for line in (ROOT / "problem-library/records/canonical-problems.jsonl").read_text(encoding="utf-8").splitlines():
-        if line.strip():
-            value = json.loads(line)
-            if value.get("problem_id") == TEMPLATE_PROBLEM_ID:
-                # The public record is deliberately draft.  This local synthetic
-                # fixture activates only the copied test record, never the source.
-                value["lifecycle"] = "active"
-                return value
-    raise AssertionError("public template ProblemContract fixture is missing")
+    # 从随母版复制的 test-only fixture 读取，不依赖具体问题仓的冻结合同。
+    value = json.loads((ROOT / "fixtures/sympy-counterexample/problem.json").read_text(encoding="utf-8"))
+    if value.get("problem_id") != FIXTURE_PROBLEM_ID or value.get("lifecycle") != "active":
+        raise AssertionError("Research OS test fixture identity or lifecycle mismatch")
+    schema = json.loads((ROOT / "problem-library/schema/canonical-problem.schema.json").read_text(encoding="utf-8"))
+    Draft202012Validator(schema).validate(value)
+    return value
 
 
 def _copy_schema(source_relative: str, target_root: Path) -> None:
@@ -78,7 +76,7 @@ class ResearchOsRuntimeTests(unittest.TestCase):
         problem_path.write_text(json.dumps(_read_problem(), ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
         self.problem = _read_problem()
         self.binding = {
-            "problem_id": TEMPLATE_PROBLEM_ID,
+            "problem_id": FIXTURE_PROBLEM_ID,
             "problem_contract_sha256": canonical_json_sha256(self.problem),
             "statement_sha256": problem_statement_sha256(self.problem),
             "scope_sha256": problem_scope_sha256(self.problem),

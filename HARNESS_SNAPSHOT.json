@@ -76,7 +76,7 @@
     "sha256": "575e7e8a8b8d607bcbe229dfd6ee5978c52f3d20cd42d69cf92ce65f53abd9e3",
     "version": "2.3.0"
   },
-  "built_at": "2026-09-23T05:29:08+08:00",
+  "built_at": "2026-09-23T05:33:59+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -7535,7 +7535,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "research/research-os-profile.v1.json",
-      "sha256": "3ed091667ae88e3a5f1837d1f7b432e27036c216fca366df6e334b5e4bc45edb"
+      "sha256": "4aa9ac52c738618595aac9133d01d21e0f43051bde20663cda2e884b5dc07bcb"
     },
     {
       "bytes": 1872,
@@ -7730,12 +7730,12 @@
       "sha256": "dff53fa8c8f9fb3641f26c08cd7602e1ea93c75d4ac0bacb524681754e384a0d"
     },
     {
-      "bytes": 11152,
+      "bytes": 11701,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/audit_release_checklist.py",
-      "sha256": "1730e9e8be816daff6f1aaac5ca80a24d2ce63d983a6348ed26ff59eb624294f"
+      "sha256": "e6f561c35aa5526c4d829d00af5d0f630cfda6896f89fd88fe13742a000a9da3"
     },
     {
       "bytes": 34325,
@@ -7786,12 +7786,12 @@
       "sha256": "21ce2dd1f93b1961b6b85bd7747773f7c88fdae24bd549fed11b542e660fdfa8"
     },
     {
-      "bytes": 4275,
+      "bytes": 6481,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/test_builder_sync.py",
-      "sha256": "98665fcc5e108d587b605fc377eb22b69ac5d5c59e6d1111784e95039a6c5368"
+      "sha256": "522836774dc78a364b51b5e70cf759102a63ad7a0a15a9b7b781796717e2c7b4"
     },
     {
       "bytes": 28306,
@@ -7802,20 +7802,20 @@
       "sha256": "e163e1f5aa507c1272efe2747e0a197dd9164de0ed4352f7c6e1dcadc7fabeb5"
     },
     {
-      "bytes": 1038,
+      "bytes": 3795,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/test_release_audit.py",
-      "sha256": "678e66055d16708b1f39259392096da2ecbdba912610a285d4a32f8788fe07f8"
+      "sha256": "8534c4b28fefc54839e73ab7636f421a9f090d473adb04a248f5445c6de1d89e"
     },
     {
-      "bytes": 19957,
+      "bytes": 19969,
       "layer": "research_core",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/test_research_os_runtime.py",
-      "sha256": "b88c45497f96c524cd98d75f6fe76a914642b9f07dcd434d5dfbcee998f0efd7"
+      "sha256": "8ba256f2db0770686e93c8f51c29a31a93034539557bd38365c63365e5c5f0c1"
     },
     {
       "bytes": 1945,
@@ -7962,12 +7962,12 @@
       "sha256": "af0b5c71e79cca2a5d6d56eb30d78670d6439d93c1bc212dc0a0766772da1a71"
     },
     {
-      "bytes": 53216,
+      "bytes": 53665,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "4629044b3a57434e69325131b824e57387fb55fed4123f775b332aa9cc42662f"
+      "sha256": "c102ba2e1b92d9da6fae1f4b60c962aaebc4944fa428b1d1ff22ed09ceb927b4"
     },
     {
       "bytes": 2410,
@@ -8129,7 +8129,7 @@
     "commit": "b9fdc0eed6f1d79e17739448d02f4c455963495a",
     "repository": "reviewed-public-export",
     "source_manifest_sha256": "b9fdc0eed6f1d79e17739448d02f4c455963495a2a5246733a63e98a5f0bcb19",
-    "worktree_dirty": false
+    "worktree_dirty": true
   },
-  "tree_sha256": "9d550499656c050fea43afbe7ece116f1b0e63907cdf6cd792f9164edf7e0162"
+  "tree_sha256": "fa02bafd00ff68bd5874c93c303ad7d174dd1d967bebac0a87a9c8f3ef1b4951"
 }

@@ -293,7 +293,14 @@ def validate(root: Path) -> list[str]:
             continue
         if path.is_file() and not path.is_symlink():
             actual_members.add(relative)
-    extras = sorted(actual_members - allowed_snapshot_members)
+    # 研究中的候选文件是可变的非可信输入，不能伪装为冻结 Harness 成员。
+    # 仅允许此精确目录下的普通文件；symlink、隐私和二进制检查仍由下方全树扫描执行。
+    candidate_root = root / "research/artifacts/candidates"
+    candidate_only_members = {
+        relative for relative in actual_members
+        if (root / relative).is_relative_to(candidate_root)
+    }
+    extras = sorted(actual_members - allowed_snapshot_members - candidate_only_members)
     if extras:
         errors.append(f"unlisted snapshot members: {extras[0]} (and {len(extras)-1} more)")
     missing_members = sorted(allowed_snapshot_members - actual_members)

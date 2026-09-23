@@ -59,9 +59,15 @@ def run_json_command(command: list[str], cwd: Path) -> tuple[bool, str]:
 def git_clean_receipt(root: Path, independent_root: Path | None) -> tuple[bool, list[str], list[str]]:
     if independent_root is None:
         return False, [], ["no independent checkout/receipt was supplied"]
+    if independent_root.resolve() == root.resolve():
+        return False, [], ["independent checkout must not be the release candidate worktree"]
     git_dir = independent_root / ".git"
     if not git_dir.exists():
         return False, [f"independent workspace supplied: {independent_root}"], ["supplied independent workspace is not a Git checkout"]
+    expected_snapshot = root / "HARNESS_SNAPSHOT.json"
+    reproduced_snapshot = independent_root / "HARNESS_SNAPSHOT.json"
+    if not reproduced_snapshot.is_file() or reproduced_snapshot.is_symlink() or sha256(expected_snapshot) != sha256(reproduced_snapshot):
+        return False, [f"independent checkout: {independent_root}"], ["independent checkout snapshot does not match the release candidate"]
     status = subprocess.run(
         ["git", "status", "--porcelain"],
         cwd=independent_root,

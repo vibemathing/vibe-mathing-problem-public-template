@@ -133,7 +133,7 @@
       "owner": "problem-repository-harness",
       "status": "implemented_isolated",
       "source": "scripts/test_research_os_runtime.py",
-      "source_sha256": "b88c45497f96c524cd98d75f6fe76a914642b9f07dcd434d5dfbcee998f0efd7",
+      "source_sha256": "8ba256f2db0770686e93c8f51c29a31a93034539557bd38365c63365e5c5f0c1",
       "evidence_ceiling": "control_plane_only",
       "side_effect_policy": "read_only",
       "validation_commands": ["python3 scripts/test_research_os_runtime.py"]

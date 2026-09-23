@@ -82,6 +82,38 @@ class BuilderSyncTests(unittest.TestCase):
             self.assertEqual(json.loads(result.stdout)["decision"], "PASS")
             self.assertTrue((output / "HARNESS_SNAPSHOT.json").is_file())
 
+    def test_live_candidate_is_not_harness_but_unrelated_or_unsafe_members_fail(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="vibe-candidate-boundary-") as directory:
+            output = Path(directory) / "out"
+            built = subprocess.run(
+                [
+                    sys.executable, str(ROOT / "scripts/build_problem_repository.py"),
+                    "--project-root", str(ROOT),
+                    "--problem-file", str(ROOT / "problem-library/records/canonical-problems.jsonl"),
+                    "--repository", "vibemathing/vibe-mathing-problem-public-template",
+                    "--output", str(output),
+                    "--allow-dirty-source", "--allow-draft-problem", "--allow-unadmitted-problem",
+                    "--allow-planned-repository-identity", "--json",
+                ],
+                cwd=ROOT, text=True, capture_output=True, check=False,
+            )
+            self.assertEqual(built.returncode, 0, built.stderr)
+            candidate = output / "research/artifacts/candidates"
+            (candidate / "synthetic-observation.txt").write_text("candidate-only; no Result\n", encoding="utf-8")
+            command = [sys.executable, str(output / "scripts/validate_web_problem_harness.py"),
+                       "--project-root", str(output)]
+            valid = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
+            self.assertEqual(valid.returncode, 0, valid.stderr)
+
+            (output / "scripts/foreign.txt").write_text("unlisted Harness mutation\n", encoding="utf-8")
+            (candidate / "escape").symlink_to(ROOT / "VERSION")
+            (candidate / "binary.bin").write_bytes(b"\xff\x00")
+            invalid = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
+            self.assertNotEqual(invalid.returncode, 0)
+            self.assertIn("unlisted snapshot members: scripts/foreign.txt", invalid.stderr)
+            self.assertIn("symlink forbidden in problem repository: research/artifacts/candidates/escape", invalid.stderr)
+            self.assertIn("binary web artifact forbidden: research/artifacts/candidates/binary.bin", invalid.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()
