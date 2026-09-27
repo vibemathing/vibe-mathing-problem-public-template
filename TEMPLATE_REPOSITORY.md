@@ -123,6 +123,23 @@ a mathematical result.
   canary before any online switch. On failure, park the Goal and restore just
   one verified scheduler. Pausing a Hook does not prove safe uninstallation.
 
+### Bounded, read-only checkpoint status
+
+For an explicitly identified local actor, a separate maintainer can run
+`python3 scripts/report_local_checkpoint.py --checkpoints-dir <private-runtime/checkpoints> --problem-id <frozen-id> --problem-contract-sha256 <frozen-sha256>`.
+This optional standard-library command only inventories checkpoint JSON metadata:
+the latest by modification time, its adjacent predecessor when available, the
+reported candidate/root and admission fields, and directory byte/file counts.
+A persisted `infrastructure_update.recorded_at_sequence` identifies a **historical
+record**, not automatically the current mathematical delta; comparisons refer
+only to two adjacent, identity-matched checkpoint states. Every reported
+admission flag is **unverified**, not a Result or closure receipt. Invalid or
+oversized files fail closed; the report never reads Pi sessions, deletes,
+compacts, or rotates an active checkpoint. Capacity remediation first requires
+an independent recovery replay and a bounded retention policy. The generic
+template has no admitted local actor, so never run it on the placeholder as
+research evidence.
+
 The optional [local write guard](.pi/opt-in-extensions/README.md) is not loaded
 by this template and refuses `bash/powershell` without independent filesystem
 confinement. It cannot schedule research. Goal does not replace write isolation,
