@@ -76,6 +76,62 @@
       "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
       "source_manifest_sha256": "b9fdc0eed6f1d79e17739448d02f4c455963495a2a5246733a63e98a5f0bcb19",
       "tree_sha256": "fa02bafd00ff68bd5874c93c303ad7d174dd1d967bebac0a87a9c8f3ef1b4951"
+    },
+    {
+      "harness_snapshot_sha256": "a84e874b0f947968905c98ca8c928495e2a9e4c4f5d8a8611eebcbcf2b178dda",
+      "harness_version": "2.3.1",
+      "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
+      "source_manifest_sha256": "3b4259e2a72c6ed4b348e5eeafacc523d97129fd009b4552f9dd51d8f9040933",
+      "tree_sha256": "fe83f8ab48734814db2f93de26be28c5b1d62a766cfa03aa76bf2aa5252a371c"
+    },
+    {
+      "harness_snapshot_sha256": "a691b942e0d5c61481699b83b254a1a20a9b39444b245ed9294389cac3a7e4c5",
+      "harness_version": "2.3.1",
+      "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
+      "source_manifest_sha256": "3b4259e2a72c6ed4b348e5eeafacc523d97129fd009b4552f9dd51d8f9040933",
+      "tree_sha256": "6662ad6679f773dfb47f2efe568ef7e4affddf7739b9f4c6db011cb3a5331615"
+    },
+    {
+      "harness_snapshot_sha256": "94cd9438fea5ad25fc947a230d8c93a42a5dbd06c61eb7941a704e3132f3e511",
+      "harness_version": "2.3.1",
+      "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
+      "source_manifest_sha256": "3b4259e2a72c6ed4b348e5eeafacc523d97129fd009b4552f9dd51d8f9040933",
+      "tree_sha256": "25c7da59742e6a1e0d05a8316f73b5efe1db340615ff92d84a2958582346a0d1"
+    },
+    {
+      "harness_snapshot_sha256": "117fd8c0906b0acf73878856c85d0b0ad13a9c791c508e1d776e54492dfc1a2d",
+      "harness_version": "2.3.1",
+      "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
+      "source_manifest_sha256": "22bf3d8d3d602a9ef39308943cbfa123c84af70a372abfe786b48332b6bac414",
+      "tree_sha256": "9dab6e4a0a6033cb663c0a23baef5c2b540b20d197549bc47e31d2a724e2b8bb"
+    },
+    {
+      "harness_snapshot_sha256": "2b159320670ac1ab1579e9a920bb14d2825078a6a0575eef7a211e261746253f",
+      "harness_version": "2.3.1",
+      "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
+      "source_manifest_sha256": "22bf3d8d3d602a9ef39308943cbfa123c84af70a372abfe786b48332b6bac414",
+      "tree_sha256": "73cc11a327a8c4eb40f86e733884efbc8217197f50b1b7f55b1ca77916e7ee36"
+    },
+    {
+      "harness_snapshot_sha256": "b48ced14b8839321d91656e5d6b654ddeee77d0d77d219e950eed0d66a5e19ad",
+      "harness_version": "2.3.1",
+      "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
+      "source_manifest_sha256": "22bf3d8d3d602a9ef39308943cbfa123c84af70a372abfe786b48332b6bac414",
+      "tree_sha256": "bc38c225dea422eae4d3f1f5c83b67299d685e3582f7c7037e227d1991afeb37"
+    },
+    {
+      "harness_snapshot_sha256": "65f5d04aac6c55b117fc185bc68e19a0b59501f3c8bfcce9add3f99fcb95ea32",
+      "harness_version": "2.3.1",
+      "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
+      "source_manifest_sha256": "22bf3d8d3d602a9ef39308943cbfa123c84af70a372abfe786b48332b6bac414",
+      "tree_sha256": "90051402a0ca21d0100016839a0205290fc2cae213c22b9c4ec3fd518631f5b5"
+    },
+    {
+      "harness_snapshot_sha256": "e91014bc3e2af0a1f4fdda6c242c8044793db4b6bb82d27fee4d464b706caefb",
+      "harness_version": "2.3.1",
+      "importer_policy_sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb",
+      "source_manifest_sha256": "22bf3d8d3d602a9ef39308943cbfa123c84af70a372abfe786b48332b6bac414",
+      "tree_sha256": "7fb074ce2010dfbe81f500ad57ee6ea98b3d304bb521d911b4e2df72a61108c9"
     }
   ],
   "repository": "vibemathing/vibe-mathing-problem-public-template",

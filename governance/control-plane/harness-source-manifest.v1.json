@@ -53,6 +53,42 @@
     },
     {
       "excludes": [],
+      "kind": "tree",
+      "layer": "math_layer",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": ".pi/opt-in-extensions",
+      "target_path": ".pi/opt-in-extensions"
+    },
+    {
+      "excludes": [],
+      "kind": "tree",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": ".pi/opt-in-skills",
+      "target_path": ".pi/opt-in-skills"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": ".pi/pi-goal-x-settings.json",
+      "target_path": ".pi/pi-goal-x-settings.json"
+    },
+    {
+      "excludes": [],
       "kind": "file",
       "layer": "research_core",
       "license_ref": null,
@@ -720,6 +756,18 @@
     {
       "excludes": [],
       "kind": "file",
+      "layer": "math_layer",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/test_local_write_guard.mjs",
+      "target_path": "scripts/test_local_write_guard.mjs"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
       "layer": "web_channel",
       "license_ref": null,
       "owner": "harness",
@@ -864,7 +912,7 @@
     "vendor/upstream",
     "build"
   ],
-  "harness_version": "2.3.0",
+  "harness_version": "2.3.1",
   "manifest_id": "harness-source:web-research-full",
   "profile": "web-research-full",
   "schema_version": "1.0.0"

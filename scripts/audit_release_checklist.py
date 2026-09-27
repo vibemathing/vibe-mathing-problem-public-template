@@ -8,6 +8,7 @@ import json
 import os
 import subprocess
 import sys
+sys.dont_write_bytecode = True
 from datetime import datetime, timezone
 from pathlib import Path
 from types import SimpleNamespace
@@ -155,6 +156,7 @@ def audit(root: Path, independent_root: Path | None = None, maintainer_review: P
             "privacy/", "binary release member:", "symlink is not allowed:",
             "group/world writable member:", "oversized release member:",
             "possible credential assignment:", "unhashed pinned dependency:",
+            "Pi Goal npm cache", "Pi Goal installed package",
         ))
     ]
     separation_ok, separation_detail = run_json_command(

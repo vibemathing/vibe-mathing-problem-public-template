@@ -9,10 +9,13 @@ import os
 import re
 import stat
 import sys
+sys.dont_write_bytecode = True
 from pathlib import Path
 from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
+
+from validate_web_problem_harness import validate_pi_goal_npm_cache
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".md", ".json", ".jsonl", ".py", ".txt", ".yml", ".yaml", ".cff", ".toml", ".in", ".sh"}
@@ -38,8 +41,11 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def iter_files(root: Path):
+def iter_files(root: Path, verified_npm_cache: bool = False):
     for path in sorted(root.rglob("*")):
+        relative = path.relative_to(root)
+        if verified_npm_cache and relative.parts[:2] == (".pi", "npm"):
+            continue  # 受审且未跟踪的 Pi 本地包缓存不是发布成员。
         if not path.is_file() or ".git" in path.parts or "__pycache__" in path.parts:
             continue
         if path.suffix == ".pyc":
@@ -73,8 +79,8 @@ def rights_audit(root: Path, errors: list[str]) -> None:
                 errors.append(f"package {item.get('package_id')}: missing {field}")
 
 
-def privacy_audit(root: Path, errors: list[str]) -> None:
-    for path in iter_files(root):
+def privacy_audit(root: Path, errors: list[str], verified_npm_cache: bool = False) -> None:
+    for path in iter_files(root, verified_npm_cache):
         if path.name == "validate_release_readiness.py":
             continue
         if path.stat().st_size > 8 * 1024 * 1024:
@@ -96,8 +102,11 @@ def privacy_audit(root: Path, errors: list[str]) -> None:
             errors.append(f"possible credential assignment: {path.relative_to(root)}")
 
 
-def filesystem_audit(root: Path, errors: list[str]) -> None:
+def filesystem_audit(root: Path, errors: list[str], verified_npm_cache: bool = False) -> None:
     for path in root.rglob("*"):
+        relative = path.relative_to(root)
+        if verified_npm_cache and relative.parts[:2] == (".pi", "npm"):
+            continue
         if ".git" in path.parts:
             continue
         if path.is_symlink():
@@ -194,9 +203,11 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     missing = sorted(relative for relative in REQUIRED_RELEASE_FILES if not (root / relative).is_file())
     errors.extend(f"missing release file: {relative}" for relative in missing)
     generic_template = is_generic_template(root)
+    verified_npm_cache, cache_errors = validate_pi_goal_npm_cache(root)
+    errors.extend(cache_errors)
     rights_audit(root, errors)
-    privacy_audit(root, errors)
-    filesystem_audit(root, errors)
+    privacy_audit(root, errors, verified_npm_cache)
+    filesystem_audit(root, errors, verified_npm_cache)
     dependency_audit(root, errors)
     profile_audit(root, errors, generic_template=generic_template)
     if args.mode == "public":
@@ -206,7 +217,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             held = [item.get("package_id") for item in packages if item.get("public_redistribution_admitted") is not True]
             if held:
                 errors.append(f"public release contains non-admitted package bodies: {len(held)}")
-    return {"decision": "PASS" if not errors else "BLOCK", "mode": args.mode, "errors": errors, "files_scanned": sum(1 for _ in iter_files(root))}
+    return {"decision": "PASS" if not errors else "BLOCK", "mode": args.mode, "errors": errors, "files_scanned": sum(1 for _ in iter_files(root, verified_npm_cache))}
 
 
 def main() -> int:

@@ -11,12 +11,14 @@ import re
 import shutil
 import subprocess
 import sys
+sys.dont_write_bytecode = True
 from pathlib import Path, PurePosixPath
 from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
 from build_web_context_bundle import render_context
+from validate_web_problem_harness import validate_pi_goal_npm_cache
 from vibe_mathing.reasoning import apply_reasoning_agent_overlays
 from vibe_mathing.web_channel import canonical_json_sha256, sha256_file
 
@@ -38,6 +40,7 @@ def read_suite_version(root: Path = ROOT) -> str:
 
 
 BUILDER_VERSION = read_suite_version()
+PI_GOAL_PACKAGE = "npm:pi-goal-x@0.31.9"  # 固定扩展版本；Goal 不是数学 Skill。
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
 PI_SKILL_STATUS = {
     "solve": "active",
@@ -307,6 +310,16 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     repository_binding = "verified" if args.repository_database_id is not None else "planned"
     if repository_binding != "verified" and not args.allow_planned_repository_identity:
         raise RuntimeError("repository identity is not verified; create/read the private repository before production build")
+    npm_cache = template / ".pi/npm"
+    has_npm_cache = npm_cache.exists() or npm_cache.is_symlink()
+    if has_npm_cache:
+        verified, cache_errors = validate_pi_goal_npm_cache(template)
+        if not verified:
+            raise RuntimeError("unsafe Pi Goal install cache in template: " + "; ".join(cache_errors))
+    if any(path.exists() or path.is_symlink() for path in (
+        template / ".pi/goals", template / ".pi/.goals-pool-snapshot.json",
+    )):
+        raise RuntimeError("Goal session records must not live in the source template")
     if output.exists() and any(output.iterdir()):
         raise RuntimeError(f"output must not exist or must be empty: {output}")
     output.mkdir(parents=True, exist_ok=True)
@@ -357,11 +370,13 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
                 raise RuntimeError(f"required Harness tree copied no files: {source}")
 
     for candidate in sorted(template.rglob("*")):
+        relative = candidate.relative_to(template)
+        if has_npm_cache and relative.parts[:2] == (".pi", "npm"):
+            continue  # 已审查的本机包缓存绝不进入生成仓库；别的符号链接仍拒绝。
         if candidate.is_dir():
             continue
         if candidate.is_symlink() or not candidate.is_file():
             raise RuntimeError(f"unsafe problem repository template member: {candidate}")
-        relative = candidate.relative_to(template)
         if ".git" in relative.parts or "__pycache__" in relative.parts or candidate.suffix == ".pyc":
             continue
         if excluded_skill_ids.intersection(relative.parts):
@@ -391,6 +406,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             f"expected={sorted(PI_SKILL_STATUS)} actual={sorted(discovered_pi_skills)}"
         )
     pi_settings = {
+        "packages": [PI_GOAL_PACKAGE],
         "skills": [f"skills/{skill_id}/SKILL.md" for skill_id in PI_SKILL_STATUS],
         "enableSkillCommands": True,
     }

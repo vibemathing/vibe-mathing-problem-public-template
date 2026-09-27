@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
 sys.dont_write_bytecode = True
 from pathlib import Path
@@ -60,6 +61,13 @@ REQUIRED_CONTROL_FILES = {
     "HARNESS_SNAPSHOT_HISTORY.json",
     ".pi/AGENTS.md",
     ".pi/settings.json",
+    ".pi/pi-goal-x-settings.json",
+    ".pi/opt-in-skills/README.md",
+    ".pi/opt-in-skills/pi-goal-operator/SKILL.md",
+    ".pi/opt-in-skills/pi-goal-operator/VERSION",
+    ".pi/opt-in-skills/pi-goal-operator/CHANGELOG.md",
+    ".pi/opt-in-skills/pi-goal-operator/references/index.md",
+    ".pi/opt-in-skills/pi-goal-operator/references/pressure-tests.md",
     ".pi/skills/README.md",
     ".pi/skills/CONSOLIDATION-MAP.md",
     ".pi/skills/SOURCE-ABSTRACTION-MAP.json",
@@ -117,6 +125,23 @@ FORBIDDEN_LOCAL_RUNTIME_FILES = {
     "resume-session-receipt.schema.json",
 }
 REQUIRED_EXCLUDED_CONTAINER_SKILLS = {"auto-goal", "auto-tmux", "nvidia-private-compute"}
+PI_GOAL_PACKAGE = "npm:pi-goal-x@0.31.9"  # 外部 Pi 扩展；不替代数学 Skill。
+# 固定版本已审查的 npm 包内容，不包括 .pi/npm 的 npm 元数据或其他可执行包。
+PI_GOAL_PACKAGE_TREE_SHA256 = "39f502c00608b7c8218cb0fb683adb25baba715e4b007e5fe447a5b2e9f23331"
+PI_GOAL_PACKAGE_FILES = 71
+PI_GOAL_DEFAULTS = {
+    "disableTasks": True,
+    "autoSelectSingleGoal": False,
+    "strictExecutionContract": False,
+    "networkRecovery": {"maxAttempts": 3},
+}
+PI_GOAL_IGNORED_RUNTIME = {
+    ".pi/npm/",
+    ".pi/goals/",
+    ".pi/.goals-pool-snapshot.json",
+    ".pi/pi-goal-x-settings.json.lock",
+    ".pi/.pi-goal-x-settings.json.*.tmp",
+}
 PRIVATE_REPOSITORY_LOCATOR = re.compile(
     r"\b(?:vibemathing|tradecatlabs)/[A-Za-z0-9_.-]*internal[A-Za-z0-9_.-]*\b"
 )
@@ -208,6 +233,64 @@ def internal_package_snapshot(root: Path) -> dict[str, Any]:
     }
 
 
+def validate_pi_goal_npm_cache(root: Path) -> tuple[bool, list[str]]:
+    """只允许 Git 忽略、未跟踪且与受审版本逐字节一致的 Pi 项目安装缓存。"""
+    npm_root = root / ".pi/npm"
+    if not npm_root.exists() and not npm_root.is_symlink():
+        return False, []
+    errors: list[str] = []
+    package_root = npm_root / "node_modules/pi-goal-x"
+    if any(path.is_symlink() or not path.is_dir() for path in (npm_root, npm_root / "node_modules", package_root)):
+        return False, ["Pi Goal npm cache must be a real, installed project directory"]
+    if not (root / ".git").exists():
+        return False, ["Pi Goal npm cache requires a Git index to prove it is not tracked"]
+    tracked = subprocess.run(
+        ["git", "-C", str(root), "ls-files", "-z", "--", ".pi/npm"],
+        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=False,
+    )
+    ignored = subprocess.run(
+        ["git", "-C", str(root), "check-ignore", "--quiet", "--", ".pi/npm/.gitignore"],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False,
+    )
+    if tracked.returncode != 0 or tracked.stdout or ignored.returncode != 0:
+        errors.append("Pi Goal npm cache must be Git-ignored and have no tracked files")
+    try:
+        node_modules = npm_root / "node_modules"
+        if any(path.name not in {"pi-goal-x", ".bin", ".package-lock.json"} for path in node_modules.iterdir()):
+            errors.append("Pi Goal npm cache contains an unreviewed sibling package")
+        bin_root = node_modules / ".bin"
+        if bin_root.exists() or bin_root.is_symlink():
+            expected_bin = package_root / "scripts/recover-session-checkpoints.mjs"
+            if bin_root.is_symlink() or not bin_root.is_dir() or any(
+                entry.name != "pi-goal-x-recover" or not entry.is_symlink() or entry.resolve() != expected_bin
+                for entry in bin_root.iterdir()
+            ):
+                errors.append("Pi Goal npm cache has an unexpected executable link")
+        manifest = load_json(package_root / "package.json")
+        if manifest.get("name") != "pi-goal-x" or manifest.get("version") != "0.31.9" or manifest.get("pi", {}).get("extensions") != ["extensions/goal.ts"]:
+            errors.append("Pi Goal installed package identity differs from reviewed 0.31.9")
+        # 先限界，再使用现有内容树摘要；不信任被忽略的本地包代码。
+        members = list(package_root.rglob("*"))
+        files = [path for path in members if path.is_file() or path.is_symlink()]
+        if len(files) != PI_GOAL_PACKAGE_FILES or any(path.is_symlink() or path.stat().st_size > 5_000_000 for path in files):
+            errors.append("Pi Goal installed package has unsafe or unexpected members")
+        else:
+            uid = os.getuid() if hasattr(os, "getuid") else None
+            cache_roots = (npm_root, node_modules, package_root)
+            if bin_root.is_dir():
+                cache_roots += (bin_root,)
+            for path in (*cache_roots, *members):
+                info = path.lstat()
+                if info.st_mode & 0o022 or (uid is not None and info.st_uid != uid):
+                    errors.append("Pi Goal npm cache must not be group/world writable or owned by another user")
+                    break
+            if internal_package_snapshot(package_root)["tree_sha256"] != PI_GOAL_PACKAGE_TREE_SHA256:
+                errors.append("Pi Goal installed package content digest differs from reviewed 0.31.9")
+    except (OSError, ValueError, TypeError, AttributeError, json.JSONDecodeError):
+        errors.append("Pi Goal installed package cannot be verified")
+    return not errors, errors
+
+
 def validate(root: Path) -> list[str]:
     root = root.resolve()
     errors: list[str] = []
@@ -275,6 +358,8 @@ def validate(root: Path) -> list[str]:
             errors.append(f"digest mismatch: {relative}")
     if listed and snapshot.get("tree_sha256") != tree_digest(listed):
         errors.append("Harness tree digest mismatch")
+    verified_npm_cache, cache_errors = validate_pi_goal_npm_cache(root)
+    errors.extend(cache_errors)
     identity_excludes = set(snapshot.get("digest_excludes", []))
     expected_identity_excludes = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
     if identity_excludes != expected_identity_excludes:
@@ -285,6 +370,8 @@ def validate(root: Path) -> list[str]:
         if ".git" in path.parts:
             continue
         relative = path.relative_to(root).as_posix()
+        if verified_npm_cache and (relative == ".pi/npm" or relative.startswith(".pi/npm/")):
+            continue
         if path.is_dir() and path.name == "__pycache__":
             errors.append(f"runtime cache directory is not allowed: {relative}")
             continue
@@ -495,6 +582,11 @@ def validate(root: Path) -> list[str]:
         excluded_container_skills = set(source_manifest.get("excluded_container_skill_ids", []))
         if not REQUIRED_EXCLUDED_CONTAINER_SKILLS.issubset(excluded_container_skills):
             errors.append("source manifest must exclude auto-goal, auto-tmux and nvidia-private-compute")
+        source_targets = {item.get("target_path") for item in source_manifest.get("entries", []) if isinstance(item, dict)}
+        if not {".pi/opt-in-skills", ".pi/pi-goal-x-settings.json"}.issubset(source_targets):
+            errors.append("source manifest must ship explicit Goal operator Skill and pinned project defaults")
+        if any(target in {".pi/goals", ".pi/npm"} or str(target).startswith((".pi/goals/", ".pi/npm/")) for target in source_targets):
+            errors.append("Pi Goal runtime and package cache must never enter the frozen Harness source manifest")
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         errors.append(f"source manifest invalid: {exc}")
         excluded_container_skills = set(REQUIRED_EXCLUDED_CONTAINER_SKILLS)
@@ -558,10 +650,26 @@ def validate(root: Path) -> list[str]:
             errors.append(".pi/settings.json must list exactly the admitted project Skill entries in canonical order")
         if pi_settings.get("enableSkillCommands") is not True:
             errors.append(".pi/settings.json must enable Skill commands")
-        if set(pi_settings) != {"skills", "enableSkillCommands"}:
+        if pi_settings.get("packages") != [PI_GOAL_PACKAGE]:
+            errors.append("Pi Goal package must be pinned to the reviewed version and be the only project package")
+        if set(pi_settings) != {"packages", "skills", "enableSkillCommands"}:
             errors.append(".pi/settings.json contains undeclared project runtime settings")
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         errors.append(f"Pi settings invalid: {exc}")
+    try:
+        defaults = load_json(root / ".pi/pi-goal-x-settings.json")
+        if defaults != PI_GOAL_DEFAULTS:
+            errors.append("Pi Goal project defaults drift: task autonomy, focus or bounded provider recovery")
+        ignored = set((root / ".gitignore").read_text(encoding="utf-8").splitlines())
+        if not PI_GOAL_IGNORED_RUNTIME.issubset(ignored):
+            errors.append("Pi Goal runtime and settings-lock paths must be Git-ignored")
+        operator = (root / ".pi/opt-in-skills/pi-goal-operator/SKILL.md").read_text(encoding="utf-8")
+        if not re.search(r"(?m)^name: pi-goal-operator$", operator) or not re.search(r"(?m)^disable-model-invocation: true$", operator):
+            errors.append("Goal operator must remain a named explicit-only maintainer Skill")
+        if (root / ".pi/goals").exists() or (root / ".pi/.goals-pool-snapshot.json").exists():
+            errors.append("Goal runtime state must live outside the publishable repository")
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        errors.append(f"Pi Goal operator/defaults invalid: {exc}")
     for item in active.get("skills", []):
         if not isinstance(item, dict):
             errors.append("WEB_ACTIVE_SKILLS contains non-object")
@@ -843,6 +951,8 @@ def validate(root: Path) -> list[str]:
         if path == root / ".git" or ".git" in path.relative_to(root).parts:
             continue
         relative = path.relative_to(root)
+        if verified_npm_cache and relative.parts[:2] == (".pi", "npm"):
+            continue
         if any(part in FORBIDDEN_PARTS for part in relative.parts):
             errors.append(f"forbidden Harness path: {relative.as_posix()}")
             continue

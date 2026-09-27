@@ -1,5 +1,8 @@
 {
   "enableSkillCommands": true,
+  "packages": [
+    "npm:pi-goal-x@0.31.9"
+  ],
   "skills": [
     "skills/solve/SKILL.md",
     "skills/mathematics-in-lean/SKILL.md",

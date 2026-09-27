@@ -22,3 +22,5 @@ Pattern-only capability intake is managed below an existing owner in `references
 The canonical research actor owns mathematical strategy and may select, combine, change, or ignore these capabilities. Skill output is candidate-only unless an independent verifier and admission gate establish more. No Skill may create its own authority, call self-review independent, or turn runtime/transport success into a Result.
 
 Do not add user-global, controller, session-fleet, compute-node, credential-bearing, or private-only Skills here. A new public Skill requires source and license review, bounded dependencies, pressure tests, explicit failure semantics, and snapshot/validator updates.
+
+Research continuation belongs to the separately pinned `pi-goal-x` **extension** in `../settings.json`, not to a HookLoop/`auto-goal` Skill or any of these ten mathematical Skills. Its versioned, non-mathematical maintainer procedure is under `../opt-in-skills/`, outside the actor allowlist. The concrete actor's `/goal-direct`, status, pause and recovery procedure is in root `TEMPLATE_REPOSITORY.md`; no generic template build creates a Goal.
