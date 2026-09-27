@@ -373,9 +373,11 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         relative = candidate.relative_to(template)
         if has_npm_cache and relative.parts[:2] == (".pi", "npm"):
             continue  # 已审查的本机包缓存绝不进入生成仓库；别的符号链接仍拒绝。
+        if candidate.is_symlink():
+            raise RuntimeError(f"unsafe problem repository template member: {candidate}")
         if candidate.is_dir():
             continue
-        if candidate.is_symlink() or not candidate.is_file():
+        if not candidate.is_file():
             raise RuntimeError(f"unsafe problem repository template member: {candidate}")
         if ".git" in relative.parts or "__pycache__" in relative.parts or candidate.suffix == ".pyc":
             continue

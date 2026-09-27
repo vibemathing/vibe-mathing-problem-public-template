@@ -142,6 +142,32 @@ class BuilderSyncTests(unittest.TestCase):
             self.assertNotEqual(rejected.returncode, 0)
             self.assertIn("Goal runtime state must live outside", rejected.stderr)
 
+    def test_builder_rejects_directory_symlink_in_template(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="vibe-template-symlink-") as directory:
+            working = Path(directory)
+            source = working / "template"
+            flags = [
+                "--project-root", str(ROOT),
+                "--problem-file", str(ROOT / "problem-library/records/canonical-problems.jsonl"),
+                "--repository", "vibemathing/vibe-mathing-problem-public-template",
+                "--visibility", "public", "--allow-dirty-source", "--allow-draft-problem",
+                "--allow-unadmitted-problem", "--allow-planned-repository-identity", "--json",
+            ]
+            first = subprocess.run(
+                [sys.executable, str(ROOT / "scripts/build_problem_repository.py"),
+                 *flags, "--output", str(source)],
+                cwd=ROOT, text=True, capture_output=True, check=False,
+            )
+            self.assertEqual(first.returncode, 0, first.stderr)
+            (source / "review-symlink-dir").symlink_to("research", target_is_directory=True)
+            rejected = subprocess.run(
+                [sys.executable, str(ROOT / "scripts/build_problem_repository.py"),
+                 *flags, "--template", str(source), "--output", str(working / "blocked")],
+                cwd=ROOT, text=True, capture_output=True, check=False,
+            )
+            self.assertNotEqual(rejected.returncode, 0)
+            self.assertIn("unsafe problem repository template member", rejected.stderr)
+
     def test_installed_goal_cache_needs_git_ignore_and_reviewed_bytes(self) -> None:
         with tempfile.TemporaryDirectory(prefix="vibe-goal-cache-") as directory:
             root = Path(directory)
