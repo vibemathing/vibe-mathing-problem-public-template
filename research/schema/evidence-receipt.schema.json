@@ -4,7 +4,7 @@
   "title": "Vibe Mathing Evidence Receipt",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "evidence_id", "capability", "verdict", "verifier", "checked_at", "subject", "output", "command"],
+  "required": ["schema_version", "evidence_id", "capability", "verdict", "verifier", "checked_at", "subject", "output", "command", "verifier_identity", "replay", "signature"],
   "properties": {
     "schema_version": {"const": "1.0.0"},
     "evidence_id": {"type": "string", "pattern": "^evidence:[a-z0-9][a-z0-9.-]*$"},
@@ -23,6 +23,19 @@
     },
     "verdict": {"enum": ["accept", "reject", "undetermined"]},
     "verifier": {"type": "string", "minLength": 1},
+    "verifier_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "trust_domain", "policy_version", "policy_digest", "registry_sha256", "independence_class"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "trust_domain": {"type": "string", "minLength": 1},
+        "policy_version": {"type": "string", "minLength": 1},
+        "policy_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "registry_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "independence_class": {"const": "independent-verifier"}
+      }
+    },
     "checked_at": {"type": "string", "format": "date-time"},
     "subject": {
       "type": "object",
@@ -61,6 +74,26 @@
         "executor": {"enum": ["subprocess", "in_process"]},
         "argv": {"type": "array", "items": {"type": "string"}},
         "exit_code": {"type": "integer"}
+      }
+    },
+    "replay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["replay_id", "command_sha256", "inputs_sha256"],
+      "properties": {
+        "replay_id": {"type": "string", "pattern": "^replay:[a-f0-9]{64}$"},
+        "command_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "inputs_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "signer", "value"],
+      "properties": {
+        "algorithm": {"const": "sha256-receipt-attestation-v1"},
+        "signer": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
       }
     },
     "native_status": {

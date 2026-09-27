@@ -1,89 +1,151 @@
 {
-  "schema_version": "1.0.0",
   "principals": [
     {
+      "capabilities": [],
       "id": "candidate-generator",
-      "role": "generator",
-      "trust_domain": "candidate-generation",
+      "independence_class": "candidate-generator",
       "policy": null,
-      "capabilities": []
+      "policy_digest": null,
+      "policy_version": null,
+      "role": "generator",
+      "toolchain_allowlist": [],
+      "trust_domain": "candidate-generation"
     },
     {
+      "capabilities": [],
       "id": "chatgpt-web-github",
-      "role": "generator",
-      "trust_domain": "web-candidate-generation",
+      "independence_class": "candidate-generator",
       "policy": null,
-      "capabilities": []
+      "policy_digest": null,
+      "policy_version": null,
+      "role": "generator",
+      "toolchain_allowlist": [],
+      "trust_domain": "web-candidate-generation"
     },
     {
+      "capabilities": [],
       "id": "sympy-generator",
-      "role": "generator",
-      "trust_domain": "candidate-generation",
+      "independence_class": "candidate-generator",
       "policy": null,
-      "capabilities": []
+      "policy_digest": null,
+      "policy_version": null,
+      "role": "generator",
+      "toolchain_allowlist": [],
+      "trust_domain": "candidate-generation"
     },
     {
+      "capabilities": [],
       "id": "lean-generator",
-      "role": "generator",
-      "trust_domain": "candidate-generation",
+      "independence_class": "candidate-generator",
       "policy": null,
-      "capabilities": []
+      "policy_digest": null,
+      "policy_version": null,
+      "role": "generator",
+      "toolchain_allowlist": [],
+      "trust_domain": "candidate-generation"
     },
     {
+      "capabilities": [],
       "id": "smt-generator",
-      "role": "generator",
-      "trust_domain": "candidate-generation",
+      "independence_class": "candidate-generator",
       "policy": null,
-      "capabilities": []
+      "policy_digest": null,
+      "policy_version": null,
+      "role": "generator",
+      "toolchain_allowlist": [],
+      "trust_domain": "candidate-generation"
     },
     {
+      "capabilities": [
+        "counterexample_check"
+      ],
       "id": "sympy-counterexample-verifier",
-      "role": "verifier",
-      "trust_domain": "exact-computation",
+      "independence_class": "independent-verifier",
       "policy": "sympy-counterexample-fixture-v1",
-      "capabilities": ["counterexample_check"]
+      "policy_digest": "b5bc510b9f51c05c7f157f826e8dec1911eaf85ad72685aa23a17255a55bb007",
+      "policy_version": "1.0.0",
+      "role": "verifier",
+      "toolchain_allowlist": [],
+      "trust_domain": "exact-computation"
     },
     {
+      "capabilities": [
+        "statement_faithfulness"
+      ],
       "id": "statement-faithfulness-verifier",
-      "role": "verifier",
-      "trust_domain": "semantic-review",
+      "independence_class": "independent-verifier",
       "policy": "sympy-statement-fixture-v1",
-      "capabilities": ["statement_faithfulness"]
+      "policy_digest": "e8d50773f3f9148ff6413248b8e189364800f696a664509f5a2106ac7fdf3ed8",
+      "policy_version": "1.0.0",
+      "role": "verifier",
+      "toolchain_allowlist": [],
+      "trust_domain": "semantic-review"
     },
     {
+      "capabilities": [
+        "counterexample_check"
+      ],
       "id": "sympy-smt-verifier",
-      "role": "verifier",
-      "trust_domain": "sympy-sat-qf-lra",
+      "independence_class": "independent-verifier",
       "policy": "sympy-smt-counterexample-fixture-v1",
-      "capabilities": ["counterexample_check"]
+      "policy_digest": "ceb3fe855309d6c440c2464ba56e8f74cd7134f78278baaa987a5c5cf71a7465",
+      "policy_version": "1.0.0",
+      "role": "verifier",
+      "toolchain_allowlist": [],
+      "trust_domain": "sympy-sat-qf-lra"
     },
     {
+      "capabilities": [
+        "statement_faithfulness"
+      ],
       "id": "smt-statement-faithfulness-verifier",
-      "role": "verifier",
-      "trust_domain": "semantic-review",
+      "independence_class": "independent-verifier",
       "policy": "smt-statement-fixture-v1",
-      "capabilities": ["statement_faithfulness"]
+      "policy_digest": "74c1628a36de511aea47249266c8e64b390e253a58a02318a26a9b7604403cb7",
+      "policy_version": "1.0.0",
+      "role": "verifier",
+      "toolchain_allowlist": [],
+      "trust_domain": "semantic-review"
     },
     {
+      "capabilities": [
+        "kernel_check"
+      ],
       "id": "lean-kernel",
-      "role": "verifier",
-      "trust_domain": "lean-kernel",
+      "independence_class": "independent-verifier",
       "policy": "lean-kernel-fixture-v1",
-      "capabilities": ["kernel_check"]
+      "policy_digest": "c820bf2fc4a7ea7d683cc9b07228e663dfb00cbe346b8a82f97cf1939e97e2b4",
+      "policy_version": "1.0.0",
+      "role": "verifier",
+      "toolchain_allowlist": [],
+      "trust_domain": "lean-kernel"
     },
     {
+      "capabilities": [
+        "axiom_escape_audit"
+      ],
       "id": "lean-axiom-auditor",
-      "role": "verifier",
-      "trust_domain": "formal-audit",
+      "independence_class": "independent-verifier",
       "policy": "lean-axiom-fixture-v1",
-      "capabilities": ["axiom_escape_audit"]
+      "policy_digest": "8ff34acbea807bfff162490358c38b0c24b637bcb5a08921142f8ec2dca9d038",
+      "policy_version": "1.0.0",
+      "role": "verifier",
+      "toolchain_allowlist": [],
+      "trust_domain": "formal-audit"
     },
     {
+      "capabilities": [
+        "statement_faithfulness"
+      ],
       "id": "lean-faithfulness-reviewer",
-      "role": "verifier",
-      "trust_domain": "semantic-review",
+      "independence_class": "independent-verifier",
       "policy": "lean-statement-fixture-v1",
-      "capabilities": ["statement_faithfulness"]
+      "policy_digest": "fcc563ed848059b3337a7a695f212928076a349e8c1f50393b6270c6fbd852ff",
+      "policy_version": "1.0.0",
+      "role": "verifier",
+      "toolchain_allowlist": [],
+      "trust_domain": "semantic-review"
     }
-  ]
+  ],
+  "schema_version": "1.0.0"
 }

@@ -1,0 +1,215 @@
+{
+  "source_record": "references/source-record.md",
+  "source_sections": [
+    {
+      "title": "TL;DR",
+      "start_line": 22,
+      "end_line": 32
+    },
+    {
+      "title": "Contents",
+      "start_line": 33,
+      "end_line": 53
+    },
+    {
+      "title": "Visual Overview",
+      "start_line": 54,
+      "end_line": 70
+    },
+    {
+      "title": "Benchmark Saturation, 2021–2026",
+      "start_line": 71,
+      "end_line": 94
+    },
+    {
+      "title": "The Four Axes",
+      "start_line": 95,
+      "end_line": 105
+    },
+    {
+      "title": "Section I — Math Word Problem Solving",
+      "start_line": 106,
+      "end_line": 165
+    },
+    {
+      "title": "Section II — The LLM and Reasoning-Model Era",
+      "start_line": 166,
+      "end_line": 251
+    },
+    {
+      "title": "Section III — Multimodal & Geometry",
+      "start_line": 252,
+      "end_line": 293
+    },
+    {
+      "title": "Section IV — Formal Theorem Proving",
+      "start_line": 294,
+      "end_line": 338
+    },
+    {
+      "title": "Section V — Mathematical Discovery & Open Problems",
+      "start_line": 339,
+      "end_line": 359
+    },
+    {
+      "title": "Section VI — Datasets & Benchmarks",
+      "start_line": 360,
+      "end_line": 469
+    },
+    {
+      "title": "Section VII — Failure Modes & Open Questions",
+      "start_line": 470,
+      "end_line": 485
+    },
+    {
+      "title": "Section VIII — Mathematicians' Perspectives",
+      "start_line": 486,
+      "end_line": 494
+    },
+    {
+      "title": "Related Surveys",
+      "start_line": 495,
+      "end_line": 512
+    },
+    {
+      "title": "Citation",
+      "start_line": 513,
+      "end_line": 529
+    },
+    {
+      "title": "Contributing",
+      "start_line": 530,
+      "end_line": 543
+    },
+    {
+      "title": "License",
+      "start_line": 544,
+      "end_line": 552
+    }
+  ],
+  "capabilities": [
+    {
+      "capability": "CAP-01 Axis Router",
+      "source": [
+        "README lines 95-103: The Four Axes"
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "CAP-02 CGV Pipeline Designer",
+      "source": [
+        "README lines 22-31: TL;DR, CGV triad"
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "CAP-03 Verifier / Supervision Selector",
+      "source": [
+        "README lines 22-31: supervision ladder",
+        "README lines 95-103: verifier column",
+        "Sections IV–V"
+      ],
+      "classification": "SOURCE_DERIVED + STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "CAP-04 Informal Method Selector",
+      "source": [
+        "Sections I–II"
+      ],
+      "classification": "STRUCTURAL_SYNTHESIS over SOURCE_DERIVED families"
+    },
+    {
+      "capability": "CAP-05 Benchmark Selector",
+      "source": [
+        "README lines 71-93: benchmark saturation",
+        "Section VI"
+      ],
+      "classification": "SOURCE_DERIVED + STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "CAP-06 Metric / Protocol Normalizer",
+      "source": [
+        "README lines 71-93 protocol qualifiers",
+        "Section VII metric mismatch"
+      ],
+      "classification": "SOURCE_DERIVED"
+    },
+    {
+      "capability": "CAP-07 Robustness & Contamination Auditor",
+      "source": [
+        "Section I robustness",
+        "Section VII failure modes"
+      ],
+      "classification": "SOURCE_DERIVED + STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "CAP-08 Multimodal Geometry Pipeline Designer",
+      "source": [
+        "Section III",
+        "Section VII MathVerse modality failure"
+      ],
+      "classification": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "CAP-09 Formal Proving Pipeline Designer",
+      "source": [
+        "Section IV"
+      ],
+      "classification": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "CAP-10 Discovery Workbench Designer",
+      "source": [
+        "Section V",
+        "The Four Axes discovery verifier"
+      ],
+      "classification": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "CAP-11 Literature Navigator",
+      "source": [
+        "All indexed bibliographic entries"
+      ],
+      "classification": "IMPLEMENTATION_DECISION"
+    },
+    {
+      "capability": "CAP-12 Failure Diagnostician & Recovery Router",
+      "source": [
+        "Section VII plus Sections I–V"
+      ],
+      "classification": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "CAP-13 Training / Reward Strategy Selector",
+      "source": [
+        "Section II reward models + RL",
+        "Section VII reward hacking"
+      ],
+      "classification": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "capability": "CAP-14 Dataset Locale / Modality Selector",
+      "source": [
+        "Section VI"
+      ],
+      "classification": "SOURCE_DERIVED"
+    }
+  ],
+  "engineering_notes": [
+    {
+      "item": "query_catalog.py",
+      "classification": "IMPLEMENTATION_DECISION",
+      "reason": "Adds local search over the source-derived catalog."
+    },
+    {
+      "item": "progressive-loading file split",
+      "classification": "IMPLEMENTATION_DECISION",
+      "reason": "Keeps the main skill compact while preserving operational detail."
+    },
+    {
+      "item": "recovery routes",
+      "classification": "STRUCTURAL_SYNTHESIS",
+      "reason": "Composes source failure modes with source method families."
+    }
+  ]
+}

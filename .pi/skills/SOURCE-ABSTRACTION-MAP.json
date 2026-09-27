@@ -1,0 +1,517 @@
+{
+  "packages": [
+    {
+      "extracted_capabilities": [
+        "problem-to-method fit",
+        "verification-first experimentation",
+        "informative failure"
+      ],
+      "package_id": "ai-for-mathematics",
+      "primary_skills": [
+        "ai4math-source-discovery",
+        "ai4math-bounded-computation",
+        "ai4math-proof-refutation"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "ai-for-mathematics",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "artifact and modality routing",
+        "evaluation design",
+        "research-system comparison"
+      ],
+      "package_id": "ai4math-research-navigator",
+      "primary_skills": [
+        "ai4math-source-discovery",
+        "ai4math-toolchain-reproducibility"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "ai4math-research-navigator",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "dependency-aware formalization",
+        "plan/prove/review separation",
+        "stalled-run diagnosis"
+      ],
+      "package_id": "archon-formalization",
+      "primary_skills": [
+        "ai4math-lean-formalization",
+        "ai4math-toolchain-reproducibility"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "archon-formalization",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "model/property separation",
+        "abstraction soundness",
+        "state-space control"
+      ],
+      "package_id": "baier-katoen-model-checking",
+      "primary_skills": [
+        "ai4math-modeling-derivation",
+        "ai4math-bounded-computation",
+        "ai4math-assurance-admission"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "baier-katoen-model-checking",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "assumption exposure",
+        "definition variation",
+        "counterexample-guided boundary discovery"
+      ],
+      "package_id": "cheng-math-logic",
+      "primary_skills": [
+        "ai4math-modeling-derivation",
+        "ai4math-proof-refutation"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "cheng-math-logic",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "type-directed search",
+        "dependency-preserving Skolemization",
+        "higher-order unification limits"
+      ],
+      "package_id": "classical-type-theory",
+      "primary_skills": [
+        "ai4math-proof-refutation",
+        "ai4math-lean-formalization"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "classical-type-theory",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "producer/verifier separation",
+        "fact-graph memory",
+        "falsification before persistence"
+      ],
+      "package_id": "danus-proof-orchestration",
+      "primary_skills": [
+        "ai4math-proof-refutation",
+        "ai4math-assurance-admission"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "danus-proof-orchestration",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "capability diagnosis",
+        "specialist-versus-general tool choice",
+        "verifier feedback"
+      ],
+      "package_id": "dong-ai4m-research-guide",
+      "primary_skills": [
+        "ai4math-source-discovery",
+        "ai4math-toolchain-reproducibility"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "dongbin-ai4math",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "capability diagnosis",
+        "formalization stack",
+        "understanding-over-ritual objective"
+      ],
+      "package_id": "dongbin-ai4m",
+      "primary_skills": [
+        "ai4math-source-discovery",
+        "ai4math-toolchain-reproducibility"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "dongbin-ai4math",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "logic-fragment routing",
+        "rewriting and decision-procedure scope",
+        "LCF trust boundary"
+      ],
+      "package_id": "harrison-automated-reasoning",
+      "primary_skills": [
+        "ai4math-proof-refutation",
+        "ai4math-assurance-admission"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "harrison-automated-reasoning",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "universal constructions",
+        "functorial translation",
+        "naturality and adjunction routing"
+      ],
+      "package_id": "hewei-category-theory",
+      "primary_skills": [
+        "ai4math-modeling-derivation",
+        "mathematics-in-lean"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "hewei-category-theory",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "statement parsing",
+        "proof-language discipline",
+        "example and counterexample use"
+      ],
+      "package_id": "houston-mathematical-thinking",
+      "primary_skills": [
+        "ai4math-modeling-derivation",
+        "ai4math-proof-refutation"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "houston-mathematical-thinking",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "toolchain matching",
+        "InfoTree and declaration products",
+        "static-analysis diagnostics"
+      ],
+      "package_id": "jixia-lean-analyzer",
+      "primary_skills": [
+        "ai4math-lean-formalization",
+        "ai4math-toolchain-reproducibility"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "jixia-lean-analyzer",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "counterexample triage",
+        "lemma incorporation",
+        "conjecture and definition repair"
+      ],
+      "package_id": "lakatos-proofs-and-refutations",
+      "primary_skills": [
+        "ai4math-proof-refutation",
+        "ai4math-modeling-derivation"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "lakatos-proofs-and-refutations",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "pristine-versus-edited comparison",
+        "isolated elaboration",
+        "pin and security audit"
+      ],
+      "package_id": "lean-eval-comparator",
+      "primary_skills": [
+        "ai4math-assurance-admission",
+        "ai4math-toolchain-reproducibility"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "lean-eval-comparator",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "query routing by known information",
+        "syntax-sensitive search",
+        "local validation of suggestions"
+      ],
+      "package_id": "lean-search-client",
+      "primary_skills": [
+        "ai4math-lean-formalization",
+        "mathematics-in-lean"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "lean-search-client",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "statement translation",
+        "proof-state reading",
+        "abstraction-ladder control"
+      ],
+      "package_id": "lean4-math-formalization-2025",
+      "primary_skills": [
+        "ai4math-lean-formalization",
+        "mathematics-in-lean"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "lean4-math-formalization-2025",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "syntax/elaboration/kernel staging",
+        "metavariable state and rollback",
+        "generated-term validation"
+      ],
+      "package_id": "lean4-metaprogramming",
+      "primary_skills": [
+        "ai4math-lean-formalization",
+        "ai4math-toolchain-reproducibility"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "lean4-metaprogramming",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "goal-based resource routing",
+        "learning progression",
+        "resource-fit recovery"
+      ],
+      "package_id": "lean4-self-study-resources",
+      "primary_skills": [
+        "ai4math-source-discovery",
+        "mathematics-in-lean"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "lean4-self-study-resources",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "parse/index/embed/search pipeline",
+        "schema and revision pinning",
+        "service diagnostics"
+      ],
+      "package_id": "leansearch-operator",
+      "primary_skills": [
+        "ai4math-lean-formalization",
+        "ai4math-toolchain-reproducibility"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "leansearch-operator",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "expression normalization",
+        "theorem precondition routing",
+        "convergence-mode distinctions"
+      ],
+      "package_id": "math-analysis-thinking-methods",
+      "primary_skills": [
+        "ai4math-modeling-derivation",
+        "mathematics-in-lean"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "math-analysis-thinking-methods",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "proof state as API",
+        "weakest sufficient abstraction",
+        "typeclasses filters and induction"
+      ],
+      "package_id": "mathematics-in-lean-project-record",
+      "primary_skills": [
+        "mathematics-in-lean",
+        "ai4math-lean-formalization"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "mathematics-in-lean",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "goal-shape routing",
+        "library interface preference",
+        "formal analysis patterns"
+      ],
+      "package_id": "mathematics-in-lean-external-snapshot",
+      "primary_skills": [
+        "mathematics-in-lean",
+        "ai4math-lean-formalization"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "mathematics-in-lean",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "constructor and recursor alignment",
+        "rewrite-to-recursion",
+        "witness-based order"
+      ],
+      "package_id": "natural-number-game-lean4",
+      "primary_skills": [
+        "mathematics-in-lean",
+        "ai4math-lean-formalization"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "natural-number-game-lean4",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "understand-plan-execute-review",
+        "backward reasoning",
+        "heuristic-versus-proof separation"
+      ],
+      "package_id": "polya-problem-solving",
+      "primary_skills": [
+        "ai4math-proof-refutation",
+        "ai4math-modeling-derivation"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "polya-problem-solving",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "persistent proof state",
+        "retrieval applicability checks",
+        "strict verification and degraded-mode honesty"
+      ],
+      "package_id": "rethlas-math-reasoning",
+      "primary_skills": [
+        "ai4math-proof-refutation",
+        "ai4math-source-discovery",
+        "ai4math-assurance-admission"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "rethlas-math-reasoning",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "concise proof exposition",
+        "explicit logical relations",
+        "editing-versus-validation separation"
+      ],
+      "package_id": "strunk-elements-of-style",
+      "primary_skills": [
+        "ai4math-source-discovery",
+        "ai4math-proof-refutation"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "strunk-elements-of-style",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "API phase alignment",
+        "epsilon-filter translation",
+        "totalization and type-boundary guards"
+      ],
+      "package_id": "tao-analysis-lean",
+      "primary_skills": [
+        "mathematics-in-lean",
+        "ai4math-lean-formalization"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "tao-analysis-lean",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "propositions as types",
+        "constructor and recursor interfaces",
+        "termination and typeclass inference"
+      ],
+      "package_id": "theorem-proving-in-lean-4",
+      "primary_skills": [
+        "mathematics-in-lean",
+        "ai4math-lean-formalization"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "theorem-proving-in-lean-4",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "verifier hard boundary",
+        "retrieval before brute force",
+        "reasoning-proving interleaving"
+      ],
+      "package_id": "welleck-informal-formal-reasoning",
+      "primary_skills": [
+        "ai4math-lean-formalization",
+        "ai4math-assurance-admission"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "welleck-informal-formal-reasoning",
+      "source_package_activation": "not_installed_not_activated"
+    },
+    {
+      "extracted_capabilities": [
+        "statement freezing",
+        "API engineering",
+        "normalize-before-automation and counterexample checks"
+      ],
+      "package_id": "xena-formalization-method",
+      "primary_skills": [
+        "ai4math-lean-formalization",
+        "mathematics-in-lean",
+        "ai4math-assurance-admission"
+      ],
+      "rights_status": "project_authored_mit_admitted",
+      "source_body_redistributed": false,
+      "source_family": "xena-formalization-method",
+      "source_package_activation": "not_installed_not_activated"
+    }
+  ],
+  "policy": {
+    "artifact_kind": "project_authored_conceptual_synthesis",
+    "mathematical_evidence_created": false,
+    "rights_boundary": "source-specific rights remain independent and unresolved packages remain held",
+    "source_bodies_redistributed": false,
+    "source_package_activation": "none"
+  },
+  "review_scope": {
+    "duplicate_groups": 2,
+    "packages": 31,
+    "source_families": 29
+  },
+  "schema_version": "ai4math-skill-source-abstraction-map.v1"
+}

@@ -24,8 +24,8 @@ jobs:
           cache-dependency-path: requirements-web-harness.txt
       - name: Install pinned schema validator
         run: python -m pip install --require-hashes -r requirements-web-harness.txt
-      - name: Validate immutable Harness snapshot
-        run: python3 scripts/validate_web_problem_harness.py --project-root .
+      - name: Run full repository integrity suite
+        run: make check-full
 
   web-attempt-packet:
     name: web-attempt-packet

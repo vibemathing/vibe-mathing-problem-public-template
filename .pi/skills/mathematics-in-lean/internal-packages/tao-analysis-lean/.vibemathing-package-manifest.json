@@ -1,0 +1,110 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "tao-analysis-lean/SKILL.md",
+  "package_id": "tao-analysis-lean",
+  "primary_owner": "mathematics-in-lean",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 104196,
+  "source_family": "tao-analysis-lean",
+  "source_files": 19,
+  "source_rows": [
+    {
+      "bytes": 327,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "e28aa1bfdbc986a7e42f6157be504a3738554f7c89d21aa24f4197573339f3cd"
+    },
+    {
+      "bytes": 14184,
+      "path": "tao-analysis-lean/SKILL.md",
+      "sha256": "73c47ef55d8219844ba78eb98c16bf8638cc197c2b93053e420f2861fa390351"
+    },
+    {
+      "bytes": 5383,
+      "path": "tao-analysis-lean/chapters/ch02-natural-numbers.md",
+      "sha256": "51eb640d8e7d91bc6207cc4e21366df82fc99262d267838a5438dca62f2920d8"
+    },
+    {
+      "bytes": 5803,
+      "path": "tao-analysis-lean/chapters/ch03-set-theory.md",
+      "sha256": "2c3ee93f1cf9c4889afd753b3c2cdda30a675ee877fbaa9acec967a657e02e0d"
+    },
+    {
+      "bytes": 5605,
+      "path": "tao-analysis-lean/chapters/ch04-integers-rationals.md",
+      "sha256": "95662830f5a26fbca7f347d9c5e390c01c36b526aa4636d80fced189bf42805c"
+    },
+    {
+      "bytes": 5350,
+      "path": "tao-analysis-lean/chapters/ch05-real-construction.md",
+      "sha256": "3d2e963b78a29d42a51704448b2408920d1a51fd1458c5f3d5aa1c7dd59bcd16"
+    },
+    {
+      "bytes": 5257,
+      "path": "tao-analysis-lean/chapters/ch06-sequences-limits.md",
+      "sha256": "e8ec0527a067486505b8b59375d4881afed2025fc37fd95478c92ae68b92b455"
+    },
+    {
+      "bytes": 5466,
+      "path": "tao-analysis-lean/chapters/ch07-series.md",
+      "sha256": "dfcaa5707e57402d8c74355827d1d43de7d51efa81bf46deed2bdc6e05f81fc2"
+    },
+    {
+      "bytes": 5354,
+      "path": "tao-analysis-lean/chapters/ch08-countability-choice-order.md",
+      "sha256": "2b330638729f1491773a7c4c6258286008da50290c981d2b31b4e4c72977c503"
+    },
+    {
+      "bytes": 5599,
+      "path": "tao-analysis-lean/chapters/ch09-continuity.md",
+      "sha256": "21a300368d2a9a703e9ab33d5f4cb22d8b8ccebed80bfaf93d27f7ef7ab748d6"
+    },
+    {
+      "bytes": 5508,
+      "path": "tao-analysis-lean/chapters/ch10-differentiation.md",
+      "sha256": "912bf990a26882f73fa8c6adf7b8ba4de00c577ee38b9071c121ee6698a390f5"
+    },
+    {
+      "bytes": 6389,
+      "path": "tao-analysis-lean/chapters/ch11-riemann-integration.md",
+      "sha256": "bc39b114873375fa463c0420ad1296ba77dc21b8551037034f42389212668522"
+    },
+    {
+      "bytes": 4800,
+      "path": "tao-analysis-lean/chapters/ch12-appendix-proof-language.md",
+      "sha256": "58e2f2008efa19f3ed82013cbbb999882a06705d87fa54a91ab2d79806c3b122"
+    },
+    {
+      "bytes": 4979,
+      "path": "tao-analysis-lean/chapters/ch13-decimal-representations.md",
+      "sha256": "6ea5dca68659cf71eddb72eb2c04357d61bac0c6d2cf916a1b609d13e2777e17"
+    },
+    {
+      "bytes": 6291,
+      "path": "tao-analysis-lean/chapters/ch14-measure-theory-supplement.md",
+      "sha256": "210d7f4a2a8d74d2206d0614ca8449bc5e102a935f782a9a4a7dc246d10e4723"
+    },
+    {
+      "bytes": 5878,
+      "path": "tao-analysis-lean/chapters/ch15-misc-lean-utilities.md",
+      "sha256": "974a18afe3e436febf54cb25cc42ed7999dcba90a5f068764ffa0a1a89a66d09"
+    },
+    {
+      "bytes": 2504,
+      "path": "tao-analysis-lean/cheatsheet.md",
+      "sha256": "8abc1e16a783506ed5aa2ac466cf81f93be86e7fa3636cbfcc970ade85a536c2"
+    },
+    {
+      "bytes": 4015,
+      "path": "tao-analysis-lean/glossary.md",
+      "sha256": "cf91e4dc339682d9bf142ad6ad601fb5a2310414dd6bf37bab84be0aea9dd6bc"
+    },
+    {
+      "bytes": 5504,
+      "path": "tao-analysis-lean/patterns.md",
+      "sha256": "b6bb0a2d2f2684aad3493c3b95680f5c81c757b37e0a3f34bdeb26d39f4b8bd9"
+    }
+  ],
+  "source_tree_sha256": "02ded3d34fbc18042de1e39ea45e8b82a6fe050c1d47bd209a1846145d8d5c65"
+}

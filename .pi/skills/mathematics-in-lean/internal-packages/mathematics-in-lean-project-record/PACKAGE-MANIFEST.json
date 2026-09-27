@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0.0",
+  "package_type": "gptweb_full_research_skill",
+  "skill_id": "mathematics-in-lean",
+  "group": "book-derived",
+  "version": "source-record",
+  "source_project_path": ".pi/skills/mathematics-in-lean",
+  "web_status": "reference_only",
+  "claim_ceiling": "candidate_only",
+  "complete_instructional_and_reference_tree": true,
+  "source_file_count": 20,
+  "source_total_bytes": 156283,
+  "packaged_tree_sha256": "3356dc764cda6c2cc63db7afc383d8f48e2a3b6cfc840c69600a0ff648ce80a1",
+  "tree_digest_definition": "sha256(sorted path\\0file_sha256\\0bytes\\n), excluding PACKAGE-MANIFEST.json",
+  "license_status": "no_explicit_redistribution_license_supplied",
+  "upload_status": "packaged_not_uploaded",
+  "transformations": [
+    {
+      "path": "SOURCE-RECORD.json",
+      "type": "redact_local_absolute_archive_path",
+      "fields": [
+        "source.outer_archive_path"
+      ],
+      "mathematical_or_instructional_content_changed": false
+    }
+  ],
+  "entries": [
+    {
+      "path": "SKILL.md",
+      "bytes": 12475,
+      "sha256": "45f634576fdb7358153731d3ffe2ea13bf95d37886ae0d2f71c0baac0e1e610f"
+    },
+    {
+      "path": "SOURCE-RECORD.json",
+      "bytes": 2267,
+      "sha256": "6bc67b3b709e960201fb578c40fd10e7f59abd50cbeb88932d09c72b6a231f58"
+    },
+    {
+      "path": "chapters/ch01-introduction.md",
+      "bytes": 5807,
+      "sha256": "3bdc35afcc84e765575391349891e730a05b6f93c3833919e7beb8684993e6e1"
+    },
+    {
+      "path": "chapters/ch02-basics.md",
+      "bytes": 8680,
+      "sha256": "302e97ae2e50df383e9e9b436df44631147d599e74f7bc3291b01e2bb2deea90"
+    },
+    {
+      "path": "chapters/ch03-logic.md",
+      "bytes": 8772,
+      "sha256": "bae0bfa4f966280aef2064e3d01c11d0578db602c5deaa826e44ba9d0d85522f"
+    },
+    {
+      "path": "chapters/ch04-sets-and-functions.md",
+      "bytes": 8130,
+      "sha256": "517734e9374017da84f5627f17e088608b3cd89f8923808d59f76b68b0d3adb5"
+    },
+    {
+      "path": "chapters/ch05-elementary-number-theory.md",
+      "bytes": 8756,
+      "sha256": "89911574407e8a7b98ed19f1b370dfc8581f5a0d2bb843ba684151264131c664"
+    },
+    {
+      "path": "chapters/ch06-discrete-mathematics.md",
+      "bytes": 8335,
+      "sha256": "fba11b630de57a05f68433b696130787076ade1ba385512aff5a818d84ca07d7"
+    },
+    {
+      "path": "chapters/ch07-structures.md",
+      "bytes": 8710,
+      "sha256": "70cb584ee5b5fd2163579d2c14e7e26b6637f04029d183feb19f8596a6c9ca4b"
+    },
+    {
+      "path": "chapters/ch08-hierarchies.md",
+      "bytes": 9849,
+      "sha256": "c6bd64ad59acaa38c8fd87f5f580fc4e62489a733e0dae482b152dd4f595b831"
+    },
+    {
+      "path": "chapters/ch09-groups-and-rings.md",
+      "bytes": 8646,
+      "sha256": "7ec1eaa2f542f45db9d45b06ab0af01b05a7958e3e5c2401a683dbe7d4708e78"
+    },
+    {
+      "path": "chapters/ch10-linear-algebra.md",
+      "bytes": 9912,
+      "sha256": "beb4d2f3ede29f07d82c8c80e0d0896a7d05e2acb20173292447ef05078f1314"
+    },
+    {
+      "path": "chapters/ch11-topology.md",
+      "bytes": 10071,
+      "sha256": "f86aa92135c28961af2beda1170a751db8281c3f2b374bf79cb872d75041ed9b"
+    },
+    {
+      "path": "chapters/ch12-differential-calculus.md",
+      "bytes": 9655,
+      "sha256": "5eeb23bd8592a3c67b4a839abd7a5af2c90bc9b6f40904376a41285cc3a1b44b"
+    },
+    {
+      "path": "chapters/ch13-integration-and-measure-theory.md",
+      "bytes": 9219,
+      "sha256": "435d4f60fb18a7b9d59d2fe555c392e68aaad49daec5d28be725c1b6f00d211f"
+    },
+    {
+      "path": "chapters/ch14-index-and-navigation.md",
+      "bytes": 2940,
+      "sha256": "a3cb2fcee03fcff29556a2245c0f887bc437e15dd9910d7ec7a393a9cc906290"
+    },
+    {
+      "path": "cheatsheet.md",
+      "bytes": 3005,
+      "sha256": "89d4ceca00fd47f8e4b345c7f71f54ddbb908cc5e039db7effd4f86f5d847207"
+    },
+    {
+      "path": "glossary.md",
+      "bytes": 4672,
+      "sha256": "d7891f14492748dfde06377c39ae00e01262219db3cc01734a39388edd98f95b"
+    },
+    {
+      "path": "patterns.md",
+      "bytes": 5137,
+      "sha256": "4bac0d44d76c6099b3bad43169962b2c0f3eb4990cf1797aa8746db68e4bcb2f"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 11245,
+      "sha256": "1bda13fc240ac595096e560001962315dcceb189f8999470aa0c47c9b6e30b58"
+    }
+  ]
+}

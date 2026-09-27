@@ -1,0 +1,37 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "bundled_complete_self_contained",
+  "owned_packages": [
+    {
+      "body_relative_path": "internal-packages/baier-katoen-model-checking",
+      "capabilities": [
+        "model/property separation",
+        "abstraction soundness",
+        "state-space control"
+      ],
+      "entry_relative_path": "internal-packages/baier-katoen-model-checking/SKILL.md",
+      "package_id": "baier-katoen-model-checking",
+      "public_redistribution_admitted": true,
+      "rights_state": "ADMITTED",
+      "source_bytes": 187243,
+      "source_family": "baier-katoen-model-checking",
+      "source_files": 20,
+      "source_tree_sha256": "ff7acf50db44bcf9ba47b1c76990149ee42ee301c22ca8347c0912b0919cc977"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "problem-to-method fit",
+        "verification-first experimentation",
+        "informative failure"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/ai-for-mathematics/SKILL.md",
+      "package_id": "ai-for-mathematics",
+      "primary_owner": "ai4math-source-discovery",
+      "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/ai-for-mathematics"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v2",
+  "top_level_skill": "ai4math-bounded-computation"
+}

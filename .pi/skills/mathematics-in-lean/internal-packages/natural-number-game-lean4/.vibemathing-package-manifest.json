@@ -1,0 +1,145 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "natural-number-game-lean4/SKILL.md",
+  "package_id": "natural-number-game-lean4",
+  "primary_owner": "mathematics-in-lean",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 101871,
+  "source_family": "natural-number-game-lean4",
+  "source_files": 26,
+  "source_rows": [
+    {
+      "bytes": 335,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "6190eb2ae9934ff3116ab212503852bd5ac397a8f4670e18f5f0ac50ccef184b"
+    },
+    {
+      "bytes": 11267,
+      "path": "natural-number-game-lean4/SKILL.md",
+      "sha256": "ffad9588d797d27f339996dc0d1ee3cd373c8f7951034c0e3c38107f9ed7a651"
+    },
+    {
+      "bytes": 4585,
+      "path": "natural-number-game-lean4/chapters/ch01-tutorial.md",
+      "sha256": "15bebad3b17857ec80b433b3a94009fc5a0cf1f44e026e9acda16a56a5e566b6"
+    },
+    {
+      "bytes": 4585,
+      "path": "natural-number-game-lean4/chapters/ch02-addition.md",
+      "sha256": "91327f966f96066117357fe944349c92ca47a3493cbd48b96bda2fcebd9fedc2"
+    },
+    {
+      "bytes": 4718,
+      "path": "natural-number-game-lean4/chapters/ch03-multiplication.md",
+      "sha256": "fa99a5e9fd0a4f66b1c4b0e6b6c40862e5ddfa90cbb45cd36a27bfa61c04fbac"
+    },
+    {
+      "bytes": 4613,
+      "path": "natural-number-game-lean4/chapters/ch04-power.md",
+      "sha256": "e270a68f91c1069082801c867caa233b4fea682705107b746bb652b24104ca04"
+    },
+    {
+      "bytes": 4575,
+      "path": "natural-number-game-lean4/chapters/ch05-implication.md",
+      "sha256": "b132c1ef8a5c3aa19c77601490e6a8a6b7373b7bceecdb22746915d18206650c"
+    },
+    {
+      "bytes": 4348,
+      "path": "natural-number-game-lean4/chapters/ch06-advanced-addition.md",
+      "sha256": "7fe031be928ed44680e209957d499ee5507f4b35a4942384fc72a0c10feefe65"
+    },
+    {
+      "bytes": 4588,
+      "path": "natural-number-game-lean4/chapters/ch07-less-or-equal.md",
+      "sha256": "08ebb7041b49ff52872771cb76297da5901bbfda0b9210fb7603e2d1d31da1eb"
+    },
+    {
+      "bytes": 5125,
+      "path": "natural-number-game-lean4/chapters/ch08-advanced-multiplication.md",
+      "sha256": "3d2ae0bc62c4ce859fa1dedc454b8d35f80364828e080df28ae8b9d7487229f3"
+    },
+    {
+      "bytes": 5442,
+      "path": "natural-number-game-lean4/chapters/ch09-algorithm.md",
+      "sha256": "3be18203aa329d2d5bc904ab216844e8b2387b2a26390aff0e21db8eb28f7edb"
+    },
+    {
+      "bytes": 1962,
+      "path": "natural-number-game-lean4/cheatsheet.md",
+      "sha256": "b897b6f9fbe4e4e0a3ca7c491daaa6898648d3bf0c10e1099ecedf8681940840"
+    },
+    {
+      "bytes": 3527,
+      "path": "natural-number-game-lean4/glossary.md",
+      "sha256": "e8188525ade367b7c276a33cae9688e0662db3825114e94fb1d5461a55637c61"
+    },
+    {
+      "bytes": 4478,
+      "path": "natural-number-game-lean4/patterns.md",
+      "sha256": "321f859bb54b67342d5d465e2a0586ccce92d05c2c575932d37e6345371a1bd3"
+    },
+    {
+      "bytes": 1688,
+      "path": "natural-number-game-lean4/references/coverage.md",
+      "sha256": "ad370e516789b6361c84460757f2ec1cdc05699d186c5c41f43359b444042e5c"
+    },
+    {
+      "bytes": 2951,
+      "path": "natural-number-game-lean4/references/foundations.md",
+      "sha256": "3f9ffc423a4ecfa34a5c32c909e8b8ac56fba5e7a9776a1845d076b90ef362cf"
+    },
+    {
+      "bytes": 2686,
+      "path": "natural-number-game-lean4/references/legacy-wip-roadmap.md",
+      "sha256": "bc2037c123d4d9211e1cb12134d7d8bbcde9aa5f5441b6e8e617e61a8c11442b"
+    },
+    {
+      "bytes": 3404,
+      "path": "natural-number-game-lean4/references/provenance.md",
+      "sha256": "b18d8aac14c0418ffaf12f0ca06055ec5103ff2d66dcaac013bfc5df3d479577"
+    },
+    {
+      "bytes": 3716,
+      "path": "natural-number-game-lean4/references/tactic-semantics.md",
+      "sha256": "4e2700cd6565788d852bc8601c0b92aa418a79b2eaefe9246760614d5fb79b2a"
+    },
+    {
+      "bytes": 7409,
+      "path": "natural-number-game-lean4/references/theorem-inventory.md",
+      "sha256": "c163f79c6d953f3c165a5d58107bbaf34a4faedec007de96e87a33f690503642"
+    },
+    {
+      "bytes": 4642,
+      "path": "natural-number-game-lean4/scripts/validate_skill.py",
+      "sha256": "d289582d618b2b556a911ed5ae5d1b3f3aaf391492e2ceb98b22b8b138cd0ec5"
+    },
+    {
+      "bytes": 2176,
+      "path": "natural-number-game-lean4/tests/EVALS.md",
+      "sha256": "2072522f9831d35dc10e6b146b51471ff81052be5377c9f78920a62fb744b8b2"
+    },
+    {
+      "bytes": 827,
+      "path": "natural-number-game-lean4/tests/VALIDATION.md",
+      "sha256": "d070759cb306be00c325fb4a6268186337b0264a69e116227095682729e70544"
+    },
+    {
+      "bytes": 2861,
+      "path": "natural-number-game-lean4/tests/evals.json",
+      "sha256": "80713513db10ad2b4c94daa6ed92b09409f88f765f743c7d2b91e39c198d3ce5"
+    },
+    {
+      "bytes": 2993,
+      "path": "natural-number-game-lean4/workflows/failure-recovery.md",
+      "sha256": "797fcbc0a52c865df45ef64b329284b98b69e5002b6b0b6376d96a1a93b8c043"
+    },
+    {
+      "bytes": 2370,
+      "path": "natural-number-game-lean4/workflows/proof-routing.md",
+      "sha256": "71a57d0c061f36308da0aae7c8788ec6795c98a3391b4c58a1d04166877ede5b"
+    }
+  ],
+  "source_tree_sha256": "bd6becd56f9b4fd536195c9de78f81096652fa38592a82c63c6ead9078b34a00"
+}

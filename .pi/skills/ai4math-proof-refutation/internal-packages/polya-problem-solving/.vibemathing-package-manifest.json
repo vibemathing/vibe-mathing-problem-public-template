@@ -1,0 +1,105 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "polya-problem-solving",
+  "primary_owner": "ai4math-proof-refutation",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 57908,
+  "source_family": "polya-problem-solving",
+  "source_files": 18,
+  "source_rows": [
+    {
+      "bytes": 10887,
+      "path": "SKILL.md",
+      "sha256": "db32ce097dd7e21c00c9da81c0a09ac1ae6cf3904e9af9cb92a3c385f553773b"
+    },
+    {
+      "bytes": 331,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "486bb93dcccc70eaa60c96bde7bb3b213b5efccb97782d37537a9a1fe082c0dd"
+    },
+    {
+      "bytes": 2869,
+      "path": "chapters/ch01-four-stage-control-loop.md",
+      "sha256": "b750ec373477a04bb912c4424473effce502b4468097150a9c360ec127eadfe3"
+    },
+    {
+      "bytes": 2921,
+      "path": "chapters/ch02-understand-the-problem.md",
+      "sha256": "8ddbc9cf2fa8632c5ac087fdca091a845dfbc92cc29514721b86848ad544cc4d"
+    },
+    {
+      "bytes": 2995,
+      "path": "chapters/ch03-related-problems-and-auxiliaries.md",
+      "sha256": "4da48d1095dbec2c8c9e9e4fb8ecf208784ef3c204259ee3cbcb415b3a248eb5"
+    },
+    {
+      "bytes": 2808,
+      "path": "chapters/ch04-transform-the-problem.md",
+      "sha256": "1a7ece97788754ca7bf678ba58485b7ee3b2eaf2fe51117739060d3cec0cd8c5"
+    },
+    {
+      "bytes": 2523,
+      "path": "chapters/ch05-backward-work-and-pappus.md",
+      "sha256": "a23b75adbd311f33c021901d5c528a69405e67ea1def3994c22a575e065fcec0"
+    },
+    {
+      "bytes": 2638,
+      "path": "chapters/ch06-heuristic-reasoning-and-conjectures.md",
+      "sha256": "3f6aec4e725f0220cf2a26a43f9ad2a0dcbb92e64e2d01929c366645d41560b4"
+    },
+    {
+      "bytes": 2855,
+      "path": "chapters/ch07-execution-proof-and-rigor.md",
+      "sha256": "430354ef088b3fc0f9724ca8d24477e26cf65e347af4a5ebdfa990bbaa1905ab"
+    },
+    {
+      "bytes": 2716,
+      "path": "chapters/ch08-review-validation-and-reuse.md",
+      "sha256": "d91500d1a7c79bc4dfa2ef55d622ff32c99b08f14fb081c05f8dabb103cc2332"
+    },
+    {
+      "bytes": 2736,
+      "path": "chapters/ch09-teaching-diagnosis-and-hints.md",
+      "sha256": "5c4a21550f742fd64957ca32ea394a89a913ed3ba5b1ab84c7ca791dbba80dbc"
+    },
+    {
+      "bytes": 2623,
+      "path": "chapters/ch10-practical-problems-and-models.md",
+      "sha256": "cc0f7434ac3ab1b3fc8c5a7ad6903af83f22abec9f20f7307684aba52aa5a19c"
+    },
+    {
+      "bytes": 2404,
+      "path": "chapters/ch11-diagrams-notation-and-equations.md",
+      "sha256": "364386ae440b9e051b7802059218105f45abf6bdf0d9d949d06d021c075a30b5"
+    },
+    {
+      "bytes": 2659,
+      "path": "chapters/ch12-progress-persistence-and-incubation.md",
+      "sha256": "203d66db3e0153949f469c2bc2fe21318b217d1fd0bfdcfbaefabc2912e39835"
+    },
+    {
+      "bytes": 3319,
+      "path": "chapters/ch13-problem-workshop.md",
+      "sha256": "9fc88bee29f574932e6058bbb14bdfde05f37d7eca579c54404e3e102ec0023a"
+    },
+    {
+      "bytes": 2708,
+      "path": "cheatsheet.md",
+      "sha256": "ce5695a299feb4c144c370f450dbc352aa8d7c605ad298d4109b2ab7c441d329"
+    },
+    {
+      "bytes": 3797,
+      "path": "glossary.md",
+      "sha256": "37ea6995c30d93eb9cf0bc01f2b159b769b818067faf07992ade06faf018244a"
+    },
+    {
+      "bytes": 4119,
+      "path": "patterns.md",
+      "sha256": "c95f887dac73ca2aac7735db287059584223d83b07453bf2fa0b4b98a31343db"
+    }
+  ],
+  "source_tree_sha256": "904fc417c07f98bd14b14699d7cd53612635d617d37427d78a0d03066352614d"
+}

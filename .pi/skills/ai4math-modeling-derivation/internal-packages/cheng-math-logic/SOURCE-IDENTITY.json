@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:c7f29e2a793d4ddb",
+  "label": "cheng-math-logic-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "c7f29e2a793d4ddb7461c9df5dc49e2bf06ae122f77eef0ebf693166d37651b0",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:4478540f143a1cdb",
+  "label": "lean4-metaprogramming-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "4478540f143a1cdb8db07f45b7d780c54b0e7d42cb42a90280fae473eada0aa4",
+  "evidence_ceiling": "identity/safety observation only until controlled review"
+}

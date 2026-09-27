@@ -1,0 +1,16 @@
+{
+  "Book Coverage": 100,
+  "Method Coverage": 94,
+  "Operationalization": 97,
+  "Trigger Quality": 96,
+  "Decision Quality": 96,
+  "Failure Recovery": 97,
+  "Reference Architecture": 98,
+  "Context Efficiency": 98,
+  "Test Coverage": 96,
+  "Installability": 97,
+  "notes": {
+    "Book Coverage": "100 refers to all readable content in the uploaded archive, not the unbundled linked papers.",
+    "Method Coverage": "The source is an index; method-family coverage is complete for the index, while paper-level procedural detail is intentionally not invented."
+  }
+}

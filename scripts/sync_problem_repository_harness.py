@@ -50,7 +50,7 @@ def history_entry(snapshot_path: Path, importer_path: Path) -> dict[str, str]:
     }
 
 
-def merge_snapshot_history(target: Path, built: Path, new_snapshot: dict[str, Any]) -> None:
+def merge_snapshot_history(target: Path, built: Path, new_snapshot: dict[str, Any]) -> dict[str, Any]:
     new_history_path = built / "HARNESS_SNAPSHOT_HISTORY.json"
     new_history = load_json(new_history_path)
     prior_history_path = target / "HARNESS_SNAPSHOT_HISTORY.json"
@@ -82,11 +82,7 @@ def merge_snapshot_history(target: Path, built: Path, new_snapshot: dict[str, An
         for key in ("database_id", "node_id", "default_branch", "visibility")
     }
     new_history["entries"] = merged
-    new_history_path.write_text(
-        json.dumps(new_history, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    os.chmod(new_history_path, 0o644)
+    return new_history
 
 
 def main() -> int:
@@ -103,6 +99,9 @@ def main() -> int:
     args = parser.parse_args()
     if args.check == args.apply:
         print("BLOCK: choose exactly one of --check or --apply", file=sys.stderr)
+        return 1
+    if args.apply and any((args.allow_dirty_source, args.allow_draft_problem, args.allow_unadmitted_problem, args.allow_planned_repository_identity)):
+        print("BLOCK: development bypass flags are forbidden for --apply", file=sys.stderr)
         return 1
     source_root = args.source_root.resolve()
     target = args.target_root.resolve()
@@ -121,6 +120,7 @@ def main() -> int:
                 str(source_root / "scripts/build_problem_repository.py"),
                 "--project-root", str(source_root),
                 "--problem-file", str(problem_file),
+                "--canonical-ledger", str(target / "problem-library/records/canonical-problems.jsonl"),
                 "--repository", repository,
                 "--visibility", visibility,
                 "--default-branch", str(identity.get("default_branch", "main")),
@@ -149,7 +149,7 @@ def main() -> int:
             if result.returncode != 0:
                 raise RuntimeError(result.stderr.strip() or "replacement Harness build failed")
             new = load_json(built / "HARNESS_SNAPSHOT.json")
-            merge_snapshot_history(target, built, new)
+            merged_history = merge_snapshot_history(target, built, new)
             old_files = by_path(old)
             new_files = by_path(new)
             added = sorted(set(new_files) - set(old_files))
@@ -159,29 +159,53 @@ def main() -> int:
             changed_generated = sorted(path for path in generated if not (target / path).is_file() or sha256_file(target / path) != sha256_file(built / path))
             drift = bool(added or removed or changed or changed_generated)
             if args.apply:
-                for path in removed + changed:
+                touched = sorted(set(added + changed + removed + changed_generated))
+                backup_root = Path(temporary) / "sync-backup"
+                existed: dict[str, bool] = {}
+                for path in touched:
                     target_path = target / path
-                    if target_path.is_symlink() or not target_path.is_file():
+                    existed[path] = target_path.exists()
+                    if target_path.is_symlink() or (target_path.exists() and not target_path.is_file()):
                         raise RuntimeError(f"cannot safely replace/remove old Harness path: {path}")
-                    if sha256_file(target_path) != old_files[path]["sha256"]:
+                    if path in old_files and sha256_file(target_path) != old_files[path]["sha256"]:
                         raise RuntimeError(f"refuse to replace/remove locally modified Harness file: {path}")
-                for path in added + changed:
-                    copy_atomic(built / path, target / path)
-                for path in changed_generated:
-                    copy_atomic(built / path, target / path)
-                for path in removed:
-                    (target / path).unlink()
-                # Validate after update; rollback is deliberately not automated.
-                validation = subprocess.run(
-                    [sys.executable, str(target / "scripts/validate_web_problem_harness.py"), "--project-root", str(target)],
-                    cwd=target,
-                    text=True,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
-                    check=False,
-                )
-                if validation.returncode != 0:
-                    raise RuntimeError(validation.stderr.strip() or validation.stdout.strip() or "post-sync Harness validation failed")
+                    if existed[path]:
+                        backup_path = backup_root / path
+                        backup_path.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copy2(target_path, backup_path)
+                try:
+                    for path in added + changed:
+                        copy_atomic(built / path, target / path)
+                    for path in changed_generated:
+                        if path == "HARNESS_SNAPSHOT_HISTORY.json":
+                            continue
+                        copy_atomic(built / path, target / path)
+                    history_target = target / "HARNESS_SNAPSHOT_HISTORY.json"
+                    history_temp = history_target.with_name(f".{history_target.name}.{os.getpid()}.tmp")
+                    history_temp.write_text(json.dumps(merged_history, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+                    os.chmod(history_temp, 0o644)
+                    os.replace(history_temp, history_target)
+                    for path in removed:
+                        (target / path).unlink()
+                    validation = subprocess.run(
+                        [sys.executable, str(target / "scripts/validate_web_problem_harness.py"), "--project-root", str(target)],
+                        cwd=target,
+                        text=True,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                        check=False,
+                    )
+                    if validation.returncode != 0:
+                        raise RuntimeError(validation.stderr.strip() or validation.stdout.strip() or "post-sync Harness validation failed")
+                except BaseException:
+                    for path in reversed(touched):
+                        target_path = target / path
+                        backup_path = backup_root / path
+                        if existed.get(path):
+                            copy_atomic(backup_path, target_path)
+                        elif target_path.exists():
+                            target_path.unlink()
+                    raise
             report = {
                 "decision": "PASS" if args.apply or not drift else "DRIFT",
                 "mode": "apply" if args.apply else "check",

@@ -1,0 +1,180 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "xena-formalization-method",
+  "primary_owner": "ai4math-lean-formalization",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 236007,
+  "source_family": "xena-formalization-method",
+  "source_files": 33,
+  "source_rows": [
+    {
+      "bytes": 16223,
+      "path": "SKILL.md",
+      "sha256": "30c6c9d8d583373bac003f54a323fd57bb7811065eb14643c5b71e219ce489d0"
+    },
+    {
+      "bytes": 335,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "eec9a391244903454373ffe6db39d7e0464ba66d1321551f61917c88b9a0e547"
+    },
+    {
+      "bytes": 4697,
+      "path": "chapters/ch01-orientation-and-statement-routing.md",
+      "sha256": "8bbfd8b16c06ddf2827889bce4669d1bce4836f46daf017583ee4aee86aea02f"
+    },
+    {
+      "bytes": 4322,
+      "path": "chapters/ch02-types-proof-terms-and-proof-state.md",
+      "sha256": "56a07c9540a6aecbb9006b8beef86022c74d91965197475c8251fe3ed05b1e07"
+    },
+    {
+      "bytes": 4722,
+      "path": "chapters/ch03-proof-construction-and-tactic-selection.md",
+      "sha256": "1bea9e789982b32457b1b0f11becab3c24a7f39ba95578668ccf7635a542b9a7"
+    },
+    {
+      "bytes": 4665,
+      "path": "chapters/ch04-equality-rewriting-and-normalization.md",
+      "sha256": "337f547b03ff6270348ba775cc98a10cee48f44fe001657245ec657f30deacce"
+    },
+    {
+      "bytes": 4429,
+      "path": "chapters/ch05-induction-recursors-and-quotients.md",
+      "sha256": "cca711e36bedf20cae295e3c76ab73f911f65453e028f7dcdfcbfa6213555636"
+    },
+    {
+      "bytes": 4907,
+      "path": "chapters/ch06-definition-api-and-library-engineering.md",
+      "sha256": "7d9abd672b3381738e232630d8b402236fb4070524bce57dd64b69e1426d0565"
+    },
+    {
+      "bytes": 4800,
+      "path": "chapters/ch07-representation-specification-and-computation.md",
+      "sha256": "3b448827ee609c5d5554421cd47a258ef67f2e162247953126e293e53304f342"
+    },
+    {
+      "bytes": 4571,
+      "path": "chapters/ch08-automation-reflection-and-trust.md",
+      "sha256": "4fb654bc7f5f9676ac26517af2da4f86d4345839d65b7520782f9fe883b0988e"
+    },
+    {
+      "bytes": 4694,
+      "path": "chapters/ch09-filters-topology-and-useful-abstraction.md",
+      "sha256": "abd741e60b4d26a17b5df6ede7a7f23130063134ad646925e344a6280c5544d6"
+    },
+    {
+      "bytes": 4884,
+      "path": "chapters/ch10-research-blueprints-and-library-growth.md",
+      "sha256": "3419d4b44b0cf60a883e8cd2e8ffbed2a45eaa99de8f48c30be93a2c82695d6c"
+    },
+    {
+      "bytes": 4675,
+      "path": "chapters/ch11-teaching-learning-and-collaboration.md",
+      "sha256": "7aeb70d562a2ea4e03b4ed2f482cd33291914583e01c3d819ef0d53a4bb130f7"
+    },
+    {
+      "bytes": 5186,
+      "path": "chapters/ch12-ai-autoformalization-and-semantic-audit.md",
+      "sha256": "e2a81886f6ba155c566fde20075c0f55dd0d375ac20982127f8b9434283d83d2"
+    },
+    {
+      "bytes": 4915,
+      "path": "chapters/ch13-counterexamples-benchmarks-and-proof-digestion.md",
+      "sha256": "8ca3ba1bc76b095220306900e15d91958518c2843a0d13efe33cc24890afc190"
+    },
+    {
+      "bytes": 5416,
+      "path": "chapters/ch14-failure-recovery-version-drift-and-self-check.md",
+      "sha256": "ec94e9aa0bf002ecde0229e25d88735eadc54258391c01a1501d1abee0d055c6"
+    },
+    {
+      "bytes": 2912,
+      "path": "cheatsheet.md",
+      "sha256": "1f7192c3f56a0c63eeb68d0de61289d9a405fe411566a6de5e9a3d1f99f4c5a9"
+    },
+    {
+      "bytes": 726,
+      "path": "evals/README.md",
+      "sha256": "5a7d8265d8df8b1a44564dcc2ee0814faa6acab5fcc3a77a607b5d625461158d"
+    },
+    {
+      "bytes": 4434,
+      "path": "evals/cases.json",
+      "sha256": "cea8cdf4972cd1da4c6c0470f8f787de13a00a8b1c6bc52b2f5e24a3cb7ef446"
+    },
+    {
+      "bytes": 5939,
+      "path": "evals/report.md",
+      "sha256": "a1ff16e07b98185a6a415c2af1b4f9508f9fa62a06f619ab7e93ba5100147c34"
+    },
+    {
+      "bytes": 4835,
+      "path": "glossary.md",
+      "sha256": "611fd4b1201aa9d875477a5ef3dc4e70a68ef7ef0f87c1be445a679d467a3372"
+    },
+    {
+      "bytes": 5557,
+      "path": "patterns.md",
+      "sha256": "ad14b38e5d5227794d7555517a743589186378a9e43958d6bd83c0d3022548ea"
+    },
+    {
+      "bytes": 1647,
+      "path": "references/book-source.json",
+      "sha256": "2d3c2ec3fe3bbebf1af377b16ac50506b9a09ade833feed912afb140bc34a14a"
+    },
+    {
+      "bytes": 27553,
+      "path": "references/capability-library.md",
+      "sha256": "c9cf3097a9b4f45a0c9dab9967e6d5e096953287897ee8289000665bba025ce9"
+    },
+    {
+      "bytes": 2973,
+      "path": "references/concept-graph.md",
+      "sha256": "fef6362ce51f3001ae9a7fb7a47e6aa02daa2feded2904388b9ac318dfcca615"
+    },
+    {
+      "bytes": 1676,
+      "path": "references/historical-lean-notes.md",
+      "sha256": "7a0bedf36e99188b57731f72a95733692a8783d2a87df0324bf7239cd81a9a4b"
+    },
+    {
+      "bytes": 2056,
+      "path": "references/method-dependency-graph.md",
+      "sha256": "f70a045d83681ddf9f0a1866c957963d76931b3bb338aad8976d6b229b4ed34a"
+    },
+    {
+      "bytes": 4943,
+      "path": "references/provenance.md",
+      "sha256": "c5d1ed007c49dfc22b9f448149be9b78e49829e5cd372ce9caee796708796877"
+    },
+    {
+      "bytes": 66781,
+      "path": "references/reading-ledger.json",
+      "sha256": "343284f46ffefcb0eaf0d9b045bc5ae054abd770872087ef17bff3f41536ff54"
+    },
+    {
+      "bytes": 9324,
+      "path": "references/source-map.md",
+      "sha256": "5a419ae9810da15f28d197f03771cec34792cba2091237c7ee8b5ec23f3ef6d8"
+    },
+    {
+      "bytes": 4126,
+      "path": "scripts/audit.py",
+      "sha256": "9ba0128571b89755a3beb8f87a0713fa38f12cdea475ca75f741a8cf410542f6"
+    },
+    {
+      "bytes": 3070,
+      "path": "scripts/eval.py",
+      "sha256": "786fa4e00c89d97ac33956544cfd48099bbe7eb88c298d358e56b3e440be77f7"
+    },
+    {
+      "bytes": 4014,
+      "path": "scripts/validate.py",
+      "sha256": "9a9b01418703119f2d7b06351716d9b489927b9322b3fab2d0fd5126ac265d4d"
+    }
+  ],
+  "source_tree_sha256": "8a33eff78bd36e5fb869c5c173ee217682a19fd8b38a4ad12c3dd884d21e6861"
+}

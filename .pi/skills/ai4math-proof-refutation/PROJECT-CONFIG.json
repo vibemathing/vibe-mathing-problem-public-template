@@ -1,0 +1,10 @@
+{
+  "activation_status": "active",
+  "entry": "SKILL.md",
+  "entry_sha256": "04299f01da1ebb5ce2fff3718aa52b856cab372993509541c7671600bb3047bd",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": true,
+  "registry": "INTERNAL-PACKAGES.json",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-proof-refutation"
+}

@@ -1,0 +1,10 @@
+{
+  "activation_status": "constrained",
+  "entry": "SKILL.md",
+  "entry_sha256": "d51dbb3acff9e64eed65d31f82653ab646c71339eb836ca270bdebb9a3891dec",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": true,
+  "registry": "INTERNAL-PACKAGES.json",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-bounded-computation"
+}

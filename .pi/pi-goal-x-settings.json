@@ -1,0 +1,8 @@
+{
+  "disableTasks": true,
+  "autoSelectSingleGoal": false,
+  "strictExecutionContract": false,
+  "networkRecovery": {
+    "maxAttempts": 3
+  }
+}

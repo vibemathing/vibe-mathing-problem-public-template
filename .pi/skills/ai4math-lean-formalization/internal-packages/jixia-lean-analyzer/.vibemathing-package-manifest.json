@@ -1,0 +1,85 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "jixia-lean-analyzer/SKILL.md",
+  "package_id": "jixia-lean-analyzer",
+  "primary_owner": "ai4math-lean-formalization",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 65561,
+  "source_family": "jixia-lean-analyzer",
+  "source_files": 14,
+  "source_rows": [
+    {
+      "bytes": 329,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "daf4f8b823834d4b65174403cf026654495c4e16d334ce298dd32fca2af6ab55"
+    },
+    {
+      "bytes": 11358,
+      "path": "jixia-lean-analyzer/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "bytes": 9015,
+      "path": "jixia-lean-analyzer/SKILL.md",
+      "sha256": "b964c814e23c566f4d6d52fb9db085d36d03d926b6d7b57a0f883e13c1e8c710"
+    },
+    {
+      "bytes": 4439,
+      "path": "jixia-lean-analyzer/chapters/ch01-build-and-run.md",
+      "sha256": "ede165b48ada19a15f8a3c3033852d501809d77309927bfef949845bea8749e2"
+    },
+    {
+      "bytes": 4830,
+      "path": "jixia-lean-analyzer/chapters/ch02-data-model-and-json.md",
+      "sha256": "7295ae712b58c9efbd76c52725166244bc13fca740cc8c3c0b9fa6b7d3074c18"
+    },
+    {
+      "bytes": 4740,
+      "path": "jixia-lean-analyzer/chapters/ch03-pipeline-and-plugin-lifecycle.md",
+      "sha256": "ce50cfa8f5a40876486a3645392c4d2a5d605bbf52bbb3b6e75799707444ea11"
+    },
+    {
+      "bytes": 4401,
+      "path": "jixia-lean-analyzer/chapters/ch04-declaration-analysis.md",
+      "sha256": "ebaba7fcfc3514b1da4d3f764ddd390f4c2db735185501a1106c872b3c4b607e"
+    },
+    {
+      "bytes": 4094,
+      "path": "jixia-lean-analyzer/chapters/ch05-symbol-analysis.md",
+      "sha256": "bf36a4357d2b4a4c3ea339921b02a265a477428c01a3b9c348416850dc2db58c"
+    },
+    {
+      "bytes": 4783,
+      "path": "jixia-lean-analyzer/chapters/ch06-elaboration-and-goals.md",
+      "sha256": "3635bc72fca2769d043fafeb04d4f2dac97c5685c688c14238c5ce17b12de754"
+    },
+    {
+      "bytes": 3739,
+      "path": "jixia-lean-analyzer/chapters/ch07-module-line-and-ast.md",
+      "sha256": "78fa73813d355dd538058c31c05eadb2f85c246430c98a7efc46cf525d43b7d3"
+    },
+    {
+      "bytes": 4830,
+      "path": "jixia-lean-analyzer/chapters/ch08-extension-and-testing.md",
+      "sha256": "e78d324b8e126ddde7600c394ee571afc297637d99fe3e7fd2176c58e1227e21"
+    },
+    {
+      "bytes": 2639,
+      "path": "jixia-lean-analyzer/cheatsheet.md",
+      "sha256": "58a558b03aeef977fdc9645eb9468246cd5870427107c5c6d2c97ce0c6a4dfa8"
+    },
+    {
+      "bytes": 2879,
+      "path": "jixia-lean-analyzer/glossary.md",
+      "sha256": "55df22342d0827f14200ae0e7b298550c2c7dc6e88869ee90019f4e432b0431a"
+    },
+    {
+      "bytes": 3485,
+      "path": "jixia-lean-analyzer/patterns.md",
+      "sha256": "44f61444b49f07b460ec3196decad20982051913c1b7ae4d9317c4a0c22a7a58"
+    }
+  ],
+  "source_tree_sha256": "0a2e45893080483615b9487222da10723f12b844d7fd8b2104355af3977eb8f3"
+}

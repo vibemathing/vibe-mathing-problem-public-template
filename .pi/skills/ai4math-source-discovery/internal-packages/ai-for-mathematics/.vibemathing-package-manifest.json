@@ -1,0 +1,70 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "ai-for-mathematics",
+  "primary_owner": "ai4math-source-discovery",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 96401,
+  "source_family": "ai-for-mathematics",
+  "source_files": 11,
+  "source_rows": [
+    {
+      "bytes": 11083,
+      "path": "SKILL.md",
+      "sha256": "a97a30ce447e63c194e45825ef9b5068d7d9678aa4a934ed6a92583d30492c86"
+    },
+    {
+      "bytes": 328,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "121b533268e509f6712da89f46f1dd22257316b93115ff698a8dd9f704f4a1d5"
+    },
+    {
+      "bytes": 7395,
+      "path": "chapters/ch01-overview.md",
+      "sha256": "eff2357521ddec0cf316eb7754606f074aa846aae0a60926dc946e157a6f2b88"
+    },
+    {
+      "bytes": 11212,
+      "path": "chapters/ch02-machine-learning.md",
+      "sha256": "b28d01a6b107f9a8db612c49147b3cf9f6037267f16e782fecddfc04650148eb"
+    },
+    {
+      "bytes": 11062,
+      "path": "chapters/ch03-discovering-patterns.md",
+      "sha256": "682e035144c3d5cb4df81417a97899474de4c89f8fe20c4eab95548cf42dc225"
+    },
+    {
+      "bytes": 10702,
+      "path": "chapters/ch04-proving-theorems.md",
+      "sha256": "6ce670633235dbf7b2ca81d4ca057c084004c5406ee266ad8b9000e9d89ef0fe"
+    },
+    {
+      "bytes": 10771,
+      "path": "chapters/ch05-counterexamples.md",
+      "sha256": "8a3e3247c6b9178351ac2ad92f5070f8665af3a511afbadd4095a84e6ebad963"
+    },
+    {
+      "bytes": 13366,
+      "path": "chapters/ch06-pdes.md",
+      "sha256": "1831f90279fb1eab3acf6991919cc9e6cc46704f8f878557691d2ae06aac9429"
+    },
+    {
+      "bytes": 4399,
+      "path": "cheatsheet.md",
+      "sha256": "c7340c8a4932064180d61c28fad7242f79a540f12a7594a2a78621b5cbc8bf84"
+    },
+    {
+      "bytes": 6878,
+      "path": "glossary.md",
+      "sha256": "6195c6b81061f7c3af96f88ab877a326d4f50ae66b660664770dff571eaabf1d"
+    },
+    {
+      "bytes": 9205,
+      "path": "patterns.md",
+      "sha256": "115d566402a5d4b55a24bb14a4c2894e9f0e5f45f09b74b56c2cd15ba463d826"
+    }
+  ],
+  "source_tree_sha256": "e50bf2a3bda8037031f11851bfdee99a3231be17c7a9a51eb9c6fc73961a449c"
+}

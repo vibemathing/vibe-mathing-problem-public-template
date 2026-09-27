@@ -1,0 +1,18 @@
+{
+  "enableSkillCommands": true,
+  "packages": [
+    "npm:pi-goal-x@0.31.9"
+  ],
+  "skills": [
+    "skills/solve/SKILL.md",
+    "skills/mathematics-in-lean/SKILL.md",
+    "skills/prove2me/SKILL.md",
+    "skills/ai4math-source-discovery/SKILL.md",
+    "skills/ai4math-modeling-derivation/SKILL.md",
+    "skills/ai4math-proof-refutation/SKILL.md",
+    "skills/ai4math-bounded-computation/SKILL.md",
+    "skills/ai4math-lean-formalization/SKILL.md",
+    "skills/ai4math-assurance-admission/SKILL.md",
+    "skills/ai4math-toolchain-reproducibility/SKILL.md"
+  ]
+}

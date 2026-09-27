@@ -1,0 +1,10 @@
+{
+  "activation_status": "constrained",
+  "entry": "SKILL.md",
+  "entry_sha256": "e295dce9cf8a4c7acb9bec6d1eeb3212fdf3fb8e4cd4f9607db8e2f9ef27e150",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": true,
+  "registry": "INTERNAL-PACKAGES.json",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-assurance-admission"
+}

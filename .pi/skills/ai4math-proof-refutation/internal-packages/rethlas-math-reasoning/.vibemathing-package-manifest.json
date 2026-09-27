@@ -1,0 +1,95 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "rethlas-math-reasoning",
+  "primary_owner": "ai4math-proof-refutation",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 77575,
+  "source_family": "rethlas-math-reasoning",
+  "source_files": 16,
+  "source_rows": [
+    {
+      "bytes": 11357,
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 11669,
+      "path": "SKILL.md",
+      "sha256": "b6622b0be65aad38d9ce35b9654111b3ff76f742716c69457d5bb3435aca5bd7"
+    },
+    {
+      "bytes": 332,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "64e94b20f33894707ca4309bbbe9e72088a0b89cbd025b092ff137afa60fb669"
+    },
+    {
+      "bytes": 4484,
+      "path": "chapters/ch01-architecture-and-boundaries.md",
+      "sha256": "13c545fb5d9d704b4f108c1e982d1f4eb7ef6c1cb36f4a5a4fc3a8480d6f39f5"
+    },
+    {
+      "bytes": 4317,
+      "path": "chapters/ch02-memory-and-state.md",
+      "sha256": "ca0a88e61002fb82a9bbbc6a69b56322149a48c39ab3e4309973972133ae01f6"
+    },
+    {
+      "bytes": 3864,
+      "path": "chapters/ch03-immediate-conclusions-and-toy-examples.md",
+      "sha256": "76ca22fbee4c5a6fe510ee9abc8dd689cc04c7ca1a958362fe8a9239dadda446"
+    },
+    {
+      "bytes": 3892,
+      "path": "chapters/ch04-counterexamples-and-failure-memory.md",
+      "sha256": "f620a82366353cd2be75f6606a980373c140a8785b81807e4805e3b857f0df9a"
+    },
+    {
+      "bytes": 4313,
+      "path": "chapters/ch05-retrieval-and-applicability.md",
+      "sha256": "d87ac013c40f3700386ba61b59dabea8d58490b58c7d508fcbada4d3c0d1255e"
+    },
+    {
+      "bytes": 4123,
+      "path": "chapters/ch06-decomposition-and-direct-proving.md",
+      "sha256": "0ffca45c596fcc0fd956abeda16446cfd15a2807d1969ff11e7b9adc503dd6d3"
+    },
+    {
+      "bytes": 4512,
+      "path": "chapters/ch07-recursive-proving-and-replanning.md",
+      "sha256": "4fea7c3acf3de3afadc97f10576fadc8f4cfa0aa4d0192bde6695e9b577f140f"
+    },
+    {
+      "bytes": 4000,
+      "path": "chapters/ch08-proof-assembly-and-output-contract.md",
+      "sha256": "6d31c1e1d978355a719f74e876ceb35701b385b795c551dc792126cba771cab5"
+    },
+    {
+      "bytes": 5186,
+      "path": "chapters/ch09-strict-verification.md",
+      "sha256": "c7e78b175cdacc014f7eaf9c3af7bfb55aec4d83cefb4f259af7b0088e4bea46"
+    },
+    {
+      "bytes": 5204,
+      "path": "chapters/ch10-runner-and-operations.md",
+      "sha256": "3c22cc56a3a7999e9ca58ab951839d66c22ceed31617b3516117fe7719dce722"
+    },
+    {
+      "bytes": 3142,
+      "path": "cheatsheet.md",
+      "sha256": "5b9a29380f39e559ca9c2a655785e6ccf3dfebfda9926fee69167e98c02d2491"
+    },
+    {
+      "bytes": 3058,
+      "path": "glossary.md",
+      "sha256": "26635e4422c2141db9ae2443281c7534f352075b87d5cc3b07141992830f5604"
+    },
+    {
+      "bytes": 4122,
+      "path": "patterns.md",
+      "sha256": "a2bf33900f168640aac6bf9757ee7ee2f6e6ad6776b4a5722a83b214fefe1c2a"
+    }
+  ],
+  "source_tree_sha256": "ed9c510c04371f92206795a1b847f5c5bf150010f6af205b65857131b3ab93de"
+}

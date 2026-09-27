@@ -1,0 +1,295 @@
+{
+  "schema_version": "1.0",
+  "skill": "baier-katoen-model-checking",
+  "cases": [
+    {
+      "id": "T01",
+      "kind": "trigger",
+      "prompt": "Model two processes that share a semaphore and verify mutual exclusion.",
+      "should_trigger": true,
+      "expected_route": [
+        "ch02",
+        "ch03"
+      ],
+      "expected": [
+        "shared-variable program graph/TS",
+        "invariant or reachability",
+        "atomicity check"
+      ]
+    },
+    {
+      "id": "T02",
+      "kind": "trigger",
+      "prompt": "Express request-response in LTL and explain how a model checker finds a counterexample.",
+      "should_trigger": true,
+      "expected_route": [
+        "ch05",
+        "ch04"
+      ],
+      "expected": [
+        "G(req -> F grant)",
+        "negate/automaton/product",
+        "accepting lasso"
+      ]
+    },
+    {
+      "id": "T03",
+      "kind": "trigger",
+      "prompt": "When should I use CTL instead of LTL for a recovery property?",
+      "should_trigger": true,
+      "expected_route": [
+        "ch06"
+      ],
+      "expected": [
+        "branching alternatives",
+        "quantifier scope",
+        "LTL/CTL incomparability"
+      ]
+    },
+    {
+      "id": "T04",
+      "kind": "trigger",
+      "prompt": "My explicit checker ran out of memory on a concurrent protocol. What reductions are sound?",
+      "should_trigger": true,
+      "expected_route": [
+        "ch01",
+        "ch06",
+        "ch07",
+        "ch08"
+      ],
+      "expected": [
+        "property-preservation first",
+        "ROBDD/abstraction/POR routing"
+      ]
+    },
+    {
+      "id": "T05",
+      "kind": "trigger",
+      "prompt": "Verify a 5-second response deadline in a controller with dense time.",
+      "should_trigger": true,
+      "expected_route": [
+        "ch09"
+      ],
+      "expected": [
+        "timed automaton/TCTL",
+        "guards/invariants/clocks",
+        "region checking"
+      ]
+    },
+    {
+      "id": "T06",
+      "kind": "trigger",
+      "prompt": "Compute the maximum probability of eventually reaching error in an MDP and give a scheduler.",
+      "should_trigger": true,
+      "expected_route": [
+        "ch10"
+      ],
+      "expected": [
+        "Bellman max",
+        "value iteration or LP",
+        "memoryless scheduler with progress tie-break"
+      ]
+    },
+    {
+      "id": "T07",
+      "kind": "trigger",
+      "prompt": "Does weak fairness or strong fairness fit a process that is enabled infinitely often but not continuously?",
+      "should_trigger": true,
+      "expected_route": [
+        "ch03"
+      ],
+      "expected": [
+        "strong fairness",
+        "realizability"
+      ]
+    },
+    {
+      "id": "T08",
+      "kind": "trigger",
+      "prompt": "Can I quotient this model by stutter equivalence before checking an LTL formula with X?",
+      "should_trigger": true,
+      "expected_route": [
+        "ch07"
+      ],
+      "expected": [
+        "no preservation guarantee for X",
+        "next-free boundary"
+      ]
+    },
+    {
+      "id": "N01",
+      "kind": "negative_trigger",
+      "prompt": "Write a Python REST API for a todo list.",
+      "should_trigger": false,
+      "reason": "general software implementation without a model-checking/formal-verification task"
+    },
+    {
+      "id": "N02",
+      "kind": "negative_trigger",
+      "prompt": "Summarize the history of temporal logic research after 2020.",
+      "should_trigger": false,
+      "reason": "fresh external research, outside book-derived operational skill"
+    },
+    {
+      "id": "N03",
+      "kind": "negative_trigger",
+      "prompt": "Prove Fermat's Last Theorem.",
+      "should_trigger": false,
+      "reason": "mathematical proof unrelated to model checking"
+    },
+    {
+      "id": "M01",
+      "kind": "method_selection",
+      "prompt": "Check that a door is never open when the elevator car is absent.",
+      "expected_route": [
+        "ch03"
+      ],
+      "expected_method": "invariant/reachability"
+    },
+    {
+      "id": "M02",
+      "kind": "method_selection",
+      "prompt": "Check that every request is eventually served on all traces.",
+      "expected_route": [
+        "ch05"
+      ],
+      "expected_method": "LTL + Büchi product/NDFS; inspect fairness if counterexample is starvation"
+    },
+    {
+      "id": "M03",
+      "kind": "method_selection",
+      "prompt": "Check that from every reachable state there exists a path to recovery.",
+      "expected_route": [
+        "ch06"
+      ],
+      "expected_method": "branching-time CTL such as AG EF recovery"
+    },
+    {
+      "id": "M04",
+      "kind": "method_selection",
+      "prompt": "Reduce interleavings of independent invisible actions while preserving an LTL formula without next.",
+      "expected_route": [
+        "ch08"
+      ],
+      "expected_method": "ample-set POR A1–A4"
+    },
+    {
+      "id": "M05",
+      "kind": "method_selection",
+      "prompt": "Reduce interleavings while preserving next-free CTL.",
+      "expected_route": [
+        "ch08"
+      ],
+      "expected_method": "ample-set POR A1–A5"
+    },
+    {
+      "id": "M06",
+      "kind": "method_selection",
+      "prompt": "Find the probability of reaching B in a finite Markov chain.",
+      "expected_route": [
+        "ch10"
+      ],
+      "expected_method": "0/1 graph classification + linear equations"
+    },
+    {
+      "id": "M07",
+      "kind": "method_selection",
+      "prompt": "Find probability of an LTL property in a Markov chain.",
+      "expected_route": [
+        "ch10"
+      ],
+      "expected_method": "DRA product + accepting BSCC reachability"
+    },
+    {
+      "id": "R01",
+      "kind": "failure_recovery",
+      "prompt": "A counterexample is executable in the formal model but impossible in the intended design.",
+      "expected": [
+        "classify as model error",
+        "repair model",
+        "rerun previously checked affected properties"
+      ]
+    },
+    {
+      "id": "R02",
+      "kind": "failure_recovery",
+      "prompt": "The only liveness counterexample schedules process P2 forever while P1 remains continuously enabled.",
+      "expected": [
+        "weak fairness candidate",
+        "justify scheduler guarantee",
+        "check realizability",
+        "do not use fairness if unenforceable"
+      ]
+    },
+    {
+      "id": "R03",
+      "kind": "failure_recovery",
+      "prompt": "An abstract simulation model violates a universal property, but the concrete model may not.",
+      "expected": [
+        "abstract counterexample may be spurious",
+        "attempt concretization/refine abstraction"
+      ]
+    },
+    {
+      "id": "R04",
+      "kind": "failure_recovery",
+      "prompt": "Value iteration gives 0.90001 for a PCTL threshold of 0.9 with loose tolerance.",
+      "expected": [
+        "no categorical threshold verdict",
+        "tighten/certify numerical error or use LP/exact method"
+      ]
+    },
+    {
+      "id": "F01",
+      "kind": "fresh_agent",
+      "prompt": "Analyze whether Peterson-style mutual exclusion remains correct if request assignments are split and reordered.",
+      "expected_route": [
+        "ch02",
+        "ch03"
+      ],
+      "expected": [
+        "atomicity/order sensitivity",
+        "construct interleaving",
+        "mutual exclusion invariant"
+      ]
+    },
+    {
+      "id": "F02",
+      "kind": "fresh_agent",
+      "prompt": "Explain why POR that satisfies A1–A3 can still be unsound for liveness.",
+      "expected_route": [
+        "ch08"
+      ],
+      "expected": [
+        "cycle proviso A4",
+        "enabled action can be ignored forever on reduced cycle"
+      ]
+    },
+    {
+      "id": "F03",
+      "kind": "fresh_agent",
+      "prompt": "Explain why TCTL checking can be described as linear in the region graph and still be PSPACE-complete.",
+      "expected_route": [
+        "ch09",
+        "ch11"
+      ],
+      "expected": [
+        "region graph can be exponential in clocks/constants",
+        "different input representation/complexity measure"
+      ]
+    },
+    {
+      "id": "F04",
+      "kind": "fresh_agent",
+      "prompt": "For MDP formula P>=0.99(F success), which extreme probability is relevant?",
+      "expected_route": [
+        "ch10"
+      ],
+      "expected": [
+        "minimum probability over schedulers",
+        "all schedulers must meet lower bound"
+      ]
+    }
+  ],
+  "evaluation_principle": "A fresh agent should route to the listed chapter/method, state required assumptions, and avoid guarantees outside source conditions."
+}

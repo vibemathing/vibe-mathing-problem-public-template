@@ -1,0 +1,49 @@
+{
+  "record_type": "project_skill_source_record",
+  "record_version": 1,
+  "skill_name": "baier-katoen-model-checking",
+  "installed_directory": ".pi/skills/baier-katoen-model-checking",
+  "source": {
+    "outer_archive_path": "REDACTED_LOCAL_ARCHIVE_PATH/baier-katoen-model-checking-skill-download.zip",
+    "outer_archive_sha256": "bcf98f73d565953a40812ea248b0904c35478de3f92b70778989d565cdb42af0",
+    "inner_archive_member": "baier-katoen-model-checking-skill.zip",
+    "inner_archive_sha256": "18c52bc56135322c946ab0ba62f6a3afcaf0b5c8d434619f9e58a41303164d1f",
+    "inner_archive_root": "baier-katoen-model-checking",
+    "noninstallable_outer_members": [
+      "README.txt"
+    ]
+  },
+  "archive_validation": {
+    "outer_crc": "PASS",
+    "inner_crc": "PASS",
+    "inner_member_count": 19,
+    "inner_payload_file_count": 17,
+    "inner_uncompressed_bytes": 174735,
+    "unsafe_paths_symlinks_devices_encrypted_executables_or_abnormal_expansion": "none detected",
+    "static_text_scan": "UTF-8 text; no NUL/binary, secret-assignment, PEM, or network/install-command pattern detected"
+  },
+  "installed_digests": {
+    "source_skill_md_sha256": "825c7bebd5bbb6829e4717e79b4afadb6b90874d53868728ed881bc42222f17f",
+    "project_config_sha256": "65189341687a787531eefdf574b82020ad1892b8e4311ea227ed9bb173b7573f",
+    "final_file_tree_sha256": "0f761651872429c1e30ebab153c554488f5ff130f898e4d813f4c6d50446719b",
+    "tree_digest_definition": "sorted manifest of all installed payload and generated configuration directories/files, excluding SOURCE-RECORD.json to avoid self-reference; each file line has type, relative path, SHA-256, byte size",
+    "tree_manifest_line_count": 19,
+    "archive_payload_file_count": 17,
+    "generated_project_file_count": 1,
+    "payload_file_count_excluding_source_record": 18,
+    "final_file_count_including_source_record": 19,
+    "payload_uncompressed_bytes": 180372,
+    "inner_payload_file_count": 17
+  },
+  "frontmatter": {
+    "name": "baier-katoen-model-checking",
+    "description_present": true,
+    "compatibility_correction": null
+  },
+  "license_and_source_limitations": [
+    "The archive does not supply an explicit redistribution licence; no redistribution permission is inferred.",
+    "The primary book and selected exercise solutions retain their stated copyright/source attribution; the exercise material is marked as draft/secondary validation where applicable.",
+    "Installation is project-only reference material and does not create verifier admission, Lean-kernel evidence, Result, Solution, or a solved mathematical problem."
+  ],
+  "content_policy": "All archive payload bytes are preserved byte-for-byte; PROJECT-CONFIG.json and SOURCE-RECORD.json are project-local generated metadata."
+}

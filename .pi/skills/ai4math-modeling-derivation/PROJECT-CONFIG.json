@@ -1,0 +1,10 @@
+{
+  "activation_status": "active",
+  "entry": "SKILL.md",
+  "entry_sha256": "46afe238dec24e7b2bd6ec414f675a3af91f20d1ca5ff777bf37f2e971ccc924",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": true,
+  "registry": "INTERNAL-PACKAGES.json",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-modeling-derivation"
+}

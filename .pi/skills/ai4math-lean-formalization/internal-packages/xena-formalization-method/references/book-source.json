@@ -1,0 +1,39 @@
+{
+  "source_archive": "11_Xena_Project_buzzard博客.zip",
+  "source_kind": "offline HTML mirror of Xena Project blog",
+  "title": "Xena Project",
+  "primary_author": "Kevin Buzzard / Xena Project",
+  "contributors_noted_in_corpus": [
+    "Peter Scholze",
+    "Zhangir Azerbayev",
+    "Bhavik Mehta",
+    "Boris Alexeev",
+    "commenters/discussion participants"
+  ],
+  "original_site": "https://xenaproject.wordpress.com/",
+  "mirror_date": "2026-09-12",
+  "date_range": "2017-2026",
+  "canonical_units": 133,
+  "top_level_pages": 14,
+  "dated_posts": 119,
+  "body_words": 182735,
+  "comment_words": 70024,
+  "comments": 614,
+  "formats_present": [
+    "HTML",
+    "PNG",
+    "JPG",
+    "SVG",
+    "CSS",
+    "JS",
+    "Markdown README"
+  ],
+  "reading_status": "all 133 canonical readable content units processed; substantive comments included",
+  "readability_notes": [
+    "The archive is a website mirror rather than a PDF/EPUB. HTML entry bodies and comments were extracted as the canonical text stream.",
+    "Some mirrored hyperlinks/images lose mathematical glyphs or embedded formula payloads in plain-text extraction; surrounding prose was readable and used.",
+    "Historical Lean syntax and library names appear throughout; concrete API details are treated as version-sensitive.",
+    "Administrative/event posts are retained in the source map but contribute mainly project/teaching context rather than proof methods."
+  ],
+  "source_readme": "# Xena Project\n- 简介: Buzzard 写给数学家的 Lean 实践博客\n- 原址: https://xenaproject.wordpress.com/\n- 抓取方式: wget 全站镜像 (文章+分页+资源) @ 2026-09-12"
+}

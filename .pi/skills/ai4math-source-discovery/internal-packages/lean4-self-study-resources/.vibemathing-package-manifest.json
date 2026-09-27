@@ -1,0 +1,55 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "lean4-self-study-resources/SKILL.md",
+  "package_id": "lean4-self-study-resources",
+  "primary_owner": "ai4math-source-discovery",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 27378,
+  "source_family": "lean4-self-study-resources",
+  "source_files": 8,
+  "source_rows": [
+    {
+      "bytes": 330,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "6bd09513dba8eaf9780e0ce509168f02e3e561a4df186de4a5f767cd92b518e1"
+    },
+    {
+      "bytes": 7830,
+      "path": "lean4-self-study-resources/SKILL.md",
+      "sha256": "e7056ac950cba51b7661e33da6e6d9bf8454b6882c4841b227e73e20acc2667e"
+    },
+    {
+      "bytes": 5491,
+      "path": "lean4-self-study-resources/chapters/ch01-learning-resources.md",
+      "sha256": "87da020329284122f5d205ae803cfe7063a7e82b0997f32b1d5671106e3abe98"
+    },
+    {
+      "bytes": 4396,
+      "path": "lean4-self-study-resources/chapters/ch02-working-resources.md",
+      "sha256": "1b6c559d5f91b14d12d1d9a6be7297dd8a9e1910f0693a35f3acc2f5713c4519"
+    },
+    {
+      "bytes": 1946,
+      "path": "lean4-self-study-resources/cheatsheet.md",
+      "sha256": "301c4cfd0e5c5b4d90bd5f09168dc40bc5fdb3ba67655cf9763961921bb17667"
+    },
+    {
+      "bytes": 1925,
+      "path": "lean4-self-study-resources/glossary.md",
+      "sha256": "199617cdd91e01a12b960bd5fa7a530bfdc875d5b63eb3e21eb2acf1c21169d0"
+    },
+    {
+      "bytes": 3051,
+      "path": "lean4-self-study-resources/patterns.md",
+      "sha256": "2d9f215d203245ca0a1d7645265b1ca269311b7a72373e2f3739a9a22209a475"
+    },
+    {
+      "bytes": 2409,
+      "path": "lean4-self-study-resources/provenance.md",
+      "sha256": "fa6435dc0589cb03f2d13ae274aff56ce43b16c7dad23ffa9544e7a9a0c419ca"
+    }
+  ],
+  "source_tree_sha256": "58b5be87489689c695528048e9de72f0de5552e82c4304a3ea47bc465f7adb52"
+}

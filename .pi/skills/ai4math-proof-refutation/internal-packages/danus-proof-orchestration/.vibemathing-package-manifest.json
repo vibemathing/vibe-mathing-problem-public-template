@@ -1,0 +1,100 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "danus-proof-orchestration",
+  "primary_owner": "ai4math-proof-refutation",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 71790,
+  "source_family": "danus-proof-orchestration",
+  "source_files": 17,
+  "source_rows": [
+    {
+      "bytes": 10758,
+      "path": "SKILL.md",
+      "sha256": "206ff07d483ff6c8f8a389c720e5e7f4024ee52214ed77d499c8fb8d24ecd6fd"
+    },
+    {
+      "bytes": 336,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "79401c332cd36ff0cdeb01ea0b1c48b666cf74390a6ae97e05e359bfdd5504b5"
+    },
+    {
+      "bytes": 418,
+      "path": "agents/openai.yaml",
+      "sha256": "c8649c239d8fd260ce9b5e3fbca9467917653f9ac1c94d691bd70e3d30224917"
+    },
+    {
+      "bytes": 4293,
+      "path": "chapters/ch01-orientation-and-trust-model.md",
+      "sha256": "89b37b28b6ee7d9004853322426861c63b2eb2d5292986c43492b53f88ad37f9"
+    },
+    {
+      "bytes": 4566,
+      "path": "chapters/ch02-memory-and-fact-graph.md",
+      "sha256": "69373d59b7eb05be06adfc6a6b522d254efa6d2c7c84c268f35dc64b00c4675e"
+    },
+    {
+      "bytes": 4828,
+      "path": "chapters/ch03-main-agent-strategy-loop.md",
+      "sha256": "9c70b328df1be9ca2304bdc53990aaeae9f78bf7ed0b06a54667fe35e359b1de"
+    },
+    {
+      "bytes": 4701,
+      "path": "chapters/ch04-worker-proof-search-loop.md",
+      "sha256": "0e63449b77c6ba26f4a4f377d7bbab1db64f47056c73886b5c930616f59bb6ce"
+    },
+    {
+      "bytes": 4799,
+      "path": "chapters/ch05-verification-and-fact-submit.md",
+      "sha256": "989672c31e6e8810121c9f0c9eaa05941895a78c8d73f583f4eb09ea67e2d125"
+    },
+    {
+      "bytes": 4565,
+      "path": "chapters/ch06-operations-and-recovery.md",
+      "sha256": "73578b7a5e3793219f3dbbc095eb383fb45d52cb7f0dc949d06ff0694a1e2b57"
+    },
+    {
+      "bytes": 3731,
+      "path": "chapters/ch07-literature-reconnaissance.md",
+      "sha256": "b06cf5c81d5a4cb89d380a3c1bddd65a25ab9357f0e378b647fe8d99ba801076"
+    },
+    {
+      "bytes": 3108,
+      "path": "chapters/ch08-human-summary.md",
+      "sha256": "6b99f80c266ce9c51ee22a15204c13805e4c2991774bcf7c84599c2e8128c09b"
+    },
+    {
+      "bytes": 6111,
+      "path": "chapters/ch09-write-paper-pipeline.md",
+      "sha256": "be5c46b71e6379d7d43ec10cdb783a4aa9c6feef5224fbc40e3988678d131156"
+    },
+    {
+      "bytes": 3636,
+      "path": "chapters/ch10-security-and-permissions.md",
+      "sha256": "f792bba7f0209c571678a58514ecce517feee4419ea4477c405e1468ed883a01"
+    },
+    {
+      "bytes": 4911,
+      "path": "chapters/ch11-implementation-contracts.md",
+      "sha256": "40be9697a417a49dfb91f9a5822c081548ff1a1d3cf88f79c1a25c9dd4ac7466"
+    },
+    {
+      "bytes": 2803,
+      "path": "cheatsheet.md",
+      "sha256": "494db7cc6a600ad51d339b174a22a895944165c9857eb718d7d524166a2d290f"
+    },
+    {
+      "bytes": 3210,
+      "path": "glossary.md",
+      "sha256": "99d85601247c994bbfde3b41ae0d750ac397239caec22ef61ffe6fde31a0ad69"
+    },
+    {
+      "bytes": 5016,
+      "path": "patterns.md",
+      "sha256": "1f374e050d8184f9eb13f56aaca33fa5190819d61f216fd271230f1d260d308a"
+    }
+  ],
+  "source_tree_sha256": "2b556383982d743b7c65c95a3ed95a2fec4f6184f26a2b131b955f4b330324bd"
+}

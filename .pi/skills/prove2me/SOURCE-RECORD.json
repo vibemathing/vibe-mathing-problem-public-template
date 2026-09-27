@@ -1,0 +1,12 @@
+{
+  "entry": "SKILL.md",
+  "entry_sha256": "535dfa98839d78543d9c00259ccb3a1a3647933a0f7c0bad6062ae079bb1b190",
+  "license_ref": "LICENSE",
+  "public_redistribution_admitted": false,
+  "rights_state": "PROJECT_MAINTAINED_PENDING_RELEASE_REVIEW",
+  "schema_version": "1.0.0",
+  "skill_id": "prove2me",
+  "source_kind": "project-maintained-consolidation",
+  "source_revision": "maintenance/pi-native-skill-system-v1",
+  "source_url": "https://github.com/vibemathing/vibe-mathing-problem-public-template"
+}

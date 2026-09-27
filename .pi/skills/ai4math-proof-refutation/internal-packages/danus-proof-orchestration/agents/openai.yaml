@@ -1,0 +1,6 @@
+interface:
+  display_name: "Danus Proof Orchestration"
+  short_description: "Operate and reason with Danus verifier-gated math workflows"
+  default_prompt: "Use $danus-proof-orchestration to route this Danus/FrenzyMath task, preserve the fact-graph truth boundary, choose the appropriate proof-search or authoring workflow, and apply failure recovery plus final self-checks."
+policy:
+  allow_implicit_invocation: true

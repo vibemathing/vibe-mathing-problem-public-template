@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:f6c2d118ddf60117",
+  "label": "dongbin-ai4m-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "f6c2d118ddf601170b5bb5ae70abbd3e3e809c63e5755a34e01a26059500dbd2",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

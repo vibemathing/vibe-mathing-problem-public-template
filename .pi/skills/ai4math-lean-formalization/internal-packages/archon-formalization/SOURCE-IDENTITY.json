@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:99e93eb6d59d1521",
+  "label": "archon-formalization-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "99e93eb6d59d1521b2a5116dab5879e3ed9f2d04004e0db7c291cceb63fbe2c2",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

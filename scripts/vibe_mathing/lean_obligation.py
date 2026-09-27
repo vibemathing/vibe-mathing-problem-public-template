@@ -481,6 +481,9 @@ def verify_lean_obligation(
                 "evidence_link_id": link_id,
                 "graph_id": graph["graph_id"],
                 "obligation_id": obligation["obligation_id"],
+                "route_id": graph["route_id"],
+                "problem_id": graph["problem_id"],
+                "problem_contract_sha256": graph["problem_contract_sha256"],
                 "candidate_id": candidate["candidate_id"],
                 "receipt": {
                     "locator": receipt["locator"],

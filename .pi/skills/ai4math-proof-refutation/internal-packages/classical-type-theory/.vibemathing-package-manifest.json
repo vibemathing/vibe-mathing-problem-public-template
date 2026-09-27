@@ -1,0 +1,115 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "classical-type-theory",
+  "primary_owner": "ai4math-proof-refutation",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 95276,
+  "source_family": "classical-type-theory",
+  "source_files": 20,
+  "source_rows": [
+    {
+      "bytes": 4130,
+      "path": "PACKAGE-MANIFEST.json",
+      "sha256": "411b0c9b35270a397707b165da40f9b8a4e3f7d8c34a980489acad3654684119"
+    },
+    {
+      "bytes": 12127,
+      "path": "SKILL.md",
+      "sha256": "8793314a6d4063da017260c0da619f1e1fc2b97b4ec4d0e195e263d708b0c83a"
+    },
+    {
+      "bytes": 2475,
+      "path": "SOURCE-RECORD.json",
+      "sha256": "3f9a2b9fc522cd866c9ad6ad39ef387ddb097e480a85b60a0563330b28f3a8cc"
+    },
+    {
+      "bytes": 4795,
+      "path": "chapters/ch01-foundations.md",
+      "sha256": "8c8513a31f3eefb6551fc065722fa895dc7c1ce5de81c157a5a2db5aefd24565"
+    },
+    {
+      "bytes": 4786,
+      "path": "chapters/ch02-church-lambda.md",
+      "sha256": "ae10cbac19cac976df0d530d2152ad5edd19545e029d9486ca8cf12f849512be"
+    },
+    {
+      "bytes": 4480,
+      "path": "chapters/ch03-choice-skolemization.md",
+      "sha256": "e049cbc8e237635f5acdb53cbe3a9a95d9edc222f208557b9d64408689ebe109"
+    },
+    {
+      "bytes": 4602,
+      "path": "chapters/ch04-expressiveness-tradeoffs.md",
+      "sha256": "da6b546d9ffd0b90eda4d76a6168724337c5db6e520f7b8fffa898e1ee1f0212"
+    },
+    {
+      "bytes": 4028,
+      "path": "chapters/ch05-unifying-principle.md",
+      "sha256": "adc7fc4a512d267c913344387f6f2bbc06d6c4ff6187ce74e474cbcd052973f5"
+    },
+    {
+      "bytes": 4643,
+      "path": "chapters/ch06-expansion-proofs.md",
+      "sha256": "f563f74d00756ad0cdbaa77b962b5547a6fac5ce97298e5c32de785c6463ae2a"
+    },
+    {
+      "bytes": 4014,
+      "path": "chapters/ch07-proof-translation.md",
+      "sha256": "5da8853530e2c9d030c67fdf0fd71da929505faf1001b9480ef2bdda01566758"
+    },
+    {
+      "bytes": 4049,
+      "path": "chapters/ch08-higher-order-unification.md",
+      "sha256": "69a4157f6d23c1ca57d2d401729dc9f1a07cf50aa7619167afe9f67c9efe1433"
+    },
+    {
+      "bytes": 3528,
+      "path": "chapters/ch09-unbounded-types.md",
+      "sha256": "e6a5d4f04872c563b6fc5ff0230cc5967e255dfdaf681766f84747b9a49bf9df"
+    },
+    {
+      "bytes": 5512,
+      "path": "chapters/ch10-expansion-search.md",
+      "sha256": "5cc475e036bd9dd1b085c98e3d47f9a53f5478a90bed797e32d0f2d13e9100d0"
+    },
+    {
+      "bytes": 4764,
+      "path": "chapters/ch11-constrained-resolution.md",
+      "sha256": "2988b310ee842339d6ee074afe024f90991c52c69fdca9a8c57e7d912512f676"
+    },
+    {
+      "bytes": 4571,
+      "path": "chapters/ch12-extensional-resolution.md",
+      "sha256": "30df7772cbea56de23c94e265f4cc64fa15c2b40dba3ee12571994cad732f5c8"
+    },
+    {
+      "bytes": 4872,
+      "path": "chapters/ch13-instantiation-techniques.md",
+      "sha256": "ca0c00d9bef360760f1becf41edbac9352332a74e31526e2193129e51015ca73"
+    },
+    {
+      "bytes": 5422,
+      "path": "chapters/ch14-search-architecture.md",
+      "sha256": "b2f84fdf33a7eae2656f603c7177f08ab7d5a849a6c2f43838f6bdc606caf599"
+    },
+    {
+      "bytes": 3631,
+      "path": "cheatsheet.md",
+      "sha256": "dd684161b2960653adbdef2c796132a34dd1551cc89b3dccc3cf9df213b6d5f7"
+    },
+    {
+      "bytes": 4478,
+      "path": "glossary.md",
+      "sha256": "9e14a62d1d48ecc04dbd81c6f1399ca7b1c93a3dc39e8d712696a1c7dc51090b"
+    },
+    {
+      "bytes": 4369,
+      "path": "patterns.md",
+      "sha256": "17efd13a7268e575f39ee3200e07986d94f5b37e2cabcb463337811980c6a39d"
+    }
+  ],
+  "source_tree_sha256": "d630f7a25600e1219efa30276dd7add0bef1033a2658a9a12cd42f59557b10ac"
+}

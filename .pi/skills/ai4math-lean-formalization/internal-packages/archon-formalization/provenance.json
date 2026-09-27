@@ -1,0 +1,116 @@
+{
+  "skill": "archon-formalization",
+  "source_archive": "13_frenzymath_Archon.zip",
+  "source_version": "0.3.3",
+  "derivation_classes": {
+    "SOURCE_DERIVED": "Direct operational rule supported by docs/code/tests",
+    "STRUCTURAL_SYNTHESIS": "Cross-source routing/architecture built from supported rules",
+    "IMPLEMENTATION_DECISION": "Packaging/testing choice made for this generated skill"
+  },
+  "chapters": {
+    "01": [
+      "README.md",
+      "src/archon/cli.py"
+    ],
+    "02": [
+      "README.md",
+      "src/archon/.archon-src/prompts/init.md",
+      "src/archon/.archon-src/archon-template/AGENTS.md"
+    ],
+    "03": [
+      "src/archon/.archon-src/prompts/dag.md",
+      "src/archon/commands/dag/**",
+      "tests/test_blueprint_doctor.py"
+    ],
+    "04": [
+      "src/archon/.archon-src/prompts/plan.md",
+      "src/archon/.archon-src/prompts/review.md",
+      "src/archon/commands/loop/**"
+    ],
+    "05": [
+      "src/archon/.archon-src/prover-modes/*.md"
+    ],
+    "06": [
+      "src/archon/.archon-src/skills/lean4/**"
+    ],
+    "07": [
+      "src/archon/.archon-src/subagents/strategy-critic.md",
+      "src/archon/.archon-src/subagents/progress-critic.md",
+      "tests/test_plan_validate.py",
+      "tests/test_blocked_deps.py"
+    ],
+    "08": [
+      "docs/CONFIGURATION.md",
+      "src/archon/.archon-src/archon-template/AGENTS.md",
+      "src/archon/.archon-src/subagents/*.md"
+    ],
+    "09": [
+      "README.md",
+      "src/archon/commands/tooling/protect.py",
+      "src/archon/commands/branch.py",
+      "tests/test_agent_safe_mode.py",
+      "tests/test_branch_rollback.py"
+    ],
+    "10": [
+      "docs/MULTILANE.md",
+      "src/archon/multilane/**",
+      "tests/test_multilane.py"
+    ],
+    "11": [
+      "src/archon/.archon-src/subagents/reference-retriever.md",
+      "src/archon/.archon-src/subagents/strategy-auditor.md",
+      "src/archon/.archon-src/prompts/plan.md"
+    ],
+    "12": [
+      "src/archon/.archon-src/prompts/extract.md",
+      "src/archon/.archon-src/prompts/merge.md",
+      "src/archon/commands/scope/**"
+    ],
+    "13": [
+      "README.md",
+      "src/archon/commands/dashboard/**",
+      "src/archon/commands/doctor.py"
+    ],
+    "14": [
+      "src/archon/commands/loop/**",
+      "src/archon/.archon-src/prompts/review.md",
+      "src/archon/.archon-src/skills/lean4/skills/lean4/SKILL.md"
+    ]
+  },
+  "behavioral_test_evidence": {
+    "command": "PYTHONPATH=src python -m pytest -q tests/test_agent_safe_mode.py tests/test_plan_validate.py tests/test_blocked_deps.py tests/test_branch_rollback.py tests/test_protect.py tests/test_blueprint_doctor.py tests/test_strategy_bounds.py tests/test_state_layout.py",
+    "result": "123 passed, 1 warning",
+    "date": "2026-09-12"
+  },
+  "corpus": {
+    "supported_docs": 116,
+    "words": 172600,
+    "estimated_tokens": 229558,
+    "sanitized_invisible_codepoints_removed": 17,
+    "full_text_sha256": "a16a933ed47dfe603c392776780a83770f340d70c2a6ddcba75efaacde279193"
+  },
+  "document_coverage_summary": {
+    "documents_total": 116,
+    "documents_processed": 116,
+    "all_mapped": true,
+    "mapping_artifact": "PROVENANCE_MAP.json (compiler audit artifact; source-path mappings folded into chapter provenance)"
+  },
+  "source_test_evidence": {
+    "targeted_behavioral_suite": {
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_agent_safe_mode.py tests/test_plan_validate.py tests/test_blocked_deps.py tests/test_branch_rollback.py tests/test_protect.py tests/test_blueprint_doctor.py tests/test_strategy_bounds.py tests/test_state_layout.py",
+      "result": "123 passed, 1 warning"
+    },
+    "formal_suite_probe": {
+      "command": "PYTHONPATH=src python -m pytest tests -x -vv",
+      "collected": 666,
+      "progress_before_blocker": "185 passed",
+      "blocker": "tests/test_extract.py requires external 'leandag'; dependency was unavailable in the sandbox",
+      "interpretation": "environment dependency blocker; no claim of full upstream-suite pass"
+    },
+    "whole_tree_probe": {
+      "command": "PYTHONPATH=src python -m pytest -q",
+      "blocker": "legacy src/archon/_backup/subagents/tests imports removed archon.subagents.review_base during collection",
+      "interpretation": "backup-test collection issue in supplied archive; formal test root is tests/"
+    }
+  }
+}

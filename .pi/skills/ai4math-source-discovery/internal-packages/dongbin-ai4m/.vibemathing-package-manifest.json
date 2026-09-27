@@ -1,0 +1,55 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "dongbin-ai4m",
+  "primary_owner": "ai4math-source-discovery",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 43210,
+  "source_family": "dongbin-ai4math",
+  "source_files": 8,
+  "source_rows": [
+    {
+      "bytes": 11650,
+      "path": "SKILL.md",
+      "sha256": "7a465469c7861e711442b106e148c89daa2143e2ac8c3b48c30bad639d23d77f"
+    },
+    {
+      "bytes": 322,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "a2337a2094b4d328e3fc8a3909c1b17fd8aa1f3fff001003efca85d367b68bbc"
+    },
+    {
+      "bytes": 5110,
+      "path": "chapters/ch01-orientation.md",
+      "sha256": "172759a87290b32f71015da8f8e68836a01a041b6c097622431f5dd868745dbf"
+    },
+    {
+      "bytes": 10404,
+      "path": "chapters/ch02-research-paths.md",
+      "sha256": "7284e19a18264376b6ccd3e9c38568b4c8ebb9e86eb8f4194202752501af151b"
+    },
+    {
+      "bytes": 3994,
+      "path": "chapters/ch03-understanding-over-proof.md",
+      "sha256": "d3da6b435c6289775419f25d12c8c4db81dc23bed381277e33f3a9f300b76938"
+    },
+    {
+      "bytes": 3219,
+      "path": "cheatsheet.md",
+      "sha256": "df789ef34d8796a47d0e8b334e3700b82aecdd70ffe6bc21d9c31e024ec6c08e"
+    },
+    {
+      "bytes": 2800,
+      "path": "glossary.md",
+      "sha256": "d3e0e1901fa9bae71d29eb6416bc909df9b6eaf8e4daff24198d43507e0d8a2d"
+    },
+    {
+      "bytes": 5711,
+      "path": "patterns.md",
+      "sha256": "99a9115b9285852c465a32841b07886a6eeb5d8a56e257b21bae28d022d5032c"
+    }
+  ],
+  "source_tree_sha256": "c60556f057f70b11b8c94b32784526df88fd75dd3995e7f7628cc5db406f466f"
+}

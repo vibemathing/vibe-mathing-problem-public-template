@@ -1,0 +1,105 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "mathematics-in-lean/SKILL.md",
+  "package_id": "mathematics-in-lean-external-snapshot",
+  "primary_owner": "mathematics-in-lean",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 119810,
+  "source_family": "mathematics-in-lean",
+  "source_files": 18,
+  "source_rows": [
+    {
+      "bytes": 329,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "637c921150f855da4691b8307c146b0cb347d71584ae860f2e1be9dcf869f3d2"
+    },
+    {
+      "bytes": 13765,
+      "path": "mathematics-in-lean/SKILL.md",
+      "sha256": "971ec489f9765ae1878c89088464c3f9514390bcb33ee18578519a06a5e4826f"
+    },
+    {
+      "bytes": 5074,
+      "path": "mathematics-in-lean/chapters/ch01-introduction.md",
+      "sha256": "ab306214063dd22b0cb0a030d2dcf7dac5e17f3210f3d463f29e6eee7c227867"
+    },
+    {
+      "bytes": 6776,
+      "path": "mathematics-in-lean/chapters/ch02-basics.md",
+      "sha256": "389b7f22b1815a2ee4bcba905989483bcb9fb2e9745b87df1544ede699a7ca11"
+    },
+    {
+      "bytes": 6744,
+      "path": "mathematics-in-lean/chapters/ch03-logic.md",
+      "sha256": "2b6dfd9a6d0ba0e0e144ad42c907fd472bb67eb1cc997e7964f0d2fe4b487c21"
+    },
+    {
+      "bytes": 6797,
+      "path": "mathematics-in-lean/chapters/ch04-sets-functions.md",
+      "sha256": "ed865ea5f4dde64f8136087ee6ea64052e811a4d15555defbadf2edd8c368e8d"
+    },
+    {
+      "bytes": 6600,
+      "path": "mathematics-in-lean/chapters/ch05-number-theory.md",
+      "sha256": "81446e2e15e1e4cf1a2c6dffacf06df28708b8bb1beb08ef335a5a5cac98b4b3"
+    },
+    {
+      "bytes": 6925,
+      "path": "mathematics-in-lean/chapters/ch06-discrete-mathematics.md",
+      "sha256": "457f7302f421bad7e21a8ac5f635786a94ee9aea70b0b1e905bfc2ef85bc4e35"
+    },
+    {
+      "bytes": 6140,
+      "path": "mathematics-in-lean/chapters/ch07-structures.md",
+      "sha256": "cca21f38b36b158df11f61b3ca781e035cfed8f0128bbdeee9679facb70a6c43"
+    },
+    {
+      "bytes": 7282,
+      "path": "mathematics-in-lean/chapters/ch08-hierarchies.md",
+      "sha256": "b26935202c7e36d4d9c253117f8ce870017e426b8c34abc2c83e2908724263e9"
+    },
+    {
+      "bytes": 6915,
+      "path": "mathematics-in-lean/chapters/ch09-groups-rings.md",
+      "sha256": "413f68dde8b7d65d7d8625d3ab447e73876c81aa9436a7790ee3211efeaa350d"
+    },
+    {
+      "bytes": 8925,
+      "path": "mathematics-in-lean/chapters/ch10-linear-algebra.md",
+      "sha256": "3fd3b27dc27372336341a5b02cb63f76ae11db8dbbf5e8f82a9458fbf349020d"
+    },
+    {
+      "bytes": 8762,
+      "path": "mathematics-in-lean/chapters/ch11-topology.md",
+      "sha256": "b0cb674b785e3fc4a7b0e6eae6a76610153148c9622c270b5de10788f6c06b13"
+    },
+    {
+      "bytes": 7946,
+      "path": "mathematics-in-lean/chapters/ch12-differential-calculus.md",
+      "sha256": "820ece5efdcfd727efe221c396b221dfaf39b7371da5f846fc1d4e6dc5e42ab8"
+    },
+    {
+      "bytes": 8180,
+      "path": "mathematics-in-lean/chapters/ch13-integration-measure.md",
+      "sha256": "0fa78661b4270b3556fbdd2935c2e855a0d0e2fd42e93e679cba7e4e2f1121eb"
+    },
+    {
+      "bytes": 2830,
+      "path": "mathematics-in-lean/cheatsheet.md",
+      "sha256": "e8a23c93e9fac1b6e42b536bbbce33f306d5cb90da4c9bd8c57af2848dc4c7b7"
+    },
+    {
+      "bytes": 4427,
+      "path": "mathematics-in-lean/glossary.md",
+      "sha256": "3bd98afa432e25f350675014f909e5f5e151c3d13779e4dd9f62d386dec640f0"
+    },
+    {
+      "bytes": 5393,
+      "path": "mathematics-in-lean/patterns.md",
+      "sha256": "a1bc1032ec04b37b4f2182613b09c44747dc6b739e13dffc30c1f56430bcd6b0"
+    }
+  ],
+  "source_tree_sha256": "bbac13bcd64bae26dbc17a5cf24430167f4618f1a6a07b55adfb2c0ad7176396"
+}

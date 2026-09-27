@@ -123,12 +123,25 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["source", "source_record_id", "url", "retrieved_at"],
+        "required": ["source", "source_record_id", "url", "retrieved_at", "revision", "content_sha256", "quote", "license"],
         "properties": {
           "source": {"type": "string", "minLength": 1},
           "source_record_id": {"type": ["string", "null"], "minLength": 1},
-          "url": {"type": "string", "format": "uri"},
-          "retrieved_at": {"type": "string", "format": "date-time"}
+          "url": {"type": "string", "pattern": "^https://[^\\s]+$"},
+          "retrieved_at": {"type": "string", "format": "date-time"},
+          "revision": {"type": "string", "minLength": 1},
+          "content_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "quote": {"type": "string", "minLength": 1},
+          "license": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "attribution"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "attribution": {"type": "string", "minLength": 1},
+              "url": {"type": ["string", "null"], "pattern": "^https://[^\\s]+$"}
+            }
+          }
         }
       }
     },

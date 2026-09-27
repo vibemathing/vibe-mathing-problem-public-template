@@ -24,7 +24,7 @@
       "properties": {
         "operator_id": {"type": "string", "pattern": "^op:[a-z][a-z0-9.-]*$"},
         "owner_skill": {
-          "enum": ["math-discovery", "math-derivation", "math-computation", "math-proof", "math-formalization"]
+          "enum": ["ai4math-source-discovery", "ai4math-modeling-derivation", "ai4math-bounded-computation", "ai4math-proof-refutation", "ai4math-lean-formalization", "mathematics-in-lean", "prove2me", "ai4math-assurance-admission", "ai4math-toolchain-reproducibility"]
         },
         "purpose": {"type": "string", "minLength": 1},
         "input_kinds": {

@@ -1,0 +1,68 @@
+{
+  "prompt": "我在给几何处理库验证一个命题：任何闭合、连通、全部由三角面组成的网格都有 V-E+F=2。现在一个甜甜圈形网格给出 0，但我当前证明里列出的三个引理在这个网格上似乎都成立。团队建议直接把定理限制成“无把手网格”。请按拉卡托斯的证明—反驳方法判断我该先加限制还是找隐藏假设，重构证明分析，并设计下一轮最有信息量的测试。",
+  "skill_route": [
+    "Counterexample Triage",
+    "Hidden-Lemma Search",
+    "Falsity-transfer check",
+    "Definition & Domain Audit"
+  ],
+  "result": {
+    "current_claim": "Closed, connected triangular mesh => V-E+F=2.",
+    "counterexample_classification": "The torus mesh is a global counterexample. On the information supplied, it is not yet local because all three explicit lemmas survive. This is the global-without-local case.",
+    "method_diagnosis": "The explicit proof analysis is incomplete under the falsity-transfer principle. The proposed “no handles” clause is provisionally exception-barring until it is tied to an actual proof dependency.",
+    "provisional_proof_map": [
+      "Keep the three stated lemmas as explicit nodes L1-L3; their content is not supplied, so do not rewrite them.",
+      "Expand every compressed reduction/deletion/deformation step between L1-L3 and the conclusion.",
+      "Mark any step assuming that cycles bound regions, that the reduction reaches a disk/sphere-like base case, or that local incidence is manifold-like as candidate hidden lemmas rather than facts."
+    ],
+    "candidate_hidden_lemmas": [
+      {
+        "id": "H1",
+        "hypothesis": "Every relevant 1-cycle bounds a 2-chain / there is no nontrivial tunnel cycle.",
+        "status": "candidate, not asserted",
+        "why": "A torus supplies nonbounding cycles and this property is directly connected to an Euler-characteristic proof via cycles/boundaries."
+      },
+      {
+        "id": "H2",
+        "hypothesis": "The proof’s reduction sequence always reaches a single spherical/disk-like base configuration without changing the invariant.",
+        "status": "candidate, not asserted",
+        "why": "A hidden termination/base-case assumption can survive all local algebraic lemmas while failing globally."
+      },
+      {
+        "id": "H3",
+        "hypothesis": "The mesh is a genuine 2-manifold at every vertex/edge, with no singular identifications.",
+        "status": "candidate, not asserted",
+        "why": "Connected triangular complexes can violate Euler=2 for reasons different from handles; this distinguishes topology from local manifoldness."
+      }
+    ],
+    "next_tests": [
+      {
+        "case": "Highly nonconvex triangulated sphere",
+        "purpose": "If Euler=2 and the proof works, convexity/visual regularity should not be added as a condition."
+      },
+      {
+        "case": "Triangulated torus",
+        "purpose": "Known global failure; check exactly which expanded proof step first needs a nonbounding-cycle assumption."
+      },
+      {
+        "case": "Two triangulated spheres joined at a single vertex (connected but non-manifold at that vertex)",
+        "purpose": "This can preserve absence of torus-style handles while breaking manifoldness; it discriminates H1 from H3."
+      },
+      {
+        "case": "A genus-0 closed triangulated manifold with awkward triangulation/reduction order",
+        "purpose": "Tests whether H2 is really topological or merely an artifact of one proof sequence."
+      }
+    ],
+    "provisional_revision": "Do not yet publish “no handles” as the theorem condition. If proof expansion shows that the key step requires every relevant cycle to bound and the manifold conditions are explicit, formulate the repaired theorem using those proof-generated conditions, then re-run the four tests.",
+    "scope_warning": "Without the actual three lemmas and reduction steps, the hidden lemmas above are discriminating hypotheses, not a claim about what the proof in fact assumes."
+  },
+  "self_check": {
+    "theorem_vs_proof_failure_distinguished": true,
+    "global_local_status_explicit": true,
+    "hidden_lemma_search_triggered": true,
+    "unmotivated_restriction_not_accepted": true,
+    "alternative_hidden_lemmas_marked_provisional": true,
+    "discriminating_tests_supplied": true,
+    "remaining_uncertainty_preserved": true
+  }
+}

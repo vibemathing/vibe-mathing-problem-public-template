@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/solutions-index.v1.json",
+  "title": "Vibe Mathing Derived Solutions Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "result_ids"],
+  "properties": {
+    "schema_version": {"const": "2.0.0"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "result_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^result:[a-z0-9][a-z0-9.-]*$"}
+    }
+  }
+}

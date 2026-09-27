@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "record_kind": "math-research-os-working-set",
+  "record_id": "research-os:template-working-set-v1",
+  "record_version": 1,
+  "problem_contract": {
+    "problem_id": "problem:template-placeholder",
+    "problem_contract_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "statement_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "scope_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "owner_locator": "problem-library/records/canonical-problems.jsonl"
+  },
+  "claims_ceiling": "admitted",
+  "frame": {
+    "status": "incomplete",
+    "question_summary": "Invalid fixture.",
+    "domain_note": "Synthetic.",
+    "quantifier_note": "Synthetic.",
+    "definition_refs": [],
+    "assumption_notes": ["Invalid ceiling."],
+    "open_boundary_notes": ["Invalid ceiling must be rejected."],
+    "obligation_refs": []
+  },
+  "examples": [],
+  "conjectures": [],
+  "proof_dependencies": [],
+  "refutations": [],
+  "connections": [],
+  "verification": [],
+  "supersedes": null,
+  "created_at": "2026-01-01T00:00:00Z"
+}

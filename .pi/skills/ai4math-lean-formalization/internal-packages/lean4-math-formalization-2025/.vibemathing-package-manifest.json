@@ -1,0 +1,85 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "lean4-math-formalization-2025/SKILL.md",
+  "package_id": "lean4-math-formalization-2025",
+  "primary_owner": "ai4math-lean-formalization",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 90032,
+  "source_family": "lean4-math-formalization-2025",
+  "source_files": 14,
+  "source_rows": [
+    {
+      "bytes": 340,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "3bde2d84c5bda13691994b6a6650c960d0a4185e09ba01cd04e063db1b1bb3bf"
+    },
+    {
+      "bytes": 12495,
+      "path": "lean4-math-formalization-2025/SKILL.md",
+      "sha256": "ebf176b9cd4e891a7c277791f9acc2ceaf707816adc0f434eb0af70867bb1547"
+    },
+    {
+      "bytes": 6038,
+      "path": "lean4-math-formalization-2025/chapters/ch01-orientation-project-strategy.md",
+      "sha256": "59aba257573d7a8ba7a1393c5170525789255a4fb8c5717fca638cd4a40f0446"
+    },
+    {
+      "bytes": 5575,
+      "path": "lean4-math-formalization-2025/chapters/ch02-lean-types-proof-states.md",
+      "sha256": "0f3168529f39760d504e9ad70552e35cd0854361786f27420dd69d37d32994d4"
+    },
+    {
+      "bytes": 5864,
+      "path": "lean4-math-formalization-2025/chapters/ch03-first-order-logic-formalization.md",
+      "sha256": "2fcb5c480b32a7eaf2c03d8a833543e67e0dcf9a2d2be97ef7c03ebf04f08f06"
+    },
+    {
+      "bytes": 7897,
+      "path": "lean4-math-formalization-2025/chapters/ch04-mathlib-search-sets-blueprints.md",
+      "sha256": "76ec766f567a217d19eeff47e8ac070e3b1693c53d5254ee996f4a874aaebb6a"
+    },
+    {
+      "bytes": 7377,
+      "path": "lean4-math-formalization-2025/chapters/ch05-dependent-types-term-construction.md",
+      "sha256": "9404ea1d1398598b631f0482fc0f42dae40e133a04f762d01f04070e73d01414"
+    },
+    {
+      "bytes": 8654,
+      "path": "lean4-math-formalization-2025/chapters/ch06-tactic-construction.md",
+      "sha256": "8ac468e852ad6995285ba3e1f47a1bbb9985c6d049968bb03465963e972f9853"
+    },
+    {
+      "bytes": 7844,
+      "path": "lean4-math-formalization-2025/chapters/ch07-filters-limits-metric.md",
+      "sha256": "78a429677f7f889046d4f8007330bde68aebedf91aacb4088a2f33952606e1b2"
+    },
+    {
+      "bytes": 6661,
+      "path": "lean4-math-formalization-2025/chapters/ch08-normed-topology-continuity.md",
+      "sha256": "99fa26c50725c91da6ea41deab40f19bff54866b404522a37a5db8e60423e1b1"
+    },
+    {
+      "bytes": 7729,
+      "path": "lean4-math-formalization-2025/chapters/ch09-continuous-linear-derivatives.md",
+      "sha256": "55a4c6c8991dfff76bc50f3a5fd81ed6143e7e8870887b8261069e6a4c08fc21"
+    },
+    {
+      "bytes": 3716,
+      "path": "lean4-math-formalization-2025/cheatsheet.md",
+      "sha256": "9d3e46407d268643e967896e07f81fecba312fc2b95a4e5faaf92371caf7f01d"
+    },
+    {
+      "bytes": 4051,
+      "path": "lean4-math-formalization-2025/glossary.md",
+      "sha256": "d7c3c7ec41d0adfc0a75384ed93c3f9cab81d3e415b5fab942a06a3cc15ff433"
+    },
+    {
+      "bytes": 5791,
+      "path": "lean4-math-formalization-2025/patterns.md",
+      "sha256": "9a9bdb4bd2ec6263a8098408b7b72f2e91ca633d8c4fdbd8164f2aabf9ebe999"
+    }
+  ],
+  "source_tree_sha256": "34002e1bed3f3b96de4f457a803f75f3ed3f00dfb8a642a0a8618e69e19a3a2a"
+}

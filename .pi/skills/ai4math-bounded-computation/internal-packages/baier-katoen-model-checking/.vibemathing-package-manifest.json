@@ -1,0 +1,115 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "baier-katoen-model-checking",
+  "primary_owner": "ai4math-bounded-computation",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 187243,
+  "source_family": "baier-katoen-model-checking",
+  "source_files": 20,
+  "source_rows": [
+    {
+      "bytes": 4114,
+      "path": "PACKAGE-MANIFEST.json",
+      "sha256": "b882017dfede8637d3cb77e395844b9fc97909de94154023bae253daa0891954"
+    },
+    {
+      "bytes": 5637,
+      "path": "PROJECT-CONFIG.json",
+      "sha256": "65189341687a787531eefdf574b82020ad1892b8e4311ea227ed9bb173b7573f"
+    },
+    {
+      "bytes": 13933,
+      "path": "SKILL.md",
+      "sha256": "825c7bebd5bbb6829e4717e79b4afadb6b90874d53868728ed881bc42222f17f"
+    },
+    {
+      "bytes": 2757,
+      "path": "SOURCE-RECORD.json",
+      "sha256": "331f425739ee1abd4f3db274b1c3769a983b9e9e47b65b71aa9bd62e02bc3fe1"
+    },
+    {
+      "bytes": 8149,
+      "path": "chapters/ch01-system-verification.md",
+      "sha256": "f57f4a4bafb666f9933609843adf20a8d61b0872ac715e4ac7302e0735567f43"
+    },
+    {
+      "bytes": 11356,
+      "path": "chapters/ch02-modelling-concurrent-systems.md",
+      "sha256": "098de67972494180c41c1ab86c47c3129687a18050a51a98de19078eb30af217"
+    },
+    {
+      "bytes": 10802,
+      "path": "chapters/ch03-linear-time-properties.md",
+      "sha256": "92c6cdb4d331eb742024a051dad2463ecb89618810e7f2d53dc3109f59acbec2"
+    },
+    {
+      "bytes": 10050,
+      "path": "chapters/ch04-regular-properties.md",
+      "sha256": "d20a135f71945acf9e03df5781ffa28ad0e88d8247d16c0c23d951e9072688c2"
+    },
+    {
+      "bytes": 10739,
+      "path": "chapters/ch05-linear-temporal-logic.md",
+      "sha256": "7f35996660016c9527471490cebe72180c0f5b28591317625ee17f409048a992"
+    },
+    {
+      "bytes": 11906,
+      "path": "chapters/ch06-computation-tree-logic.md",
+      "sha256": "7a44b31018ffa741f54b80190a5240ae1ac15ef45587b97ab3df13b498b909ce"
+    },
+    {
+      "bytes": 12558,
+      "path": "chapters/ch07-equivalences-and-abstraction.md",
+      "sha256": "f252ef12cbd924c12e3ca0133f5ce5e7017f15b273d7cfa47be0b7fe350b4089"
+    },
+    {
+      "bytes": 11791,
+      "path": "chapters/ch08-partial-order-reduction.md",
+      "sha256": "44e812629cbde22c66192cd38d499ba37398903c2d25ba8b65846871f7257cab"
+    },
+    {
+      "bytes": 12956,
+      "path": "chapters/ch09-timed-automata.md",
+      "sha256": "4b136c67c2a48e85e8856275931598d265f00786c76ac8a48795d0fae5382e00"
+    },
+    {
+      "bytes": 18489,
+      "path": "chapters/ch10-probabilistic-systems.md",
+      "sha256": "b9275eed01c2bb8228d6f24c2a8d33d1109d8070b8b2b044238850239c56a8b3"
+    },
+    {
+      "bytes": 7188,
+      "path": "chapters/ch11-preliminaries.md",
+      "sha256": "c19c590316faf3cde6718ee28e8810d8a8a3d5ae39518aac95ceeaaffda576ec"
+    },
+    {
+      "bytes": 3619,
+      "path": "cheatsheet.md",
+      "sha256": "4a40f956efda6b7988327f91684a457216b89ebb5fd3a65fddb14ebaa5d17e23"
+    },
+    {
+      "bytes": 8511,
+      "path": "evals.json",
+      "sha256": "29b5d55b17bc378eebb73246c47a58de4ccd0984fd89182541932fedb41b9d8e"
+    },
+    {
+      "bytes": 4829,
+      "path": "glossary.md",
+      "sha256": "c9524f55b6865c8abcf2b542b71bd4e47e7347a3920b0060dd5bdf01c0c275b2"
+    },
+    {
+      "bytes": 5115,
+      "path": "patterns.md",
+      "sha256": "54d500b2ef6ee21c071f73d99439dc84189243ac77d641a8ebf6b5b8cf602f94"
+    },
+    {
+      "bytes": 12744,
+      "path": "provenance.json",
+      "sha256": "6c8797fa993dcaee271399a0022ec82844ef9c1e4b909fc8ca04af0c58195f24"
+    }
+  ],
+  "source_tree_sha256": "ff7acf50db44bcf9ba47b1c76990149ee42ee301c22ca8347c0912b0919cc977"
+}

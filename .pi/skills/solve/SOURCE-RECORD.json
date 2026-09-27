@@ -1,0 +1,12 @@
+{
+  "entry": "SKILL.md",
+  "entry_sha256": "ab738413035daab83448217762e3798607cec0f9b1e9b501a4ca574b19c1e7af",
+  "license_ref": "LICENSE",
+  "public_redistribution_admitted": false,
+  "rights_state": "PROJECT_MAINTAINED_PENDING_RELEASE_REVIEW",
+  "schema_version": "1.0.0",
+  "skill_id": "solve",
+  "source_kind": "project-maintained-consolidation",
+  "source_revision": "vibe-harness-cn:operators/catalog.json@1.11.0",
+  "source_url": "https://github.com/vibemathing/vibe-mathing-problem-public-template"
+}

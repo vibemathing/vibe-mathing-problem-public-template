@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/internal-package-rights-matrix.v1.json",
+  "title": "Internal Package Rights Matrix",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "policy", "packages"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "policy": {"type": "string", "minLength": 1},
+    "packages": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "package_id", "source_family", "primary_owner", "repository_relative_path",
+          "source_tree_sha256", "source_url", "source_revision", "license_ref",
+          "attribution", "rights_holder", "rights_state", "public_redistribution_admitted",
+          "evidence_ref"
+        ],
+        "properties": {
+          "package_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "source_family": {"type": "string", "minLength": 1},
+          "primary_owner": {"type": "string", "minLength": 1},
+          "repository_relative_path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"},
+          "source_tree_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "source_url": {"type": ["string", "null"], "pattern": "^https://"},
+          "source_revision": {"type": ["string", "null"], "minLength": 1},
+          "license_ref": {"type": ["string", "null"], "minLength": 1},
+          "attribution": {"type": ["string", "null"], "minLength": 1},
+          "rights_holder": {"type": ["string", "null"], "minLength": 1},
+          "rights_state": {"enum": ["HOLD", "REVIEW", "ADMITTED", "REJECTED"]},
+          "public_redistribution_admitted": {"type": "boolean"},
+          "evidence_ref": {"type": ["string", "null"], "minLength": 1}
+        }
+      }
+    }
+  }
+}

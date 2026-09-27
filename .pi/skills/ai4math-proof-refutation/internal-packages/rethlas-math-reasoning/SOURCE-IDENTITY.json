@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:c4496597ed2aedf8",
+  "label": "rethlas-math-reasoning-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "c4496597ed2aedf8661c96b047ab04aceec4a1c20e25c9eeb054c978b79fbec8",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

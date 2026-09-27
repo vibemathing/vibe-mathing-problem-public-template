@@ -1,0 +1,10 @@
+{
+  "activation_status": "constrained",
+  "entry": "SKILL.md",
+  "entry_sha256": "3b48a38d46c7610795c6201bd58ef4b58e6d07f5a6034c0e1e084c782ae08579",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": true,
+  "registry": "INTERNAL-PACKAGES.json",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-toolchain-reproducibility"
+}

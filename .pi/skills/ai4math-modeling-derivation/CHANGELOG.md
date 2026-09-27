@@ -1,0 +1,61 @@
+# Changelog
+
+## 1.4.0 - 2026-09-21
+
+### Added
+- Add a subordinate problem-anchor and minimal-route audit for statement identity, complexity budgets, actor-requested candidate comparison, cheap falsifiers, and drift detection.
+
+### Reason
+- Absorb the remaining domain-neutral idea-refinement mechanisms without importing ML publication scores, mandatory route portfolios, review loops, or a new top-level Skill.
+
+### Affected
+- `SKILL.md`, `VERSION`, `references/index.md`, and `references/problem-anchor-and-minimal-route-audit.md`.
+
+### Validation
+- Strict Skill validation and targeted digest/reference checks are required; full Harness remains subject to the existing stale snapshot reconciliation.
+
+### Risk
+- Candidate sources have unresolved exact upstream rights and are paper-oriented, so only independently rewritten mathematical boundary rules were retained.
+
+### Rollback
+- Restore version 1.3.0, remove the subordinate reference, and restore the prior progressive-disclosure block.
+
+### Source
+- Pattern-only review of `idea-creator`, `idea-evaluator`, and `research-refine` snapshots bound by SHA-256 in the reference.
+
+## 1.3.0
+
+- Bundle every owned original Skill package completely under `internal-packages/` with byte-level manifests.
+- Replace private-vault routing with repository-relative, self-contained package paths and preserve HOLD publication status.
+
+## 1.2.0
+
+- Add the top-level internal-package registry and progressive routing guide.
+- Bind complete private-local source packages to one primary owner while keeping HOLD bodies out of public output.
+
+## 1.1.0
+
+- Add an independently written consolidated operational core derived from the audited 31-package / 29-source-family review set.
+- Bind the entry Skill to the consolidation map, evidence boundaries, failure recovery, and anti-loop discipline without redistributing held source text.
+
+## 1.0.0
+
+- Rename and adapt the existing public capability as the Pi-native `ai4math-modeling-derivation` owner Skill.
+- Preserve candidate-only evidence ceilings and repository-local references.
+
+## 0.4.0
+
+- 推导前消费 ReusePlan，按 exact/stronger/weaker/analogy/unknown 比较陈述，并将未覆盖部分显式化为 Obligation。
+
+## 0.3.0
+
+- 推导路线支持 checkpoint 小义务和失败路线换路；不把长文本堆积当成进展。
+
+## 0.2.0
+
+- CandidateObservation 未形成明确请求或 active ProblemContract 时强制返回 discovery。
+- 推导文本不得替代来源准入或 canonical 陈述冻结。
+
+## 0.1.0 - 2026-08-13
+
+- 从本机 formula-derivation 快照提炼数学对象、假设、推导类别和证据分层。

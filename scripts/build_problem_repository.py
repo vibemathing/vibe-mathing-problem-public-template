@@ -11,28 +11,58 @@ import re
 import shutil
 import subprocess
 import sys
+sys.dont_write_bytecode = True
 from pathlib import Path, PurePosixPath
 from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
 from build_web_context_bundle import render_context
+from validate_web_problem_harness import validate_pi_goal_npm_cache
 from vibe_mathing.reasoning import apply_reasoning_agent_overlays
 from vibe_mathing.web_channel import canonical_json_sha256, sha256_file
 
 ROOT = Path(__file__).resolve().parents[1]
-TASK = ROOT / "governance/tasks/0027-web-gpt-github-chat-research-harness"
-DEFAULT_MANIFEST = TASK / "harness-source-manifest.v1.json"
-DEFAULT_TEMPLATE = TASK / "problem-repository-template"
-BUILDER_VERSION = "1.5.1"
+CONTROL = ROOT / "governance/control-plane"
+DEFAULT_MANIFEST = CONTROL / "harness-source-manifest.v1.json"
+DEFAULT_TEMPLATE = ROOT
+VERSION_PATTERN = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+$")
+
+
+def read_suite_version(root: Path = ROOT) -> str:
+    path = root / "VERSION"
+    if not path.is_file() or path.is_symlink():
+        raise RuntimeError("VERSION must be a regular file")
+    value = path.read_text(encoding="utf-8").strip()
+    if not VERSION_PATTERN.fullmatch(value):
+        raise RuntimeError("VERSION must contain one semantic version")
+    return value
+
+
+BUILDER_VERSION = read_suite_version()
+PI_GOAL_PACKAGE = "npm:pi-goal-x@0.31.9"  # 固定扩展版本；Goal 不是数学 Skill。
 IDENTITY_EXCLUDES = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
+PI_SKILL_STATUS = {
+    "solve": "active",
+    "mathematics-in-lean": "active",
+    "prove2me": "constrained",
+    "ai4math-source-discovery": "active",
+    "ai4math-modeling-derivation": "active",
+    "ai4math-proof-refutation": "active",
+    "ai4math-bounded-computation": "constrained",
+    "ai4math-lean-formalization": "constrained",
+    "ai4math-assurance-admission": "constrained",
+    "ai4math-toolchain-reproducibility": "constrained",
+}
 MUTABLE_GENERATED = {
+    "problem-library/records/problems.jsonl",
     "research/records/attempts.jsonl",
     "research/records/failed-routes.jsonl",
     "research/records/obligation-graphs.jsonl",
     "research/records/candidate-artifacts.jsonl",
     "research/records/evidence-links.jsonl",
     "result-library/records/results.jsonl",
+    "result-library/indexes/solutions.json",
 }
 PRELOADED_RECORDS = {
     "research/records/attempts.jsonl": "attempts_file",
@@ -105,6 +135,14 @@ def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, sort_keys=True, indent=2) + "\n", encoding="utf-8")
     os.chmod(path, 0o644)
+
+
+def remove_runtime_noise(root: Path) -> None:
+    for path in sorted(root.rglob("*"), reverse=True):
+        if path.is_dir() and path.name == "__pycache__":
+            shutil.rmtree(path)
+        elif path.is_file() and path.suffix == ".pyc":
+            path.unlink()
 
 
 def filtered_jsonl(source: Path, problem_id: str) -> str:
@@ -187,6 +225,53 @@ def read_problem(path: Path, root: Path) -> dict[str, Any]:
     return problem
 
 
+def enforce_public_rights(root: Path) -> None:
+    """Never turn a complete internal package vault into a public release by accident."""
+    classification_path = root / ".pi/skills/INTERNAL-PACKAGE-CLASSIFICATION.json"
+    matrix_path = root / ".pi/skills/INTERNAL-PACKAGE-RIGHTS-MATRIX.json"
+    matrix_schema_path = root / ".pi/skills/internal-package-rights-matrix.schema.json"
+    if not classification_path.is_file() or not matrix_path.is_file() or not matrix_schema_path.is_file():
+        raise RuntimeError("public build requires package classification, rights matrix, and rights schema")
+    classification = json.loads(classification_path.read_text(encoding="utf-8"))
+    matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
+    validate_json(matrix, matrix_schema_path, "package rights matrix")
+    packages = classification.get("packages")
+    rights_packages = matrix.get("packages")
+    if not isinstance(packages, list) or not packages or not isinstance(rights_packages, list):
+        raise RuntimeError("public build requires non-empty package classification and rights records")
+    rights_by_id = {
+        package.get("package_id"): package
+        for package in rights_packages
+        if isinstance(package, dict) and isinstance(package.get("package_id"), str)
+    }
+    classified_ids = {
+        package.get("package_id")
+        for package in packages
+        if isinstance(package, dict) and isinstance(package.get("package_id"), str)
+    }
+    if classified_ids != set(rights_by_id):
+        raise RuntimeError("public build blocked: package classification and rights matrix do not match")
+    blocked = []
+    for package in packages:
+        if not isinstance(package, dict):
+            blocked.append("<invalid-package-record>")
+            continue
+        package_id = str(package.get("package_id", "<missing-package-id>"))
+        rights = rights_by_id.get(package_id, {})
+        if (
+            package.get("public_redistribution_admitted") is not True
+            or rights.get("public_redistribution_admitted") is not True
+            or rights.get("rights_state") != "ADMITTED"
+        ):
+            blocked.append(package_id)
+    if blocked:
+        raise RuntimeError(
+            "public build blocked: package redistribution is not admitted for "
+            + ", ".join(sorted(blocked))
+            + "; public body export is unavailable until the rights receipts are complete"
+        )
+
+
 def build(args: argparse.Namespace) -> dict[str, Any]:
     root = args.project_root.resolve()
     output = args.output.resolve()
@@ -201,25 +286,40 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         dirty = True
         built_at = "1970-01-01T00:00:00Z"
     source_repo = source_repository(root)
+    if args.visibility == "public":
+        enforce_public_rights(root)
     if dirty and not args.allow_dirty_source:
         raise RuntimeError("source worktree is dirty; production Harness snapshots require an immutable committed source")
     if source_repo == "local/unbound" and not args.allow_dirty_source:
         raise RuntimeError("source repository identity is unbound; production Harness snapshots require an exact GitHub source")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    validate_json(manifest, TASK / "harness-source-manifest.v1.schema.json", "source manifest")
+    validate_json(manifest, CONTROL / "harness-source-manifest.v1.schema.json", "source manifest")
+    suite_version = read_suite_version(root)
+    if manifest.get("harness_version") != suite_version or BUILDER_VERSION != suite_version:
+        raise RuntimeError("VERSION, builder and source manifest versions must match exactly")
     problem = read_problem(args.problem_file.resolve(), root)
     if problem.get("lifecycle") != "active" and not args.allow_draft_problem:
         raise RuntimeError("ProblemContract is not active; production problem repositories require lifecycle=active")
     canonical_ledger = args.canonical_ledger.resolve() if args.canonical_ledger else root / DEFAULT_CANONICAL_LEDGER
-    admitted = problem_is_admitted(problem, canonical_ledger)
+    admitted = problem_is_admitted(problem, canonical_ledger) and problem.get("lifecycle") == "active"
     if not admitted and not args.allow_unadmitted_problem:
-        raise RuntimeError("ProblemContract is not an exact record in the canonical ledger")
+        raise RuntimeError("ProblemContract is not an active exact record in the canonical ledger")
     problem_admission = "canonical_admitted" if admitted else "preview_unadmitted"
     if (args.repository_database_id is None) != (args.repository_node_id is None):
         raise RuntimeError("repository database ID and node ID must be supplied together")
     repository_binding = "verified" if args.repository_database_id is not None else "planned"
     if repository_binding != "verified" and not args.allow_planned_repository_identity:
         raise RuntimeError("repository identity is not verified; create/read the private repository before production build")
+    npm_cache = template / ".pi/npm"
+    has_npm_cache = npm_cache.exists() or npm_cache.is_symlink()
+    if has_npm_cache:
+        verified, cache_errors = validate_pi_goal_npm_cache(template)
+        if not verified:
+            raise RuntimeError("unsafe Pi Goal install cache in template: " + "; ".join(cache_errors))
+    if any(path.exists() or path.is_symlink() for path in (
+        template / ".pi/goals", template / ".pi/.goals-pool-snapshot.json",
+    )):
+        raise RuntimeError("Goal session records must not live in the source template")
     if output.exists() and any(output.iterdir()):
         raise RuntimeError(f"output must not exist or must be empty: {output}")
     output.mkdir(parents=True, exist_ok=True)
@@ -270,24 +370,54 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
                 raise RuntimeError(f"required Harness tree copied no files: {source}")
 
     for candidate in sorted(template.rglob("*")):
+        relative = candidate.relative_to(template)
+        if has_npm_cache and relative.parts[:2] == (".pi", "npm"):
+            continue  # 已审查的本机包缓存绝不进入生成仓库；别的符号链接仍拒绝。
+        if candidate.is_symlink():
+            raise RuntimeError(f"unsafe problem repository template member: {candidate}")
         if candidate.is_dir():
             continue
-        if candidate.is_symlink() or not candidate.is_file():
+        if not candidate.is_file():
             raise RuntimeError(f"unsafe problem repository template member: {candidate}")
-        relative = candidate.relative_to(template)
+        if ".git" in relative.parts or "__pycache__" in relative.parts or candidate.suffix == ".pyc":
+            continue
         if excluded_skill_ids.intersection(relative.parts):
             raise RuntimeError(f"excluded container Skill in problem repository template: {relative}")
-        if relative.as_posix() == "WEB_BOOTSTRAP.md.in":
+        if relative.as_posix() in {
+            "WEB_BOOTSTRAP.md", ".pi/settings.json.in",
+            "HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json",
+        }:
             continue
         target = output / relative
         if target.exists():
-            raise RuntimeError(f"template target collides with Harness source: {relative}")
+            if target.read_bytes() == candidate.read_bytes():
+                continue
+            raise RuntimeError(f"template target collides with different Harness source: {relative}")
         copy_regular(candidate, target)
         file_policy[relative.as_posix()] = ("web_channel", "harness")
 
-    # Container Skill snapshots remain immutable source evidence. Their scoped
-    # AGENTS files receive a generated inheritance overlay only in the built
-    # problem repository, so every effective Agent surface carries the policy.
+    pi_skills_root = output / ".pi/skills"
+    discovered_pi_skills = {
+        path.parent.name: path
+        for path in sorted(pi_skills_root.glob("*/SKILL.md"))
+        if path.is_file() and not path.is_symlink()
+    }
+    if set(discovered_pi_skills) != set(PI_SKILL_STATUS):
+        raise RuntimeError(
+            "Pi Skill suite mismatch: "
+            f"expected={sorted(PI_SKILL_STATUS)} actual={sorted(discovered_pi_skills)}"
+        )
+    pi_settings = {
+        "packages": [PI_GOAL_PACKAGE],
+        "skills": [f"skills/{skill_id}/SKILL.md" for skill_id in PI_SKILL_STATUS],
+        "enableSkillCommands": True,
+    }
+    write_json(output / ".pi/settings.json", pi_settings)
+    file_policy[".pi/settings.json"] = ("math_layer", "harness")
+
+    # Skill snapshots remain immutable source evidence. Their scoped AGENTS
+    # files receive a generated inheritance overlay only in the built problem
+    # repository, so every effective Agent surface carries the policy.
     apply_reasoning_agent_overlays(output)
 
     canonical_path = output / "problem-library/records/canonical-problems.jsonl"
@@ -299,6 +429,16 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         path = output / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         source_argument = PRELOADED_RECORDS.get(relative)
+        if relative == "result-library/indexes/solutions.json":
+            write_json(
+                path,
+                {
+                    "generated_at": "1970-01-01T00:00:00Z",
+                    "result_ids": [],
+                    "schema_version": "2.0.0",
+                },
+            )
+            continue
         if source_argument:
             configured = getattr(args, source_argument)
             source = configured.resolve() if configured else root / relative
@@ -318,20 +458,18 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     profile = json.loads((root / "governance/control-plane/web-research-channel.v1.json").read_text(encoding="utf-8"))
     write_json(output / "WEB_CHANNEL_PROFILE.json", profile)
     file_policy["WEB_CHANNEL_PROFILE.json"] = ("web_channel", "harness")
+    admission_path = output / "WEB_REPOSITORY_ADMISSION.json"
+    admission_schema_path = root / "governance/control-plane/repository-admission-receipt.schema.json"
+    admission = json.loads(admission_path.read_text(encoding="utf-8"))
+    admission["repository"] = args.repository
+    validate_json(admission, admission_schema_path, "repository admission receipt")
+    expected_admission = "ADMITTED" if profile.get("operational_admission") == "admitted_problem_repository_namespace" else "BLOCK"
+    if admission.get("decision") != expected_admission:
+        raise RuntimeError("repository admission receipt does not match the current Web profile")
+    write_json(admission_path, admission)
 
-    web_status = {
-        "vibe-mathing-router": "active",
-        "math-discovery": "active",
-        "math-derivation": "active",
-        "math-proof": "active",
-        "math-computation": "constrained",
-        "math-formalization": "constrained",
-        "outcome-space-search": "constrained",
-        "solve": "active",
-        "math-toolchain": "constrained",
-    }
     skills: list[dict[str, Any]] = []
-    for version_path in sorted((output / ".codex/skills").glob("*/VERSION")):
+    for version_path in sorted((output / ".pi/skills").glob("*/VERSION")):
         skill_id = version_path.parent.name
         entry = version_path.parent / "SKILL.md"
         if not entry.is_file():
@@ -341,18 +479,29 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             "version": version_path.read_text(encoding="utf-8").strip(),
             "entry": entry.relative_to(output).as_posix(),
             "entry_sha256": sha256_file(entry),
-            "web_status": web_status.get(skill_id, "inactive"),
+            "web_status": PI_SKILL_STATUS.get(skill_id, "inactive"),
         })
     active = {"schema_version": "1.0.0", "skills": skills}
     write_json(output / "WEB_ACTIVE_SKILLS.json", active)
     file_policy["WEB_ACTIVE_SKILLS.json"] = ("web_channel", "harness")
 
-    (output / "WEB_CONTEXT_BUNDLE.md").write_text(render_context(output), encoding="utf-8")
+    (output / "WEB_CONTEXT_BUNDLE.md").write_text(
+        render_context(
+            output,
+            attempt_id=args.context_attempt_id,
+            route_id=args.context_route_id,
+            graph_id=args.context_graph_id,
+            obligation_id=args.context_obligation_id,
+        ),
+        encoding="utf-8",
+    )
     os.chmod(output / "WEB_CONTEXT_BUNDLE.md", 0o644)
 
     output_contract = {
         "schema_version": "1.0.0",
         "channel": profile["channel_id"],
+        "capability_status": profile["capability_status"],
+        "operational_admission": profile["operational_admission"],
         "bootstrap_ack_schema": "research/schema/web-bootstrap-ack.schema.json",
         "attempt_packet_schema": "research/schema/web-attempt-packet.schema.json",
         "allowed_write_paths": profile["allowed_repository_write_paths"],
@@ -441,7 +590,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         "tree_sha256": tree_digest(listed_files),
         "built_at": built_at,
     }
-    validate_json(snapshot, TASK / "harness-snapshot-manifest.v1.schema.json", "Harness snapshot")
+    validate_json(snapshot, CONTROL / "harness-snapshot-manifest.v1.schema.json", "Harness snapshot")
     write_json(output / "HARNESS_SNAPSHOT.json", snapshot)
     snapshot_sha = sha256_file(output / "HARNESS_SNAPSHOT.json")
     history = {
@@ -463,7 +612,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     }
     validate_json(
         history,
-        TASK / "harness-snapshot-history.v1.schema.json",
+        CONTROL / "harness-snapshot-history.v1.schema.json",
         "Harness snapshot history",
     )
     write_json(output / "HARNESS_SNAPSHOT_HISTORY.json", history)
@@ -492,6 +641,23 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
         raise RuntimeError("unresolved WEB_BOOTSTRAP template placeholder")
     (output / "WEB_BOOTSTRAP.md").write_text(bootstrap, encoding="utf-8")
     os.chmod(output / "WEB_BOOTSTRAP.md", 0o644)
+
+    validation_commands = [
+        [sys.executable, str(output / "scripts/validate_web_problem_harness.py"), "--project-root", str(output)],
+        [sys.executable, str(output / "scripts/validate_research_spaces.py"), "--project-root", str(output)],
+    ]
+    for validation_command in validation_commands:
+        validation = subprocess.run(
+            validation_command,
+            text=True,
+            capture_output=True,
+            timeout=180,
+            check=False,
+        )
+        if validation.returncode != 0:
+            detail = (validation.stdout + "\n" + validation.stderr).strip()
+            raise RuntimeError(f"generated self-contained repository failed validation: {detail}")
+    remove_runtime_noise(output)
 
     report = {
         "decision": "PASS",
@@ -531,6 +697,10 @@ def main() -> int:
     parser.add_argument("--attempts-file", type=Path)
     parser.add_argument("--failed-routes-file", type=Path)
     parser.add_argument("--obligation-graphs-file", type=Path)
+    parser.add_argument("--context-attempt-id")
+    parser.add_argument("--context-route-id")
+    parser.add_argument("--context-graph-id")
+    parser.add_argument("--context-obligation-id")
     parser.add_argument("--source-manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
     parser.add_argument("--json", action="store_true")
@@ -544,9 +714,22 @@ def main() -> int:
     if args.repository_database_id is not None and args.repository_database_id < 1:
         print("BLOCK: invalid repository database ID", file=sys.stderr)
         return 1
+    requested_output = args.output.resolve()
+    staging_output = requested_output.parent / f".{requested_output.name}.staging-{os.getpid()}"
     try:
+        if requested_output.exists():
+            if not requested_output.is_dir() or any(requested_output.iterdir()):
+                raise RuntimeError(f"output must not exist or must be an empty directory: {requested_output}")
+            requested_output.rmdir()
+        if staging_output.exists():
+            raise RuntimeError(f"staging output already exists: {staging_output}")
+        args.output = staging_output
         report = build(args)
+        os.replace(staging_output, requested_output)
+        report["output"] = str(requested_output)
     except (OSError, ValueError, RuntimeError, json.JSONDecodeError) as exc:
+        if staging_output.exists() and staging_output.is_dir():
+            shutil.rmtree(staging_output, ignore_errors=True)
         print(f"BLOCK: {exc}", file=sys.stderr)
         return 1
     print(json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2) if args.json else (

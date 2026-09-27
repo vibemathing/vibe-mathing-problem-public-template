@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/web-context-profile.v1.json",
+  "title": "Vibe Mathing bounded Web execution-context profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "profile_id", "max_chars", "selection", "budgets"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "profile_id": {"type": "string", "pattern": "^web-execution-context:[a-z0-9][a-z0-9.-]*$"},
+    "max_chars": {"type": "integer", "minimum": 32000, "maximum": 200000},
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["active_lifecycle_priority", "explicit_selector_fields", "ambiguous_policy", "default_obligation"],
+      "properties": {
+        "active_lifecycle_priority": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["running", "planned"]}
+        },
+        "explicit_selector_fields": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["attempt_id", "route_id", "graph_id", "obligation_id"]}
+        },
+        "ambiguous_policy": {"const": "catalog_only_fail_closed"},
+        "default_obligation": {"const": "root_obligation"}
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_attempt_catalog",
+        "max_graph_catalog",
+        "max_failed_route_catalog",
+        "max_obligation_catalog",
+        "max_dependency_closure",
+        "max_package_catalog",
+        "max_source_catalog",
+        "max_operator_catalog",
+        "max_list_items",
+        "max_text_chars"
+      ],
+      "properties": {
+        "max_attempt_catalog": {"type": "integer", "minimum": 1, "maximum": 256},
+        "max_graph_catalog": {"type": "integer", "minimum": 1, "maximum": 256},
+        "max_failed_route_catalog": {"type": "integer", "minimum": 1, "maximum": 256},
+        "max_obligation_catalog": {"type": "integer", "minimum": 1, "maximum": 512},
+        "max_dependency_closure": {"type": "integer", "minimum": 1, "maximum": 512},
+        "max_package_catalog": {"type": "integer", "minimum": 1, "maximum": 128},
+        "max_source_catalog": {"type": "integer", "minimum": 1, "maximum": 128},
+        "max_operator_catalog": {"type": "integer", "minimum": 1, "maximum": 256},
+        "max_list_items": {"type": "integer", "minimum": 1, "maximum": 256},
+        "max_text_chars": {"type": "integer", "minimum": 128, "maximum": 4096}
+      }
+    }
+  }
+}

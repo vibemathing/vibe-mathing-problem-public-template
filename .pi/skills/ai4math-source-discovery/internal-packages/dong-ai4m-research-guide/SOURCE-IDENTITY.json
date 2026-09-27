@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:c2baa671b38768bf",
+  "label": "dong-ai4m-research-guide-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "c2baa671b38768bffc4d56dd1d325820ac079ee46de6aca99a7e8be39d59bfb3",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

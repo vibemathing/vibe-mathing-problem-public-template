@@ -35,17 +35,18 @@ Read in this order:
 
 1. `AGENTS.md`;
 2. `WEB_BOOTSTRAP.md`;
-3. `WEB_CHANNEL_PROFILE.json`;
-4. `HARNESS_SNAPSHOT.json`;
-5. `WEB_CONTEXT_BUNDLE.md`;
+3. `governance/control-plane/web-context-profile.v1.json`;
+4. `WEB_CHANNEL_PROFILE.json`;
+5. `HARNESS_SNAPSHOT.json`;
+6. `WEB_CONTEXT_BUNDLE.md`;
 6. `WEB_ACTIVE_SKILLS.json`;
 7. `problem-library/records/canonical-problems.jsonl`;
 8. `research/records/failed-routes.jsonl`;
 9. `research/records/attempts.jsonl`;
 10. `research/records/obligation-graphs.jsonl`;
-11. `.codex/skills/outcome-space-search/SKILL.md`;
-12. `.codex/skills/outcome-space-search/references/web-gpt-parallel-tree.md`;
-13. `.codex/skills/outcome-space-search/references/web-gpt-parallel-tree.v1.json`;
+11. `.pi/settings.json`;
+12. `.pi/skills/README.md`;
+13. `.pi/skills/INTERNAL-PACKAGE-CLASSIFICATION.json` and the selected top-level Skill's `INTERNAL-PACKAGES.json`;
 14. `WEB_OUTPUT_CONTRACT.json`.
 
 Then freeze and report:
@@ -60,10 +61,11 @@ assumptions + allowed axioms + acceptance predicate
 current failed-route signatures
 current admitted Attempt/Route/Graph/Obligation identities and statuses
 current candidates/evidence/results, including empty sets
-outcome-space-search version + web_status
+exact Pi Skill allowlist + active/constrained status
+internal-package owner + selected package identity + body availability
 ```
 
-Return `BLOCK` instead of prompts if repository identity is not verified, the repository contains the template placeholder, the ProblemContract is not `active + canonical_admitted`, required files are missing, or `outcome-space-search` is absent/not version `0.3.0`/not readable.
+Return `BLOCK` instead of prompts if repository identity is not verified, the repository contains the template placeholder, the ProblemContract is not `active + canonical_admitted`, required files are missing, or `.pi/settings.json` and `WEB_ACTIVE_SKILLS.json` do not identify the same exact ten readable Skills, or the 31-package classification and per-Skill registries disagree.
 
 ## Trusted pre-admission bridge
 

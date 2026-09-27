@@ -1,0 +1,35 @@
+{
+  "source_file": "local-source-not-published",
+  "filename": "证明与反驳：数学发现的逻辑 - 伊姆雷·拉卡托斯.epub",
+  "sha256": "7f0294759857bb2099cbc1db7887c11e8bc4c64c929f1078672d60518f792a0f",
+  "format": "EPUB",
+  "title": "证明与反驳：数学发现的逻辑",
+  "original_title": "Proofs and Refutations: The Logic of Mathematical Discovery",
+  "author": "伊姆雷·拉卡托斯 (Imre Lakatos)",
+  "translators": [
+    "方刚",
+    "兰钊"
+  ],
+  "publisher": "复旦大学",
+  "epub_metadata_publication_date": "2007-02-28T16:00:00+00:00",
+  "edition_notes": "EPUB copyright page states Chinese first edition March 2007 and third printing May 2011; ISBN 978-7-309-05397-5.",
+  "language": "zh",
+  "spine_items": 16,
+  "readable_units": 17,
+  "extracted_chars": 178021,
+  "estimated_tokens": 99826,
+  "archive_images_total": 99,
+  "content_images_reviewed": 98,
+  "invisible_codepoints_removed": 0,
+  "readability": "All spine/document units were readable. No missing/corrupt readable text detected. EPUB has no stable printed page map, so provenance uses section/unit identifiers instead of page numbers.",
+  "coverage": {
+    "front_matter": "processed",
+    "chapter_1": "processed including 180 footnotes",
+    "chapter_2": "processed including 32 footnotes",
+    "appendix_1": "processed including 40 footnotes",
+    "appendix_2": "processed including 25 footnotes",
+    "bibliography": "processed",
+    "name_translation_index": "processed",
+    "substantive_images": "98 content images visually reviewed"
+  }
+}

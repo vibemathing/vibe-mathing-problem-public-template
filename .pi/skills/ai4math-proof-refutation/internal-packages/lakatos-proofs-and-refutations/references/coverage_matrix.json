@@ -1,0 +1,667 @@
+{
+  "units_total": 66,
+  "units_processed": 66,
+  "coverage_complete": true,
+  "rows": [
+    {
+      "source_unit": "ch01-prelude",
+      "title": "第1章",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj1",
+      "title": "1．一个问题与一个猜想",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj2",
+      "title": "2．一个证明",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj3",
+      "title": "3．用局部而非全局的反例对证明的批评",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj4",
+      "title": "4．全局的反例对猜想的批评",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj5",
+      "title": "（a）猜想之拒斥。让步法",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj6",
+      "title": "（b）反例之拒斥。怪物排除法",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj7",
+      "title": "（c）以例外排除法改进猜想。逐步排除。策略性撤退或稳扎稳打",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj8",
+      "title": "（d）怪物校正法",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj9",
+      "title": "（e）以引理并入法改进猜想。证明生成的定理VS.素朴的猜想",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj10",
+      "title": "5．全局而非局部的反例对证明分析的批评。严格性的问题",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj11",
+      "title": "（a）守御定理的怪物排除",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj12",
+      "title": "（b）隐藏引理",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj13",
+      "title": "（c）一证多驳法",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj14",
+      "title": "（d）证明VS.证明分析。定理概念与证明分析之严格性概念的相对化",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj15",
+      "title": "6．再论局部而非全局的反例对证明的批评。内容问题",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj16",
+      "title": "（a）以更深入的证明扩增内容",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj17",
+      "title": "（b）向最终证明与相应的充分必要条件进军",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj18",
+      "title": "（c）不同证明得出不同定理",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj19",
+      "title": "7．重谈内容问题",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj20",
+      "title": "（a）素朴猜想的素朴性",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj21",
+      "title": "（b）作为多证多驳法之基础的归纳",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj22",
+      "title": "（c）演绎的猜测VS.素朴的猜测",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj23",
+      "title": "（d）以演绎猜测扩增内容",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj24",
+      "title": "（e）逻辑的反例VS.探试的反例",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj25",
+      "title": "8．概念的形成",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj26",
+      "title": "（a）以概念拉伸来反驳。重估怪物排除——兼重估错误与反驳之概念",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj27",
+      "title": "（b）证明引生的概念VS.素朴的概念。理论分类VS.素朴分类",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj28",
+      "title": "（c）再论逻辑反驳与探试反驳",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj29",
+      "title": "（d）理论的概念拉伸VS.素朴的概念拉伸。连续发展VS.批判发展",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj30",
+      "title": "（e）内容增加的极限。理论反驳VS.素朴反驳",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj31",
+      "title": "9．批评如何可把数学真理变为逻辑真理",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj32",
+      "title": "（a）无限制的概念拉伸摧毁意义与真理",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-mllj33",
+      "title": "（b）温和的概念拉伸可将数学真理变为逻辑真理",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch01-footnotes",
+      "title": "Footnotes",
+      "role": "chapter_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch01-proof-refutation-engine.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch02-prelude",
+      "title": "第2章",
+      "role": "chapter_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch02-translation-and-formal-proof.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch02-mllj1",
+      "title": "编者引言",
+      "role": "chapter_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch02-translation-and-formal-proof.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch02-mllj2",
+      "title": "1．把猜想翻译成矢量代数“完全被认可的”术语。翻译的问题",
+      "role": "chapter_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch02-translation-and-formal-proof.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch02-mllj3",
+      "title": "2．猜想的另一个证明",
+      "role": "chapter_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch02-translation-and-formal-proof.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch02-mllj4",
+      "title": "3．关于证明之终极性的一些疑问。翻译的程序以及实在论者的定义方法VS.唯名论者的定义方法",
+      "role": "chapter_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch02-translation-and-formal-proof.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "ch02-footnotes",
+      "title": "Footnotes",
+      "role": "chapter_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/ch02-translation-and-formal-proof.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app01-prelude",
+      "title": "附录1",
+      "role": "appendix_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app01-uniform-convergence-case.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app01-mllj1",
+      "title": "多证多驳法中的另一个案例研究",
+      "role": "appendix_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app01-uniform-convergence-case.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app01-mllj2",
+      "title": "1．柯西为“连续性原理”所作的辩护",
+      "role": "appendix_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app01-uniform-convergence-case.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app01-mllj3",
+      "title": "2．赛德尔的证明以及证明生成的一致收敛概念",
+      "role": "appendix_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app01-uniform-convergence-case.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app01-mllj4",
+      "title": "3．阿贝尔的例外排除法",
+      "role": "appendix_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app01-uniform-convergence-case.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app01-mllj5",
+      "title": "4．有关证明分析法之发现的障碍",
+      "role": "appendix_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app01-uniform-convergence-case.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app01-footnotes",
+      "title": "Footnotes",
+      "role": "appendix_1",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app01-uniform-convergence-case.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app02-prelude",
+      "title": "附录2",
+      "role": "appendix_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app02-heuristic-presentation.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app02-mllj1",
+      "title": "演绎主义方法VS.探试法",
+      "role": "appendix_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app02-heuristic-presentation.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app02-mllj2",
+      "title": "1．演绎主义方法",
+      "role": "appendix_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app02-heuristic-presentation.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app02-mllj3",
+      "title": "2．探试法。证明产生的概念",
+      "role": "appendix_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app02-heuristic-presentation.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app02-mllj4",
+      "title": "（a）一致收敛",
+      "role": "appendix_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app02-heuristic-presentation.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app02-mllj5",
+      "title": "（b）有界变分",
+      "role": "appendix_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app02-heuristic-presentation.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app02-mllj6",
+      "title": "（c）可测集的卡拉西尔德瑞定义",
+      "role": "appendix_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app02-heuristic-presentation.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "app02-footnotes",
+      "title": "Footnotes",
+      "role": "appendix_2",
+      "processed": true,
+      "skill_destinations": [
+        "chapters/app02-heuristic-presentation.md",
+        "SKILL.md"
+      ]
+    },
+    {
+      "source_unit": "front-toc",
+      "title": "front-toc",
+      "role": "front_matter",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_source.json",
+        "references/book_map.json"
+      ]
+    },
+    {
+      "source_unit": "front-bio",
+      "title": "front-bio",
+      "role": "front_matter",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_source.json",
+        "references/book_map.json"
+      ]
+    },
+    {
+      "source_unit": "front-title",
+      "title": "front-title",
+      "role": "front_matter",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_source.json",
+        "references/book_map.json"
+      ]
+    },
+    {
+      "source_unit": "front-copyright",
+      "title": "front-copyright",
+      "role": "front_matter",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_source.json",
+        "references/book_map.json"
+      ]
+    },
+    {
+      "source_unit": "front-abstract",
+      "title": "front-abstract",
+      "role": "front_matter",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_source.json",
+        "references/book_map.json"
+      ]
+    },
+    {
+      "source_unit": "front-editors",
+      "title": "front-editors",
+      "role": "front_matter",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_source.json",
+        "references/book_map.json"
+      ]
+    },
+    {
+      "source_unit": "front-ack",
+      "title": "front-ack",
+      "role": "front_matter",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_source.json",
+        "references/book_map.json"
+      ]
+    },
+    {
+      "source_unit": "front-author-intro",
+      "title": "front-author-intro",
+      "role": "front_matter",
+      "processed": true,
+      "skill_destinations": [
+        "SKILL.md",
+        "references/provenance.json"
+      ]
+    },
+    {
+      "source_unit": "bibliography",
+      "title": "bibliography",
+      "role": "bibliography",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_map.json",
+        "references/provenance.json"
+      ]
+    },
+    {
+      "source_unit": "name-index",
+      "title": "name-index",
+      "role": "name_index",
+      "processed": true,
+      "skill_destinations": [
+        "references/book_map.json",
+        "references/provenance.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+Vibe Mathing problem-repository template
+
+Copyright (c) 2026 Vibe Mathing maintainers.
+
+The 31 bundled internal reference packages are project-authored by Vibe
+Mathing maintainers. They are covered by the repository MIT License, with
+package identity, immutable content-tree digests, attribution, rights holder,
+and the direct-owner attestation recorded in:
+
+  governance/control-plane/project-authored-package-rights-attestation.v1.json
+
+The packages remain inert references: they are not Pi entries, workers,
+verifiers, admission authorities, or mathematical evidence. External
+mathematical knowledge sources named in registry metadata are not bundled by
+this notice; their own licenses and attribution requirements remain applicable
+to any separately retrieved material.

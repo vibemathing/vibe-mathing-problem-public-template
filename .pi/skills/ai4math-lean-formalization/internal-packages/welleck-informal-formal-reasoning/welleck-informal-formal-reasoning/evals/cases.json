@@ -1,0 +1,74 @@
+{
+  "positive_triggers": [
+    {
+      "prompt": "Lean keeps rejecting my next tactic; how should I structure search?",
+      "expect": "Lean-STaR / ch02"
+    },
+    {
+      "prompt": "I have an informal proof and need a machine-checked Lean proof.",
+      "expect": "DSP / ch03"
+    },
+    {
+      "prompt": "This Lean subgoal should follow from mathlib but search is huge.",
+      "expect": "LeanHammer / ch04"
+    },
+    {
+      "prompt": "My theorem depends on custom lemmas across several project files.",
+      "expect": "miniCTX-style context-first / ch05"
+    },
+    {
+      "prompt": "This Lean proof is correct but I want a shorter, more declarative version.",
+      "expect": "ImProver / ch06"
+    }
+  ],
+  "negative_triggers": [
+    {
+      "prompt": "Explain the quadratic formula to a high-school student.",
+      "expect": "do not trigger"
+    },
+    {
+      "prompt": "Write a Python web scraper.",
+      "expect": "do not trigger"
+    },
+    {
+      "prompt": "Give me three brainstorming ideas for a math club.",
+      "expect": "do not trigger"
+    }
+  ],
+  "method_selection": [
+    {
+      "case": "global strategy unknown, tactic branching high",
+      "expect": "DSP before more low-level sampling"
+    },
+    {
+      "case": "strategy known, one routine gap, likely missing lemma",
+      "expect": "LeanHammer"
+    },
+    {
+      "case": "unknown identifiers / project-local definitions",
+      "expect": "context-first before more tactic search"
+    },
+    {
+      "case": "proof verifies but style objective unmet",
+      "expect": "ImProver only after verification"
+    }
+  ],
+  "failure_recovery": [
+    {
+      "failure": "repeated invalid tactics",
+      "expect": "change thought/branch; do not repeat"
+    },
+    {
+      "failure": "hammer failure with missing local lemma",
+      "expect": "fix premise/context selection"
+    },
+    {
+      "failure": "DSP gap as hard as original",
+      "expect": "refine/redraft sketch"
+    },
+    {
+      "failure": "optimized proof invalid",
+      "expect": "rollback to last verified baseline"
+    }
+  ]
+}

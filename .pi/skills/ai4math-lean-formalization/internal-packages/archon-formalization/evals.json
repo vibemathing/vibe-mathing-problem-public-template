@@ -1,0 +1,63 @@
+{
+  "positive_triggers": [
+    {
+      "prompt": "Initialize this multi-file Lean project with Archon and set up a blueprint DAG.",
+      "route": [
+        "ch02",
+        "ch03"
+      ]
+    },
+    {
+      "prompt": "Archon loop keeps adding helpers but the sorry count is flat. What should I change?",
+      "route": [
+        "ch07",
+        "ch14"
+      ]
+    },
+    {
+      "prompt": "Configure Codex for prover roles and Claude for planning, with subagents.",
+      "route": [
+        "ch08"
+      ]
+    },
+    {
+      "prompt": "I need workspace-only writes and frozen theorem signatures.",
+      "route": [
+        "ch09"
+      ]
+    },
+    {
+      "prompt": "Three related Archon projects duplicate the same lemmas. How do I reuse work?",
+      "route": [
+        "ch12"
+      ]
+    }
+  ],
+  "negative_triggers": [
+    "Prove this single Lean theorem with simp.",
+    "Explain Coq tactics.",
+    "Make a generic sprint plan for my software team."
+  ],
+  "failure_cases": [
+    {
+      "case": "interrupted iteration",
+      "expected": "resume path before redoing full loop"
+    },
+    {
+      "case": "downstream file imports previous build failure",
+      "expected": "defer downstream unless blocker co-assigned"
+    },
+    {
+      "case": "COMPLETE marker with remaining sorries",
+      "expected": "reject completion and return to prover"
+    },
+    {
+      "case": "large theorem repeatedly stalls",
+      "expected": "fine-grained/decomposition, not repeated generic prove"
+    },
+    {
+      "case": "protected declaration blocks needed signature edit",
+      "expected": "respect protection; request user-owned rule change or redesign route"
+    }
+  ]
+}

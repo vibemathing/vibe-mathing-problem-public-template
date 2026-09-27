@@ -12,12 +12,15 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "role", "trust_domain", "policy", "capabilities"],
+        "required": ["id", "role", "trust_domain", "policy", "policy_version", "policy_digest", "independence_class", "capabilities", "toolchain_allowlist"],
         "properties": {
           "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9.-]*$"},
           "role": {"enum": ["generator", "verifier"]},
           "trust_domain": {"type": "string", "minLength": 1},
           "policy": {"type": ["string", "null"]},
+          "policy_version": {"type": ["string", "null"], "minLength": 1},
+          "policy_digest": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+          "independence_class": {"enum": ["candidate-generator", "independent-verifier"]},
           "capabilities": {
             "type": "array",
             "uniqueItems": true,

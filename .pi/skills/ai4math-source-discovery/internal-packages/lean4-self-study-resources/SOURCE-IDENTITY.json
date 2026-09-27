@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:457f476a1fc12510",
+  "label": "lean4-self-study-resources-delivery.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "457f476a1fc125103b921685b9fdb3a2dfc63c72e577d3d94369209d3f85762f",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

@@ -1,0 +1,164 @@
+{
+  "provenance_policy": {
+    "SOURCE_DERIVED": "Rule/method directly grounded in the supplied book.",
+    "STRUCTURAL_SYNTHESIS": "Routing/checklist structure assembled from multiple source-derived ideas.",
+    "IMPLEMENTATION_DECISION": "Packaging, file architecture, or evaluator design chosen to make the skill operational."
+  },
+  "location_note": "This EPUB has no stable printed page mapping; source locations use extracted section IDs and named chapter/appendix sections.",
+  "source_derived_capabilities": {
+    "counterexample-triage": [
+      "ch01-mllj3",
+      "ch01-mllj4",
+      "ch01-mllj13",
+      "ch01-mllj16",
+      "ch01-mllj24"
+    ],
+    "proof-decomposition": [
+      "ch01-mllj2",
+      "ch01-mllj13"
+    ],
+    "falsity-transfer-check": [
+      "ch01-mllj12",
+      "ch01-mllj13"
+    ],
+    "hidden-lemma-search": [
+      "ch01-mllj12",
+      "app01-mllj3",
+      "app01-mllj5"
+    ],
+    "lemma-incorporation": [
+      "ch01-mllj9",
+      "ch01-mllj13"
+    ],
+    "rule4-proof-repair": [
+      "ch01-mllj16",
+      "ch01-mllj17",
+      "ch01-mllj18"
+    ],
+    "deductive-guessing": [
+      "ch01-mllj22",
+      "ch01-mllj23"
+    ],
+    "monster-barring-audit": [
+      "ch01-mllj6",
+      "ch01-mllj11",
+      "ch01-mllj26"
+    ],
+    "exception-barring-audit": [
+      "ch01-mllj7",
+      "ch01-mllj9",
+      "app01-mllj4"
+    ],
+    "monster-adjusting-audit": [
+      "ch01-mllj8"
+    ],
+    "concept-stretching-audit": [
+      "ch01-mllj26",
+      "ch01-mllj29",
+      "ch01-mllj32",
+      "ch01-mllj33"
+    ],
+    "proof-generated-concept": [
+      "ch01-mllj27",
+      "app01-mllj3",
+      "app02-mllj3",
+      "app02-mllj5",
+      "app02-mllj6"
+    ],
+    "proof-content-comparison": [
+      "ch01-mllj16",
+      "ch01-mllj17",
+      "ch01-mllj18",
+      "ch02-mllj4"
+    ],
+    "translation-procedure-audit": [
+      "ch02-mllj2",
+      "ch02-mllj4"
+    ],
+    "dominant-theory-audit": [
+      "ch02-mllj4"
+    ],
+    "formal-proof-boundary": [
+      "ch02-mllj4"
+    ],
+    "heuristic-reconstruction": [
+      "app02-mllj2",
+      "app02-mllj3",
+      "app02-mllj4",
+      "app02-mllj5",
+      "app02-mllj6"
+    ],
+    "cross-proof-concept-validation": [
+      "app01-mllj5",
+      "app02-mllj5"
+    ]
+  },
+  "structural_synthesis": [
+    {
+      "item": "2×2 global/local routing table",
+      "sources": [
+        "ch01-mllj13",
+        "ch01-mllj16",
+        "ch01-mllj24"
+      ],
+      "type": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "item": "Output contract claim→lemma map→classification→repair→tests→limits",
+      "sources": [
+        "ch01-mllj13",
+        "ch01-mllj16",
+        "ch01-mllj22",
+        "ch02-mllj4"
+      ],
+      "type": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "item": "Definition genealogy checklist",
+      "sources": [
+        "ch01-mllj6",
+        "ch01-mllj8",
+        "ch01-mllj26",
+        "ch01-mllj27"
+      ],
+      "type": "STRUCTURAL_SYNTHESIS"
+    },
+    {
+      "item": "Formalization audit applied to code/models as well as mathematics",
+      "sources": [
+        "ch02-mllj2",
+        "ch02-mllj4"
+      ],
+      "type": "STRUCTURAL_SYNTHESIS"
+    }
+  ],
+  "implementation_decisions": [
+    {
+      "item": "Four on-demand chapter files corresponding to the two chapters and two appendices",
+      "type": "IMPLEMENTATION_DECISION"
+    },
+    {
+      "item": "JSON provenance/book-map/capability/eval files kept outside scanner Markdown scope",
+      "type": "IMPLEMENTATION_DECISION"
+    },
+    {
+      "item": "No raw EPUB text or original images bundled to preserve context efficiency and avoid making a book substitute",
+      "type": "IMPLEMENTATION_DECISION"
+    }
+  ],
+  "front_matter_sources": [
+    "front-author-intro",
+    "front-editors",
+    "front-abstract"
+  ],
+  "historical_evidence_sources": [
+    "ch01-footnotes",
+    "ch02-footnotes",
+    "app01-footnotes",
+    "app02-footnotes",
+    "bibliography"
+  ],
+  "normalization_sources": [
+    "name-index"
+  ]
+}

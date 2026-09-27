@@ -22,3 +22,11 @@ A Web candidate agent works on one Attempt, Route, graph, and Obligation at a ti
 Every executable verification must freeze the candidate digest and record verifier trust domain, input, method/command, exact versions, timeout/resource/output limits, exit status, output digest, and limitations. Generator and independent verifier must not be the same trust domain.
 
 Attempt completion, checkpoint, PR merge, CI success, finite computation, and model review do not mean the mathematical problem is complete. Failed or stalled routes preserve negative knowledge and select a different route; they do not close the problem.
+
+## Research OS cognitive projection
+
+- `research/research-os-profile.v1.json` is the public capability profile. It is a pilot inventory, not a readiness or truth claim.
+- `research/schema/research-os-*.v1.schema.json` describes candidate-only working sets, events, projections, and metadata boundaries.
+- `research/records/research-os-events.jsonl` is an optional per-repository cognitive event ledger. It must remain separate from Attempt, Candidate, Evidence, Result, and Solution ledgers.
+- `scripts/project_research_os.py` is read-only projection/verification glue; `scripts/vibe_mathing/research_os.py` may write only the explicitly requested isolated event ledger.
+- The placeholder repository ships only synthetic fixtures. Replace the draft ProblemContract before using Research OS with a real problem.

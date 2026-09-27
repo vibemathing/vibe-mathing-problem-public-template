@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:58fb6a9f5a2de132",
+  "label": "xena-formalization-method-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "58fb6a9f5a2de13286b848aea94c40bc3079038d7c0d6f50e0e2aee8287b3c0b",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

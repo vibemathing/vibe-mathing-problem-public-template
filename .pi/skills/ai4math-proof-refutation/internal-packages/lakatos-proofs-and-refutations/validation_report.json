@@ -1,0 +1,92 @@
+{
+  "skill": "lakatos-proofs-and-refutations",
+  "generated_on": "2026-09-12",
+  "book_type": "technical (mathematical prose with formulas/diagrams; adaptive budgets used without padding)",
+  "depth": "study",
+  "purpose": "apply frameworks + think with mental models + chapter/concept reference",
+  "spec_source": {
+    "repository": "virgiliojr94/book-to-skill",
+    "branch": "master",
+    "generator_spec": "SKILL.md",
+    "skill_blob_sha": "273a4e2eb074912426e9353b4d738750fe7d98a3",
+    "additional_sources_reviewed": [
+      "README.md",
+      "AGENTS.md",
+      "docs/how-it-works.md",
+      "docs/architecture.md",
+      "tools/validate_skill.py",
+      "tools/scan_generated_skill.py",
+      "book_to_skill/parsers/epub.py",
+      "book_to_skill/parsers/html.py",
+      "book_to_skill/sanitize.py",
+      "book_to_skill/config.py"
+    ]
+  },
+  "source_reading": {
+    "readable_units": 66,
+    "all_processed": true,
+    "chapter_1_footnotes": 180,
+    "chapter_2_footnotes": 32,
+    "appendix_1_footnotes": 40,
+    "appendix_2_footnotes": 25,
+    "bibliography": "processed",
+    "name_index": "processed",
+    "content_images_reviewed": 98,
+    "unreadable_ranges": []
+  },
+  "tests": {
+    "structure": "PASS",
+    "frontmatter_schema_claude": "PASS",
+    "frontmatter_schema_copilot": "PASS",
+    "frontmatter_schema_amp": "PASS",
+    "frontmatter_schema_hermes": "PASS with one soft description-length warning",
+    "generated_skill_security_scan": "PASS",
+    "internal_links": "PASS",
+    "placeholder_scan": "PASS",
+    "positive_trigger_cases": "4/4 designed and coherent",
+    "negative_trigger_cases": "4/4 designed and coherent",
+    "method_selection_cases": "7/7 mapped",
+    "failure_recovery_cases": "5/5 mapped",
+    "book_coverage_audit": "66/66 processed",
+    "hallucination_audit": "PASS; source-derived vs synthesis vs implementation decisions separated in provenance",
+    "context_efficiency": "PASS; SKILL.md estimated 2525 tokens < 4000",
+    "fresh_agent_simulation": "PASS; global-not-local counterexample routed to hidden-lemma search and discriminating tests"
+  },
+  "repair_loop": [
+    {
+      "finding": "Chapter 1 first draft under-emphasized the explicit logical-counterexample vs heuristic-counterexample distinction.",
+      "patch": "Added dedicated operational distinction and routing advice.",
+      "retest": "PASS"
+    },
+    {
+      "finding": "Chapter 1 first draft compressed the closing moderate-concept-stretching/relative-logical-truth discussion too aggressively.",
+      "patch": "Added targeted section linking fixed components to Chapter 2 formal proof.",
+      "retest": "PASS"
+    },
+    {
+      "finding": "Hermes validator warns that the routing description exceeds its 60-character house preference.",
+      "patch": "No change: warning is non-breaking; shortening enough to remove it would materially reduce cross-host trigger quality.",
+      "retest": "PASS with same soft warning"
+    }
+  ],
+  "independent_audit": {
+    "summary": "No chapter-as-summary architecture, no raw-book dump, no unresolved placeholders, no single-route assumption, explicit failure recovery and self-check present.",
+    "scores": {
+      "Book Coverage": 98,
+      "Method Coverage": 97,
+      "Operationalization": 97,
+      "Trigger Quality": 95,
+      "Decision Quality": 97,
+      "Failure Recovery": 96,
+      "Reference Architecture": 96,
+      "Context Efficiency": 98,
+      "Test Coverage": 96,
+      "Installability": 100
+    }
+  },
+  "known_limitations": [
+    "EPUB has no stable printed-page map; provenance uses extracted section IDs.",
+    "The skill synthesizes methodology and selected worked cases; it intentionally does not reproduce the book or its full historical bibliography.",
+    "Formal-method claims are scoped to the book’s discussion and the editors’ qualification that fixed-system proof checking can be mechanical."
+  ]
+}

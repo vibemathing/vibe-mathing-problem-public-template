@@ -1,0 +1,110 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "lakatos-proofs-and-refutations",
+  "primary_owner": "ai4math-proof-refutation",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 133466,
+  "source_family": "lakatos-proofs-and-refutations",
+  "source_files": 19,
+  "source_rows": [
+    {
+      "bytes": 13471,
+      "path": "SKILL.md",
+      "sha256": "25234ecf880334f716f2356715e5cc61eaefac868e89eed3e35fab091bad5222"
+    },
+    {
+      "bytes": 340,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "d5b8511530ad539d56aae47e1287d8191bb771c3b1bb5afa81954abc20ed332f"
+    },
+    {
+      "bytes": 5886,
+      "path": "chapters/app01-uniform-convergence-case.md",
+      "sha256": "dbf74addd0b160523b06feb47f5324744d10ed16491a58fb8784e6c625ff7cfa"
+    },
+    {
+      "bytes": 5616,
+      "path": "chapters/app02-heuristic-presentation.md",
+      "sha256": "e8c2f6af93ad308827b6111b9c1a965301a69383efac5696a11cffb622e34384"
+    },
+    {
+      "bytes": 11317,
+      "path": "chapters/ch01-proof-refutation-engine.md",
+      "sha256": "9f26263b5c20fe35e8c60924b77d7826041c0ad27899c12eb8cabb094ebca9a1"
+    },
+    {
+      "bytes": 6801,
+      "path": "chapters/ch02-translation-and-formal-proof.md",
+      "sha256": "41d0c07141731c83f0670c72536a8cdc344b819366dbd2456441c8caefea43d0"
+    },
+    {
+      "bytes": 2301,
+      "path": "cheatsheet.md",
+      "sha256": "5b8005e97b91ee34d3d858eed28567ae45607c7418b5fd50a264752a30d8d98a"
+    },
+    {
+      "bytes": 4294,
+      "path": "evals/eval_cases.json",
+      "sha256": "601c37c24299b109ce4b56ef134a3301699517a2bb925fbb0988b4758265fb25"
+    },
+    {
+      "bytes": 4422,
+      "path": "evals/fresh_agent_simulation.json",
+      "sha256": "2eeb9dbbbee99707d197aee30e55abe71f322694824584e6cf131d36424f82d3"
+    },
+    {
+      "bytes": 3396,
+      "path": "glossary.md",
+      "sha256": "88098799e20a8172392709ce65b08f6353d4ffb27682cea9665869097892fc26"
+    },
+    {
+      "bytes": 3705,
+      "path": "patterns.md",
+      "sha256": "c724ab3fb8ec05b2e1e66aff6708ac78768f6c6a2b324ea33b8b2c0c77ba6b9e"
+    },
+    {
+      "bytes": 14106,
+      "path": "references/book_map.json",
+      "sha256": "e65066c1ce739259eed8d9cdbc46f0164aeedf1dd59fa2e9edd557fcc10acaff"
+    },
+    {
+      "bytes": 1552,
+      "path": "references/book_source.json",
+      "sha256": "53b3cd902a7509f073f93061ef3bebb71b0a6f8bdb9ab2f7795d021947084053"
+    },
+    {
+      "bytes": 24813,
+      "path": "references/capabilities.json",
+      "sha256": "78ff59441100beba5b8bcc329267d6112a447a72838f4ffac46621f976bac1a9"
+    },
+    {
+      "bytes": 2426,
+      "path": "references/concept_graph.json",
+      "sha256": "84f9e88d1ed02151fb96493eac999833828b1c867553e93044f78a1f4e035266"
+    },
+    {
+      "bytes": 17736,
+      "path": "references/coverage_matrix.json",
+      "sha256": "ff25219c6ec0669f33c8fe1fc6536adb22fac7b96face29f9127bca67b907639"
+    },
+    {
+      "bytes": 3402,
+      "path": "references/method_dependency_graph.json",
+      "sha256": "7d73987b8938ed2dea3dd1e5a5b7dc01fe5e117cb9a2b9c61c19416f747ab905"
+    },
+    {
+      "bytes": 3975,
+      "path": "references/provenance.json",
+      "sha256": "dcb864117c0e0543feb1c86da7e5f605d893c6d5001f57c6dd1a60aace18ad22"
+    },
+    {
+      "bytes": 3907,
+      "path": "validation_report.json",
+      "sha256": "3f24e2ddb2f8366caf77932f5f75cdca57ccae82e33913978dd87056a851e1f3"
+    }
+  ],
+  "source_tree_sha256": "3c913d4fbcda44cb6fc44a102cedc4853b773962449aa2581746e0023cb83f0d"
+}

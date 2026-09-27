@@ -1,0 +1,6305 @@
+{
+  "api_version": "vibe-harness-cn.dev/v1alpha1",
+  "kind": "OperatorPack",
+  "metadata": {
+    "id": "psoa.pack.programming-principles-101",
+    "version": "1.0.0",
+    "domain": "programming-principles-101",
+    "title": "《编程的原则》101 条原则：具体算子",
+    "summary": "从《编程的原则：改善代码质量的101个方法》中提炼的 85 个可独立触发、执行和验证的 OperatorSpec。",
+    "source_entry_count": 85,
+    "derived_entry_count": 0
+  },
+  "entries": [
+    {
+      "id": "psoa.programming-principles-101.kiss",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.kiss",
+      "name": "KISS",
+      "name_zh": "KISS原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "在当前目标下删除无价值的层、配置和机制，保留最容易解释的可行结构。",
+      "core_question": "当前复杂度中，哪些部分不是目标真正需要的？",
+      "operation": "列出目标与约束 → 删除非必要结构 → 比较可理解性与风险 → 保留最小可行设计。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“KISS”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "设计开始出现炫技、特殊机制或难以解释的层次。"
+        ],
+        "not_when": [
+          "安全、清晰或必要的复杂度会因追求短小而被删除。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "设计开始出现炫技、特殊机制或难以解释的层次。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出当前必须满足的目标和硬约束",
+          "区分本质复杂度与偶然复杂度",
+          "删除或合并没有证据支持的结构",
+          "用独立读者检查意图是否更清楚"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "设计复杂度收敛到当前需求能够证明的最小范围。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "变更前后结构差异、目标覆盖、独立可读性评审。"
+        ],
+        "failure_modes": [
+          "把必要的安全、边界或领域复杂度误判为偶然复杂度。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复被删除的必要约束，重新按风险和可理解性划分复杂度。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "2.1",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.dry",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.dry",
+      "name": "DRY",
+      "name_zh": "DRY",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "识别同一知识的多处落点，并把修改理由收敛到一个可验证来源。",
+      "core_question": "重复的是同一知识，还是仅仅相似的文本？",
+      "operation": "比较修改理由与变化方向 → 识别共同知识 → 集中定义或生成 → 重跑行为检查。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“DRY”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "同一规则、常量、条件或修改理由在多处维护。"
+        ],
+        "not_when": [
+          "片段只是表面相似，或处于会独立变化的不同语境。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "同一规则、常量、条件或修改理由在多处维护。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "对比重复片段表达的规则和变化原因",
+          "确认抽取后的边界和调用关系",
+          "建立单一来源并替换重复落点",
+          "用测试和搜索确认没有语义漂移"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "同一知识的修改点减少，并且各使用方仍保持原有行为。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "重复点清单、单一来源位置、行为回归和搜索结果。"
+        ],
+        "failure_modes": [
+          "过早合并独立变化的代码，形成错误耦合。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "撤销过度抽取，保留语义边界并只集中真正共同的知识。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "2.2",
+          "functional_class": "transformation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.yagni",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.yagni",
+      "name": "YAGNI",
+      "name_zh": "YAGNI",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "只实现已确认的当前能力，把未来可能性留给真实变化证据。",
+      "core_question": "这个扩展点现在由什么确定需求支持？",
+      "operation": "列出当前验收 → 标记推测性结构 → 删除未使用扩展 → 保留可回滚证据。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“YAGNI”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "代码包含只由“以后可能需要”支持的配置、策略或兼容层。"
+        ],
+        "not_when": [
+          "确有已批准需求、迁移契约或当前使用者依赖该能力。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "代码包含只由“以后可能需要”支持的配置、策略或兼容层。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "逐项关联当前需求和验收标准",
+          "标记没有调用、数据或用户证据的扩展",
+          "删除推测性结构并保持测试保护",
+          "等真实变化出现后再重新评估抽象"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "实现范围与当前已证实需求一致，未引入空置能力。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "需求追踪、调用/配置使用证据、删除差异和回归结果。"
+        ],
+        "failure_modes": [
+          "误删已存在但低频或隐式使用的契约。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复受保护契约，补充使用证据后重新划定最小范围。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "2.3",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.pie",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.pie",
+      "name": "Program Intently and Expressively",
+      "name_zh": "PIE",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让结构、名称和注释表达目的、边界与决策理由，而不是只暴露机械步骤。",
+      "core_question": "读者能否从代码本身理解目标和关键限制？",
+      "operation": "识别需要作者解释的区域 → 重写结构与命名 → 补充必要的为什么 → 由读者复述意图。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“PIE：意图表达”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "代码可以运行，但目的、边界或非显然决策只能靠口头说明。"
+        ],
+        "not_when": [
+          "需求或语境本身尚未确定，贸然表达会固化错误理解。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "代码可以运行，但目的、边界或非显然决策只能靠口头说明。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "收集读者无法直接解释的片段",
+          "让结构和名称先表达业务目的",
+          "只为原因、限制和风险补充注释",
+          "用独立读者复述检查表达是否闭环"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "关键意图和限制可从实现中被独立复述。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "改名前后示例、读者复述、评审意见和行为回归。"
+        ],
+        "failure_modes": [
+          "为了“表达”加入冗余注释或改变了真实语义。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "保留行为不变的小步重写，删除过时注释并回到可验证意图。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "2.4",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.slap",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.slap",
+      "name": "Single Level of Abstraction Principle",
+      "name_zh": "SLAP",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把混合多个抽象层级的函数改写成同层叙述，并将细节下沉到有意义的边界。",
+      "core_question": "一个函数是否同时在说业务目标和底层实现细节？",
+      "operation": "标出抽象层级跳跃 → 提取有名步骤 → 保持每层单一叙述 → 用阅读和测试复核。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“SLAP：单一抽象层级”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "同一函数混合业务流程、IO、SQL、字符串或位运算。"
+        ],
+        "not_when": [
+          "函数本身就是明确的底层适配边界，继续拆分会隐藏关键细节。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "同一函数混合业务流程、IO、SQL、字符串或位运算。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "为函数中的语句标注抽象层级",
+          "先写高层目录式流程",
+          "把细节下沉到职责清晰的函数",
+          "运行行为回归并检查调用语义"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "每一层都能用同一层级的一句话描述，细节边界更清楚。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "抽象层标注、函数差异、调用图和回归测试。"
+        ],
+        "failure_modes": [
+          "提取出无语义的小函数，增加跳转成本而没有降低认知负担。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并无价值碎片，保留真正的领域步骤和边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "2.5",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.ocp",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.ocp",
+      "name": "Open-Closed Principle",
+      "name_zh": "OCP",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "在真实变化重复出现后隔离变化轴，让新增行为尽量通过扩展而非修改稳定核心实现。",
+      "core_question": "哪些变化反复迫使稳定代码改动？",
+      "operation": "统计真实变化 → 定位变化轴 → 设计最小扩展边界 → 用新案例验证核心未被改写。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“OCP：对扩展开放”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "同一类变化多次修改稳定条件树或核心流程。"
+        ],
+        "not_when": [
+          "只有一次猜测性变化，或扩展层会制造比修改更大的复杂度。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "同一类变化多次修改稳定条件树或核心流程。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "收集至少一组真实变化和受影响位置",
+          "区分稳定机制与可变策略",
+          "建立最小接口或注册边界",
+          "用新变化和旧回归检查扩展成本"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "已证实的变化通过边界扩展，稳定核心的修改面收窄。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "历史变更聚类、接口差异、新增案例和回归结果。"
+        ],
+        "failure_modes": [
+          "提前抽象不存在的变化，造成复杂插件或配置系统。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回退到简单实现，等变化证据足够后再建立扩展边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "2.6",
+          "functional_class": "transformation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.meaningful-naming",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.meaningful-naming",
+      "name": "Meaningful Naming",
+      "name_zh": "名字很重要",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "用领域、角色、目的和效果命名，使读者无需打开实现也能形成正确预期。",
+      "core_question": "仅凭名字，读者能否还原对象的真实角色和行为？",
+      "operation": "先描述概念 → 选择团队术语 → 检查目的与副作用 → 让名字与行为同步。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“名字很重要”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "名称含糊、缩写过多、暴露机械实现或与行为不一致。"
+        ],
+        "not_when": [
+          "公开术语尚未稳定，或重命名会破坏外部契约且没有迁移方案。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "名称含糊、缩写过多、暴露机械实现或与行为不一致。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "写出对象的领域描述和角色",
+          "选择可读、可搜索、可发音的术语",
+          "比较名称与真实行为及副作用",
+          "同步更新引用和文档并运行检查"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "名字成为稳定的概念索引，减少读者反向解码。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "命名对照表、调用方检查、搜索结果和行为回归。"
+        ],
+        "failure_modes": [
+          "名字更短但语义更弱，或改名遗漏了外部使用点。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复契约别名或迁移映射，继续以行为和领域术语校正。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "2.7",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.communication",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.communication",
+      "name": "Communication",
+      "name_zh": "交流",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把代码当作程序员之间的沟通媒介，优先修复目的、边界和变化理由的表达。",
+      "core_question": "维护者需要通过哪些信息才能正确修改这里？",
+      "operation": "从读者视角扫描目的和边界 → 找信息缺口 → 改善结构、名称或注释 → 让读者复述。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“交流”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "代码维护依赖作者口头解释，或评审反复误解同一意图。"
+        ],
+        "not_when": [
+          "目标和领域术语仍在变化，尚无稳定语义可表达。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "代码维护依赖作者口头解释，或评审反复误解同一意图。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出读者必须猜测的前提",
+          "优先用结构和名称补齐信息",
+          "只记录不能从代码推导的原因和限制",
+          "通过独立复述验证表达质量"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "实现的目的、边界和变化理由可被维护者独立理解。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "读者复述、评审问题变化、文档差异和回归结果。"
+        ],
+        "failure_modes": [
+          "把作者偏好当成领域语义，增加无价值说明。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回到用户目标和可观察行为，删除主观解释。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.2",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.simplicity",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.simplicity",
+      "name": "Simplicity",
+      "name_zh": "简洁",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "区分本质复杂度与偶然复杂度，删除后者而不牺牲意图和安全边界。",
+      "core_question": "哪些复杂度来自问题本身，哪些只是实现选择？",
+      "operation": "列出必须保留的约束 → 标记偶然复杂度 → 小步删除或替换 → 检查理解和行为。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“简洁”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "代码难以理解，且复杂结构没有对应需求、约束或证据。"
+        ],
+        "not_when": [
+          "追求短小会掩盖安全、错误处理或领域边界。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "代码难以理解，且复杂结构没有对应需求、约束或证据。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "把复杂结构关联到目标或约束",
+          "找出可删除的间接层、例外和配置",
+          "做保持行为的小步简化",
+          "由独立读者和测试确认没有损失"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "偶然复杂度减少，核心约束和意图保持可见。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "复杂度对照、差异、可读性评审和回归测试。"
+        ],
+        "failure_modes": [
+          "简化只减少行数却增加隐藏状态或特殊情况。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回滚该步，改用更显式的结构并重新评估收益。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.3",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.flexibility",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.flexibility",
+      "name": "Flexibility",
+      "name_zh": "灵活性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把灵活性定义为真实变化的低成本适应，而不是提前堆叠抽象。",
+      "core_question": "下一次已知变化会修改哪些边界，当前设计能否局部承受？",
+      "operation": "收集真实变化 → 测量修改扩散 → 选择小步重构或边界 → 复验变化成本。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“灵活性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "维护、扩展或重组成本持续上升。"
+        ],
+        "not_when": [
+          "变化只是想象，或增加间接层无法降低已观察的修改成本。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "维护、扩展或重组成本持续上升。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "从变更历史找出重复变化方向",
+          "定位变化扩散的边界",
+          "只引入能局部吸收变化的结构",
+          "用下一条代表性变化做回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "已验证变化的修改范围和理解成本下降。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "变更历史、受影响文件、代表性变化演练和回归。"
+        ],
+        "failure_modes": [
+          "把灵活性误解为任意配置或扩展点。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "删除无证据的可配置性，保留真实变化所需的边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.4",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.effect-locality",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.effect-locality",
+      "name": "Effect Locality",
+      "name_zh": "效应局部化",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让修改尽量停留在局部边界，减少跨模块往返和非预期扩散。",
+      "core_question": "一次变化实际影响了多大范围，扩散是否合理？",
+      "operation": "追踪变化影响 → 按关联性重排边界 → 缩短跨模块路径 → 用变更样例复核。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“效应局部化”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "小改动经常需要修改多个无关模块或重复同步。"
+        ],
+        "not_when": [
+          "跨边界传播是已确认的业务契约，不能只靠拆分消除。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "小改动经常需要修改多个无关模块或重复同步。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录一次代表性变更的影响路径",
+          "区分必要传播和边界泄漏",
+          "把强关联内容放近并隔离弱关联",
+          "用同类变化验证扩散是否收窄"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "变化影响范围与修改理由更一致，边界泄漏减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "影响图、变更文件集合、依赖差异和回归结果。"
+        ],
+        "failure_modes": [
+          "拆分后增加数据搬运和跨模块协调。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并过度碎片化边界，保留真实关联并重新测量。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.5",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.minimal-repetition",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.minimal-repetition",
+      "name": "Minimal Repetition",
+      "name_zh": "重复最少化",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "以修改理由而非文本相似度识别重复，集中真正共同的知识。",
+      "core_question": "哪些重复位置会因同一业务变化一起修改？",
+      "operation": "按修改理由聚类 → 区分共同知识与偶然相似 → 集中来源 → 验证独立语境未被耦合。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“重复最少化”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "同一规则或决策散落在多个实现位置。"
+        ],
+        "not_when": [
+          "相似片段的领域含义、变化方向或生命周期不同。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "同一规则或决策散落在多个实现位置。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录重复位置和各自修改理由",
+          "找出真正共同的知识单元",
+          "提取单一来源或生成输入",
+          "用不同语境测试避免错误共享"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "同一知识的维护落点减少，同时保留独立变化边界。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "重复清单、抽取差异、调用图和跨语境回归。"
+        ],
+        "failure_modes": [
+          "为消除文本重复而合并不同知识。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "拆回独立实现，并只共享经过验证的知识定义。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.6",
+          "functional_class": "transformation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.logic-data-cohesion",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.logic-data-cohesion",
+      "name": "Logic and Data Cohesion",
+      "name_zh": "逻辑与数据的一体化",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把修改某数据所需的逻辑靠近该数据，减少跨模块同步和隐含关联。",
+      "core_question": "修改一份数据时，相关逻辑是否能在同一边界内找到？",
+      "operation": "追踪数据与逻辑的共同变化 → 调整边界 → 收窄同步面 → 用数据变更回归。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“逻辑与数据的一体化”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "数据结构和处理逻辑分散，修改需要跨多个模块同步。"
+        ],
+        "not_when": [
+          "数据必须由明确的外部契约或独立层拥有。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "数据结构和处理逻辑分散，修改需要跨多个模块同步。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出数据的读写者和共同变化点",
+          "识别应由同一边界负责的逻辑",
+          "移动或封装相关逻辑",
+          "验证外部契约和序列化行为"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "相关数据和逻辑的变更路径更短、更显式。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "数据流图、读写清单、接口差异和回归测试。"
+        ],
+        "failure_modes": [
+          "移动逻辑破坏所有权、事务或性能边界。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复边界或增加明确适配层，保留可追踪的数据所有权。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.7",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.symmetry",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.symmetry",
+      "name": "Symmetry",
+      "name_zh": "对称性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让同类概念和成对生命周期采用可类推的结构、命名和参数顺序。",
+      "core_question": "读者能否根据一个操作可靠推测其对应操作？",
+      "operation": "识别成对或同类操作 → 对齐结构和命名 → 检查资源生命周期 → 验证异常路径。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“对称性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "获取/释放、注册/注销、开始/结束等成对操作表现不一致。"
+        ],
+        "not_when": [
+          "两侧语义本来不对称，强行对齐会隐藏真实差异。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "获取/释放、注册/注销、开始/结束等成对操作表现不一致。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出成对操作和共同约束",
+          "统一名称、参数、抽象层和生命周期",
+          "检查成功与失败路径的成对释放",
+          "用边界和异常测试验证可预测性"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "同类操作更容易类推，资源和状态生命周期更少出现遗漏。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "成对 API 对照、生命周期覆盖和异常回归。"
+        ],
+        "failure_modes": [
+          "追求表面一致导致错误的同构或资源处理。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复显式差异，并只对齐共享语义。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.8",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.declarative-expression",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.declarative-expression",
+      "name": "Declarative Expression",
+      "name_zh": "声明式表",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "在规则、配置、查询和映射中优先表达目标、约束和关系，减少不必要的控制流程。",
+      "core_question": "这段复杂控制流能否用数据、规则或高层约束表达？",
+      "operation": "提取目标和约束 → 比较声明式与命令式表示 → 选择更易检查者 → 验证边界和性能。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“声明式表达”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "规则或映射被大量机械流程代码掩盖。"
+        ],
+        "not_when": [
+          "声明式形式无法表达动态控制、错误恢复或关键性能约束。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "规则或映射被大量机械流程代码掩盖。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "写出输入、目标、约束和关系",
+          "尝试用规则表、数据结构或高层 API 表达",
+          "保留必须显式控制的部分",
+          "用等价案例和性能检查验证"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "意图和约束从实现流程中分离出来，便于检查和生成。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "前后表示、等价案例、边界测试和性能基线。"
+        ],
+        "failure_modes": [
+          "声明式配置缺少校验，错误被推迟到运行期。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "补充 schema、静态检查或恢复为显式流程。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.9",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.change-rate",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.change-rate",
+      "name": "Change Rate",
+      "name_zh": "变动率",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "按修改理由和频率分组代码，用共同变化判断真实职责边界。",
+      "core_question": "哪些部分总是一起变，哪些部分各自变化？",
+      "operation": "分析变更历史 → 聚类共同变化 → 调整模块边界 → 用后续变更验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“变动率”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "模块职责争议无法仅凭静态结构判断。"
+        ],
+        "not_when": [
+          "没有足够的历史或变化样本支持边界结论。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "模块职责争议无法仅凭静态结构判断。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "收集同类变更和修改理由",
+          "标记共同变化与独立变化",
+          "按变化轴拆分或合并边界",
+          "观察新变更是否减少无关触及"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "模块边界与实际变化方向一致，修改扩散减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "版本历史、变更聚类、影响范围和回归结果。"
+        ],
+        "failure_modes": [
+          "把偶然共变误判为长期职责，造成过度拆分。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "保留现状并继续收集变化证据，避免提前固化。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.10",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.abstraction",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.abstraction",
+      "name": "Abstraction",
+      "name_zh": "抽象",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "通过舍象和一般化忽略无关细节、提取共同概念，降低认知复杂度。",
+      "core_question": "哪些细节必须保留，哪些可以由更稳定的概念替代？",
+      "operation": "区分个别与共同属性 → 选择抽象边界 → 检查调用者理解成本 → 必要时回退。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“抽象”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "多个实现共享稳定概念，但直接暴露细节增加理解成本。"
+        ],
+        "not_when": [
+          "抽象没有共同语义，或调用者必须学习更多间接层。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "多个实现共享稳定概念，但直接暴露细节增加理解成本。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出需要被隐藏和保留的事实",
+          "提取可被多个案例验证的共同概念",
+          "让接口覆盖真实核心能力",
+          "由调用者和边界案例检查可理解性"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "无关细节被隐藏，核心概念和适用边界更清楚。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "抽象前后调用示例、案例覆盖、接口差异和回归。"
+        ],
+        "failure_modes": [
+          "把偶然相似抽成错误共同抽象。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "拆分抽象或回到具体实现，等待共同语义证据。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.12",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.encapsulation",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.encapsulation",
+      "name": "Encapsulation",
+      "name_zh": "封装",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把共同数据与逻辑放在同一边界，隔离不相关概念和内部状态。",
+      "core_question": "哪些状态与规则应由同一个边界负责？",
+      "operation": "识别共同不变量 → 合并相关数据与逻辑 → 隐藏内部状态 → 验证边界行为。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“封装”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "数据和处理它的规则分散，调用方直接操纵内部状态。"
+        ],
+        "not_when": [
+          "边界所有权、事务或生命周期尚未明确。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "数据和处理它的规则分散，调用方直接操纵内部状态。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出状态、不变量和操作",
+          "确定唯一负责边界",
+          "限制外部直接修改内部状态",
+          "用成功、失败和并发案例检查不变量"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "内部状态由清晰边界维护，外部依赖减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "所有权图、公开接口、状态不变量和行为回归。"
+        ],
+        "failure_modes": [
+          "封装只增加了包装层，没有形成真实所有权。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "删除无意义包装，或补齐真正的状态责任。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.13",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.information-hiding",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.information-hiding",
+      "name": "Information Hiding",
+      "name_zh": "信息隐藏",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "只公开使用者必须知道的承诺，隐藏易变实现决策和内部细节。",
+      "core_question": "调用者依赖了哪些本不应知道的实现事实？",
+      "operation": "列出公开承诺与易变细节 → 收窄接口 → 迁移调用方 → 验证替换能力。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“信息隐藏”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "公共 API 暴露内部结构、供应商细节或易变策略。"
+        ],
+        "not_when": [
+          "外部契约明确要求暴露该信息，或隐藏会损害必要诊断。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "公共 API 暴露内部结构、供应商细节或易变策略。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "盘点调用方实际需要的信息",
+          "把实现细节改为稳定承诺",
+          "迁移直接依赖内部细节的调用者",
+          "用替换实现和错误路径检查契约"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "实现可替换性提高，公共表面只承担必要契约。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "API 差异、调用方依赖矩阵、替换实现和回归。"
+        ],
+        "failure_modes": [
+          "过度隐藏导致调试、性能或契约使用困难。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "公开必要的稳定观察点，不恢复对内部实现的依赖。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.14",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.packaging",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.packaging",
+      "name": "Packaging",
+      "name_zh": "打包",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "在真实模块关系稳定后形成更高层分组，不用目录结构掩盖设计。",
+      "core_question": "哪些模块具有稳定的共同边界，适合一起被理解和演化？",
+      "operation": "观察模块依赖和共同变化 → 形成包边界 → 约束跨包依赖 → 检查导航和构建。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“打包”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "模块数量和关系已稳定，需要更高层组织和依赖边界。"
+        ],
+        "not_when": [
+          "包只是为了好看或目录层级，真实关系尚未出现。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "模块数量和关系已稳定，需要更高层组织和依赖边界。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出模块、依赖和共同变化",
+          "按稳定责任形成包",
+          "限制循环和无意义跨包依赖",
+          "用构建、导入和维护任务验证"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "包边界反映真实责任，导航和依赖方向更清楚。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "包依赖图、构建结果、迁移差异和评审。"
+        ],
+        "failure_modes": [
+          "人为分组造成跨包往返或循环依赖。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并过度碎片化包，回到实际变化和依赖边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.15",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.separation-of-concerns",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.separation-of-concerns",
+      "name": "Separation of Concerns",
+      "name_zh": "关注点分离",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把不同变化理由和关注点拆开，避免一个修改同时触及无关责任。",
+      "core_question": "哪些关注点有独立的变化理由或验证方式？",
+      "operation": "识别变化轴 → 划分责任边界 → 管理必要横切机制 → 观察变化扩散。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“关注点分离”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "UI、存储、业务策略、审计或外部协议相互缠绕。"
+        ],
+        "not_when": [
+          "拆分会制造更高的转换成本，且关注点实际总是共同变化。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "UI、存储、业务策略、审计或外部协议相互缠绕。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出各关注点的变化理由和验证方式",
+          "分离可以独立演化的部分",
+          "对横切需求使用受控统一机制",
+          "用代表性变化检查扩散和可读性"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "独立关注点可局部修改，必要交叉点保持显式。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "变化轴清单、依赖图、代表性变更和回归。"
+        ],
+        "failure_modes": [
+          "把强关联逻辑拆散，造成理解和协调成本。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并真实共同变化部分，并保留明确的跨关注点契约。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.16",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.adequacy-completeness-primitiveness",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.adequacy-completeness-primitiveness",
+      "name": "Adequacy, Completeness and Primitiveness",
+      "name_zh": "充足性、完整性、原始性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "检查抽象/API 是否足够完成目标、覆盖本质能力且基本操作不可轻易由其他操作派生。",
+      "core_question": "这个接口既没有贫瘠，也没有把便利功能无限塞进核心吗？",
+      "operation": "列出用户目标和本质能力 → 检查覆盖 → 找可派生操作 → 调整核心边界。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“充足性、完整性、原始性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "设计公共抽象、接口或模块基本操作集合时。"
+        ],
+        "not_when": [
+          "接口尚无稳定使用场景，或便利层本身是已批准的独立产品能力。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "设计公共抽象、接口或模块基本操作集合时。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出必须支持的任务和最小操作",
+          "检查每个本质能力是否可达",
+          "识别可由其他操作派生的冗余",
+          "用代表性使用者验证可用性和边界"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "核心接口既可用又不过度膨胀，派生能力与核心边界清楚。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "能力矩阵、接口差异、代表性调用和回归。"
+        ],
+        "failure_modes": [
+          "删除冗余操作后破坏稳定契约或隐藏重要语义。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复必要兼容入口，并将便利操作移到明确的外围层。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.17",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.strategy-implementation-separation",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.strategy-implementation-separation",
+      "name": "Strategy and Implementation Separation",
+      "name_zh": "策略和实现的分离",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把变化快的业务策略与相对稳定的机制分开，使策略可替换、机制可复用。",
+      "core_question": "哪部分是“做什么”，哪部分是“怎么做”，它们变化是否不同？",
+      "operation": "区分策略与机制 → 定义最小承诺 → 允许策略替换 → 用多策略案例验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“策略与实现分离”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "产品规则频繁变化，而执行机制相对稳定。"
+        ],
+        "not_when": [
+          "策略和机制总是同因变化，拆分会只增加转发层。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "产品规则频繁变化，而执行机制相对稳定。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "按变化历史划分策略和机制",
+          "定义策略输入输出与不变量",
+          "把机制依赖稳定契约",
+          "用至少两个策略和失败路径检查边界"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "策略变化不再迫使机制重写，替换边界有证据支持。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "变化历史、策略接口、多策略案例和回归。"
+        ],
+        "failure_modes": [
+          "把尚未变化的细节提前抽成复杂策略框架。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回退到直接实现，等待重复变化后再分离。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.18",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.interface-implementation-separation",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.interface-implementation-separation",
+      "name": "Interface and Implementation Separation",
+      "name_zh": "接口与实现的分离",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让调用者依赖稳定承诺而非内部做法，使实现可替换且边界可验证。",
+      "core_question": "替换内部实现时，哪些调用者不应被迫理解细节？",
+      "operation": "抽取稳定契约 → 隔离实现细节 → 迁移调用者 → 用替换实现和错误案例验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“接口与实现分离”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "上层代码直接依赖具体实现、供应商或数据结构。"
+        ],
+        "not_when": [
+          "没有稳定的共同语义，或外部契约本身就是实现协议。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "上层代码直接依赖具体实现、供应商或数据结构。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出调用者真正依赖的行为",
+          "定义输入、输出、错误和资源承诺",
+          "隔离具体实现并迁移调用者",
+          "用替代实现和边界输入回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "实现替换不改变调用者对稳定契约的理解。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "接口契约、依赖差异、替代实现和回归结果。"
+        ],
+        "failure_modes": [
+          "接口只隐藏名称而没有减少行为耦合。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "扩大稳定契约或删除无效间接层，保持实际语义清楚。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.19",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.single-source-of-truth",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.single-source-of-truth",
+      "name": "Single Source of Truth",
+      "name_zh": "单一引用点",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让一个事实尽量只定义一次，减少隐式副作用和多处同步。",
+      "core_question": "同一个事实现在由多少个位置负责定义或赋值？",
+      "operation": "盘点事实和落点 → 选择唯一来源 → 替换复制状态 → 检查读取和更新路径。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“单一引用点”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "常量、规则、状态或配置在多处定义、赋值或同步。"
+        ],
+        "not_when": [
+          "复制是明确的快照、缓存或跨边界契约，并有一致性规则。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "常量、规则、状态或配置在多处定义、赋值或同步。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出事实的定义、派生和缓存位置",
+          "指定权威来源和更新责任",
+          "删除无理由的复制和隐式写入",
+          "用变更传播和并发案例验证一致性"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "事实来源和派生关系显式，修改不会依赖手工同步。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "来源登记、数据流、变更测试和一致性结果。"
+        ],
+        "failure_modes": [
+          "把合法缓存或外部副本误删，导致性能或契约退化。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复明确的派生/缓存边界，并记录一致性策略。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.20",
+          "functional_class": "transformation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.divide-and-conquer",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.divide-and-conquer",
+      "name": "Divide and Conquer",
+      "name_zh": "分治",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把不可掌控的问题拆成可理解、可验证的子问题，再通过清晰接口组合。",
+      "core_question": "怎样切分才能让每个子问题可独立理解和验证？",
+      "operation": "识别子目标 → 选择低耦合边界 → 分别验证 → 按契约组合 → 检查依赖是否爆炸。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“分治”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "问题规模或复杂度已经超过单一模块的可理解范围。"
+        ],
+        "not_when": [
+          "拆分会留下不可运行中间态，或子问题共享无法隔离的状态。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "问题规模或复杂度已经超过单一模块的可理解范围。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "写出子目标、输入输出和共享不变量",
+          "选择能减少耦合的分解边界",
+          "独立验证子问题",
+          "按契约组合并检查整体行为"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "大问题被转换为可验证子问题，组合边界可追踪。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "分解图、子问题证据、接口契约和组合回归。"
+        ],
+        "failure_modes": [
+          "依赖数量爆炸，子问题无法独立验证。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回退分解层级，合并真实强关联部分并重新切分。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.21",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.nonfunctional-requirements",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.nonfunctional-requirements",
+      "name": "Non-functional Requirements",
+      "name_zh": "软件架构的非功能需求",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把易变性、互操作性、效率、可靠性、可测试性、安全和审计等属性提前变成可验证要求。",
+      "core_question": "除了功能正确，系统还必须在什么质量属性上成立？",
+      "operation": "列质量属性 → 写场景和阈值 → 绑定设计与测试 → 持续复核实际边界。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“软件架构的非功能需求”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "功能完成但上线、维护、互操作或审计风险仍未定义。"
+        ],
+        "not_when": [
+          "没有目标用户、负载或风险语境，无法给质量属性设定可检验边界。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "功能完成但上线、维护、互操作或审计风险仍未定义。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出相关质量属性和失败影响",
+          "为每项写可观察场景和阈值",
+          "把要求关联到设计与验证",
+          "记录剩余风险和复查触发器"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "非功能目标进入设计、测试和交付验收，而非事后补救。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "质量属性场景、阈值、测试结果和剩余风险。"
+        ],
+        "failure_modes": [
+          "把口号当成需求，缺少可测指标或优先级。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "缩小范围到高影响属性，补充测量和验收条件。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.22",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.changeability",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.changeability",
+      "name": "Changeability",
+      "name_zh": "易变性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "用维护、扩展、重组和移植成本判断结构是否能承受真实长期变化。",
+      "core_question": "下一次维护变化的成本会由哪些边界和依赖决定？",
+      "operation": "收集变化样本 → 估计修改成本 → 找出变化扩散 → 以小步重构降低利息。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“易变性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "长期系统的修改成本、绕路或回归风险持续上升。"
+        ],
+        "not_when": [
+          "没有真实变化样本，只是在预先设计未来所有可能性。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "长期系统的修改成本、绕路或回归风险持续上升。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录近期代表性变更和受影响范围",
+          "区分本质变化与结构摩擦",
+          "选择最小降低扩散的重构",
+          "用下一次变化和回归验证收益"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "结构对已观察变化更容易调整，维护成本有可追踪证据。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "变化历史、成本/影响范围、重构差异和回归。"
+        ],
+        "failure_modes": [
+          "为低概率变化引入过多间接层。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "删除无证据的可变性，回到当前需求和测量。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.23",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.interoperability",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.interoperability",
+      "name": "Interoperability",
+      "name_zh": "互操作性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "优先标准协议、数据格式和外部契约，用适配层隔离遗留与供应商差异。",
+      "core_question": "外部系统如何在不理解内部细节的情况下稳定交换信息？",
+      "operation": "识别交换边界 → 选择标准表示 → 明确版本与错误契约 → 用真实对端验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“互操作性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "系统需要接入遗留系统、第三方服务或跨平台数据。"
+        ],
+        "not_when": [
+          "没有稳定的外部语义，或标准格式无法表达必要业务约束。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "系统需要接入遗留系统、第三方服务或跨平台数据。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出双方输入、输出、版本和错误语义",
+          "优先采用成熟协议和格式",
+          "把供应商/遗留差异放入适配层",
+          "用代表性数据和兼容矩阵回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "外部交换可复现、可演进，内部模型不被外部细节污染。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "契约/版本、兼容矩阵、样例数据和对端测试。"
+        ],
+        "failure_modes": [
+          "只兼容成功样例，忽略版本、编码或错误路径。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "冻结失败样例，补齐契约和适配边界后再扩展。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.24",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.efficiency",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.efficiency",
+      "name": "Efficiency",
+      "name_zh": "效率性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "分别测量时间和资源效率，在可维护性、复用与运行成本之间依据真实约束取舍。",
+      "core_question": "哪个资源指标是瓶颈，间接层的收益是否值得成本？",
+      "operation": "定义负载与指标 → 测量基线 → 定位热点 → 局部优化 → 复测回归。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“效率性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "存在时延、CPU、内存、IO、token 或成本约束。"
+        ],
+        "not_when": [
+          "没有代表性负载、差异小于噪声或优化会破坏正确性。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "存在时延、CPU、内存、IO、token 或成本约束。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "固定代表性负载和测量方法",
+          "建立基线和不确定范围",
+          "只优化被证实的热点",
+          "比较性能、复杂度和行为回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "效率结论由可重复测量支持，优化范围保持局部。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "基线、热点分析、优化差异、重复测量和回归。"
+        ],
+        "failure_modes": [
+          "凭感觉删层或过拟合单次基准。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复清晰实现，改进负载和测量后再判断。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.25",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.reliability",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.reliability",
+      "name": "Reliability",
+      "name_zh": "可靠性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "先定义可靠性目标，再选择冗余、降级、故障安全和恢复策略。",
+      "core_question": "系统在什么故障下必须继续、降级或安全停止？",
+      "operation": "定义故障模式和目标 → 选择容错策略 → 注入边界故障 → 检查恢复和数据一致性。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“可靠性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "系统故障会影响用户、数据、任务进度或安全。"
+        ],
+        "not_when": [
+          "没有影响模型，或所谓容错只是吞掉错误并隐藏损坏。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "系统故障会影响用户、数据、任务进度或安全。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出故障模式、影响和可接受结果",
+          "为每类故障定义继续/降级/停止",
+          "实现最小恢复和可观测错误",
+          "通过故障演练检查实际行为"
+        ],
+        "effect": {
+          "state": "reliability_state",
+          "statement": "故障行为、恢复边界和剩余风险明确且可验证。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "故障矩阵、注入记录、恢复结果、数据一致性和告警。"
+        ],
+        "failure_modes": [
+          "以重试掩盖非幂等副作用或让错误数据继续扩散。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "停止危险路径，恢复一致性并重新定义可接受的降级范围。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.26",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.testability",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.testability",
+      "name": "Testability",
+      "name_zh": "可测试性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "通过减少隐藏依赖、提供观察点和清晰边界，使关键行为可以被独立验证。",
+      "core_question": "怎样在不依赖完整外部环境的情况下验证这个行为？",
+      "operation": "识别难测依赖 → 引入最小替换/观察边界 → 编写可重复检查 → 验证真实集成仍成立。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“可测试性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "测试需要复杂环境、全局状态、时间或不可控外部服务。"
+        ],
+        "not_when": [
+          "测试接口会暴露生产秘密、改变行为或制造伪实现。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "测试需要复杂环境、全局状态、时间或不可控外部服务。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出行为输入、输出和外部依赖",
+          "隔离可替换依赖和时间/随机性",
+          "增加必要观察点和契约测试",
+          "用集成样例防止测试替身偏离真实行为"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "关键行为可重复验证，测试困难不再掩盖设计耦合。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "依赖边界、测试夹具、契约测试和集成回归。"
+        ],
+        "failure_modes": [
+          "只让测试替身通过，真实环境行为未被覆盖。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "补充真实集成检查，收窄替身并明确验证边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.27",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.reusability",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.reusability",
+      "name": "Reusability",
+      "name_zh": "可复用性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "优先复用成熟组件；只有经过多个不同应用检验后，才把本地组件提升为共享能力。",
+      "core_question": "复用能减少什么成本，通用化又会增加什么设计和验证成本？",
+      "operation": "调查已有能力 → 比较适配与自研成本 → 用多个案例验证 → 决定复用或抽取。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“可复用性”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "存在相似需求、成熟组件或可能共享的本地能力。"
+        ],
+        "not_when": [
+          "复用会引入不透明供应链、错误抽象或无法满足核心差异。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "存在相似需求、成熟组件或可能共享的本地能力。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出已有组件、契约、许可证和维护状态",
+          "比较直接复用、适配和自研",
+          "用不同应用验证通用边界",
+          "记录选择理由和退出路径"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "复用决策有证据，通用组件不以猜测扩张。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "方案比较、使用案例、维护/许可检查和行为回归。"
+        ],
+        "failure_modes": [
+          "为复用而强行统一不同语境，或复制未验证组件。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "撤销错误通用化，保留局部实现并重新评估真实共享点。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.28",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.simplicity-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.simplicity-principle",
+      "name": "Simplicity Principle",
+      "name_zh": "简单性原理",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "优先自然、直接、可解释的代码，因为复杂处更容易隐藏缺陷。",
+      "core_question": "这个结构是否比问题本身更复杂？",
+      "operation": "识别必要复杂度 → 删除巧技和例外 → 保持直线表达 → 用边界测试复核。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“简单性原理”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "实现存在难以解释的间接层、技巧或特殊分支。"
+        ],
+        "not_when": [
+          "复杂度对应真实安全、性能或领域约束。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "实现存在难以解释的间接层、技巧或特殊分支。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出每个复杂结构的理由",
+          "删除没有证据支持的技巧和分支",
+          "改成直接可读的控制和数据流",
+          "运行边界、错误和回归检查"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "实现更直接，缺陷隐藏点和理解成本减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "复杂度理由、差异、代码评审和测试结果。"
+        ],
+        "failure_modes": [
+          "把必要的防护误删，导致边界行为退化。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复必要防护，区分其与偶然复杂度。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.30",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.isomorphism-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.isomorphism-principle",
+      "name": "Isomorphism Principle",
+      "name_zh": "同构原理",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让同类问题使用同类结构和团队约定，使异常部分更容易被发现。",
+      "core_question": "同类概念是否以一致形式表达，例外是否真正有理由？",
+      "operation": "收集同类结构 → 选择稳定约定 → 统一可类推部分 → 显式标注真实例外。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“同构原理”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "同类模块、接口或流程风格分裂，读者无法迁移理解。"
+        ],
+        "not_when": [
+          "不同结构表达的语义确实不同，统一会掩盖边界。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "同类模块、接口或流程风格分裂，读者无法迁移理解。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "识别可比较的同类对象",
+          "提取共同命名、参数和流程约定",
+          "统一稳定部分并保留显式差异",
+          "用新读者和异常案例检查可预测性"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "一致结构降低学习成本，真正异常更突出。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "规范对照、同类对象差异、评审和回归。"
+        ],
+        "failure_modes": [
+          "为形式一致牺牲领域语义或保留错误例外。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复语义差异，更新约定边界而非机械统一。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.31",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.symmetry-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.symmetry-principle",
+      "name": "Symmetry Principle",
+      "name_zh": "对称原理",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让成对概念采用对称结构与命名，帮助读者预测资源和状态转换。",
+      "core_question": "一个操作的对应操作是否在结构和生命周期上可预测？",
+      "operation": "识别成对动作 → 对齐命名和参数 → 检查成功/失败路径 → 用资源测试验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“对称原理”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "生命周期或双向操作存在遗漏、命名不一致或异常不对称。"
+        ],
+        "not_when": [
+          "对应操作有明确不同语义，不能强行镜像。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "生命周期或双向操作存在遗漏、命名不一致或异常不对称。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出成对操作和资源责任",
+          "统一共同结构和术语",
+          "覆盖正常、中断和失败路径",
+          "检查资源最终状态和可重复执行"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "成对操作更易类推，资源和状态不变量更稳定。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "生命周期图、资源测试、命名对照和回归。"
+        ],
+        "failure_modes": [
+          "表面镜像掩盖了不同的错误或权限语义。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "显式记录不对称原因，并只共享真正相同的部分。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.32",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.hierarchy-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.hierarchy-principle",
+      "name": "Hierarchy Principle",
+      "name_zh": "层次原理",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让每层保持一致抽象，配对行为尽量在同层完成，高层说做什么、低层说怎么做。",
+      "core_question": "跨层调用是否迫使读者同时理解多个抽象层？",
+      "operation": "标注层次 → 对齐同层职责与配对行为 → 收窄跨层泄漏 → 用流程阅读检查。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“层次原理”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "函数或模块混合高层目标与低层细节，资源配对跨层分散。"
+        ],
+        "not_when": [
+          "底层适配本身就是必须暴露的边界，隐藏会损害契约。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "函数或模块混合高层目标与低层细节，资源配对跨层分散。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "标注调用链中的抽象层",
+          "把获取/释放等配对行为放在可见同层",
+          "把实现细节下沉到明确边界",
+          "由读者顺序复述高层流程"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "每一层职责和资源责任可独立理解，跨层泄漏减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "层次图、函数差异、资源配对测试和评审。"
+        ],
+        "failure_modes": [
+          "增加层数却没有降低复杂度或扩散。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并无价值层，保留真实的抽象和生命周期边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.33",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.linearity-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.linearity-principle",
+      "name": "Linearity Principle",
+      "name_zh": "线性原理",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让控制流尽量像直线，减少嵌套和特殊分支，把异常移到边界或小函数。",
+      "core_question": "读者能否按顺序阅读流程而不在多层分支中跳转？",
+      "operation": "识别嵌套和特殊情况 → 提前处理边界 → 提取命名步骤 → 用路径覆盖验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“线性原理”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "复杂条件树、深层嵌套或异常路径遮蔽主要流程。"
+        ],
+        "not_when": [
+          "状态机或算法本质上需要分支，强行线性化会损失准确性。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "复杂条件树、深层嵌套或异常路径遮蔽主要流程。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "画出主要和异常路径",
+          "把输入错误和边界条件移到入口",
+          "提取可命名的顺序步骤",
+          "覆盖每条保留分支和恢复路径"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "主流程更易顺序理解，分支数量和嵌套深度降低。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "控制流图、分支覆盖、差异和行为回归。"
+        ],
+        "failure_modes": [
+          "为追求直线隐藏状态转换或错误处理。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复显式状态/分支，优先保证语义和可验证性。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.34",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.clarity-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.clarity-principle",
+      "name": "Clarity Principle",
+      "name_zh": "清晰原理",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "复用或修改前先理解语境和根因，把隐含条件通过测试、图示或实验显式化。",
+      "core_question": "我们是在理解后修改，还是在猜测后试错？",
+      "operation": "写出当前解释 → 找未知条件 → 用最小证据验证 → 再选择代码变换。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“清晰原理”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "修复、复用或重构前对语境、根因和不变量没有把握。"
+        ],
+        "not_when": [
+          "任务是明确的机械操作，额外探索不会增加正确性。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "修复、复用或重构前对语境、根因和不变量没有把握。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录已知事实和待验证假设",
+          "用最小测试、图示或实验区分假设",
+          "在理解稳定后实施小步变更",
+          "由独立证据复核解释和行为"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "修改基于可复述语境和证据，而非局部猜测。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "假设记录、实验结果、解释差异和回归。"
+        ],
+        "failure_modes": [
+          "把一次通过当成根因证明，或实验改变多个变量。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回到最小复现和可证伪假设，重新建立证据。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.35",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.safety-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.safety-principle",
+      "name": "Safety Principle",
+      "name_zh": "安全原理",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "主动覆盖看似不可能的状态和错误输入，保证系统在必要条件之外还有安全运行的充分条件。",
+      "core_question": "未知、空值、资源失败或异常枚举出现时，系统如何安全处理？",
+      "operation": "列出不可能状态 → 定义安全默认与停止策略 → 注入边界故障 → 验证错误不扩散。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“安全原理”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "需求只描述正常路径，系统会接收未知输入或外部资源不可靠。"
+        ],
+        "not_when": [
+          "安全策略没有明确影响边界，或测试环境无法隔离故障。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "需求只描述正常路径，系统会接收未知输入或外部资源不可靠。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "枚举空值、未知值、超时和资源失败",
+          "为每类异常定义拒绝、降级或安全停止",
+          "确保错误不会污染后续状态",
+          "通过边界和故障注入复核"
+        ],
+        "effect": {
+          "state": "safety_state",
+          "statement": "未知状态有明确且可观察的安全行为，危险路径被阻断。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "边界矩阵、故障注入、错误输出和状态一致性。"
+        ],
+        "failure_modes": [
+          "默认分支吞错、继续执行危险操作或泄露敏感信息。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "立即停止危险路径，恢复一致状态并补充显式错误契约。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.36",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.modularity-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.modularity-principle",
+      "name": "Modularity Principle",
+      "name_zh": "模块化原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "用小而单纯的模块和少量简单接口控制理解、替换和组合成本。",
+      "core_question": "这个模块是否有一个清楚责任和最小边界？",
+      "operation": "识别责任与依赖 → 缩小模块接口 → 验证独立行为 → 检查组合成本。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“模块化原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "模块同时承担多个变化理由或接口暴露过多内部细节。"
+        ],
+        "not_when": [
+          "模块天然是不可分割的事务或拆分会增加真实耦合。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "模块同时承担多个变化理由或接口暴露过多内部细节。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "写出模块单一责任",
+          "删除不必要的公开操作和依赖",
+          "为边界补充独立检查",
+          "用组合案例确认拆分没有依赖爆炸"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "模块职责和接口表面收窄，组合更可控。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "接口清单、依赖图、独立测试和组合回归。"
+        ],
+        "failure_modes": [
+          "模块碎片化导致跳转和协调成本上升。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并真实共同变化部分，保留可理解的模块边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.38",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.unix-clarity",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.unix-clarity",
+      "name": "UNIX Clarity Principle",
+      "name_zh": "清晰原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "代码写给人看；如果需要二次破译，就降低表示和命名的解码成本。",
+      "core_question": "维护者是否需要逐行“翻译”才能知道代码意图？",
+      "operation": "定位需要破译的片段 → 改善结构和术语 → 保留必要原因 → 由读者复述。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“UNIX 清晰原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "代码依赖技巧、隐式约定或复杂表达才能理解。"
+        ],
+        "not_when": [
+          "实现细节本身就是外部契约，不能只改成表面更短。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "代码依赖技巧、隐式约定或复杂表达才能理解。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "收集读者卡点和误读",
+          "用直接结构和领域名称重写",
+          "检查注释是否解释原因而非重复代码",
+          "运行行为回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "代码的主要意图可被快速复述，解码步骤减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "读者反馈、结构差异、误解案例和回归。"
+        ],
+        "failure_modes": [
+          "为了清晰改变了时序、错误或性能语义。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "保留语义边界，分离表达改善和行为变化。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.39",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.composition-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.composition-principle",
+      "name": "Composition Principle",
+      "name_zh": "组合原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让程序通过稳定、简单的输入输出接口组合，而不是共享内部状态。",
+      "core_question": "这个组件能否与其他组件通过小契约可靠连接？",
+      "operation": "定义输入输出 → 移除隐式耦合 → 组合小组件 → 验证管道和错误传播。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“组合原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "工具、服务或步骤需要串联，且共享状态会限制复用。"
+        ],
+        "not_when": [
+          "组件输出没有稳定语义，或组合需要不可见的全局上下文。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "工具、服务或步骤需要串联，且共享状态会限制复用。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "明确输入、输出、错误和生命周期",
+          "优先使用简单稳定的交换格式",
+          "组合小组件完成代表性任务",
+          "检查边界、背压和错误传播"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "组件可以在契约内组合，组合关系可观察可测试。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "接口契约、管道样例、错误传播和集成回归。"
+        ],
+        "failure_modes": [
+          "组合只在演示输入上成立，真实边界互不兼容。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "收窄契约或增加明确适配器，拒绝隐式共享状态。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.40",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.separation-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.separation-principle",
+      "name": "UNIX Separation Principle",
+      "name_zh": "分离原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把策略与机制拆开，让稳定机制承载可替换策略。",
+      "core_question": "变化的策略是否被稳定机制的细节绑住？",
+      "operation": "识别策略和机制 → 定义稳定接口 → 分离配置/规则 → 用多策略案例检查。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“UNIX 分离原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "同一机制需要支持多个策略或策略变化明显快于机制。"
+        ],
+        "not_when": [
+          "策略和机制同因变化，分离只造成无意义转发。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "同一机制需要支持多个策略或策略变化明显快于机制。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录策略和机制的变化频率",
+          "设计最小策略输入和机制承诺",
+          "移出硬编码策略",
+          "用替代策略和失败输入回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "策略替换不再污染机制实现，变化边界有证据。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "策略/机制依赖图、替代案例和回归。"
+        ],
+        "failure_modes": [
+          "预先建立过度通用的策略框架。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回退为直接实现，等待实际多策略证据。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.41",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.unix-simplicity",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.unix-simplicity",
+      "name": "UNIX Simplicity Principle",
+      "name_zh": "简单原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "抵抗炫技和功能营销带来的复杂化，优先可解释和可维护的直接方案。",
+      "core_question": "新增机制是否真正降低了目标问题的总复杂度？",
+      "operation": "列出新增机制的收益 → 比较直接方案 → 删除无证据复杂度 → 复测目标。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“UNIX 简单原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "设计因技巧、营销功能或过早扩展而膨胀。"
+        ],
+        "not_when": [
+          "复杂度是已验证的安全、性能或兼容性必要条件。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "设计因技巧、营销功能或过早扩展而膨胀。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "为每项新增复杂度写收益和证据",
+          "比较更简单的替代实现",
+          "删除没有可测收益的机制",
+          "用目标场景和维护者检查复核"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "总复杂度下降，必要能力和边界保持清楚。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "复杂度账本、方案比较、目标场景和回归。"
+        ],
+        "failure_modes": [
+          "把“简单”变成拒绝必要工程约束的口号。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复必要机制，并将可删部分单独标记。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.42",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.parsimony-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.parsimony-principle",
+      "name": "Parsimony Principle",
+      "name_zh": "简约原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "不让程序或模块长成无法掌控的大块，及时拆分或删除不需要的代码。",
+      "core_question": "这段规模是否已经超过单个维护者可掌控范围？",
+      "operation": "识别不可掌控的大块 → 删除无价值内容 → 按职责拆分 → 用导航和测试复核。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“简约原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "模块、配置或流程过大，维护者无法快速定位责任。"
+        ],
+        "not_when": [
+          "拆分会破坏不可分割事务或增加比规模问题更大的复杂度。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "模块、配置或流程过大，维护者无法快速定位责任。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录规模、职责和访问路径",
+          "删除未使用和重复内容",
+          "按真实责任拆分大块",
+          "检查依赖、导航和行为回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "可理解规模恢复，维护入口和责任清楚。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "规模/责任清单、删除差异、依赖图和回归。"
+        ],
+        "failure_modes": [
+          "机械按行数拆分，产生碎片和跳转。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "按语义重新合并，并以责任和变化而非行数划分。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.43",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.transparency-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.transparency-principle",
+      "name": "Transparency Principle",
+      "name_zh": "透明性原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让内部运行可观察，通过日志、追踪、测试钩子和诊断工具支持理解与复盘。",
+      "core_question": "系统出问题时，我们凭什么知道它走了哪条路径？",
+      "operation": "列诊断问题 → 设计最小观测点 → 采集并脱敏 → 用故障演练验证定位能力。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“透明性原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "状态转移、外部调用或失败原因无法从现有输出判断。"
+        ],
+        "not_when": [
+          "观测会泄露敏感信息、改变实时行为或超过成本边界。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "状态转移、外部调用或失败原因无法从现有输出判断。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出需要回答的诊断问题",
+          "选择必要事件、指标和关联信息",
+          "校验脱敏、采样和保留边界",
+          "通过正常/失败路径演练复核"
+        ],
+        "effect": {
+          "state": "observability_state",
+          "statement": "关键执行路径和状态可被独立观察，且不扩大敏感暴露。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "事件 schema、脱敏策略、trace、故障演练和成本。"
+        ],
+        "failure_modes": [
+          "只堆日志但无法关联状态，或记录敏感值。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "收窄字段并建立关联键，必要时改用隔离回放。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.44",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.robustness-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.robustness-principle",
+      "name": "Robustness Principle",
+      "name_zh": "健壮性原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "通过透明、简单和明确边界提升抗错误能力，而不是用吞错掩盖问题。",
+      "core_question": "输入、依赖或环境偏离预期时，系统是否仍能可解释地处理？",
+      "operation": "枚举偏离场景 → 定义边界行为 → 注入异常 → 检查错误可见性和恢复。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“健壮性原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "外部输入、依赖或环境存在不可控变化。"
+        ],
+        "not_when": [
+          "没有可隔离的异常环境，或容错要求未被业务定义。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "外部输入、依赖或环境存在不可控变化。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出输入和依赖的偏离模式",
+          "定义拒绝、降级、重试和停止条件",
+          "让错误包含足够诊断上下文",
+          "用异常输入和资源故障回归"
+        ],
+        "effect": {
+          "state": "reliability_state",
+          "statement": "异常不会静默扩散，系统行为在边界内可解释。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "异常矩阵、故障注入、错误记录和恢复结果。"
+        ],
+        "failure_modes": [
+          "宽容策略接受了不可解释数据或掩盖根因。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "收紧输入边界，保留明确错误并重新定义恢复范围。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.45",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.expressiveness-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.expressiveness-principle",
+      "name": "Expressiveness Principle",
+      "name_zh": "表达性原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "能用数据表达的规则优先转成可查看、生成和校验的数据。",
+      "core_question": "复杂度放在逻辑还是数据，哪一处更容易检查和演进？",
+      "operation": "识别固定规则 → 选择数据表达 → 建立校验和生成 → 比较阅读、变更和运行成本。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“表达性原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "规则、映射或样板被大量重复控制流程承载。"
+        ],
+        "not_when": [
+          "数据表达无法覆盖动态语义，或数据规模使检查和运行失控。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "规则、映射或样板被大量重复控制流程承载。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "分离变化数据与稳定执行机制",
+          "设计可读且可验证的表示",
+          "添加 schema/生成/静态检查",
+          "用边界和性能案例确认等价"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "固定规则更容易查看、生成和校验，逻辑复杂度下降。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "数据 schema、生成输入、等价案例和回归。"
+        ],
+        "failure_modes": [
+          "把行为逻辑伪装成难以调试的数据。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复必要显式逻辑，保留真正适合数据化的部分。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.46",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.least-surprise",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.least-surprise",
+      "name": "Least Surprise",
+      "name_zh": "最小意外原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让接口和行为匹配目标用户已有经验，避免名称相同但语义微妙不同。",
+      "core_question": "熟悉该领域的使用者会对这个行为形成什么预期？",
+      "operation": "识别用户约定 → 比较现有惯例 → 对齐命名和行为 → 对不可避免差异显式提示。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“最小意外原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "接口、配置或错误行为容易被用户按惯例误用。"
+        ],
+        "not_when": [
+          "目标领域没有稳定约定，或兼容旧行为要求保留差异。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "接口、配置或错误行为容易被用户按惯例误用。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出用户已有的术语和行为预期",
+          "检查接口与惯例的偏差",
+          "采用更可预测的默认和命名",
+          "为不可避免差异提供显式契约和测试"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "使用者的合理预期与实际行为一致，误用减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "惯例对照、误用案例、接口文档和回归。"
+        ],
+        "failure_modes": [
+          "为追求熟悉而复制不适用惯例。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "明确领域特有语义，保留与惯例不同的可见理由。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.47",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.silence-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.silence-principle",
+      "name": "Silence Principle",
+      "name_zh": "沉默原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "正常成功路径只输出有意义的数据，把诊断信息与正常输出分离并按需开启。",
+      "core_question": "哪些输出是消费者数据，哪些只是诊断噪音？",
+      "operation": "分类输出 → 分离正常流和诊断流 → 定义级别与默认值 → 检查自动化消费。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“沉默原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "工具需要被管道、脚本或其他系统消费，日志会污染协议。"
+        ],
+        "not_when": [
+          "法规、审计或安全要求必须保留不可关闭的事件。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "工具需要被管道、脚本或其他系统消费，日志会污染协议。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出输出消费者和契约",
+          "把结果、告警和诊断分到明确通道",
+          "设置安全默认和可控详细级别",
+          "用自动化解析与错误路径回归"
+        ],
+        "effect": {
+          "state": "interface_state",
+          "statement": "正常输出稳定可消费，诊断信息不干扰协议且仍可获取。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "输出 schema、管道测试、日志级别和错误回归。"
+        ],
+        "failure_modes": [
+          "静默掩盖重要失败，或混入不可解析的诊断内容。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "保留必要错误和状态码，重新划分结果与诊断边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.48",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.repair-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.repair-principle",
+      "name": "Repair Principle",
+      "name_zh": "修复原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "无法可靠恢复时尽早停止，让错误清晰可见，避免继续处理扩大损坏。",
+      "core_question": "当前错误能否被可靠恢复，还是应该安全停止？",
+      "operation": "分类错误 → 判断可恢复性 → 定义停止/恢复边界 → 保留证据并检查一致性。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“修复原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "错误可能污染数据、状态或后续决策。"
+        ],
+        "not_when": [
+          "错误属于预期用户输入且已有明确校正路径。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "错误可能污染数据、状态或后续决策。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "区分可恢复输入错误和内部契约破坏",
+          "为内部失败设安全停止和资源释放",
+          "让错误包含原因和位置",
+          "用失败注入验证不会继续扩散"
+        ],
+        "effect": {
+          "state": "recovery_state",
+          "statement": "不可恢复错误及时停止，状态和错误证据保持可追踪。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "错误分类、停止原因、资源状态、失败注入和回归。"
+        ],
+        "failure_modes": [
+          "以宽容重试掩盖非幂等副作用或丢失原始证据。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回滚到最近一致状态，补齐幂等/恢复契约后再重试。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.49",
+          "functional_class": "diagnosis-revision"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.economy-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.economy-principle",
+      "name": "Economy Principle",
+      "name_zh": "经济原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "用投入产出和机会成本判断工具、自动化、硬件和流程投资，而不是只看局部价格。",
+      "core_question": "哪项投入能显著减少重复劳动、等待或错误成本？",
+      "operation": "量化当前成本 → 比较候选投入 → 试点测量 → 依据收益决定保留或撤销。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“经济原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "重复手工操作、长等待或高错误率已成为明显瓶颈。"
+        ],
+        "not_when": [
+          "收益无法测量，或试点成本和风险超过可接受预算。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "重复手工操作、长等待或高错误率已成为明显瓶颈。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "定义时间、资源、错误和维护成本",
+          "比较自动化/工具/流程候选",
+          "做有界试点并测量收益",
+          "记录长期维护和退出成本"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "资源投入与可验证收益匹配，低价值自动化被排除。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "基线、试点成本、收益测量和退出判断。"
+        ],
+        "failure_modes": [
+          "把局部速度提升误当总成本下降。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回到端到端指标，撤销不能降低总成本的投入。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.50",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.generation-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.generation-principle",
+      "name": "Generation Principle",
+      "name_zh": "生成原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把固定格式、重复样板和可机械推导内容交给生成器，并把输入保持为单一事实来源。",
+      "core_question": "这部分内容是否可由稳定输入和规则机械推导？",
+      "operation": "识别可生成内容 → 设计源数据和生成规则 → 生成 → 自动校验 → 保留可重建产物。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“生成原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "重复样板、协议文件或派生代码容易漂移。"
+        ],
+        "not_when": [
+          "生成规则不稳定、输出需大量人工判断或生成器无法被验证。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "重复样板、协议文件或派生代码容易漂移。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "区分源数据、规则和派生产物",
+          "建立可重复的生成入口",
+          "对生成结果运行 schema/行为检查",
+          "记录版本、输入和重建方式"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "重复产物由可追踪源生成，手工漂移和维护成本减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "源数据、生成命令、产物差异、校验和重建结果。"
+        ],
+        "failure_modes": [
+          "生成器隐藏规则、产物不可审查或源与结果不同步。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "停止生成发布，恢复上一个可验证产物并修正源/规则。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.51",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.optimization-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.optimization-principle",
+      "name": "Optimization Principle",
+      "name_zh": "优化原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "先保证正确和清晰，再依据基准与热点测量优化关键部分。",
+      "core_question": "性能问题是否已被测量定位，优化是否值得引入复杂度？",
+      "operation": "固定行为和基准 → 定位热点 → 提出优化假设 → 小步修改 → 重测并回归。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“优化原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "已有明确性能目标且测量显示存在热点。"
+        ],
+        "not_when": [
+          "没有代表性负载、没有热点证据或优化会破坏关键语义。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "已有明确性能目标且测量显示存在热点。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "建立正确性和性能基线",
+          "找出占主要成本的热点",
+          "一次只改变一个优化因素",
+          "比较收益、方差、复杂度和回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "性能改进由可重复测量支持，正确性和边界保持成立。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "基准输入、热点数据、重复测量、行为回归和差异解释。"
+        ],
+        "failure_modes": [
+          "过拟合基准、优化非热点或引入不可维护技巧。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "撤回优化，扩大负载并回到清晰实现。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.52",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.diversity-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.diversity-principle",
+      "name": "Diversity Principle",
+      "name_zh": "多样性原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "承认合理替代路线的存在，但只为真实差异保留受控扩展，不把多样性变成无限配置。",
+      "core_question": "保留多个方案是为了什么已证实的差异？",
+      "operation": "列出替代方案 → 说明差异与使用条件 → 选择最小可维护扩展 → 设定淘汰和验证条件。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“多样性原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "不同平台、用户或约束确实需要不同实现路线。"
+        ],
+        "not_when": [
+          "替代方案没有使用证据，只是为未来可能性堆叠配置。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "不同平台、用户或约束确实需要不同实现路线。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录候选方案的真实差异",
+          "区分必要变体与重复实现",
+          "用清晰选择边界承载变体",
+          "测量维护和组合成本并定期淘汰"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "必要多样性可被选择和验证，空置变体不再扩张。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "变体矩阵、使用证据、选择规则和回归。"
+        ],
+        "failure_modes": [
+          "每个边界都被配置化，系统无法理解和测试。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并未使用变体，保留少量有证据的扩展点。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.53",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.extensibility-principle",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.extensibility-principle",
+      "name": "Extensibility Principle",
+      "name_zh": "可扩展性原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "只为已知扩展轴留下可插拔边界，并让数据格式可自描述、可版本化。",
+      "core_question": "扩展点对应哪个真实生态或变化轴，谁会使用它？",
+      "operation": "识别已证实扩展轴 → 定义版本化边界 → 实现最小插件契约 → 用新扩展验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“可扩展性原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "已有明确的外部生态、插件需求或重复扩展案例。"
+        ],
+        "not_when": [
+          "扩展轴只是推测，或扩展机制比直接修改核心更复杂。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "已有明确的外部生态、插件需求或重复扩展案例。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出真实扩展者和扩展内容",
+          "定义版本、生命周期和错误契约",
+          "实现最小可替换边界",
+          "用一个代表性扩展和旧行为回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "已验证扩展不会侵入稳定核心，版本和兼容边界明确。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "扩展契约、版本矩阵、代表性插件和回归。"
+        ],
+        "failure_modes": [
+          "扩展点过早固定错误的变化方向。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "删除无证据扩展层，等真实生态需求出现再演进。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.54",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.small-is-beautiful",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.small-is-beautiful",
+      "name": "Small Is Beautiful",
+      "name_zh": "小就是美",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "保持工具、模块和服务小而可组合，降低理解、维护和复用门槛。",
+      "core_question": "缩小组件是否能降低理解和组合成本？",
+      "operation": "识别不可掌控的大块 → 按职责切分 → 设计小契约 → 检查组合成本。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“小就是美”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "组件过大、复用困难或修改一个功能会牵动无关部分。"
+        ],
+        "not_when": [
+          "拆分会破坏事务、性能或一致性边界。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "组件过大、复用困难或修改一个功能会牵动无关部分。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出大块的职责和变化理由",
+          "删除无价值功能和重复",
+          "按真实责任形成小组件",
+          "用端到端场景验证组合是否可接受"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "组件规模和责任更可掌控，组合关系更清楚。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "责任清单、组件依赖、端到端回归和性能基线。"
+        ],
+        "failure_modes": [
+          "小组件数量过多，协调成本超过收益。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并真实共同变化组件，以可理解性而非规模教条收敛。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.56",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.do-one-thing",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.do-one-thing",
+      "name": "Do One Thing",
+      "name_zh": "工作唯一",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让一个程序或组件聚焦单一职责，通过组合获得额外能力。",
+      "core_question": "这个组件是否在“顺便”承担另一个独立职责？",
+      "operation": "列出当前职责 → 找独立变化和使用者 → 拆出可组合组件 → 验证接口。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“一个程序做好一件事”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "组件不断加入不相关功能，导致名称、测试和边界膨胀。"
+        ],
+        "not_when": [
+          "职责必须共享不可分割事务，拆出后会损害一致性。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "组件不断加入不相关功能，导致名称、测试和边界膨胀。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "用一个动词短语描述当前职责",
+          "标记顺便功能及其变化理由",
+          "拆出独立职责并定义小接口",
+          "用原场景和独立场景回归"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "组件职责单一，附加能力通过可理解组合获得。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "职责描述、接口差异、组合案例和回归。"
+        ],
+        "failure_modes": [
+          "拆分后产生大量胶水和隐式共享状态。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并不可分割部分，保留真正独立的职责边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.57",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.early-prototyping",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.early-prototyping",
+      "name": "Early Prototyping",
+      "name_zh": "尽早创建原型",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "在可行性、需求或交互未知时尽早做可丢弃原型，用反馈暴露错误前提。",
+      "core_question": "哪一个未知假设最值得用最低成本先验证？",
+      "operation": "选最高风险未知 → 做最小可丢弃原型 → 观察反馈 → 决定继续、改路或放弃。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“尽早创建原型”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "需求、交互、性能或技术可行性存在高不确定性。"
+        ],
+        "not_when": [
+          "原型被误当成生产实现，或高风险操作没有隔离环境。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "需求、交互、性能或技术可行性存在高不确定性。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出未知假设和失败代价",
+          "选择能区分假设的最小原型",
+          "明确原型不可直接发布的边界",
+          "依据反馈记录下一步或停止"
+        ],
+        "effect": {
+          "state": "knowledge_state",
+          "statement": "关键未知在低成本阶段获得证据，错误路线及时终止。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "原型范围、假设、观察记录、反馈和决策理由。"
+        ],
+        "failure_modes": [
+          "原型验证了演示路径却没有覆盖真实约束。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "补充代表性场景和退出标准，避免把原型证据外推过度。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.58",
+          "functional_class": "search"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.portability-over-efficiency",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.portability-over-efficiency",
+      "name": "Portability over Efficiency",
+      "name_zh": "可移植性优先于效率",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把平台依赖隔离，让大部分代码保持平台无关；只有测量证明必要时才做深度特化。",
+      "core_question": "平台特化带来的收益是否足以支付锁定和迁移成本？",
+      "operation": "识别平台依赖 → 隔离适配边界 → 建立跨环境基线 → 只保留有证据优化。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“可移植性优先于效率”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "系统需要跨平台部署、迁移或长期维护。"
+        ],
+        "not_when": [
+          "目标明确锁定单一硬件/平台，且性能收益已被稳定测量。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "系统需要跨平台部署、迁移或长期维护。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出平台相关代码和契约",
+          "把特化放入可替换适配层",
+          "在目标环境建立行为和性能基线",
+          "比较移植成本与特化收益"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "核心逻辑保持可移植，平台优化边界和代价清楚。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "平台矩阵、适配差异、行为/性能基线和迁移演练。"
+        ],
+        "failure_modes": [
+          "抽象层破坏关键性能，或遗漏平台差异。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "保留必要特化并显式记录平台契约和退出条件。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.59",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.text-data",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.text-data",
+      "name": "Text Data",
+      "name_zh": "文本数据",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "在可读、可组合和跨平台交换有价值时优先使用开放文本格式，并明确性能例外。",
+      "core_question": "数据是否需要人读、工具串联或跨平台交换？",
+      "operation": "列数据消费者和约束 → 选择可读标准格式 → 定义 schema/编码/版本 → 测量必要时再特化。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“文本数据”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "数据需要审查、管道组合、跨语言或跨平台交换。"
+        ],
+        "not_when": [
+          "体积、吞吐或保密要求已证明文本格式不可接受。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "数据需要审查、管道组合、跨语言或跨平台交换。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出可读性、兼容性、体积和速度需求",
+          "选择标准文本表示及 schema",
+          "测试错误、版本和大数据边界",
+          "用测量决定是否引入二进制或压缩"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "数据契约可读可审查，格式变化和互操作边界明确。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "格式 schema、样例、跨平台解析、性能基线和版本测试。"
+        ],
+        "failure_modes": [
+          "文本格式无边界校验或在高负载下成为瓶颈。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "补充校验/压缩/分块，或以有证据的二进制适配层隔离。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.60",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.software-leverage",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.software-leverage",
+      "name": "Software Leverage",
+      "name_zh": "充分利用软件的杠杆效应",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "优先复用成熟能力、组合小工具和自动化重复劳动，让已有软件产生乘数效应。",
+      "core_question": "是否存在成熟能力可以安全复用，而无需重新实现？",
+      "operation": "调查现有能力 → 比较复用与自研 → 组合或自动化 → 验证供应链和行为边界。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“充分利用软件的杠杆效应”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "重复手工工作或常见能力已有成熟实现。"
+        ],
+        "not_when": [
+          "现有方案不满足核心契约、维护不可控或引入不可接受供应链风险。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "重复手工工作或常见能力已有成熟实现。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出候选工具及其许可、维护和契约",
+          "验证候选覆盖的真实需求",
+          "用小范围组合或自动化试点",
+          "保留替换和回滚路径"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "开发杠杆提高，新增依赖的风险和边界透明。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "候选调查、许可/版本、试点结果、行为回归和退出方案。"
+        ],
+        "failure_modes": [
+          "把工具宣传当成能力证明，忽略边界和维护成本。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回退到可控实现，保留调查证据并重新比较。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.61",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.shell-glue",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.shell-glue",
+      "name": "Shell Glue",
+      "name_zh": "活用shell脚本",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "在命令行自动化和胶水任务中组合现有命令，复杂业务逻辑则选择更合适的语言。",
+      "core_question": "这个任务是简单编排，还是已经需要可维护的业务程序？",
+      "operation": "拆分命令输入输出 → 组合现有工具 → 定义错误和退出码 → 超出边界时迁移合适语言。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“活用 Shell 脚本”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "任务主要是文件、进程、管道和已有命令的编排。"
+        ],
+        "not_when": [
+          "逻辑复杂、数据结构丰富、跨平台或安全边界要求超出脚本可维护范围。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "任务主要是文件、进程、管道和已有命令的编排。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出命令、输入输出和失败语义",
+          "组合小步骤并避免隐式全局状态",
+          "覆盖空格、错误码、超时和清理",
+          "评估何时应迁移到更合适语言"
+        ],
+        "effect": {
+          "state": "execution_state",
+          "statement": "自动化入口短、可组合、错误边界明确。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "脚本测试、退出码、临时资源清理和跨环境结果。"
+        ],
+        "failure_modes": [
+          "脚本在特殊输入或失败路径上静默破坏数据。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "启用严格失败和隔离目录，必要时迁移为可测试程序。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.62",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.noninteractive-interface",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.noninteractive-interface",
+      "name": "Non-interactive Interface",
+      "name_zh": "避开交互式用户接口",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "为自动化和组合提供非交互入口，不把核心能力锁在只能人工操作的会话中。",
+      "core_question": "这个能力能否被脚本、测试或其他组件无交互地调用？",
+      "operation": "识别人工交互步骤 → 提取稳定输入输出 → 提供非交互入口 → 保留必要交互层。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“避开交互式用户接口”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "工具需要自动化、批量处理、回归测试或被其他组件组合。"
+        ],
+        "not_when": [
+          "任务本身需要人类判断、确认或持续探索，不能安全自动化。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "工具需要自动化、批量处理、回归测试或被其他组件组合。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出交互输入、状态和结果",
+          "定义命令/API 输入输出和错误契约",
+          "覆盖无 TTY、超时和取消",
+          "用自动化调用验证与交互路径一致"
+        ],
+        "effect": {
+          "state": "interface_state",
+          "statement": "核心能力可被受控自动化调用，交互层成为可选入口。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "非交互契约、自动化测试、取消/超时和结果一致性。"
+        ],
+        "failure_modes": [
+          "无交互模式隐藏确认或改变安全语义。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "补齐明确确认和权限边界，禁止无提示危险路径。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.63",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.filter-oriented-design",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.filter-oriented-design",
+      "name": "Filter-oriented Design",
+      "name_zh": "过滤器化",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把工具视为输入到处理再到输出的过滤器，保持标准输入、输出和错误可组合。",
+      "core_question": "这个组件能否在清晰流接口中被串联和替换？",
+      "operation": "定义输入/输出/错误流 → 保持单一处理职责 → 组合管道 → 验证背压、失败和大输入。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“过滤器化”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "工具需要被管道组合、批处理或跨组件传递数据。"
+        ],
+        "not_when": [
+          "状态必须长期驻留，或业务语义不能压缩为流式输入输出。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "工具需要被管道组合、批处理或跨组件传递数据。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "明确三类流和格式契约",
+          "让处理步骤保持单一职责",
+          "组合代表性管道和空/大输入",
+          "验证错误不污染正常输出"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "组件在管道中可替换，输入、结果和诊断流边界清晰。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "流格式、管道样例、错误流、背压和大输入测试。"
+        ],
+        "failure_modes": [
+          "把交互状态或副作用藏在流接口后。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "显式声明状态和副作用，必要时使用更合适的服务契约。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "3.64",
+          "functional_class": "construction"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.cohesion-audit",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.cohesion-audit",
+      "name": "Cohesion Audit",
+      "name_zh": "内聚度",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "检查模块内部元素是否围绕同一目的，并按真实功能责任改善边界。",
+      "core_question": "这个模块能否用一个准确的动词短语命名？",
+      "operation": "描述模块责任 → 识别“还有/以及/顺便” → 检查共同变化 → 小步拆分或合并。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“内聚度审计”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "模块包含不相关操作、标志分支或难以准确命名的内容。"
+        ],
+        "not_when": [
+          "模块天然围绕同一事务，拆分会破坏一致性或增加碎片。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "模块包含不相关操作、标志分支或难以准确命名的内容。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "用一句话描述模块核心功能",
+          "列出成员的变化理由和数据关系",
+          "找出低内聚部分",
+          "用代表性调用和回归确认新边界"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "模块职责更集中，名称和变化边界更准确。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "责任描述、共同变化、依赖图和回归。"
+        ],
+        "failure_modes": [
+          "按理论等级机械拆分，忽略实际可理解性。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并真实共同责任，并保留明确命名和边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "4.1",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.coupling-audit",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.coupling-audit",
+      "name": "Coupling Audit",
+      "name_zh": "耦合度",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "识别内容、全局、控制和过量数据耦合，降低不必要依赖但不追求零依赖。",
+      "core_question": "调用者依赖了多少内部状态、控制细节或无关数据？",
+      "operation": "绘制依赖和数据流 → 分类耦合 → 收窄参数和控制 → 验证重试、幂等和替换。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“耦合度审计”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "修改或重试一个组件会因隐式状态、全局变量或控制标志影响其他组件。"
+        ],
+        "not_when": [
+          "依赖稳定标准库或明确外部契约，且其变化成本可接受。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "修改或重试一个组件会因隐式状态、全局变量或控制标志影响其他组件。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出依赖方向、共享状态和参数使用",
+          "移除不必要全局/控制耦合",
+          "传递最小必要数据",
+          "用重复执行和失败案例验证安全性"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "依赖关系、数据边界和重试语义更显式。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "依赖图、参数使用矩阵、幂等/安全测试和回归。"
+        ],
+        "failure_modes": [
+          "为降低耦合引入无价值适配层或数据搬运。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "保留稳定依赖，撤销没有降低变化成本的间接层。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "4.2",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.orthogonality-audit",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.orthogonality-audit",
+      "name": "Orthogonality Audit",
+      "name_zh": "正交性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把 UI、存储、业务策略等不同变化轴拆开，检查修改是否能相互独立。",
+      "core_question": "修改一个变化轴时，是否被迫改动另一个无关轴？",
+      "operation": "列变化轴 → 跟踪修改传播 → 形成单向边界 → 用替换案例验证正交性收益。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“正交性审计”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "修改 UI、协议、存储或策略会连锁触及其他层。"
+        ],
+        "not_when": [
+          "变化轴真实共同演化，拆分只增加转换和性能成本。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "修改 UI、协议、存储或策略会连锁触及其他层。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出各部分的独立变化理由",
+          "画出依赖方向和跨层转换",
+          "隔离不必要的全局状态和反向依赖",
+          "用单轴变化和集成回归检查"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "独立变化能局部发生，跨层传播被限制在明确边界。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "变化传播图、替换案例、性能测量和回归。"
+        ],
+        "failure_modes": [
+          "增加层次却没有隔离变化，反而增加转换成本。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "合并无收益层，保留能降低传播的最小边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "4.3",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.reversibility-audit",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.reversibility-audit",
+      "name": "Reversibility Audit",
+      "name_zh": "可逆性",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "按外部决策的概率与影响决定是否保留适配、迁移和回滚路径。",
+      "core_question": "如果外部依赖被迫改变，当前核心是否还有可行退路？",
+      "operation": "估计风险与影响 → 找不可逆交界面 → 隔离高风险依赖 → 演练迁移或回滚。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“可逆性审计”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "许可证、供应商、安全、平台、数据库或框架变化可能造成高代价锁定。"
+        ],
+        "not_when": [
+          "概率和影响都低，维持可逆性的间接层成本明显更高。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "许可证、供应商、安全、平台、数据库或框架变化可能造成高代价锁定。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出外部依赖及改变后果",
+          "按概率×影响排序",
+          "为高风险边界建立适配/接口",
+          "验证迁移、回滚和数据恢复路径"
+        ],
+        "effect": {
+          "state": "recovery_state",
+          "statement": "高风险决策保留可行退路，低风险部分不被过度抽象。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "风险矩阵、边界设计、迁移演练和回滚证明。"
+        ],
+        "failure_modes": [
+          "回滚路径只写在文档里，实际无法执行。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "降低依赖范围并做有界演练，不以纸面路径宣称可逆。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "4.4",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.code-smell-triage",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.code-smell-triage",
+      "name": "Code Smell Triage",
+      "name_zh": "代码中的“坏味”",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把重复、过长、过大、过多和名称失真当作诊断信号，而不是自动重构指令。",
+      "core_question": "这个坏味提示的真实原因是什么，最小安全变换是什么？",
+      "operation": "记录坏味 → 找根因和变化方向 → 选择小步变换 → 用行为证据复核。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“代码坏味分诊”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "出现重复、超长函数、巨大模块、碎片中介或名称失真。"
+        ],
+        "not_when": [
+          "只有风格偏好，没有维护、变化或行为证据支持改动。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "出现重复、超长函数、巨大模块、碎片中介或名称失真。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "描述现象和影响而非立即命名解决方案",
+          "检查共同知识、职责和变化理由",
+          "选择最小保持行为的变换",
+          "运行测试和独立评审"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "坏味被转化为有证据的诊断和可回滚改动。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "坏味位置、根因假设、变更差异、测试和评审。"
+        ],
+        "failure_modes": [
+          "机械套用重构模式，增加耦合或改变行为。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回滚变换，补充根因证据后重新选择动作。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "4.5",
+          "functional_class": "diagnosis-revision"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.technical-debt-management",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.technical-debt-management",
+      "name": "Technical Debt Management",
+      "name_zh": "技术负债",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "允许有边界的临时方案，但记录利息、偿还条件、负责人和验证路径。",
+      "core_question": "这项不整洁会如何产生未来修改成本，何时偿还？",
+      "operation": "登记负债 → 估计利息与影响 → 设退出条件 → 小步偿还并验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“技术负债管理”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "临时补丁、低可读性、旧依赖或绕路已经使后续修改变慢或变危险。"
+        ],
+        "not_when": [
+          "问题没有实际维护影响，或“债务”只是没有证据的主观偏好。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "临时补丁、低可读性、旧依赖或绕路已经使后续修改变慢或变危险。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录债务位置、原因、影响和责任人",
+          "定义偿还触发器和验收标准",
+          "补充必要测试保护",
+          "按小步重构并关闭登记"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "技术负债从隐性风险变成可追踪、可偿还的工程事项。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "债务登记、修改耗时/缺陷趋势、偿还差异和测试。"
+        ],
+        "failure_modes": [
+          "临时方案没有退出条件，或偿还改动扩大范围。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复可运行基线，重新切分偿还范围并保留未完成风险。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "4.6",
+          "functional_class": "diagnosis-revision"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.boy-scout-improvement",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.boy-scout-improvement",
+      "name": "Boy Scout Improvement",
+      "name_zh": "童子军规则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "每次离开代码时只做一个小而可验证的净改善，不把维护变成重写。",
+      "core_question": "当前接触点是否存在一个低风险、可立即验证的小改善？",
+      "operation": "选择一个局部问题 → 做最小改善 → 运行相关检查 → 记录范围并停止。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“童子军规则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "已在代码附近发现名称、重复、嵌套、接口或测试的小问题。"
+        ],
+        "not_when": [
+          "改善会扩大到无法独立验证，或当前任务处于高风险冻结窗口。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "已在代码附近发现名称、重复、嵌套、接口或测试的小问题。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "选择单一低风险改善",
+          "保持变更与当前上下文相邻",
+          "运行针对性检查和回归",
+          "不顺手扩展为大规模清理"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "代码以小步、可追踪方式持续净改善。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "局部差异、针对性测试、变更范围和审查。"
+        ],
+        "failure_modes": [
+          "以童子军规则为名混入无关重构或改变语义。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "拆分或撤销超出范围部分，只保留可验证的小改善。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "5.2",
+          "functional_class": "diagnosis-revision"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.design-by-contract",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.design-by-contract",
+      "name": "Design by Contract",
+      "name_zh": "契约式设计",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "把前置条件、后置条件和不变式写成边界责任，并在违约时尽早暴露和停止危险传播。",
+      "core_question": "调用方必须满足什么，被调用方必须保证什么？",
+      "operation": "定义输入/输出/不变式 → 在边界检查 → 在内部保持契约 → 对违约停止并留证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“契约式设计”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "接口责任、数据不变式或错误边界容易被隐式假设。"
+        ],
+        "not_when": [
+          "用户输入错误尚未在边界分类，或契约检查会泄露敏感值。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "接口责任、数据不变式或错误边界容易被隐式假设。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "分别写前置、后置和不变式",
+          "在适当边界校验预期输入",
+          "开发阶段用断言暴露内部违约",
+          "对违约释放资源并停止危险路径"
+        ],
+        "effect": {
+          "state": "contract_state",
+          "statement": "接口责任和不变量可检查，错误不会被悄悄修正后扩散。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "契约文档、断言/检查结果、失败输入和状态一致性。"
+        ],
+        "failure_modes": [
+          "把非法输入静默改成合法，或契约过严阻断合法调用。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "区分边界输入错误和内部违约，调整契约并重放失败案例。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "6.2",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.dogfooding",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.dogfooding",
+      "name": "Dogfooding",
+      "name_zh": "内部测试",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "让开发团队把产品用于真实日常任务，发现演示路径和测试脚本没有覆盖的摩擦。",
+      "core_question": "真实使用者会在哪些任务中遇到测试没有暴露的问题？",
+      "operation": "选择真实任务 → 持续使用 → 记录摩擦和失败 → 转成可复现问题并验证修复。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“内部测试”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "产品已有可执行的内部工作流和安全使用边界。"
+        ],
+        "not_when": [
+          "使用会触及真实敏感数据、不可逆生产操作或没有隔离反馈渠道。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "high",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "产品已有可执行的内部工作流和安全使用边界。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "选择代表性内部任务和安全数据边界",
+          "让团队持续完成而非只演示路径",
+          "记录缺失能力、稳定性和交互摩擦",
+          "重放问题并验证修复"
+        ],
+        "effect": {
+          "state": "verification_state",
+          "statement": "真实使用证据进入产品改进，而非只依赖人工演示。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "任务记录、问题复现、使用频率、修复回归和剩余风险。"
+        ],
+        "failure_modes": [
+          "内部使用者绕过风险边界，或反馈无法复现。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "隔离数据和操作权限，建立最小复现与反馈契约。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "6.4",
+          "functional_class": "verification-falsification"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.rubber-duck-debugging",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.rubber-duck-debugging",
+      "name": "Rubber Duck Debugging",
+      "name_zh": "橡皮鸭调试法",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "用完整句子解释目标、输入、状态、分支和输出，找出无法解释或与代码不一致的位置。",
+      "core_question": "哪一步我无法同时说明预期行为和实际代码？",
+      "operation": "从目标开始逐步叙述 → 暴露隐藏假设 → 标记解释断点 → 用最小实验验证。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“橡皮鸭调试法”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "调试者卡住、假设混乱或代码阅读无法定位根因。"
+        ],
+        "not_when": [
+          "问题已有清晰、可复现的失败点，直接运行证据更快。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "调试者卡住、假设混乱或代码阅读无法定位根因。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "写出目标和预期结果",
+          "逐步说出输入、状态、分支和输出",
+          "记录无法解释或前后矛盾的位置",
+          "针对断点设计最小验证"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "隐藏假设和代码/解释不一致处变成可验证问题。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "解释记录、断点位置、实验输出和最小复现。"
+        ],
+        "failure_modes": [
+          "把流畅叙述误当成正确证明，忽略运行证据。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "强制回到可复现输入和独立验证，不以解释代替证据。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "6.5",
+          "functional_class": "diagnosis-revision"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.brooks-law-response",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.brooks-law-response",
+      "name": "Brooks' Law Response",
+      "name_zh": "布鲁克斯法则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "延期项目后期不盲目加人，先重排依赖、优先级、阶段发布和可并行工作。",
+      "core_question": "新增人员会减少关键路径，还是会增加沟通和培训成本？",
+      "operation": "绘制依赖和关键路径 → 评估加人收益/成本 → 重排范围 → 只把新人放入可独立任务。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“布鲁克斯法则响应”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "项目延期且团队考虑通过增加人员抢工期。"
+        ],
+        "not_when": [
+          "任务高度独立、培训成本低且增加人员有可测净收益。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "项目延期且团队考虑通过增加人员抢工期。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出关键路径、依赖和培训成本",
+          "区分可并行与不可并行工作",
+          "优先做阶段发布和范围调整",
+          "验证新增人员任务不会增加关键路径阻塞"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "交付计划与真实依赖一致，新增协作不会被误当成线性产能。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "依赖图、时间表、范围决策、培训成本和进度证据。"
+        ],
+        "failure_modes": [
+          "只看人数和人天，忽略沟通、培训和集成成本。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "停止继续加人，重新评估范围、关键路径和阶段交付。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.1",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.conway-law-alignment",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.conway-law-alignment",
+      "name": "Conway's Law Alignment",
+      "name_zh": "康威定律",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "同时检查组织通信结构与目标架构/价值流，减少跨组等待和边界错位。",
+      "core_question": "组织如何沟通，是否会稳定地产生当前模块边界？",
+      "operation": "画组织和架构边界 → 找通信/依赖错位 → 调整团队、接口或交付流 → 观察等待变化。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“康威定律对齐”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "小功能需要跨多个职能组协作，架构边界与团队责任长期错位。"
+        ],
+        "not_when": [
+          "组织结构由外部约束固定且当前协作成本可接受。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "小功能需要跨多个职能组协作，架构边界与团队责任长期错位。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录团队责任、通信路径和模块所有权",
+          "识别高频跨组等待和交接",
+          "选择调整架构边界或交付组织的最小动作",
+          "用交付时间和缺陷传播验证"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "组织与架构的关键边界更匹配，跨组等待有可追踪改善。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "责任矩阵、依赖图、等待时间、交付和缺陷数据。"
+        ],
+        "failure_modes": [
+          "把组织调整当作唯一解，忽略契约和流程改进。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "先保留组织边界，使用稳定接口和价值流证据逐步修正。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.2",
+          "functional_class": "decomposition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.broken-windows-repair",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.broken-windows-repair",
+      "name": "Broken Windows Repair",
+      "name_zh": "破窗效应",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "及时处理小坏味或显式登记，避免未管理的问题成为新的质量基线。",
+      "core_question": "这个小问题是否正在教会团队“这里不用管”？",
+      "operation": "发现并分级坏味 → 立即做小修或登记 → 设责任和复查 → 检查质量基线变化。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“破窗修复”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "小缺陷、命名问题、重复或低质量习惯长期无人管理。"
+        ],
+        "not_when": [
+          "修复会破坏冻结发布或问题已有清晰负责人和截止时间。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "小缺陷、命名问题、重复或低质量习惯长期无人管理。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录问题位置、影响和处理方式",
+          "低风险立即小步修复",
+          "暂不能修时登记责任人和触发器",
+          "在复查时验证不再扩散"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "小问题不会被默认成正常，质量基线保持可见可治理。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "问题登记、局部差异、复查结果和趋势。"
+        ],
+        "failure_modes": [
+          "借口修复破窗而混入无关大清理。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "限制范围，只保留局部修复或明确登记。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.3",
+          "functional_class": "diagnosis-revision"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.entropy-control",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.entropy-control",
+      "name": "Entropy Control",
+      "name_zh": "熵增原理",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "用持续测试、重构和质量文化抵抗代码自然走向脆弱、重复和不透明。",
+      "core_question": "系统的混乱是否在积累利息，哪些迹象最先需要处理？",
+      "operation": "扫描刻板/脆弱/重复/不透明等征兆 → 找高利息区域 → 小步治理 → 观察趋势。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“熵增控制”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "修改扩散、缺陷聚集、平台依赖和未使用机制持续增加。"
+        ],
+        "not_when": [
+          "只有一次风格偏差，没有维护成本或缺陷证据。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "修改扩散、缺陷聚集、平台依赖和未使用机制持续增加。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "建立质量征兆和影响清单",
+          "按修改成本和风险排序",
+          "用测试保护做局部重构",
+          "定期比较趋势和剩余债务"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "质量退化被持续检测和修正，不需要等大重写。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "复杂度/缺陷趋势、债务登记、重构差异和回归。"
+        ],
+        "failure_modes": [
+          "用一次大重写替代连续小步治理，扩大回归风险。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复可运行基线，按高利息区域重新切片。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.4",
+          "functional_class": "diagnosis-revision"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.eighty-ten-ten-boundary-check",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.eighty-ten-ten-boundary-check",
+      "name": "80-10-10 Boundary Check",
+      "name_zh": "80-10-10原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "在采用高层工具前验证其主要覆盖范围、最后关键部分和商业核心边界。",
+      "core_question": "工具覆盖不了的最后部分是否正好是最重要或最难替代的部分？",
+      "operation": "用代表性场景模拟 → 划分覆盖与缺口 → 评估最后部分价值 → 组合、替换或自研。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“80-10-10 原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "工具、框架或平台看似覆盖大部分需求，但尾部能力未知。"
+        ],
+        "not_when": [
+          "工具边界已被独立测试覆盖，且缺口不影响目标。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "工具、框架或平台看似覆盖大部分需求，但尾部能力未知。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "选择覆盖正常、边界和核心业务的场景",
+          "记录工具覆盖、失败和不可替代部分",
+          "判断尾部需求的价值与风险",
+          "决定组合工具、增加边界或退出"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "工具选择基于代表性覆盖和尾部风险，而非总体宣传比例。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "模拟结果、覆盖矩阵、缺口价值、成本和替代方案。"
+        ],
+        "failure_modes": [
+          "只测简单演示路径，最后关键部分上线才暴露。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "冻结扩展承诺，补测核心缺口并重新选择方案。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.5",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.joshua-tree-naming",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.joshua-tree-naming",
+      "name": "Joshua Tree Naming",
+      "name_zh": "约书亚树原则",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "给重要领域概念命名并统一通用语言，让原本不可见的概念进入团队、文档和代码。",
+      "core_question": "团队是否能用同一个词准确指向同一个领域概念？",
+      "operation": "收集同义词和隐含概念 → 选择稳定术语 → 同步代码/文档/对话 → 检查误用。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“约书亚树原则”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "团队对同一概念有多个叫法，导致沟通、建模或接口不一致。"
+        ],
+        "not_when": [
+          "领域概念尚未稳定，或不同语境确实需要不同术语。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "low",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "团队对同一概念有多个叫法，导致沟通、建模或接口不一致。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "记录概念、现有叫法和边界",
+          "选择能承载领域意义的术语",
+          "同步更新名称、文档和契约",
+          "用真实对话和调用检查一致性"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "重要概念可被识别、讨论和复用，术语漂移减少。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "术语表、重命名差异、调用搜索和团队复述。"
+        ],
+        "failure_modes": [
+          "强行统一不同概念，导致语义冲突。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "恢复语境限定词，保留概念差异并更新术语边界。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.6",
+          "functional_class": "representation"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.second-system-control",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.second-system-control",
+      "name": "Second-System Control",
+      "name_zh": "第二系统综合征",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "后续大版本不把上一版遗留想法和所有新需求一次塞入核心，优先稳定核心和用户价值。",
+      "core_question": "这个功能对目标用户和核心价值是否足够重要，值得进入核心吗？",
+      "operation": "重新定义用户与目标 → 逐项审查功能价值 → 删除非核心 → 将真实扩展放入外围。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“第二系统综合征控制”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "第二版或大版本功能数量快速膨胀，核心体验和复杂度恶化。"
+        ],
+        "not_when": [
+          "功能均有已验证需求、频率、收益和维护预算。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "第二版或大版本功能数量快速膨胀，核心体验和复杂度恶化。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "为每项功能写用户、问题和使用频率",
+          "区分核心、外围和实验能力",
+          "拒绝没有证据的功能",
+          "用核心回归和使用反馈验证范围"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "版本范围与核心价值一致，非核心需求不会污染稳定核心。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "功能决策表、用户证据、复杂度评估和回归。"
+        ],
+        "failure_modes": [
+          "把拒绝需求当成永不扩展，错过真实高价值变化。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "保留明确扩展入口和复查条件，不提前实现。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.7",
+          "functional_class": "control-metacognition"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.reinventing-the-wheel-check",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.reinventing-the-wheel-check",
+      "name": "Reinventing the Wheel Check",
+      "name_zh": "重新发明车轮",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "先调查标准、标准库和成熟方案；只有商业核心或学习目的等明确例外才自研。",
+      "core_question": "已有方案为何不能满足当前目标，重造的独特价值是什么？",
+      "operation": "调查成熟方案 → 比较契约/成本/风险 → 记录例外理由 → 验证自研边界和维护责任。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“重新发明车轮检查”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "团队准备重新实现已有通用能力。"
+        ],
+        "not_when": [
+          "成熟方案不满足商业差异、质量/控制要求，或学习本身是明确目标。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "团队准备重新实现已有通用能力。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "列出标准、库、开源和商业候选",
+          "比较行为、维护、许可、性能和供应链",
+          "写清选择复用或自研的理由",
+          "为自研设定边界、测试和退出路径"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "选择由调查和约束驱动，不由“非我发明”情绪驱动。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "候选调研、对比矩阵、许可证/维护证据和行为测试。"
+        ],
+        "failure_modes": [
+          "只调查名称不验证边界，或复制成熟方案却失去维护能力。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "回到最小目标，优先复用/适配并保留自研例外证据。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.8",
+          "functional_class": "search"
+        }
+      }
+    },
+    {
+      "id": "psoa.programming-principles-101.yak-shaving-recovery",
+      "version": "1.0.0",
+      "kind": "OperatorSpec",
+      "origin": "source",
+      "source_key": "programming-principles-101.yak-shaving-recovery",
+      "name": "Yak Shaving Recovery",
+      "name_zh": "给牦牛剃毛",
+      "domain": "programming-principles-101",
+      "status": "experimental",
+      "summary": "当问题不断派生前置任务时回到原始目标，设停止条件并及时切换路线。",
+      "core_question": "当前问题栈是否仍服务最初目标，继续下去的边际收益是什么？",
+      "operation": "写原始目标 → 列当前问题栈 → 估计成本 → 设停止条件 → 回到目标或切换路线。",
+      "agent_use": "在软件设计、实现、维护或调试中使用“牦牛剃毛恢复”检查并改善当前问题。",
+      "applicability": {
+        "when": [
+          "解决一个问题不断引出前置任务，成本失控且方向逐渐偏离。"
+        ],
+        "not_when": [
+          "前置任务是目标不可替代的硬依赖，且成本和收益仍可接受。"
+        ]
+      },
+      "source_refs": [
+        "ref:programming-principles-101-book"
+      ],
+      "governance": {
+        "risk_level": "medium",
+        "permission_decision": "harness_policy",
+        "outcome_decision": "verifier",
+        "sensitive_values": "reference_only"
+      },
+      "semantics": {
+        "preconditions": [
+          "解决一个问题不断引出前置任务，成本失控且方向逐渐偏离。"
+        ],
+        "inputs": [
+          "目标与验收标准",
+          "当前代码、结构或运行证据",
+          "变化约束与资源预算"
+        ],
+        "procedure": [
+          "固定最初目标和当前验收",
+          "列出问题栈、依赖和已验证事实",
+          "估计继续成本与剩余价值",
+          "达到阈值时停止、回退或切换路线"
+        ],
+        "effect": {
+          "state": "design_state",
+          "statement": "探索保持目标导向，偏离路径和未完成事项被显式记录。"
+        },
+        "outcomes": [
+          "succeeded",
+          "inconclusive",
+          "not_applicable",
+          "failed"
+        ],
+        "evidence_required": [
+          "目标记录、问题栈、成本估计、停止理由和替代路线。"
+        ],
+        "failure_modes": [
+          "继续投入沉没成本，或停止时没有保留可复用证据。",
+          "现有证据不足以支持继续修改或确认效果。"
+        ],
+        "recovery": [
+          "保存已验证事实和踩坑记录，重新规划最短可行路径。"
+        ]
+      },
+      "extensions": {
+        "vibe-harness-cn": {
+          "source_principle": "7.9",
+          "functional_class": "control-metacognition"
+        }
+      }
+    }
+  ]
+}

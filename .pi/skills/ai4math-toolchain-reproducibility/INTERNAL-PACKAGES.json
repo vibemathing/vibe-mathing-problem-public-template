@@ -1,0 +1,103 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "bundled_complete_self_contained",
+  "owned_packages": [
+    {
+      "body_relative_path": "internal-packages/leansearch-operator",
+      "capabilities": [
+        "parse/index/embed/search pipeline",
+        "schema and revision pinning",
+        "service diagnostics"
+      ],
+      "entry_relative_path": "internal-packages/leansearch-operator/SKILL.md",
+      "package_id": "leansearch-operator",
+      "public_redistribution_admitted": true,
+      "rights_state": "ADMITTED",
+      "source_bytes": 66182,
+      "source_family": "leansearch-operator",
+      "source_files": 17,
+      "source_tree_sha256": "99feaec5ab4b643339a078254afbddc86895f2071ef5d336f307f3df03c3d112"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "artifact and modality routing",
+        "evaluation design",
+        "research-system comparison"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/ai4math-research-navigator/ai4math-research-navigator/SKILL.md",
+      "package_id": "ai4math-research-navigator",
+      "primary_owner": "ai4math-source-discovery",
+      "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/ai4math-research-navigator"
+    },
+    {
+      "capabilities": [
+        "dependency-aware formalization",
+        "plan/prove/review separation",
+        "stalled-run diagnosis"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/archon-formalization/SKILL.md",
+      "package_id": "archon-formalization",
+      "primary_owner": "ai4math-lean-formalization",
+      "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/archon-formalization"
+    },
+    {
+      "capabilities": [
+        "capability diagnosis",
+        "specialist-versus-general tool choice",
+        "verifier feedback"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/dong-ai4m-research-guide/dong-ai4m-research-guide/SKILL.md",
+      "package_id": "dong-ai4m-research-guide",
+      "primary_owner": "ai4math-source-discovery",
+      "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/dong-ai4m-research-guide"
+    },
+    {
+      "capabilities": [
+        "capability diagnosis",
+        "formalization stack",
+        "understanding-over-ritual objective"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/dongbin-ai4m/SKILL.md",
+      "package_id": "dongbin-ai4m",
+      "primary_owner": "ai4math-source-discovery",
+      "repository_relative_path": ".pi/skills/ai4math-source-discovery/internal-packages/dongbin-ai4m"
+    },
+    {
+      "capabilities": [
+        "toolchain matching",
+        "InfoTree and declaration products",
+        "static-analysis diagnostics"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/jixia-lean-analyzer/jixia-lean-analyzer/SKILL.md",
+      "package_id": "jixia-lean-analyzer",
+      "primary_owner": "ai4math-lean-formalization",
+      "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/jixia-lean-analyzer"
+    },
+    {
+      "capabilities": [
+        "pristine-versus-edited comparison",
+        "isolated elaboration",
+        "pin and security audit"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-assurance-admission/internal-packages/lean-eval-comparator/SKILL.md",
+      "package_id": "lean-eval-comparator",
+      "primary_owner": "ai4math-assurance-admission",
+      "repository_relative_path": ".pi/skills/ai4math-assurance-admission/internal-packages/lean-eval-comparator"
+    },
+    {
+      "capabilities": [
+        "syntax/elaboration/kernel staging",
+        "metavariable state and rollback",
+        "generated-term validation"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/lean4-metaprogramming/lean4-metaprogramming/SKILL.md",
+      "package_id": "lean4-metaprogramming",
+      "primary_owner": "ai4math-lean-formalization",
+      "repository_relative_path": ".pi/skills/ai4math-lean-formalization/internal-packages/lean4-metaprogramming"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v2",
+  "top_level_skill": "ai4math-toolchain-reproducibility"
+}

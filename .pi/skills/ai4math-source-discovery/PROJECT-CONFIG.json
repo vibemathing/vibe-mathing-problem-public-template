@@ -1,0 +1,10 @@
+{
+  "activation_status": "active",
+  "entry": "SKILL.md",
+  "entry_sha256": "5791ea4ccefa687b83b70f2d7dbf738abf7e11c16a457761336cc8c8ef3ffc04",
+  "evidence_ceiling": "candidate_only",
+  "internal_reference_data_only": true,
+  "registry": "INTERNAL-PACKAGES.json",
+  "schema_version": "1.0.0",
+  "skill_id": "ai4math-source-discovery"
+}

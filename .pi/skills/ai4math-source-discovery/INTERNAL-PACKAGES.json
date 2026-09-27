@@ -1,0 +1,112 @@
+{
+  "activation": "route_through_top_level_skill_only",
+  "body_availability": "bundled_complete_self_contained",
+  "owned_packages": [
+    {
+      "body_relative_path": "internal-packages/ai-for-mathematics",
+      "capabilities": [
+        "problem-to-method fit",
+        "verification-first experimentation",
+        "informative failure"
+      ],
+      "entry_relative_path": "internal-packages/ai-for-mathematics/SKILL.md",
+      "package_id": "ai-for-mathematics",
+      "public_redistribution_admitted": true,
+      "rights_state": "ADMITTED",
+      "source_bytes": 96401,
+      "source_family": "ai-for-mathematics",
+      "source_files": 11,
+      "source_tree_sha256": "e50bf2a3bda8037031f11851bfdee99a3231be17c7a9a51eb9c6fc73961a449c"
+    },
+    {
+      "body_relative_path": "internal-packages/ai4math-research-navigator",
+      "capabilities": [
+        "artifact and modality routing",
+        "evaluation design",
+        "research-system comparison"
+      ],
+      "entry_relative_path": "internal-packages/ai4math-research-navigator/ai4math-research-navigator/SKILL.md",
+      "package_id": "ai4math-research-navigator",
+      "public_redistribution_admitted": true,
+      "rights_state": "ADMITTED",
+      "source_bytes": 152236,
+      "source_family": "ai4math-research-navigator",
+      "source_files": 36,
+      "source_tree_sha256": "6d9fbf32513c7accaeed6ac00703f279e0dfc6f06bc9f22b596899cb3e8faf6e"
+    },
+    {
+      "body_relative_path": "internal-packages/dong-ai4m-research-guide",
+      "capabilities": [
+        "capability diagnosis",
+        "specialist-versus-general tool choice",
+        "verifier feedback"
+      ],
+      "entry_relative_path": "internal-packages/dong-ai4m-research-guide/dong-ai4m-research-guide/SKILL.md",
+      "package_id": "dong-ai4m-research-guide",
+      "public_redistribution_admitted": true,
+      "rights_state": "ADMITTED",
+      "source_bytes": 26115,
+      "source_family": "dongbin-ai4math",
+      "source_files": 8,
+      "source_tree_sha256": "30ed31f61bf7f8e1865dd3061fe2560dcbb3702f05d2affa41da79881e17ec18"
+    },
+    {
+      "body_relative_path": "internal-packages/dongbin-ai4m",
+      "capabilities": [
+        "capability diagnosis",
+        "formalization stack",
+        "understanding-over-ritual objective"
+      ],
+      "entry_relative_path": "internal-packages/dongbin-ai4m/SKILL.md",
+      "package_id": "dongbin-ai4m",
+      "public_redistribution_admitted": true,
+      "rights_state": "ADMITTED",
+      "source_bytes": 43210,
+      "source_family": "dongbin-ai4math",
+      "source_files": 8,
+      "source_tree_sha256": "c60556f057f70b11b8c94b32784526df88fd75dd3995e7f7628cc5db406f466f"
+    },
+    {
+      "body_relative_path": "internal-packages/lean4-self-study-resources",
+      "capabilities": [
+        "goal-based resource routing",
+        "learning progression",
+        "resource-fit recovery"
+      ],
+      "entry_relative_path": "internal-packages/lean4-self-study-resources/lean4-self-study-resources/SKILL.md",
+      "package_id": "lean4-self-study-resources",
+      "public_redistribution_admitted": true,
+      "rights_state": "ADMITTED",
+      "source_bytes": 27378,
+      "source_family": "lean4-self-study-resources",
+      "source_files": 8,
+      "source_tree_sha256": "58b5be87489689c695528048e9de72f0de5552e82c4304a3ea47bc465f7adb52"
+    }
+  ],
+  "referenced_packages": [
+    {
+      "capabilities": [
+        "persistent proof state",
+        "retrieval applicability checks",
+        "strict verification and degraded-mode honesty"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/rethlas-math-reasoning/SKILL.md",
+      "package_id": "rethlas-math-reasoning",
+      "primary_owner": "ai4math-proof-refutation",
+      "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/rethlas-math-reasoning"
+    },
+    {
+      "capabilities": [
+        "concise proof exposition",
+        "explicit logical relations",
+        "editing-versus-validation separation"
+      ],
+      "entry_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/strunk-elements-of-style/SKILL.md",
+      "package_id": "strunk-elements-of-style",
+      "primary_owner": "ai4math-proof-refutation",
+      "repository_relative_path": ".pi/skills/ai4math-proof-refutation/internal-packages/strunk-elements-of-style"
+    }
+  ],
+  "schema_version": "ai4math-top-skill-internal-package-registry.v2",
+  "top_level_skill": "ai4math-source-discovery"
+}

@@ -1,0 +1,100 @@
+{
+  "activation": "inert_internal_reference_not_pi_entry",
+  "entry_path": "SKILL.md",
+  "package_id": "leansearch-operator",
+  "primary_owner": "ai4math-toolchain-reproducibility",
+  "public_redistribution_admitted": true,
+  "rights_state": "ADMITTED",
+  "schema_version": "ai4math-bundled-internal-package.v1",
+  "source_bytes": 66182,
+  "source_family": "leansearch-operator",
+  "source_files": 17,
+  "source_rows": [
+    {
+      "bytes": 9038,
+      "path": "SKILL.md",
+      "sha256": "0cf20036455fd94484e7370e7d25e73814c94515f9ebaf5b7a3323d736f4745e"
+    },
+    {
+      "bytes": 314,
+      "path": "SOURCE-IDENTITY.json",
+      "sha256": "aa91f8d874b494f759310c722c67c724c8f844a738616812f6a1299c314754f3"
+    },
+    {
+      "bytes": 3443,
+      "path": "chapters/ch01-architecture-data-flow.md",
+      "sha256": "36cd046e530a582d6efc0d7495a7befca36ecd33f847c3c64eab4063a58d4a2b"
+    },
+    {
+      "bytes": 4333,
+      "path": "chapters/ch02-environment-installation.md",
+      "sha256": "ae4288b1f7284ba27514ca68e95eb0006f0b4619ffb2ad01da411b047f1ac4fc"
+    },
+    {
+      "bytes": 4000,
+      "path": "chapters/ch03-jixia-postgres-indexing.md",
+      "sha256": "1052987e526ed5c80fca6db8072ad6297ac0265f8da2dd9ab5adc3a372d3a271"
+    },
+    {
+      "bytes": 3881,
+      "path": "chapters/ch04-informalization-translation.md",
+      "sha256": "082d9e6f77b47c534edabd3c919ecdec77589adbdff26b0b0b9186bbb6f0453e"
+    },
+    {
+      "bytes": 3551,
+      "path": "chapters/ch05-embedding-vector-db.md",
+      "sha256": "f5831b2544e6c2561cfcd2f9f6f05b9ad74a455584630e4d1e5c2660c14febe3"
+    },
+    {
+      "bytes": 3543,
+      "path": "chapters/ch06-search-retrieval-augmentation.md",
+      "sha256": "9954fd28c80a203d3fe51d63da39d5ca06da0d163eff4cd6ff26cc484caa3316"
+    },
+    {
+      "bytes": 3761,
+      "path": "chapters/ch07-api-feedback-operations.md",
+      "sha256": "586fc6cbd71c82c7e256568b11aa5b12b825785d64eba5e6c50da0f7b510dac0"
+    },
+    {
+      "bytes": 4758,
+      "path": "chapters/ch08-failure-recovery-caveats.md",
+      "sha256": "f1949df8b6d7026423a421670eb83f52e842afc7811b1ae288ac54c67fb5379c"
+    },
+    {
+      "bytes": 2517,
+      "path": "cheatsheet.md",
+      "sha256": "0cbf809867102cdedd021cac265f1c0f7ccd077d50acf4b7fd985aa4e67769c7"
+    },
+    {
+      "bytes": 2626,
+      "path": "glossary.md",
+      "sha256": "4fb8baddc49940b5131e7a854cc2f220efcc25c69bc983b2a8f15ee341edf4f9"
+    },
+    {
+      "bytes": 3019,
+      "path": "patterns.md",
+      "sha256": "c4e42f1fdd5776ac9433faea3490cbf8ae760df7561ac905a89c96be1e9b4729"
+    },
+    {
+      "bytes": 4738,
+      "path": "references/implementation-caveats.md",
+      "sha256": "ea5729131fe7b74eac53827827723a8b710b76b0381ab5fa224ece91196452da"
+    },
+    {
+      "bytes": 2793,
+      "path": "references/provenance.md",
+      "sha256": "84d95aebc7acb3a0b515e86c9dfee72384e8091e5a4f7e9965a5e29fe348f102"
+    },
+    {
+      "bytes": 6044,
+      "path": "references/source-ledger.md",
+      "sha256": "d92bedf088ec51ea2d4ab609ad3a13caab75a1d5c8ff564d5365838c00beb918"
+    },
+    {
+      "bytes": 3823,
+      "path": "tests/evals.md",
+      "sha256": "e10366662a9b1cd1f89b63b0f9f682581a6a25fbb2f2c4e991e31a7547ee6c5f"
+    }
+  ],
+  "source_tree_sha256": "99feaec5ab4b643339a078254afbddc86895f2071ef5d336f307f3df03c3d112"
+}

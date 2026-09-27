@@ -1,0 +1,5 @@
+# Release, rights, and trust-boundary files require maintainer review.
+* @vibemathing/maintainers
+/.pi/skills/INTERNAL-PACKAGE-* @vibemathing/maintainers
+/governance/ @vibemathing/maintainers
+/scripts/ @vibemathing/maintainers

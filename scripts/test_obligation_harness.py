@@ -93,6 +93,20 @@ def base_registry(extra: list[dict] | None = None) -> dict:
         },
     ]
     principals.extend(extra or [])
+    for principal in principals:
+        if principal["role"] == "verifier":
+            version = "1.0.0"
+            principal["policy_version"] = version
+            principal["policy_digest"] = hashlib.sha256(
+                f"{principal['policy']}\n{version}".encode()
+            ).hexdigest()
+            principal.setdefault("toolchain_allowlist", [])
+            principal["independence_class"] = "independent-verifier"
+        else:
+            principal["policy_version"] = None
+            principal["policy_digest"] = None
+            principal["toolchain_allowlist"] = []
+            principal["independence_class"] = "candidate-generator"
     return {"schema_version": "1.0.0", "principals": principals}
 
 
@@ -115,6 +129,10 @@ def problem() -> dict:
                 "source_record_id": None,
                 "url": "https://example.invalid/synthetic-obligation",
                 "retrieved_at": STAMP,
+                "revision": "fixture-revision-1",
+                "content_sha256": hashlib.sha256(b"synthetic-source").hexdigest(),
+                "quote": "Synthetic source statement.",
+                "license": {"name": "CC0-1.0", "attribution": "Synthetic fixture"},
             }
         ],
         "acceptance": {"policy": "solution-admission-v1"},
@@ -250,7 +268,9 @@ def make_candidate(root: Path, graph: dict, obligation_id: str, kind: str) -> di
         "candidate_id": candidate_id,
         "graph_id": graph["graph_id"],
         "obligation_id": obligation_id,
+        "route_id": graph["route_id"],
         "problem_id": graph["problem_id"],
+        "problem_contract_sha256": graph["problem_contract_sha256"],
         "attempt_id": graph["attempt_id"],
         "statement_sha256": obligation["statement_sha256"],
         "kind": kind,
@@ -291,6 +311,9 @@ def evidence_link(root: Path, graph: dict, candidate: dict, capability: str, ver
         "evidence_link_id": f"evidence-link:{candidate['candidate_id'].removeprefix('candidate:')}.{suffix}",
         "graph_id": graph["graph_id"],
         "obligation_id": candidate["obligation_id"],
+        "route_id": graph["route_id"],
+        "problem_id": graph["problem_id"],
+        "problem_contract_sha256": graph["problem_contract_sha256"],
         "candidate_id": candidate["candidate_id"],
         "receipt": {"locator": receipt["locator"], "sha256": receipt["sha256"]},
         "invalidates": [],
@@ -378,7 +401,9 @@ class ObligationHarnessTest(unittest.TestCase):
             result = {
                 "result_id": "result:synthetic-root-proof",
                 "problem_id": graph["problem_id"],
+                "problem_contract_sha256": graph["problem_contract_sha256"],
                 "attempt_id": graph["attempt_id"],
+                "route_id": graph["route_id"],
                 "obligation_graph_id": graph["graph_id"],
                 "root_obligation_id": graph["root_obligation_id"],
                 "statement_sha256": next(
@@ -563,7 +588,9 @@ class ObligationHarnessTest(unittest.TestCase):
                 "candidate_id": "candidate:lean-sorry-proof",
                 "graph_id": graph["graph_id"],
                 "obligation_id": "obligation:root",
+                "route_id": graph["route_id"],
                 "problem_id": graph["problem_id"],
+                "problem_contract_sha256": graph["problem_contract_sha256"],
                 "attempt_id": graph["attempt_id"],
                 "statement_sha256": root_card["statement_sha256"],
                 "kind": "formalization",

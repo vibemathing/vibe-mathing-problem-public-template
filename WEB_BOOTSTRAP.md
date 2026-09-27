@@ -1,34 +1,37 @@
 # Web Research Bootstrap
 
 - Repository: `vibemathing/vibe-mathing-problem-public-template`
-- Repository binding: `verified`
-- Repository database ID: `1358726712`
-- Repository node ID: `R_kgDOUPyGOA`
+- Repository binding: `planned`
+- Repository database ID: `pending`
+- Repository node ID: `pending`
 - Default branch: `main`
 - Visibility: `public`
 - Canonical Problem: `problem:template-placeholder`
-- ProblemContract SHA-256: `e64cd03254e03dd661eade23243c3c21793fc2d8bffa2d33c172cf8ed2e7f940`
+- ProblemContract SHA-256: `f9236ddb5a3e6f9b9c0701df3ce6ddcab5391b930ee374a25b99207450f88027`
 - Problem lifecycle: `draft`
 - Problem admission: `preview_unadmitted`
-- Harness suite: `harness-source:web-research-full` `1.5.1`
-- Suite manifest SHA-256: `94cff861e217ccfec6122b3c79b828a24afc03784c8572018772fb2bfcc35766`
-- Harness snapshot SHA-256: `96819115c4bc07b48d294be5be343132ec05771648a4a3bcaa14df71259580da`
+- Harness suite: `harness-source:web-research-full` `2.3.1`
+- Suite manifest SHA-256: `3b4259e2a72c6ed4b348e5eeafacc523d97129fd009b4552f9dd51d8f9040933`
+- Harness snapshot SHA-256: `da341dada4a5e54699d95d23bb5989c5b22cbf425c3002a46fb9fd25fde1c40f`
 - Channel: `chatgpt-web-github-issue-pr-writer`
+- Project runtime: `Pi` with exact entries from `.pi/settings.json`
 
 ## Required read order
 
 1. `AGENTS.md`
-2. `WEB_CHANNEL_PROFILE.json`
-3. `HARNESS_SNAPSHOT.json`
-4. `WEB_CONTEXT_BUNDLE.md`
-5. `WEB_ACTIVE_SKILLS.json`
-6. `problem-library/records/canonical-problems.jsonl`
-7. `research/records/failed-routes.jsonl`
-8. the current route and obligation packet named by the Issue
-9. exactly the owner Skill files selected by `WEB_ACTIVE_SKILLS.json`
-10. `WEB_OUTPUT_CONTRACT.json`
+2. `.pi/settings.json`
+3. `governance/control-plane/web-context-profile.v1.json`
+4. `WEB_CHANNEL_PROFILE.json`
+5. `HARNESS_SNAPSHOT.json`
+6. `WEB_CONTEXT_BUNDLE.md`
+7. `WEB_ACTIVE_SKILLS.json`
+8. `problem-library/records/canonical-problems.jsonl`
+9. `research/records/failed-routes.jsonl`
+10. the current route and obligation packet named by the Issue
+11. exactly the owner Skill files selected by `WEB_ACTIVE_SKILLS.json`
+12. `WEB_OUTPUT_CONTRACT.json`
 
-Return a `web-bootstrap-ack.schema.json` object before mathematical work. Hashes shown here are manifest-declared values; do not claim to have recomputed them in chat.
+Return a `web-bootstrap-ack.schema.json` object before mathematical work. Hashes shown here are manifest-declared values; do not claim to have recomputed them in chat. The context profile is a hard budget and selector policy: an ambiguous or missing execution identity is catalog-only and fail-closed.
 
 ## Coordinator-only planning mode
 
@@ -38,7 +41,7 @@ If the user requests a one-problem T1–T9 coordination plan rather than Issue-b
 
 At the start of every turn, refresh the default branch plus live Issue/branch/PR/check state. Current repository records outrank launch-prompt SHAs, and launch-prompt SHAs outrank old chat replies. A controlled merge may legitimately advance main or the Harness snapshot; use the fresh revision as the packet base after validating the new snapshot. Never repeat an old `BLOCK_PRE_ADMISSION` unless a fresh read proves that the exact Attempt/Route/Graph/Obligation is currently absent or mismatched.
 
-Channel audit maturity is not repository admission. `capability_status` and connector identity fields describe how completely the exact Plugin/App identity has been audited; they do not block a repository whose current identity, canonical ProblemContract, admitted route objects, and transport controls pass. The admitted namespace remains candidate-only and grants no Evidence/Result authority.
+Channel audit maturity is not repository admission. The current template profile is `synthetic_only_pending_permission_and_ruleset_smoke`; this blocks Issue/branch/PR research transport until fresh live repository-object receipts and an explicit admission update are present. Even after admission, the namespace remains candidate-only and grants no Evidence/Result authority.
 
 Branch protection and automated required checks are transport controls, not demands for manual approval. Reuse the one Issue identified by `(problem_id, attempt_id, route_id, obligation_id)` and label `web-research-question`; search before create, including a second fresh search immediately before creation, so retries and concurrent turns stay idempotent.
 
@@ -46,7 +49,7 @@ One Web response ending is a runtime boundary, not a permission failure and not 
 
 ## AI-native writable route
 
-After repository admission, perform the routine candidate transport end to end without project-added human handoffs:
+Only after the profile changes to an explicitly admitted state may the routine candidate transport run end to end without project-added human handoffs:
 
 1. Reuse the unique Issue labeled `web-research-question` for the exact Problem/Attempt/Route/Obligation tuple; create one only after two fresh searches find none.
 2. Create branch `web/attempt-<attempt-suffix>`.

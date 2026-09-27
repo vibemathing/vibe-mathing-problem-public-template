@@ -1,0 +1,161 @@
+{
+  "entry": "orientation",
+  "nodes": [
+    {
+      "id": "orientation",
+      "requires": [],
+      "routes_to": [
+        "proof_decomposition",
+        "translation_audit",
+        "heuristic_reconstruction"
+      ]
+    },
+    {
+      "id": "proof_decomposition",
+      "requires": [
+        "claim",
+        "proof_or_argument"
+      ],
+      "routes_to": [
+        "counterexample_triage"
+      ]
+    },
+    {
+      "id": "counterexample_triage",
+      "requires": [
+        "proof_decomposition",
+        "failure_evidence"
+      ],
+      "routes_to": [
+        "lemma_incorporation",
+        "hidden_lemma_search",
+        "rule4_repair",
+        "rule5_deductive_guessing"
+      ]
+    },
+    {
+      "id": "hidden_lemma_search",
+      "requires": [
+        "global_counterexample",
+        "explicit_lemmas_survive"
+      ],
+      "routes_to": [
+        "falsity_transfer_validation",
+        "lemma_incorporation"
+      ]
+    },
+    {
+      "id": "lemma_incorporation",
+      "requires": [
+        "global_counterexample",
+        "refuted_relevant_lemma"
+      ],
+      "routes_to": [
+        "definition_domain_audit",
+        "retest"
+      ]
+    },
+    {
+      "id": "rule4_repair",
+      "requires": [
+        "local_counterexample",
+        "main_claim_survives"
+      ],
+      "routes_to": [
+        "retest",
+        "proof_content_comparison"
+      ]
+    },
+    {
+      "id": "rule5_deductive_guessing",
+      "requires": [
+        "counterexample_or_low_content"
+      ],
+      "routes_to": [
+        "deeper_theorem",
+        "retest"
+      ]
+    },
+    {
+      "id": "definition_domain_audit",
+      "requires": [
+        "definition_or_domain_change"
+      ],
+      "routes_to": [
+        "monster_barring_check",
+        "exception_barring_check",
+        "monster_adjusting_check",
+        "concept_stretching_check"
+      ]
+    },
+    {
+      "id": "proof_content_comparison",
+      "requires": [
+        "multiple_proofs"
+      ],
+      "routes_to": [
+        "deeper_theorem",
+        "retest"
+      ]
+    },
+    {
+      "id": "translation_audit",
+      "requires": [
+        "source_target_representation"
+      ],
+      "routes_to": [
+        "formal_proof_boundary",
+        "model_fidelity_check"
+      ]
+    },
+    {
+      "id": "heuristic_reconstruction",
+      "requires": [
+        "polished_result_or_definition"
+      ],
+      "routes_to": [
+        "proof_ancestor_map",
+        "cross_proof_validation"
+      ]
+    },
+    {
+      "id": "retest",
+      "requires": [
+        "revised_claim_or_proof"
+      ],
+      "routes_to": [
+        "counterexample_triage",
+        "self_check"
+      ]
+    },
+    {
+      "id": "self_check",
+      "requires": [
+        "analysis_output"
+      ],
+      "routes_to": []
+    }
+  ],
+  "failure_edges": [
+    {
+      "from": "hidden_lemma_search",
+      "condition": "multiple plausible candidates",
+      "to": "discriminating_counterexample_design"
+    },
+    {
+      "from": "lemma_incorporation",
+      "condition": "scope collapses through repeated restrictions",
+      "to": "rule4_repair_or_rule5"
+    },
+    {
+      "from": "formal_proof_boundary",
+      "condition": "formal derivation passes but application fails",
+      "to": "translation_audit"
+    },
+    {
+      "from": "definition_domain_audit",
+      "condition": "counterexample status changes with terminology",
+      "to": "definition_genealogy"
+    }
+  ]
+}

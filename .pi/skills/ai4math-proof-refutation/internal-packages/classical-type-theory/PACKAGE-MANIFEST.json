@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0.0",
+  "package_type": "gptweb_full_research_skill",
+  "skill_id": "classical-type-theory",
+  "group": "book-derived",
+  "version": "source-record",
+  "source_project_path": ".pi/skills/classical-type-theory",
+  "web_status": "reference_only",
+  "claim_ceiling": "candidate_only",
+  "complete_instructional_and_reference_tree": true,
+  "source_file_count": 19,
+  "source_total_bytes": 91146,
+  "packaged_tree_sha256": "a15364cb88121ceb4845f350aa2d95ccb2b5698ca55de2b2b883f4b1f77b0d90",
+  "tree_digest_definition": "sha256(sorted path\\0file_sha256\\0bytes\\n), excluding PACKAGE-MANIFEST.json",
+  "license_status": "no_explicit_redistribution_license_supplied",
+  "upload_status": "packaged_not_uploaded",
+  "transformations": [
+    {
+      "path": "SOURCE-RECORD.json",
+      "type": "redact_local_absolute_archive_path",
+      "fields": [
+        "source.outer_archive_path"
+      ],
+      "mathematical_or_instructional_content_changed": false
+    }
+  ],
+  "entries": [
+    {
+      "path": "SKILL.md",
+      "bytes": 12127,
+      "sha256": "8793314a6d4063da017260c0da619f1e1fc2b97b4ec4d0e195e263d708b0c83a"
+    },
+    {
+      "path": "SOURCE-RECORD.json",
+      "bytes": 2475,
+      "sha256": "3f9a2b9fc522cd866c9ad6ad39ef387ddb097e480a85b60a0563330b28f3a8cc"
+    },
+    {
+      "path": "chapters/ch01-foundations.md",
+      "bytes": 4795,
+      "sha256": "8c8513a31f3eefb6551fc065722fa895dc7c1ce5de81c157a5a2db5aefd24565"
+    },
+    {
+      "path": "chapters/ch02-church-lambda.md",
+      "bytes": 4786,
+      "sha256": "ae10cbac19cac976df0d530d2152ad5edd19545e029d9486ca8cf12f849512be"
+    },
+    {
+      "path": "chapters/ch03-choice-skolemization.md",
+      "bytes": 4480,
+      "sha256": "e049cbc8e237635f5acdb53cbe3a9a95d9edc222f208557b9d64408689ebe109"
+    },
+    {
+      "path": "chapters/ch04-expressiveness-tradeoffs.md",
+      "bytes": 4602,
+      "sha256": "da6b546d9ffd0b90eda4d76a6168724337c5db6e520f7b8fffa898e1ee1f0212"
+    },
+    {
+      "path": "chapters/ch05-unifying-principle.md",
+      "bytes": 4028,
+      "sha256": "adc7fc4a512d267c913344387f6f2bbc06d6c4ff6187ce74e474cbcd052973f5"
+    },
+    {
+      "path": "chapters/ch06-expansion-proofs.md",
+      "bytes": 4643,
+      "sha256": "f563f74d00756ad0cdbaa77b962b5547a6fac5ce97298e5c32de785c6463ae2a"
+    },
+    {
+      "path": "chapters/ch07-proof-translation.md",
+      "bytes": 4014,
+      "sha256": "5da8853530e2c9d030c67fdf0fd71da929505faf1001b9480ef2bdda01566758"
+    },
+    {
+      "path": "chapters/ch08-higher-order-unification.md",
+      "bytes": 4049,
+      "sha256": "69a4157f6d23c1ca57d2d401729dc9f1a07cf50aa7619167afe9f67c9efe1433"
+    },
+    {
+      "path": "chapters/ch09-unbounded-types.md",
+      "bytes": 3528,
+      "sha256": "e6a5d4f04872c563b6fc5ff0230cc5967e255dfdaf681766f84747b9a49bf9df"
+    },
+    {
+      "path": "chapters/ch10-expansion-search.md",
+      "bytes": 5512,
+      "sha256": "5cc475e036bd9dd1b085c98e3d47f9a53f5478a90bed797e32d0f2d13e9100d0"
+    },
+    {
+      "path": "chapters/ch11-constrained-resolution.md",
+      "bytes": 4764,
+      "sha256": "2988b310ee842339d6ee074afe024f90991c52c69fdca9a8c57e7d912512f676"
+    },
+    {
+      "path": "chapters/ch12-extensional-resolution.md",
+      "bytes": 4571,
+      "sha256": "30df7772cbea56de23c94e265f4cc64fa15c2b40dba3ee12571994cad732f5c8"
+    },
+    {
+      "path": "chapters/ch13-instantiation-techniques.md",
+      "bytes": 4872,
+      "sha256": "ca0c00d9bef360760f1becf41edbac9352332a74e31526e2193129e51015ca73"
+    },
+    {
+      "path": "chapters/ch14-search-architecture.md",
+      "bytes": 5422,
+      "sha256": "b2f84fdf33a7eae2656f603c7177f08ab7d5a849a6c2f43838f6bdc606caf599"
+    },
+    {
+      "path": "cheatsheet.md",
+      "bytes": 3631,
+      "sha256": "dd684161b2960653adbdef2c796132a34dd1551cc89b3dccc3cf9df213b6d5f7"
+    },
+    {
+      "path": "glossary.md",
+      "bytes": 4478,
+      "sha256": "9e14a62d1d48ecc04dbd81c6f1399ca7b1c93a3dc39e8d712696a1c7dc51090b"
+    },
+    {
+      "path": "patterns.md",
+      "bytes": 4369,
+      "sha256": "17efd13a7268e575f39ee3200e07986d94f5b37e2cabcb463337811980c6a39d"
+    }
+  ]
+}

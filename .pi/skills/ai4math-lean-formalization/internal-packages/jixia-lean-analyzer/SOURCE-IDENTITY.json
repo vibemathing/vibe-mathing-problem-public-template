@@ -1,0 +1,7 @@
+{
+  "source_id": "external-zip:ad2a26c4ae42b227",
+  "label": "jixia-lean-analyzer-skill-download.zip",
+  "disposition": "quarantine_reference_capsule",
+  "sha256": "ad2a26c4ae42b227802f237736b047921f7a837b6a7656c245c4f322b9c81384",
+  "evidence_ceiling": "identity/safety observation only until controlled extraction and review"
+}

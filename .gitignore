@@ -5,3 +5,11 @@ __pycache__/
 build/
 research/records/*.lock
 research/artifacts/receipts/**/*.pending
+
+# Pi 项目安装缓存不是 Harness 源码；不能发布包体或 Pi 创建的嵌套 .gitignore。
+.pi/npm/
+# Goal 运行态可能包含研究上下文；正式 actor 应使用仓库外的私密 PI_GOAL_ROOT。
+.pi/goals/
+.pi/.goals-pool-snapshot.json
+.pi/pi-goal-x-settings.json.lock
+.pi/.pi-goal-x-settings.json.*.tmp

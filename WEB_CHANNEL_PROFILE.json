@@ -124,7 +124,7 @@
     "mathematical_status": "coordination_only",
     "template": ".github/ISSUE_TEMPLATE/web-research-question.yml"
   },
-  "operational_admission": "admitted_problem_repository_namespace",
+  "operational_admission": "synthetic_only_pending_permission_and_ruleset_smoke",
   "prohibited_repository_write_paths": [
     "AGENTS.md",
     "WEB_*.md",

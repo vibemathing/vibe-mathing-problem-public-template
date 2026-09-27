@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vibe-mathing.local/schema/repository-admission-receipt.v1.json",
+  "title": "Live Web Repository Admission Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "decision", "repository", "observed_at", "receipts"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "decision": {"enum": ["BLOCK", "ADMITTED"]},
+    "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "receipts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "repository", "default_branch", "visibility", "observed_at", "sha256"],
+        "properties": {
+          "kind": {"enum": ["repository", "permissions", "branch_protection", "required_checks"]},
+          "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+          "default_branch": {"type": "string", "minLength": 1},
+          "visibility": {"enum": ["private", "public"]},
+          "observed_at": {"type": "string", "format": "date-time"},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "payload_locator": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"decision": {"const": "ADMITTED"}}, "required": ["decision"]},
+      "then": {"properties": {"receipts": {"minItems": 4}}}
+    }
+  ]
+}

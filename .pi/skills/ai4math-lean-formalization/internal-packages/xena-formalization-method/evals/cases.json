@@ -1,0 +1,148 @@
+{
+  "positive_triggers": [
+    {
+      "prompt": "In Lean, rw will not match an equality that looks identical. How should I debug it?",
+      "expect_route": "04 equality",
+      "must": [
+        "syntactic",
+        "definitional",
+        "normalization"
+      ]
+    },
+    {
+      "prompt": "Design a reusable Lean API for a new notion of filtered module.",
+      "expect_route": "06 definition/API",
+      "must": [
+        "generality",
+        "extensionality",
+        "instances",
+        "client proofs"
+      ]
+    },
+    {
+      "prompt": "We want to formalize a 70-page research paper with many missing prerequisites. Plan the project.",
+      "expect_route": "10 research blueprint",
+      "must": [
+        "statement",
+        "dependency graph",
+        "library gaps",
+        "parallel"
+      ]
+    },
+    {
+      "prompt": "An LLM translated my theorem to Lean and proved it. Can I trust it?",
+      "expect_route": "12 AI audit",
+      "must": [
+        "statement semantics",
+        "definitions",
+        "type-check proof"
+      ]
+    },
+    {
+      "prompt": "Try to falsify this forall-conjecture and certify any witness.",
+      "expect_route": "13 counterexample",
+      "must": [
+        "formalize negation",
+        "verify witness",
+        "digest"
+      ]
+    },
+    {
+      "prompt": "I have ∃ basis, why can’t Lean compute the dimension executablely?",
+      "expect_route": "07 Prop-to-data",
+      "must": [
+        "Prop",
+        "choice",
+        "data",
+        "computability"
+      ]
+    }
+  ],
+  "negative_triggers": [
+    {
+      "prompt": "What is the derivative of x^2?",
+      "reason": "ordinary mathematics with no formalization intent"
+    },
+    {
+      "prompt": "Write a Python script that sorts a CSV file.",
+      "reason": "general programming"
+    },
+    {
+      "prompt": "Summarize this novel chapter.",
+      "reason": "unrelated summarization"
+    },
+    {
+      "prompt": "What is the weather tomorrow?",
+      "reason": "unrelated current information"
+    }
+  ],
+  "method_selection": [
+    {
+      "scenario": "Function equality with pointwise hypothesis",
+      "expected": "extensionality then pointwise proof, not raw unfolding"
+    },
+    {
+      "scenario": "Map from quotient to Y",
+      "expected": "prove invariance and use quotient lift"
+    },
+    {
+      "scenario": "Huge numeral computation on unary proof representation",
+      "expected": "efficient computation/certificate bridge"
+    },
+    {
+      "scenario": "Research theorem cannot be stated because automorphic representation is absent",
+      "expected": "statement-first/library-definition dependency route"
+    },
+    {
+      "scenario": "Generated definition compiles but omits a literature axiom",
+      "expected": "semantic definition audit rejects it"
+    }
+  ],
+  "failure_recovery": [
+    {
+      "initial": "ring fails",
+      "recovery": "rewrite/normalize hypotheses then retry domain solver"
+    },
+    {
+      "initial": "exact fails on unique truncated data",
+      "recovery": "use propositionally unique/subsingleton equality or convert"
+    },
+    {
+      "initial": "universal-property model cannot prove element injectivity",
+      "recovery": "switch to explicit second representation and bridge"
+    },
+    {
+      "initial": "AI proof cannot be formalized",
+      "recovery": "locate missing hypothesis/false claim; do not accept prose plausibility"
+    }
+  ],
+  "fresh_agent_simulations": [
+    {
+      "prompt": "I am formalizing a new theorem about a quotient group. I chose representatives and now everything is full of choice. Help.",
+      "pass_if": [
+        "route to quotient universal property",
+        "construct map via lift",
+        "state invariance obligation",
+        "avoid representation unfolding"
+      ]
+    },
+    {
+      "prompt": "My AI agent produced 20k lines of Lean proving a theorem from a paper. Review strategy?",
+      "pass_if": [
+        "audit exact theorem statement/definitions",
+        "sandbox/security if external repo",
+        "compile/check proof",
+        "inspect axioms",
+        "create human explanation"
+      ]
+    },
+    {
+      "prompt": "Our 5-year Lean project has one unavailable deep theorem. Can we continue?",
+      "pass_if": [
+        "allow explicitly tracked weakest temporary assumption during development",
+        "dependency record",
+        "discharge before final release"
+      ]
+    }
+  ]
+}
