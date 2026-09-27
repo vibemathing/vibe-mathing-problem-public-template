@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Fail-closed Git diff gate for candidate PRs and trusted Harness maintenance."""
+"""Fail-closed Git diff gate for candidates, Harness maintenance and template releases."""
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -20,6 +21,13 @@ from vibe_mathing.web_channel import (
 )
 
 MAINTENANCE_BRANCH_PREFIX = "maintenance/harness-"
+TEMPLATE_RELEASE_BRANCH_PREFIX = "maintenance/template-release-"
+# 模板迁移例外只允许三个不可执行、未准入的占位账本；其余研究真相仍禁止修改。
+TEMPLATE_RELEASE_INERT_FILES = {
+    "problem-library/records/canonical-problems.jsonl",
+    "problem-library/records/problems.jsonl",
+    "result-library/indexes/solutions.json",
+}
 TRUSTED_HARNESS_MAINTAINERS = {"vibemathing"}
 GENERATED_HARNESS_FILES = {
     "HARNESS_SNAPSHOT.json",
@@ -179,10 +187,143 @@ def validate_harness_maintenance(root: Path, base: str, head: str, branch: str, 
     return errors
 
 
+def validate_template_release(root: Path, base: str, head: str, branch: str, actor: str) -> list[str]:
+    """单独验证整版模板迁移；不改变候选 PR 与日常 Harness 维护路径。"""
+    errors: list[str] = []
+    suffix = branch[len(TEMPLATE_RELEASE_BRANCH_PREFIX):]
+    if not suffix or not re.fullmatch(r"[A-Za-z0-9._-]+", suffix):
+        errors.append("invalid template release branch")
+    if actor not in TRUSTED_HARNESS_MAINTAINERS:
+        errors.append("template release actor is not trusted")
+    if errors:
+        return errors  # 不可信调用方无需为千文件迁移消耗 Git blob 扫描预算。
+    try:
+        changes = changed_paths(root, base, head)
+        before = json_at_revision(root, base, "HARNESS_SNAPSHOT.json")
+        after = json_at_revision(root, head, "HARNESS_SNAPSHOT.json")
+        before_history = json_at_revision(root, base, "HARNESS_SNAPSHOT_HISTORY.json")
+        after_history = json_at_revision(root, head, "HARNESS_SNAPSHOT_HISTORY.json")
+        before_snapshot_bytes = git(root, "show", f"{base}:HARNESS_SNAPSHOT.json", binary=True)
+        after_snapshot_bytes = git(root, "show", f"{head}:HARNESS_SNAPSHOT.json", binary=True)
+        importer_bytes = git(root, "show", f"{head}:scripts/import_web_attempt.py", binary=True)
+        contract = json_at_revision(root, head, "problem-library/records/canonical-problems.jsonl")
+        base_contract = json_at_revision(root, base, "problem-library/records/canonical-problems.jsonl")
+        inert = git(root, "show", f"{head}:problem-library/records/problems.jsonl", binary=True)
+        solutions = json_at_revision(root, head, "result-library/indexes/solutions.json")
+    except (RuntimeError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        return errors + [str(exc)]
+    if not changes:
+        errors.append("template release has no changed files")
+    if len(changes) > 1200:
+        errors.append("template release exceeds 1200 changed entries")
+    old_version = semantic_version(before.get("harness_version"))
+    new_version = semantic_version(after.get("harness_version"))
+    if old_version is None or new_version is None or new_version <= old_version:
+        errors.append("template release must strictly increase semantic harness_version")
+    old_entries = before_history.get("entries")
+    new_entries = after_history.get("entries")
+    if not isinstance(old_entries, list) or not old_entries or not isinstance(new_entries, list):
+        errors.append("template release snapshot history is missing")
+    else:
+        old_tail = old_entries[-1]
+        if not isinstance(old_tail, dict) or old_tail.get("harness_snapshot_sha256") != hashlib.sha256(before_snapshot_bytes).hexdigest():
+            errors.append("template release base snapshot history binding mismatch")
+        next_entry = {
+            "harness_snapshot_sha256": hashlib.sha256(after_snapshot_bytes).hexdigest(),
+            "harness_version": after.get("harness_version"),
+            "tree_sha256": after.get("tree_sha256"),
+            "source_manifest_sha256": after.get("source", {}).get("source_manifest_sha256"),
+            "importer_policy_sha256": hashlib.sha256(importer_bytes).hexdigest(),
+        }
+        if (new_entries != old_entries + [next_entry]
+                or before_history.get("repository") != after_history.get("repository")
+                or after_history.get("repository") != after.get("repository")
+                or before_history.get("repository_identity") != after_history.get("repository_identity")):
+            errors.append("template release must append exactly one bound snapshot history entry")
+    if suffix != after.get("harness_version"):
+        errors.append("template release branch must match new harness_version")
+    if before.get("repository") != after.get("repository"):
+        errors.append("template release cannot change repository identity")
+    old_identity, new_identity = before.get("repository_identity"), after.get("repository_identity")
+    if not isinstance(old_identity, dict) or not isinstance(new_identity, dict):
+        errors.append("template repository identity missing")
+    else:
+        for field in ("full_name", "default_branch", "visibility"):
+            if old_identity.get(field) != new_identity.get(field):
+                errors.append(f"template repository identity drift: {field}")
+        if new_identity.get("binding_state") != "planned" or any(new_identity.get(k) is not None for k in ("database_id", "node_id")):
+            errors.append("template release identity must be unbound planned")
+    source = after.get("source")
+    if not isinstance(source, dict) or source.get("worktree_dirty") is not False:
+        errors.append("template release source must be a clean committed worktree")
+    acceptance = contract.get("acceptance")
+    if not isinstance(contract, dict) or contract.get("problem_id") != "problem:template-placeholder" or contract.get("lifecycle") != "draft" or not isinstance(acceptance, dict) or acceptance.get("policy") != "solution-admission-v1":
+        errors.append("template release must retain the draft placeholder contract")
+    else:
+        digest = hashlib.sha256(json.dumps(contract, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        problem = after.get("problem")
+        if not isinstance(problem, dict) or problem.get("problem_id") != contract["problem_id"] or problem.get("lifecycle") != "draft" or problem.get("admission") != "preview_unadmitted" or problem.get("contract_sha256") != digest:
+            errors.append("template release snapshot contract digest/identity mismatch")
+    if not isinstance(base_contract, dict) or before.get("problem", {}).get("contract_sha256") != hashlib.sha256(json.dumps(base_contract, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest():
+        errors.append("template release base contract digest mismatch")
+    if inert != b"":
+        errors.append("template problem observation ledger must remain empty")
+    if solutions.get("result_ids") != [] or set(solutions) != {"generated_at", "schema_version", "result_ids"}:
+        errors.append("template solution index must remain empty and inert")
+    for snapshot in (before, after):
+        problem = snapshot.get("problem", {})
+        if not isinstance(problem, dict) or problem.get("problem_id") != "problem:template-placeholder" or problem.get("lifecycle") != "draft" or problem.get("admission") != "preview_unadmitted":
+            errors.append("template release base/head must both be unadmitted drafts")
+    old_files, new_files = harness_owned(before), harness_owned(after)
+    expected = {path for path in old_files.keys() | new_files.keys() if old_files.get(path) != new_files.get(path)}
+    actual: set[str] = set()
+    changed_bytes = 0
+    for status, paths in changes:
+        op = status[:1]
+        if op not in {"A", "M", "D", "R"} or len(paths) != (2 if op == "R" else 1):
+            errors.append(f"template release allows only add/modify/delete/rename: {status} {paths}")
+        for path in paths:
+            if path in actual:
+                errors.append(f"duplicate template release path: {path}")
+            actual.add(path)
+            if path.startswith("research/artifacts/") or (path in MUTABLE_TRUTH_FILES and path not in TEMPLATE_RELEASE_INERT_FILES):
+                errors.append(f"template release cannot change research truth/candidate state: {path}")
+            if path not in old_files and path not in new_files and path not in GENERATED_HARNESS_FILES and path not in TEMPLATE_RELEASE_INERT_FILES:
+                errors.append(f"template release path is not snapshot-owned or explicitly inert: {path}")
+            # 重命名只检查新路径的模式/摘要；旧路径在下方的 expected/actual 集合中核对。
+            if op == "D" or (op == "R" and path == paths[0]):
+                continue
+            mode, size = tree_mode_and_size(root, head, path)
+            if mode not in {"100644", "100755"} or size is None:
+                errors.append(f"template release requires regular file: {path}")
+                continue
+            changed_bytes += size
+            if size > 1_048_576:
+                errors.append(f"template release file exceeds 1048576 bytes: {path}")
+            entry = new_files.get(path)
+            if entry is not None:
+                raw = git(root, "show", f"{head}:{path}", binary=True)
+                assert isinstance(raw, bytes)
+                if entry.get("sha256") != hashlib.sha256(raw).hexdigest() or entry.get("bytes") != size or entry.get("mode") != ("0" + mode[-3:]):
+                    errors.append(f"template release snapshot member drift: {path}")
+    if changed_bytes > 8_388_608:
+        errors.append("template release total changed bytes exceeds 8388608")
+    expected.update(path for path in actual if path in GENERATED_HARNESS_FILES or path in TEMPLATE_RELEASE_INERT_FILES)
+    if "HARNESS_SNAPSHOT.json" not in actual or "HARNESS_SNAPSHOT_HISTORY.json" not in actual:
+        errors.append("template release must regenerate snapshot and history")
+    if expected - actual:
+        errors.append(f"template release snapshot delta missing paths: {sorted(expected - actual)[:5]}")
+    if actual - expected:
+        errors.append(f"template release extra paths: {sorted(actual - expected)[:5]}")
+    return errors
+
+
 def validate(root: Path, base: str, head: str, branch: str, actor: str | None = None) -> list[str]:
     errors: list[str] = []
     if branch.startswith(MAINTENANCE_BRANCH_PREFIX):
         return validate_harness_maintenance(root, base, head, branch, actor or "")
+    if branch.startswith(TEMPLATE_RELEASE_BRANCH_PREFIX):
+        return validate_template_release(root, base, head, branch, actor or "")
     try:
         profile = load_json(root / "WEB_CHANNEL_PROFILE.json")
         output_contract = load_json(root / "WEB_OUTPUT_CONTRACT.json")
@@ -271,7 +412,7 @@ def validate(root: Path, base: str, head: str, branch: str, actor: str | None = 
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate a Web GPT candidate pull request diff.")
+    parser = argparse.ArgumentParser(description="Validate a role-specific pull request diff.")
     parser.add_argument("--project-root", type=Path, default=Path.cwd())
     parser.add_argument("--base", required=True)
     parser.add_argument("--head", default="HEAD")

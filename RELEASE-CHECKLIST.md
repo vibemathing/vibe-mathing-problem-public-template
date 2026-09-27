@@ -1,7 +1,12 @@
 # Release checklist
 
 A release is complete only when every gate below has a fresh receipt bound to
-this exact commit and generated snapshot.
+this exact commit and generated snapshot. Whole-template upgrades use a
+`maintenance/template-release-<VERSION>` PR from a trusted publisher and an
+incremented, rebuilt snapshot/history (`--continue-snapshot-history` retains the
+verified old entries for the same repository). This route never relaxes `web/attempt-*`
+candidate validation or authorizes mathematical truth changes. A prior PR's
+one-time override is not a new release receipt.
 
 - [ ] Every bundled source has an official URL and immutable revision.
 - [ ] LICENSE/NOTICE and attribution are verified for every source family.

@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from build_problem_repository import BUILDER_VERSION, enforce_public_rights, read_suite_version
+from build_problem_repository import BUILDER_VERSION, enforce_public_rights, history_to_continue, read_suite_version
 from validate_web_problem_harness import validate_pi_goal_npm_cache
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +28,28 @@ class BuilderSyncTests(unittest.TestCase):
             (invalid_root / "VERSION").write_text("latest\n", encoding="utf-8")
             with self.assertRaisesRegex(RuntimeError, "semantic version"):
                 read_suite_version(invalid_root)
+
+    def test_same_repository_history_continuation_preserves_old_entries_and_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="vibe-history-continuation-") as directory:
+            source = Path(directory)
+            snapshot_path = source / "HARNESS_SNAPSHOT.json"
+            history_path = source / "HARNESS_SNAPSHOT_HISTORY.json"
+            shutil.copy2(ROOT / snapshot_path.name, snapshot_path)
+            shutil.copy2(ROOT / history_path.name, history_path)
+            prior = json.loads(history_path.read_text(encoding="utf-8"))
+            incoming = json.loads(snapshot_path.read_text(encoding="utf-8"))
+            incoming["harness_version"] = "999.0.0"
+            expected = history_to_continue(source, incoming, "0" * 64)
+            self.assertEqual(expected, prior["entries"])
+            self.assertGreater(len(expected), 1, "existing release history must not reset to one entry")
+            incoming["problem"]["problem_id"] = "problem:other"
+            with self.assertRaisesRegex(RuntimeError, "same repository/problem"):
+                history_to_continue(source, incoming, "0" * 64)
+            incoming["problem"]["problem_id"] = "problem:template-placeholder"
+            prior["entries"][-1]["harness_snapshot_sha256"] = "0" * 64
+            history_path.write_text(json.dumps(prior), encoding="utf-8")
+            with self.assertRaisesRegex(RuntimeError, "not bound"):
+                history_to_continue(source, incoming, "0" * 64)
 
     def test_builder_has_public_rights_gate_and_runtime_cleanup(self) -> None:
         text = (ROOT / "scripts/build_problem_repository.py").read_text(encoding="utf-8")
@@ -82,6 +104,9 @@ class BuilderSyncTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(json.loads(result.stdout)["decision"], "PASS")
             self.assertTrue((output / "HARNESS_SNAPSHOT.json").is_file())
+            # 新问题仓默认从一条历史开始；仅显式同仓升级才续接已有历史。
+            history = json.loads((output / "HARNESS_SNAPSHOT_HISTORY.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(history["entries"]), 1)
             pi_settings = json.loads((output / ".pi/settings.json").read_text(encoding="utf-8"))
             self.assertEqual(pi_settings["packages"], ["npm:pi-goal-x@0.31.9"])
             self.assertEqual(len(pi_settings["skills"]), 10)

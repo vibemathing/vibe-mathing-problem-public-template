@@ -912,7 +912,7 @@
     "vendor/upstream",
     "build"
   ],
-  "harness_version": "2.3.1",
+  "harness_version": "2.3.2",
   "manifest_id": "harness-source:web-research-full",
   "profile": "web-research-full",
   "schema_version": "1.0.0"
