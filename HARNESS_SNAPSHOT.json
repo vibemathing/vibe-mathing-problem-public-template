@@ -76,7 +76,7 @@
     "sha256": "a6447bf5ec85adc129d9bd0a9fc155067e26ce3ecd2c565fcd18a267eba809b8",
     "version": "2.3.1"
   },
-  "built_at": "2026-09-24T07:27:37+08:00",
+  "built_at": "2026-09-27T11:54:10+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -8209,7 +8209,7 @@
     "commit": "22bf3d8d3d602a9ef39308943cbfa123c84af70a",
     "repository": "reviewed-public-export",
     "source_manifest_sha256": "22bf3d8d3d602a9ef39308943cbfa123c84af70a372abfe786b48332b6bac414",
-    "worktree_dirty": true
+    "worktree_dirty": false
   },
   "tree_sha256": "7fb074ce2010dfbe81f500ad57ee6ea98b3d304bb521d911b4e2df72a61108c9"
 }
