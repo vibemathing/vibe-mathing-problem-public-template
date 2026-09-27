@@ -120,6 +120,42 @@ def validate_json(instance: Any, schema_path: Path, label: str) -> None:
         raise RuntimeError(f"{label} schema validation failed: {errors[0].message}")
 
 
+def history_to_continue(root: Path, snapshot: dict[str, Any], snapshot_sha: str) -> list[dict[str, Any]]:
+    """只在同仓版本升级时校验旧尾记录，再保留完整快照历史。"""
+    old_snapshot_path = root / "HARNESS_SNAPSHOT.json"
+    old_history_path = root / "HARNESS_SNAPSHOT_HISTORY.json"
+    if any(not path.is_file() or path.is_symlink() for path in (old_snapshot_path, old_history_path)):
+        raise RuntimeError("same-repository history continuation requires regular prior snapshot and history")
+    previous = json.loads(old_snapshot_path.read_text(encoding="utf-8"))
+    history = json.loads(old_history_path.read_text(encoding="utf-8"))
+    validate_json(previous, CONTROL / "harness-snapshot-manifest.v1.schema.json", "prior snapshot")
+    validate_json(history, CONTROL / "harness-snapshot-history.v1.schema.json", "prior history")
+    old_version, new_version = previous["harness_version"], snapshot["harness_version"]
+    if (previous["repository"] != snapshot["repository"]
+            or previous["repository_identity"] != snapshot["repository_identity"]
+            or previous["problem"] != snapshot["problem"]
+            or tuple(map(int, old_version.split("."))) >= tuple(map(int, new_version.split(".")))):
+        raise RuntimeError("history continuation requires the same repository/problem and a strictly newer version")
+    identity = {key: previous["repository_identity"][key]
+                for key in ("database_id", "node_id", "default_branch", "visibility")}
+    entries = history["entries"]
+    importer = next((item for item in previous["files"] if item["path"] == "scripts/import_web_attempt.py"), None)
+    old_tail = {
+        "harness_snapshot_sha256": sha256_file(old_snapshot_path),
+        "harness_version": old_version,
+        "tree_sha256": previous["tree_sha256"],
+        "source_manifest_sha256": previous["source"]["source_manifest_sha256"],
+        "importer_policy_sha256": importer["sha256"] if importer else None,
+    }
+    if (history["repository"] != previous["repository"]
+            or history["repository_identity"] != identity
+            or entries[-1] != old_tail
+            or len({item["harness_snapshot_sha256"] for item in entries}) != len(entries)
+            or snapshot_sha in {item["harness_snapshot_sha256"] for item in entries}):
+        raise RuntimeError("prior snapshot history is missing, duplicated or not bound to the source snapshot")
+    return entries
+
+
 def source_repository(root: Path) -> str:
     try:
         remote = run(["git", "remote", "get-url", "origin"], root)
@@ -593,6 +629,9 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     validate_json(snapshot, CONTROL / "harness-snapshot-manifest.v1.schema.json", "Harness snapshot")
     write_json(output / "HARNESS_SNAPSHOT.json", snapshot)
     snapshot_sha = sha256_file(output / "HARNESS_SNAPSHOT.json")
+    if args.continue_snapshot_history and template != root:
+        raise RuntimeError("same-repository history continuation requires the source repository as template")
+    previous_entries = history_to_continue(root, snapshot, snapshot_sha) if args.continue_snapshot_history else []
     history = {
         "schema_version": "1.0.0",
         "repository": args.repository,
@@ -602,7 +641,7 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
             "default_branch": args.default_branch,
             "visibility": args.visibility,
         },
-        "entries": [{
+        "entries": previous_entries + [{
             "harness_snapshot_sha256": snapshot_sha,
             "harness_version": snapshot["harness_version"],
             "tree_sha256": snapshot["tree_sha256"],
@@ -689,6 +728,7 @@ def main() -> int:
     parser.add_argument("--default-branch", default="main")
     parser.add_argument("--visibility", choices=("private", "public"), default="private")
     parser.add_argument("--allow-planned-repository-identity", action="store_true", help="preview/local testing only")
+    parser.add_argument("--continue-snapshot-history", action="store_true", help="append the verified previous snapshot for a same-repository release")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--allow-dirty-source", action="store_true", help="synthetic/local testing only")
     parser.add_argument("--allow-draft-problem", action="store_true", help="preview/local testing only")
