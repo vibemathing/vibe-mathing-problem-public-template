@@ -618,6 +618,18 @@
       "privacy_class": "public_code",
       "required": true,
       "rewrite_policy": "replace_from_source",
+      "source_path": "scripts/test_validate_math_knowledge_registry.py",
+      "target_path": "scripts/test_validate_math_knowledge_registry.py"
+    },
+    {
+      "excludes": [],
+      "kind": "file",
+      "layer": "research_core",
+      "license_ref": null,
+      "owner": "harness",
+      "privacy_class": "public_code",
+      "required": true,
+      "rewrite_policy": "replace_from_source",
       "source_path": "scripts/test_validate_research_os_events.py",
       "target_path": "scripts/test_validate_research_os_events.py"
     },
@@ -936,7 +948,7 @@
     "vendor/upstream",
     "build"
   ],
-  "harness_version": "2.3.3",
+  "harness_version": "2.3.4",
   "manifest_id": "harness-source:web-research-full",
   "profile": "web-research-full",
   "schema_version": "1.0.0"
