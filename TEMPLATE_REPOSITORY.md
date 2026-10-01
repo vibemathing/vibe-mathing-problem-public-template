@@ -69,9 +69,11 @@ template's ProblemContract is a draft: **do not start an actor or Goal here**.
    same command with `--check`. This replays only the locked diff against the
    exact official 71-file preimage and verifies the entire 72-file output;
    unknown preimages fail **without overwrite** and a successful install keeps
-   the old upstream tree under Git-ignored `.pi/npm/`. Re-running is read-only
-   when already patched. Do not start an actor between upstream install and
-   patch verification. `pi list` proves only a declaration; after checks,
+   the old upstream tree under Git-ignored `.pi/npm/`. Both the package root
+   and its members must be owner-controlled and non-group/world-writable;
+   an unsafe package root is rejected, never auto-chmodded. Re-running is
+   read-only when already patched. Do not start an actor between upstream
+   install and patch verification. `pi list` proves only a declaration; after checks,
    confirm `/goal-status` and `/goal-snapshot` really register in an isolated
    Pi process. A fresh offline clone without the project package cache lacks
    those commands. `.pi/npm/` is Git-ignored, never a snapshot member. Run

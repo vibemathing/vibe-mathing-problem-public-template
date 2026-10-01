@@ -203,6 +203,31 @@ class GoalIntegrationTests(unittest.TestCase):
             self.assertNotEqual(blocked.returncode, 0, 'symlinked root must not be accepted')
             self.assertEqual((package / 'README.md').read_bytes(), b'patched\n')
 
+    def test_package_root_permissions_reject_without_repair_on_first_install_and_recheck(self):
+        with tempfile.TemporaryDirectory(prefix='goal-install-root-mode-') as tmp:
+            for phase in ('upstream', 'patched'):
+                with self.subTest(phase=phase):
+                    repo = Path(tmp) / phase; repo.mkdir()
+                    package = install_fixture(repo)
+                    module = subject()
+                    if phase == 'patched':
+                        self.assertEqual(module.install(repo, True), 'PATCHED_VERIFIED')
+                    before = {name: (package / name).read_bytes() for name in ('README.md', 'package.json')}
+                    backups_before = sorted((repo / '.pi/npm').glob('.goal-patch-upstream-*'))
+                    stages_before = sorted((repo / '.pi/npm').glob('.goal-patch-stage-*'))
+                    package.chmod(0o777)
+                    command = [sys.executable, str(INSTALLER), '--project-root', '.',
+                               '--apply' if phase == 'upstream' else '--check']
+                    result = subprocess.run(command, cwd=repo, text=True, capture_output=True, timeout=15)
+                    self.assertNotEqual(result.returncode, 0, f'{phase}: untrusted package root was accepted')
+                    self.assertIn('BLOCK (ValueError)', result.stderr)
+                    with self.assertRaisesRegex(ValueError, 'Goal package member is not owner-controlled regular data'):
+                        module.install(repo, phase == 'upstream')
+                    self.assertEqual(package.stat().st_mode & 0o777, 0o777)
+                    self.assertEqual({name: (package / name).read_bytes() for name in before}, before)
+                    self.assertEqual(sorted((repo / '.pi/npm').glob('.goal-patch-upstream-*')), backups_before)
+                    self.assertEqual(sorted((repo / '.pi/npm').glob('.goal-patch-stage-*')), stages_before)
+
     def test_install_stage_race_preserves_new_owner_bytes(self):
         with tempfile.TemporaryDirectory(prefix='goal-install-race-') as tmp:
             repo = Path(tmp); package = install_fixture(repo); canary = package / 'README.md'

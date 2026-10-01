@@ -30,7 +30,7 @@ def inventory(package: Path) -> tuple[int, str]:
     rows = []
     if package.is_symlink() or not package.is_dir():
         raise ValueError('Goal npm cache is not a real package directory')
-    for path in sorted(package.rglob('*')):
+    for path in (package, *sorted(package.rglob('*'))):
         info = path.lstat()
         if not (stat.S_ISREG(info.st_mode) or stat.S_ISDIR(info.st_mode)) or info.st_uid != os.getuid() or info.st_mode & 0o022:
             raise ValueError('Goal package member is not owner-controlled regular data')
@@ -97,10 +97,10 @@ def install(root: Path, apply: bool) -> str:
     if ignored.returncode != 0 or tracked.returncode != 0 or tracked.stdout:
         raise ValueError('Goal npm cache must be Git-ignored and untracked')
     with install_lock(npm):
+        preimage = inventory(package)
         identity = json.loads((package / 'package.json').read_text())
         if identity.get('name') != 'pi-goal-x' or identity.get('version') != '0.31.9' or identity.get('license') != 'MIT':
             raise ValueError('Goal package identity drift')
-        preimage = inventory(package)
         state = tree_state(package)
         if preimage != inventory(package) or state != tree_state(package):
             raise ValueError('Goal package changed while reading the preimage')
