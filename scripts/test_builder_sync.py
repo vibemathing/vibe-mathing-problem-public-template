@@ -2,6 +2,7 @@
 """Regression tests for builder/sync fail-closed publication controls."""
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 import subprocess
@@ -50,6 +51,42 @@ class BuilderSyncTests(unittest.TestCase):
             history_path.write_text(json.dumps(prior), encoding="utf-8")
             with self.assertRaisesRegex(RuntimeError, "not bound"):
                 history_to_continue(source, incoming, "0" * 64)
+
+    def test_explicit_prior_history_source_replaces_unpublished_same_version_tail(self) -> None:
+        with tempfile.TemporaryDirectory(prefix='vibe-prior-history-') as directory:
+            prior = Path(directory) / 'prior'; prior.mkdir()
+            old = json.loads((ROOT / 'HARNESS_SNAPSHOT.json').read_text(encoding='utf-8'))
+            history = json.loads((ROOT / 'HARNESS_SNAPSHOT_HISTORY.json').read_text(encoding='utf-8'))
+            old['harness_version'] = '0.0.1'
+            old_bytes = (json.dumps(old, ensure_ascii=False, sort_keys=True, indent=2) + '\n').encode()
+            (prior / 'HARNESS_SNAPSHOT.json').write_bytes(old_bytes)
+            history['entries'][-1]['harness_snapshot_sha256'] = hashlib.sha256(old_bytes).hexdigest()
+            history['entries'][-1]['harness_version'] = old['harness_version']
+            (prior / 'HARNESS_SNAPSHOT_HISTORY.json').write_text(
+                json.dumps(history, ensure_ascii=False, sort_keys=True, indent=2) + '\n', encoding='utf-8')
+            output = Path(directory) / 'generated'
+            command = [sys.executable, str(ROOT / 'scripts/build_problem_repository.py'),
+                       '--project-root', str(ROOT), '--template', str(ROOT),
+                       '--problem-file', str(ROOT / 'problem-library/records/canonical-problems.jsonl'),
+                       '--repository', 'vibemathing/vibe-mathing-problem-public-template',
+                       '--visibility', 'public', '--allow-dirty-source', '--allow-draft-problem',
+                       '--allow-unadmitted-problem', '--allow-planned-repository-identity',
+                       '--continue-snapshot-history', '--history-source', str(prior),
+                       '--output', str(output)]
+            built = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
+            self.assertEqual(built.returncode, 0, built.stderr)
+            issued = json.loads((output / 'HARNESS_SNAPSHOT_HISTORY.json').read_text(encoding='utf-8'))
+            self.assertEqual(issued['entries'][:-1], history['entries'],
+                             '未发布的同版本末项不得作为下一历史祖先')
+            self.assertEqual(issued['entries'][-1]['harness_version'],
+                             (ROOT / 'VERSION').read_text(encoding='utf-8').strip())
+            self.assertNotEqual(issued['entries'][-1]['harness_snapshot_sha256'],
+                                history['entries'][-1]['harness_snapshot_sha256'])
+            command.remove('--history-source');command.remove(str(prior))
+            command[-1] = str(Path(directory) / 'blocked')
+            blocked = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
+            self.assertNotEqual(blocked.returncode, 0)
+            self.assertIn('strictly newer version', blocked.stderr)
 
     def test_builder_has_public_rights_gate_and_runtime_cleanup(self) -> None:
         text = (ROOT / "scripts/build_problem_repository.py").read_text(encoding="utf-8")

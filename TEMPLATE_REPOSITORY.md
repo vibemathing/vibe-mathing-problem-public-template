@@ -5,7 +5,14 @@ Pi-native research Harness, its bounded Web transport profile, and one explicit
 inert placeholder ProblemContract. The template is not a research repository
 and must not be bound to, or start an actor for, any mathematical problem. Root
 `VERSION` is the only suite-version truth; builder, source manifest and snapshot
-must match it exactly or fail closed.
+must match it exactly or fail closed. When revising an **unpublished** candidate
+at the same VERSION, a new snapshot must continue from the independently
+verified **last published** snapshot/history using
+`--continue-snapshot-history --history-source <read-only-published-root>`;
+never append the superseded candidate tail or silently truncate published
+history. The builder checks prior schema, exact tail digest, repository/problem
+identity, and strict previous-version ordering; the release diff checks the
+published history prefix. `--history-source` is not a second active truth source.
 
 ## Placeholder policy
 
@@ -72,6 +79,19 @@ template's ProblemContract is a draft: **do not start an actor or Goal here**.
    excludes a verified patched cache. If Pi update resets it to upstream,
    repeat the **verified** patch; if bytes differ from either lock state,
    stop and investigate rather than silently reinstalling or weakening checks.
+   Installers using this script coordinate with an owner-only advisory flock;
+   before promotion it re-reads source bytes and inode/time metadata, rejecting
+   an intervening owner edit without replacing the current tree. After either
+   rename/readback failure it restores the original tree without overwriting
+   an unexpected current tree (which is quarantined). This is **not** a fully
+   atomic transaction: a non-cooperating writer can still race the final
+   re-read and first rename, and power loss between the two renames leaves
+   `pi-goal-x/` missing with the old tree under ignored
+   `.pi/npm/.goal-patch-upstream-*`. In that state **do not** run Pi or blindly
+   reinstall: independently check the old backup against the upstream lock,
+   verify the original package path is absent, then restore that exact backup
+   to the original location and rerun `--check`/`--apply`. Unknown or multiple
+   backups require manual isolation, not automated overwrite.
 3. Set `PI_GOAL_ROOT` in the actor's trusted launch environment to an existing,
    problem-specific **absolute directory outside the Git repository**, owned by
    the actor user with `0700` permissions. Resolve and reject symlink aliases;
