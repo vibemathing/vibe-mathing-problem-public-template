@@ -52,6 +52,11 @@
       "target_path": ".pi/skills"
     },
     {
+      "excludes": [], "kind": "tree", "layer": "research_core", "license_ref": null,
+      "owner": "harness", "privacy_class": "public_code", "required": true,
+      "rewrite_policy": "replace_from_source", "source_path": ".pi/extensions", "target_path": ".pi/extensions"
+    },
+    {
       "excludes": [],
       "kind": "tree",
       "layer": "math_layer",
@@ -754,6 +759,36 @@
       "target_path": "scripts/build_problem_repository.py"
     },
     {
+      "excludes": [], "kind": "file", "layer": "research_core", "license_ref": null,
+      "owner": "harness", "privacy_class": "public_code", "required": true,
+      "rewrite_policy": "replace_from_source", "source_path": "scripts/goal_shadow_bridge.py", "target_path": "scripts/goal_shadow_bridge.py"
+    },
+    {
+      "excludes": [], "kind": "file", "layer": "research_core", "license_ref": null,
+      "owner": "harness", "privacy_class": "public_code", "required": true,
+      "rewrite_policy": "replace_from_source", "source_path": "scripts/goal_snapshot_store.py", "target_path": "scripts/goal_snapshot_store.py"
+    },
+    {
+      "excludes": [], "kind": "file", "layer": "research_core", "license_ref": null,
+      "owner": "harness", "privacy_class": "public_code", "required": true,
+      "rewrite_policy": "replace_from_source", "source_path": "scripts/install_goal_patch.py", "target_path": "scripts/install_goal_patch.py"
+    },
+    {
+      "excludes": [], "kind": "file", "layer": "research_core", "license_ref": null,
+      "owner": "harness", "privacy_class": "public_code", "required": true,
+      "rewrite_policy": "replace_from_source", "source_path": "scripts/test_goal_integration.py", "target_path": "scripts/test_goal_integration.py"
+    },
+    {
+      "excludes": [], "kind": "file", "layer": "research_core", "license_ref": null,
+      "owner": "harness", "privacy_class": "public_code", "required": true,
+      "rewrite_policy": "replace_from_source", "source_path": "governance/control-plane/pi-goal-upstream.v1.json", "target_path": "governance/control-plane/pi-goal-upstream.v1.json"
+    },
+    {
+      "excludes": [], "kind": "file", "layer": "research_core", "license_ref": null,
+      "owner": "harness", "privacy_class": "public_code", "required": true,
+      "rewrite_policy": "replace_from_source", "source_path": "governance/control-plane/pi-goal-x-0.31.9.v1.patch", "target_path": "governance/control-plane/pi-goal-x-0.31.9.v1.patch"
+    },
+    {
       "excludes": [],
       "kind": "file",
       "layer": "web_channel",
@@ -948,7 +983,7 @@
     "vendor/upstream",
     "build"
   ],
-  "harness_version": "2.3.4",
+  "harness_version": "2.3.5",
   "manifest_id": "harness-source:web-research-full",
   "profile": "web-research-full",
   "schema_version": "1.0.0"

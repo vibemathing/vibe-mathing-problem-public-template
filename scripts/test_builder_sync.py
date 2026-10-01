@@ -198,7 +198,7 @@ class BuilderSyncTests(unittest.TestCase):
             root = Path(directory)
             (root / ".gitignore").write_text(".pi/npm/\n", encoding="utf-8")
             package = root / ".pi/npm/node_modules/pi-goal-x"
-            reviewed = Path.home() / ".pi/agent/npm/node_modules/pi-goal-x"
+            reviewed = ROOT / ".pi/npm/node_modules/pi-goal-x"
             if reviewed.is_dir():
                 shutil.copytree(reviewed, package)
             else:
@@ -208,6 +208,7 @@ class BuilderSyncTests(unittest.TestCase):
                     "pi": {"extensions": ["extensions/goal.ts"]},
                 }), encoding="utf-8")
                 (package / "extensions/goal.ts").write_text("// fixture only\n", encoding="utf-8")
+                (package / "LICENSE").write_text("MIT fixture only\n", encoding="utf-8")
             allowed, errors = validate_pi_goal_npm_cache(root)
             self.assertFalse(allowed)
             self.assertIn("requires a Git index", " ".join(errors))
@@ -250,7 +251,7 @@ class BuilderSyncTests(unittest.TestCase):
             self.assertIn("unreviewed sibling package", " ".join(errors))
 
     def test_builder_does_not_copy_verified_local_goal_install(self) -> None:
-        reviewed = Path.home() / ".pi/agent/npm/node_modules/pi-goal-x"
+        reviewed = ROOT / ".pi/npm/node_modules/pi-goal-x"
         if not reviewed.is_dir():
             self.skipTest("Pi Goal package unavailable; independent cache-boundary test still runs")
         with tempfile.TemporaryDirectory(prefix="vibe-goal-build-") as directory:

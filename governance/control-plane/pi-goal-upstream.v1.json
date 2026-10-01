@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "package": "npm:pi-goal-x@0.31.9",
+  "upstream_url": "https://www.npmjs.com/package/pi-goal-x/v/0.31.9",
+  "upstream_license": "MIT",
+  "upstream_integrity": "sha512-sknD0nCDRFE5A6X4VWqKl/dvI8I7qeGTZ0NT57ZjeBreh3yJxunNXpDjaI5pyDeB5JsW9KJ/dy8hZe7AiW+eGg==",
+  "upstream_files": 71,
+  "upstream_tree_sha256": "39f502c00608b7c8218cb0fb683adb25baba715e4b007e5fe447a5b2e9f23331",
+  "patch_license": "MIT",
+  "patch_file": "governance/control-plane/pi-goal-x-0.31.9.v1.patch",
+  "patch_sha256": "c7fb39ebb86a6fa8b56ea856218d4e74bd5b1e289dda8182e3ad0a06e25625ef",
+  "patched_files": 72,
+  "patched_tree_sha256": "cff0551eccda916cb1f818b72ad194e551faa409d5e01c200127e2eca6dea878",
+  "reviewed_runtime": "Pi 0.99.2; Node >=22.15; Python 3 with sqlite3; /usr/bin/zstd"
+}

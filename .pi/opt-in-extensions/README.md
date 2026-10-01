@@ -7,3 +7,5 @@
 **重要限制**：没有独立的文件系统隔离时，Shell 程序可绕过任何词法路径扫描，所以此扩展对 `bash/powershell` 一律拒绝（包括只读 Shell 命令）。它仅覆盖 Pi 内置 `write/edit/bash/powershell`；未声明的第三方写工具和扩展不在保证范围内。需要 Shell 的本地研究不能靠关闭此拒绝来冒充安全，应先在启动器验证操作系统级只读保护、工具 allowlist 和进程身份，再设计独立升级。`.pi/settings.json` 固定的 `pi-goal-x@0.31.9` 是唯一可选续行调度器，不是 Skill，也不由本护栏启动；实际 `/goal-direct` 与恢复流程见 `TEMPLATE_REPOSITORY.md`。严禁同时启用 HookLoop 续行。旧会话的 Hook 控制消息过滤属于**问题/会话专有迁移**，不写入通用模板。
 
 验证：在母版根执行 `node --experimental-transform-types --test scripts/test_local_write_guard.mjs`；该测试仅作预执行判定，不运行测试字符串里的命令。未通过真实 Pi loader、隔离和恢复演练前，不声明其可替代现役 Hook。
+
+Goal 缓存的受审补丁由 `scripts/install_goal_patch.py` 精确安装；`/goal-snapshot` 仅在显式绑定 owner 时运行，详见 `TEMPLATE_REPOSITORY.md`。本目录不包含研究源或运行数据。

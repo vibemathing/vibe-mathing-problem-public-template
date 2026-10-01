@@ -28,6 +28,7 @@ check-research: check check-research-os
 	python3 scripts/test_obligation_harness.py
 
 check-full: check-research
+	python3 scripts/test_goal_integration.py
 	python3 scripts/test_template_release_pr_diff.py
 	python3 scripts/test_report_local_checkpoint.py
 	python3 scripts/test_agent_identity.py
