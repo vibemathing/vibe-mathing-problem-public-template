@@ -73,10 +73,10 @@
   ],
   "builder": {
     "id": "build-problem-repository",
-    "sha256": "68cc763edd484d7a790bbac95eca85cf8919f3ae86155b30f1d769d39c51e2d8",
-    "version": "2.3.4"
+    "sha256": "6ab7bc0dac0b3a28a3447cf22bcd6103db1568f78c9b1cb5730663241ed83921",
+    "version": "2.3.5"
   },
-  "built_at": "2026-09-28T07:11:01+08:00",
+  "built_at": "2026-10-01T10:58:44+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -138,20 +138,44 @@
       "sha256": "8b0111b709eadcece1201ec575d1cc0c6e68c580d429fd2568b217330aa56cff"
     },
     {
-      "bytes": 3135,
+      "bytes": 3558,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/AGENTS.md",
-      "sha256": "b077de93c22f23076863a3c4004fe16d76c59e984f0b37e37401f33fcb133b40"
+      "sha256": "62cabf4afc15e02994847a0e61e3b1ea0619a910c1ff7ccb67bfba39616e08f1"
     },
     {
-      "bytes": 2137,
+      "bytes": 576,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/extensions/README.md",
+      "sha256": "6cca777276f3475de7670f65d3bcdb179cc17a2ab71b5019fcbcfcbe642e91a1"
+    },
+    {
+      "bytes": 2141,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/extensions/goal-context-core.mjs",
+      "sha256": "f886c50ca7f0d035b1f9d826f469c8c3f588db8c13365ebb984ccdf5fc93a934"
+    },
+    {
+      "bytes": 2763,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": ".pi/extensions/goal-context.ts",
+      "sha256": "0dbe509f115eba1d93c8833b8ec8baa7d602e42c4a4232c148bb90fc64dcdda1"
+    },
+    {
+      "bytes": 2349,
       "layer": "math_layer",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/opt-in-extensions/README.md",
-      "sha256": "d4ef5faf54dc8dc851a4a5b3b00a287181b8c8515e42e5bd542d090c0b909785"
+      "sha256": "83898f1909da4c16571ee286bc75272e9880a01895de3cd48caacf6c29325b24"
     },
     {
       "bytes": 7095,
@@ -170,20 +194,20 @@
       "sha256": "cccde764a230a4a1dc3455ae9cfc44bd4510c087a0074c881b602b1dae2a0344"
     },
     {
-      "bytes": 1409,
+      "bytes": 1692,
       "layer": "research_core",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/opt-in-skills/pi-goal-operator/CHANGELOG.md",
-      "sha256": "f68e2786df7c498b3b49490fdcc63a4439b7c1a019558173de5370efa1d7d3c3"
+      "sha256": "570fb2705562201eff17dbb5a158b5699f025cf4477e008bd5fd56f2b6dbeb44"
     },
     {
-      "bytes": 5392,
+      "bytes": 5688,
       "layer": "research_core",
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/opt-in-skills/pi-goal-operator/SKILL.md",
-      "sha256": "b21e775b0d5f1e94d4e862452fc5dde8d2ba2e06e73cc9c012185dbb46a284ab"
+      "sha256": "c52bcbf8cb39fdf2f33899b6ea965f1a0322ac9246252f71a34cf59cbc5cc7ca"
     },
     {
       "bytes": 6,
@@ -191,7 +215,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": ".pi/opt-in-skills/pi-goal-operator/VERSION",
-      "sha256": "80447316529fc62014fbaa047fb67c51ac30e32830cda370405349d8d66d196c"
+      "sha256": "297b50f08386d3521f8fdaf2f78eb8d9d0acdf452d2e61596905fba37208c792"
     },
     {
       "bytes": 187,
@@ -6890,12 +6914,20 @@
       "sha256": "17a41739b0a9444506b90916323e30ec5efaeefe61f4ded1febe159833ac3e81"
     },
     {
-      "bytes": 32759,
+      "bytes": 33218,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "AGENTS.md",
-      "sha256": "20648e816baaab4b10d275c1db0e4b1b9187c23a90386ba91406a34a749e8e99"
+      "sha256": "0b7058f1e9e9931fdd9846cddc25dcc6f24dba7fdfebf01e68c57065aa9ea941"
+    },
+    {
+      "bytes": 1640,
+      "layer": "web_channel",
+      "mode": "0644",
+      "owner": "harness",
+      "path": "CHANGELOG.md",
+      "sha256": "068483cba06548bdd1a714bf5a7a81ac7c4ce84d8b5c93f58dcc68edaba233cc"
     },
     {
       "bytes": 227,
@@ -6914,12 +6946,12 @@
       "sha256": "ba03aa0c40c3f86422e9335a1640c5cc875d36735b507e617a625656f3449051"
     },
     {
-      "bytes": 1783,
+      "bytes": 1825,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "Makefile",
-      "sha256": "ab7d9abcbdef56206e02ac6808d3c0a11ab5ee41a667629321d9ac474cf85aff"
+      "sha256": "9c0466b39b79e42e4cf5375f50a08a1064f24b768d324557f388e97109d0af54"
     },
     {
       "bytes": 774,
@@ -6930,20 +6962,20 @@
       "sha256": "7fbad2aacd67c8547e5055d2fa85c5da57dfabe141e86998f573bc569bc72290"
     },
     {
-      "bytes": 4965,
+      "bytes": 5636,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "README.md",
-      "sha256": "a304684c1b8788e76b285a2c27ceb78d0c02a4a62843574152da942750bf8691"
+      "sha256": "0b475c60fdaeecdd585cd792b5cdec32fad6b941a24b88c27426ca486d79d999"
     },
     {
-      "bytes": 2199,
+      "bytes": 2510,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "RELEASE-CHECKLIST.md",
-      "sha256": "7ab13b34ec3f65ebb9409e17844222f68d12084dd6c0d7c85bafc9ff07726705"
+      "sha256": "46ff2d9cd5e0eedd09360650e5ddfb92f130c01d80b7923c3108615d9f6ff3e8"
     },
     {
       "bytes": 445,
@@ -6954,12 +6986,12 @@
       "sha256": "9229ca3ee68d1ea79dc399b2a59ac80a02f71db2ddc979072fe48a5aa7704973"
     },
     {
-      "bytes": 9285,
+      "bytes": 15448,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "TEMPLATE_REPOSITORY.md",
-      "sha256": "d4d8e6dee4a1b3d7764dc917029dbaf52f7e559cd7706863cd9a5f14300a2ecd"
+      "sha256": "08c91ea40810a3a44ce5eecd4d124ad912910c74d58ae0d9ccb0e73e7260e2b3"
     },
     {
       "bytes": 6,
@@ -6967,7 +6999,7 @@
       "mode": "0644",
       "owner": "harness",
       "path": "VERSION",
-      "sha256": "386a85ff43996bfa097ad213275fa5294bd3d9668eafd1f41aafeade18423a9a"
+      "sha256": "717395a9f692749ed344f7237e736d43ec5ba651437c4e5f91c8dfc62a74ea26"
     },
     {
       "bytes": 2705,
@@ -7266,12 +7298,12 @@
       "sha256": "832f95ed467f18abf147ce22c602e6c37d32928110e8a284643eb922711d37e2"
     },
     {
-      "bytes": 29612,
+      "bytes": 31884,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "governance/control-plane/harness-source-manifest.v1.json",
-      "sha256": "58f34b733abcb826b7776357b1369ba3169fc44cf4f650f2063e88029fef3024"
+      "sha256": "5936efe64b64a725e7014a70ffe7ed293ee52d5a905312cc2af099df8d5d3c5e"
     },
     {
       "bytes": 2275,
@@ -7344,6 +7376,22 @@
       "owner": "harness",
       "path": "governance/control-plane/mathematical-reasoning-discipline.v1.json",
       "sha256": "eaa12475177866d550d9d6bce46692b5123eb04f5dabbec33ded3fa74390dc04"
+    },
+    {
+      "bytes": 794,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": "governance/control-plane/pi-goal-upstream.v1.json",
+      "sha256": "d818c62f95cbc3749406981ca1b6653aad79b465fe1e6c6a8c3a8c27b952307a"
+    },
+    {
+      "bytes": 11240,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": "governance/control-plane/pi-goal-x-0.31.9.v1.patch",
+      "sha256": "c7fb39ebb86a6fa8b56ea856218d4e74bd5b1e289dda8182e3ad0a06e25625ef"
     },
     {
       "bytes": 22804,
@@ -7810,12 +7858,12 @@
       "sha256": "eec49cc51b473d640b6ee5d0eab140e769a463180ce84d28fd272737d8f9553d"
     },
     {
-      "bytes": 38299,
+      "bytes": 38941,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/build_problem_repository.py",
-      "sha256": "68cc763edd484d7a790bbac95eca85cf8919f3ae86155b30f1d769d39c51e2d8"
+      "sha256": "6ab7bc0dac0b3a28a3447cf22bcd6103db1568f78c9b1cb5730663241ed83921"
     },
     {
       "bytes": 25643,
@@ -7826,12 +7874,36 @@
       "sha256": "6044006135fe3c43500e8bf72d5b9a16ffdb448e1543bdea1215706435b15561"
     },
     {
+      "bytes": 17383,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": "scripts/goal_shadow_bridge.py",
+      "sha256": "737d9537e3a5ef08ad0ec072e8e71cea72add5e953d576957f738fb798b00f9e"
+    },
+    {
+      "bytes": 10619,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": "scripts/goal_snapshot_store.py",
+      "sha256": "cacb83183497d790bbffb4bacb9ea2b04d9cfe731fbef5ed7dff0a99e45b9ac5"
+    },
+    {
       "bytes": 9235,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/import_web_attempt.py",
       "sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb"
+    },
+    {
+      "bytes": 8647,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": "scripts/install_goal_patch.py",
+      "sha256": "bc45075421910f134ab9cca03b4caf83bdd7a2f4b63ea78103ed66890c261fd7"
     },
     {
       "bytes": 3384,
@@ -7866,12 +7938,20 @@
       "sha256": "21ce2dd1f93b1961b6b85bd7747773f7c88fdae24bd549fed11b542e660fdfa8"
     },
     {
-      "bytes": 19804,
+      "bytes": 22739,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/test_builder_sync.py",
-      "sha256": "907e2c65f926e7ad601542c1ce0b44e87e625be16666be4c9d1cdc60ffb84b09"
+      "sha256": "82ca37f18f9b69f94360ebbb37be56dc26c29b56fb3b6d2e08ddbddf631c1ce3"
+    },
+    {
+      "bytes": 17290,
+      "layer": "research_core",
+      "mode": "0644",
+      "owner": "harness",
+      "path": "scripts/test_goal_integration.py",
+      "sha256": "ee96050d2aa269d0653abc1a8d3ec8b8abce07e4b7132064981f5c542b83aeea"
     },
     {
       "bytes": 4627,
@@ -8074,12 +8154,12 @@
       "sha256": "1388aa443691f45055e5c6c49d122e5f95bf55896f4d5b2154e754fe19881253"
     },
     {
-      "bytes": 60584,
+      "bytes": 61948,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/validate_web_problem_harness.py",
-      "sha256": "22a00bb52053081d20c09c22a64661d49c8244cc1a4c6f54cbfe46f0ca56abb5"
+      "sha256": "c582e135f735768e8ed0f9e0fc7e89139e716b84d3a11fe7031f774dc87af155"
     },
     {
       "bytes": 2410,
@@ -8218,7 +8298,7 @@
       "sha256": "e250018898ae62ffb669974f48b007b688844a23fa5543a5f6e379aaca20bc59"
     }
   ],
-  "harness_version": "2.3.4",
+  "harness_version": "2.3.5",
   "problem": {
     "admission": "preview_unadmitted",
     "contract_sha256": "f9236ddb5a3e6f9b9c0701df3ce6ddcab5391b930ee374a25b99207450f88027",
@@ -8238,10 +8318,10 @@
   "schema_version": "1.1.0",
   "snapshot_id": "harness-snapshot:template-placeholder",
   "source": {
-    "commit": "58f34b733abcb826b7776357b1369ba3169fc44c",
+    "commit": "5936efe64b64a725e7014a70ffe7ed293ee52d5a",
     "repository": "reviewed-public-export",
-    "source_manifest_sha256": "58f34b733abcb826b7776357b1369ba3169fc44cf4f650f2063e88029fef3024",
+    "source_manifest_sha256": "5936efe64b64a725e7014a70ffe7ed293ee52d5a905312cc2af099df8d5d3c5e",
     "worktree_dirty": false
   },
-  "tree_sha256": "a7e49ebbc6bc2984914a15433862a9f452455cea0b15c30d748f9a18ffcd0dc0"
+  "tree_sha256": "1c381643ef9bc19442fcacfd0fa8f4152fa19fc133b6713f58354c9dd1d50507"
 }

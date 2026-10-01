@@ -60,6 +60,9 @@ REQUIRED_CONTROL_FILES = {
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
     ".pi/AGENTS.md",
+    ".pi/extensions/README.md",
+    ".pi/extensions/goal-context.ts",
+    ".pi/extensions/goal-context-core.mjs",
     ".pi/settings.json",
     ".pi/pi-goal-x-settings.json",
     ".pi/opt-in-skills/README.md",
@@ -103,6 +106,12 @@ REQUIRED_CONTROL_FILES = {
     "governance/control-plane/web-context-profile.v1.json",
     "governance/control-plane/repository-admission-receipt.schema.json",
     "scripts/build_problem_repository.py",
+    "scripts/install_goal_patch.py",
+    "scripts/goal_shadow_bridge.py",
+    "scripts/goal_snapshot_store.py",
+    "scripts/test_goal_integration.py",
+    "governance/control-plane/pi-goal-upstream.v1.json",
+    "governance/control-plane/pi-goal-x-0.31.9.v1.patch",
     "scripts/build_web_context_bundle.py",
     "scripts/sync_problem_repository_harness.py",
     "scripts/validate_agent_identity.py",
@@ -127,8 +136,8 @@ FORBIDDEN_LOCAL_RUNTIME_FILES = {
 REQUIRED_EXCLUDED_CONTAINER_SKILLS = {"auto-goal", "auto-tmux", "nvidia-private-compute"}
 PI_GOAL_PACKAGE = "npm:pi-goal-x@0.31.9"  # 外部 Pi 扩展；不替代数学 Skill。
 # 固定版本已审查的 npm 包内容，不包括 .pi/npm 的 npm 元数据或其他可执行包。
-PI_GOAL_PACKAGE_TREE_SHA256 = "39f502c00608b7c8218cb0fb683adb25baba715e4b007e5fe447a5b2e9f23331"
-PI_GOAL_PACKAGE_FILES = 71
+PI_GOAL_PACKAGE_TREE_SHA256 = "cff0551eccda916cb1f818b72ad194e551faa409d5e01c200127e2eca6dea878"
+PI_GOAL_PACKAGE_FILES = 72
 PI_GOAL_DEFAULTS = {
     "disableTasks": True,
     "autoSelectSingleGoal": False,
@@ -360,6 +369,19 @@ def validate(root: Path) -> list[str]:
         errors.append("Harness tree digest mismatch")
     verified_npm_cache, cache_errors = validate_pi_goal_npm_cache(root)
     errors.extend(cache_errors)
+    try:
+        lock = load_json(root / "governance/control-plane/pi-goal-upstream.v1.json")
+        patch = root / "governance/control-plane/pi-goal-x-0.31.9.v1.patch"
+        if (lock.get("package") != PI_GOAL_PACKAGE or lock.get("upstream_license") != "MIT"
+                or lock.get("patch_license") != "MIT" or lock.get("patch_file") != patch.relative_to(root).as_posix()
+                or lock.get("patch_sha256") != sha256_file(patch)
+                or lock.get("patched_tree_sha256") != PI_GOAL_PACKAGE_TREE_SHA256
+                or lock.get("patched_files") != PI_GOAL_PACKAGE_FILES
+                or lock.get("upstream_tree_sha256") != "39f502c00608b7c8218cb0fb683adb25baba715e4b007e5fe447a5b2e9f23331"
+                or lock.get("upstream_files") != 71):
+            errors.append("reviewed Pi Goal source/patch lock drift")
+    except (OSError, ValueError, TypeError, AttributeError):
+        errors.append("reviewed Pi Goal source/patch lock missing or unsafe")
     identity_excludes = set(snapshot.get("digest_excludes", []))
     expected_identity_excludes = {"HARNESS_SNAPSHOT.json", "HARNESS_SNAPSHOT_HISTORY.json", "WEB_BOOTSTRAP.md"}
     if identity_excludes != expected_identity_excludes:

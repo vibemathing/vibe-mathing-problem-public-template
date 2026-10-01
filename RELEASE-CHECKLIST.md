@@ -17,7 +17,7 @@ one-time override is not a new release receipt.
 - [ ] For a concrete problem repository, the canonical ProblemContract and source ledger are exact and admitted. For this generic template, C05 is explicitly not applicable because the inert placeholder is intentionally retained.
 - [ ] Harness snapshot, history, source manifest and generated output are
       regenerated atomically; no unlisted files remain.
-- [ ] `make check-full` passes in a clean independent checkout.
+- [ ] `make check-full` passes in a clean independent checkout; Goal npm original version, MIT patch, exact before/after tree and generated-repository install check use this exact commit. A plain upstream cache cannot represent the patched feature; `/goal-snapshot` is inert unless explicitly bound to a sealed-pair owner, and the current generic reporter is not that owner.
 - [ ] For a concrete problem repository, Web repository identity, visibility,
       default branch, protection rules and required checks have fresh live-object
       receipts. For this generic template, C08 is explicitly not applicable

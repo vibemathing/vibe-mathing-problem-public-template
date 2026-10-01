@@ -63,7 +63,7 @@ Result 或 Solution admission。
   或未登记的运行时作为隐式依赖；
 - 删除、归档、静默替换历史研究记录。需要修正时新建版本并记录 supersession/invalidation；
 - 把模板 placeholder、候选来源状态或 `answered/resolved/solved` 文本映射为数学结论。
-- 将 Goal 和遗留 HookLoop 同时用作同一 canonical actor 的续行调度器。`.pi/settings.json` 固定的 `pi-goal-x` 是 Pi 扩展，不是数学 Skill；模板仅声明固定扩展；项目受信且依赖已安装后才可加载，不自动创建 Goal、启动 actor 或解除 ProblemContract 准入。旧会话停用 Hook 调度后，不得仅因它显示 `paused` 就移除其仍在承担的写保护或历史上下文过滤。Goal 项目默认配置在 `.pi/pi-goal-x-settings.json`；实际数学 actor 必须使用仓库外私密 `PI_GOAL_ROOT`，默认 `.pi/goals/` 仅有 Git 忽略防误提交，不能作为发布路径。维护者操作 Skill 位于 `.pi/opt-in-skills/` 且必须显式加载，绝不进入十个数学 Skill allowlist。模板内 `.pi/opt-in-extensions/` 的可选 `local-write-guard` 不自动激活；无独立文件系统隔离时，任何 Shell 命令都不得靠词法扫描声称不会写入受保护目录。
+- 将 Goal 和遗留 HookLoop 同时用作同一 canonical actor 的续行调度器。`.pi/settings.json` 固定的 `pi-goal-x` 是 Pi 扩展，不是数学 Skill；模板仅声明固定扩展；项目受信且依赖已安装后才可加载，不自动创建 Goal、启动 actor 或解除 ProblemContract 准入。旧会话停用 Hook 调度后，不得仅因它显示 `paused` 就移除其仍在承担的写保护或历史上下文过滤。Goal 项目默认配置在 `.pi/pi-goal-x-settings.json`；安装后的项目 npm 缓存必须通过 `scripts/install_goal_patch.py --check` 的上游/补丁/目标树逐字校验，裸 npm 原版不代表当前受审能力。面板默认隐藏不影响续行与 Esc；`.pi/extensions/goal-context.ts` 仅显式私密身份绑定后投影原生压缩清单，`/goal-snapshot` 仅接受 `sealed-pair-shadow.v1`，不得以 `report_local_checkpoint.py` 的观察性 JSON 或快照回执冒充研究恢复/数学证据；实际数学 actor 必须使用仓库外私密 `PI_GOAL_ROOT`，默认 `.pi/goals/` 仅有 Git 忽略防误提交，不能作为发布路径。维护者操作 Skill 位于 `.pi/opt-in-skills/` 且必须显式加载，绝不进入十个数学 Skill allowlist。模板内 `.pi/opt-in-extensions/` 的可选 `local-write-guard` 不自动激活；无独立文件系统隔离时，任何 Shell 命令都不得靠词法扫描声称不会写入受保护目录。
 
 ## 3. 每次工作的启动检查
 

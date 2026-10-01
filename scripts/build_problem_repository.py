@@ -631,7 +631,8 @@ def build(args: argparse.Namespace) -> dict[str, Any]:
     snapshot_sha = sha256_file(output / "HARNESS_SNAPSHOT.json")
     if args.continue_snapshot_history and template != root:
         raise RuntimeError("same-repository history continuation requires the source repository as template")
-    previous_entries = history_to_continue(root, snapshot, snapshot_sha) if args.continue_snapshot_history else []
+    prior_root = args.history_source if args.history_source is not None else root
+    previous_entries = history_to_continue(prior_root, snapshot, snapshot_sha) if args.continue_snapshot_history else []
     history = {
         "schema_version": "1.0.0",
         "repository": args.repository,
@@ -729,6 +730,7 @@ def main() -> int:
     parser.add_argument("--visibility", choices=("private", "public"), default="private")
     parser.add_argument("--allow-planned-repository-identity", action="store_true", help="preview/local testing only")
     parser.add_argument("--continue-snapshot-history", action="store_true", help="append the verified previous snapshot for a same-repository release")
+    parser.add_argument("--history-source", type=Path, help="read-only previous published snapshot/history root; use only with --continue-snapshot-history")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--allow-dirty-source", action="store_true", help="synthetic/local testing only")
     parser.add_argument("--allow-draft-problem", action="store_true", help="preview/local testing only")
@@ -754,6 +756,13 @@ def main() -> int:
     if args.repository_database_id is not None and args.repository_database_id < 1:
         print("BLOCK: invalid repository database ID", file=sys.stderr)
         return 1
+    if args.history_source is not None:
+        prior = args.history_source
+        if (not args.continue_snapshot_history or '..' in prior.parts or prior.is_symlink()
+                or not prior.is_dir() or prior.absolute() != prior.resolve()):
+            print("BLOCK: unsafe or unnecessary history source", file=sys.stderr)
+            return 1
+        args.history_source = prior.absolute()
     requested_output = args.output.resolve()
     staging_output = requested_output.parent / f".{requested_output.name}.staging-{os.getpid()}"
     try:

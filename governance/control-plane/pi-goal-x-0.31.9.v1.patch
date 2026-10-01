@@ -1,0 +1,215 @@
+--- a/extensions/goal-commands.ts
++++ b/extensions/goal-commands.ts
+@@ -30,6 +30,7 @@
+ import { nowIso, type GoalMode, type GoalRecord } from "./goal-record.ts";
+ import { clearGoalDrafting, hasActiveDraft, startGoalDrafting } from "./goal-drafting.ts";
+ import { formatRecoveryReport, runRecoveryReport, runRecoveryRepair } from "./goal-recovery.ts";
++import { runShadowSnapshotCommand } from "./goal-shadow-snapshot.ts";
+ import { formatCheckpointHealthReport, readSessionCheckpointHealth } from "./goal-session-health.ts";
+ 
+ export interface GoalRefreshState {
+@@ -369,6 +370,7 @@
+ 
+ 	const SETTING_ROWS: readonly SettingRow[] = [
+ 		{ key: "autoSelectSingleGoal", label: "autoSelectSingleGoal", section: "Goal behavior", kind: "boolean" },
++		{ key: "hideDashboard", label: "隐藏 Goal 面板（不停止执行）", section: "Goal behavior", kind: "boolean" },
+ 		{ key: "hideUnfocusedBanner", label: "hideUnfocusedBanner", section: "Goal behavior", kind: "boolean" },
+ 		{ key: "hideUnfocusedPrompt", label: "hideUnfocusedPrompt", section: "Goal behavior", kind: "boolean" },
+ 		{ key: "disableContracts", label: "disableContracts", section: "Goal behavior", kind: "boolean" },
+@@ -392,7 +394,7 @@
+ 	];
+ 
+ 	function settingsValue(config: GoalSettings, key: keyof GoalSettings | string): string {
+-		if (key === "strictExecutionContract" || key === "disabled" || key === "disableTasks" || key === "disableContracts" || key === "autoSelectSingleGoal" || key === "auditorProjectResources" || key === "hideUnfocusedBanner" || key === "hideUnfocusedPrompt") {
++		if (key === "strictExecutionContract" || key === "disabled" || key === "disableTasks" || key === "disableContracts" || key === "autoSelectSingleGoal" || key === "auditorProjectResources" || key === "hideDashboard" || key === "hideUnfocusedBanner" || key === "hideUnfocusedPrompt") {
+ 			return config[key] === true ? "true" : "false";
+ 		}
+ 		if (key === "subtaskDepth") return config.subtaskDepth !== undefined ? String(config.subtaskDepth) : "1";
+@@ -771,6 +773,12 @@
+ 			await runGoalRecovery((rawArgs ?? "").trim(), ctx);
+ 		},
+ 	});
++	pi.registerCommand("goal-snapshot", {
++		description: "显式操作 sealed-pair-v1 双文档候选影子快照；未配置时不扫描、不请求模型、不写入。",
++		handler: async (rawArgs, ctx) => {
++			await runShadowSnapshotCommand(rawArgs ?? "", ctx);
++		},
++	});
+ 	pi.registerCommand("goal-focus", {
+ 		description: "Choose which open goal this session focuses on.",
+ 		handler: async (_rawArgs, ctx) => {
+--- a/extensions/goal-settings.ts
++++ b/extensions/goal-settings.ts
+@@ -113,6 +113,8 @@
+ 	objectiveMaxChars?: number;
+ 	/** Keyboard shortcuts for the compact task list and dashboard expansion. */
+ 	keybindings?: GoalKeybindings;
++	/** 默认隐藏 CLI 面板；不改变 Goal 焦点、执行、续行或审计。 */
++	hideDashboard?: boolean;
+ 	/** PR #29: suppress the unfocused goal widget + status hint (default false). */
+ 	hideUnfocusedBanner?: boolean;
+ 	/** Issue #72: suppress the model-facing [PI GOAL UNFOCUSED] prompt (default false). */
+@@ -338,6 +340,7 @@
+ 	"strictExecutionContract",
+ 	"objectiveMaxChars",
+ 	"keybindings",
++	"hideDashboard",
+ 	"hideUnfocusedBanner",
+ 	"hideUnfocusedPrompt",
+ 	"goalsRoot",
+@@ -393,6 +396,7 @@
+ 			case "disabled":
+ 			case "autoSelectSingleGoal":
+ 			case "auditorProjectResources":
++			case "hideDashboard":
+ 			case "hideUnfocusedBanner":
+ 			case "hideUnfocusedPrompt": {
+ 				const parsed = asBool(value);
+@@ -764,6 +768,11 @@
+ 		globalValue: global.layer.auditorProjectResources,
+ 		defaultValue: false,
+ 	}));
++	const hideDashboard = track("hideDashboard", resolveLeaf<boolean>({
++		projectValue: project.layer.hideDashboard,
++		globalValue: global.layer.hideDashboard,
++		defaultValue: true,
++	}));
+ 	const hideUnfocusedBanner = track("hideUnfocusedBanner", resolveLeaf<boolean>({
+ 		projectValue: project.layer.hideUnfocusedBanner,
+ 		globalValue: global.layer.hideUnfocusedBanner,
+@@ -876,6 +885,7 @@
+ 		disabled,
+ 		autoSelectSingleGoal,
+ 		auditorProjectResources,
++		hideDashboard,
+ 		hideUnfocusedBanner,
+ 		hideUnfocusedPrompt,
+ 		goalsRoot,
+@@ -1278,6 +1288,7 @@
+ 		{ key: "model", label: "model", format: () => snapshot.value.model ?? "(default)" },
+ 		{ key: "thinkingLevel", label: "thinking_level", format: () => snapshot.value.thinkingLevel ?? "(default)" },
+ 		{ key: "auditorProjectResources", label: "auditor project resources", format: () => String(snapshot.value.auditorProjectResources) },
++		{ key: "hideDashboard", label: "隐藏 Goal 面板（不停止执行）", format: () => String(snapshot.value.hideDashboard) },
+ 		{ key: "hideUnfocusedBanner", label: "hide unfocused banner", format: () => String(snapshot.value.hideUnfocusedBanner) },
+ 		{ key: "goalsRoot", label: "goals root (reload to change)", format: () => snapshot.value.goalsRoot ?? ".pi/goals" },
+ 		{ key: "hideUnfocusedPrompt", label: "hide unfocused prompt", format: () => String(snapshot.value.hideUnfocusedPrompt) },
+--- a/extensions/goal-shadow-snapshot.ts
++++ b/extensions/goal-shadow-snapshot.ts
+@@ -0,0 +1,74 @@
++// MIT; 仅连接通用 sealed-pair-v1 owner 的显式离线 CLI，未配置时不扫描、不派生进程。
++import { execFile } from "node:child_process";
++import { createHash } from "node:crypto";
++import { readFileSync, lstatSync, realpathSync } from "node:fs";
++import path from "node:path";
++import { promisify } from "node:util";
++import type { ExtensionContext } from "@earendil-works/pi-coding-agent";
++
++const execute = promisify(execFile);
++const ID = /^[A-Za-z0-9][A-Za-z0-9_.-]{0,119}$/;
++const SHA = /^[a-f0-9]{64}$/;
++const HELP = "用法：/goal-snapshot status | save <id> [parent] | restore <id> <新目录名>";
++const digest = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
++
++export async function runShadowSnapshotCommand(rawArgs: string, ctx: ExtensionContext): Promise<void> {
++	const fields = rawArgs.trim().split(/\s+/).filter(Boolean);
++	if (!(fields.length === 1 && fields[0] === "status") &&
++		!(fields[0] === "save" && fields.length >= 2 && fields.length <= 3 && fields.slice(1).every((x) => ID.test(x))) &&
++		!(fields[0] === "restore" && fields.length === 3 && fields.slice(1).every((x) => ID.test(x)) && !fields[2].startsWith("."))) {
++		ctx.ui.notify(HELP, "warning");
++		return;
++	}
++	const config = process.env.VIBE_GOAL_SNAPSHOT_CONFIG;
++	const session = process.env.VIBE_GOAL_SNAPSHOT_SESSION_ID;
++	const cliHash = process.env.VIBE_GOAL_SNAPSHOT_CLI_SHA256;
++	const storeHash = process.env.VIBE_GOAL_SNAPSHOT_STORE_SHA256;
++	const pythonHash = process.env.VIBE_GOAL_SNAPSHOT_PYTHON_SHA256;
++	const zstdHash = process.env.VIBE_GOAL_SNAPSHOT_ZSTD_SHA256;
++	if (![config, session, cliHash, storeHash, pythonHash, zstdHash].some(Boolean)) {
++		ctx.ui.notify("goal-snapshot 未配置；没有扫描或写入任何研究文件。", "info");
++		return;
++	}
++	if (!config || !session || ![cliHash, storeHash, pythonHash, zstdHash].every((x) => typeof x === "string" && SHA.test(x)) || !path.isAbsolute(config)) {
++		ctx.ui.notify("goal-snapshot BLOCK: 配置/依赖摘要不完整。", "warning");
++		return;
++	}
++	if (ctx.isProjectTrusted?.() !== true || ctx.sessionManager.getSessionId() !== session ||
++		!path.isAbsolute(ctx.cwd) || realpathSync(ctx.cwd) !== ctx.cwd) {
++		ctx.ui.notify("goal-snapshot BLOCK: 项目或会话不受信。", "warning");
++		return;
++	}
++	try {
++		const info = lstatSync(config);
++		const owner = process.getuid?.();
++		if (owner === undefined || !info.isFile() || info.isSymbolicLink() || info.uid !== owner ||
++			(info.mode & 0o077) !== 0 || info.size > 16 * 1024 || realpathSync(config) !== config) throw new Error("config");
++		const bytes = readFileSync(config);
++		if (bytes.length > 16 * 1024 || JSON.parse(bytes.toString("utf8")).repository_root !== ctx.cwd) throw new Error("cwd");
++		const configHash = digest(bytes);
++		const verify = (file: string, hash: string, limit: number, owners: number[]) => {
++			const state = lstatSync(file);
++			if (!state.isFile() || state.isSymbolicLink() || state.size > limit || !owners.includes(state.uid) ||
++				realpathSync(file) !== file || digest(readFileSync(file)) !== hash) throw new Error("executable drift");
++		};
++		const bridge = path.join(ctx.cwd, "scripts/goal_shadow_bridge.py");
++		const store = path.join(ctx.cwd, "scripts/goal_snapshot_store.py");
++		verify(bridge, cliHash!, 256 * 1024, [owner]);
++		verify(store, storeHash!, 256 * 1024, [owner]);
++		const python = realpathSync("/usr/bin/python3");
++		verify(python, pythonHash!, 16 * 1024 * 1024, [0, 65534]);
++		verify("/usr/bin/zstd", zstdHash!, 8 * 1024 * 1024, [0, 65534]);
++		const result = await execute(python, ["-I", "-S", "-B", bridge, "--config", config,
++			"--expected-config-sha256", configHash, ...fields], {
++			timeout: 45_000, maxBuffer: 8 * 1024,
++			env: { PATH: "/usr/bin:/bin", PYTHONDONTWRITEBYTECODE: "1" },
++		});
++		const receipt = JSON.parse(result.stdout.trim());
++		if (!receipt || receipt.candidate_only !== true) throw new Error("receipt");
++		// 不把私密路径、源正文、子进程 stderr 或异常复制进 Goal/session。
++		ctx.ui.notify(`goal-snapshot ${fields[0]}: candidate_only；请在私密终端核对完整回执。`, "info");
++	} catch {
++		ctx.ui.notify("goal-snapshot BLOCK: 离线影子 CLI 拒绝操作；请在隔离终端检查非零退出。", "warning");
++	}
++}
+--- a/extensions/goal-state.ts
++++ b/extensions/goal-state.ts
+@@ -653,6 +653,11 @@
+ 
+ 	function renderUI(ctx: ExtensionContext): void {
+ 		const goalCwd = ctx.cwd;
++		// 只移除显示对象；不得通过取消焦点或暂停来达到隐藏效果。
++		if (loadGoalSettings(goalCwd).hideDashboard === true) {
++			clearGoalWidget(ctx);
++			return;
++		}
+ 		const storage = goalStorageContext(ctx);
+ 		const totalOpen = otherOpenGoalCount(goalsById, null);
+ 		if (!state.goal && totalOpen === 0) {
+--- a/extensions/goal-widget.ts
++++ b/extensions/goal-widget.ts
+@@ -128,6 +128,8 @@
+ 			// before the dialog could process it (bn-l pattern). Depth counter so
+ 			// nested goal modals remain guarded.
+ 			if (core.goalModalDepth > 0) return undefined;
++			// 热切换显示后也不得留下会吞键的不可见展开面板。
++			const dashboardVisible = loadGoalSettings(ctx.cwd).hideDashboard !== true;
+ 			if (matchesKey(data, "escape") && core.auditProgress) {
+ 				core.abortAudit(ctx);
+ 				return { consume: true };
+@@ -139,7 +141,7 @@
+ 			// (the editor owns ↑/↓/PgUp/PgDn), so no focus state is needed and
+ 			// editor keybindings are untouched whenever the dashboard is not
+ 			// focused.
+-			if (matchesKey(data, "escape") && core.isDashboardExpanded()) {
++			if (dashboardVisible && matchesKey(data, "escape") && core.isDashboardExpanded()) {
+ 				core.toggleDashboardExpanded();
+ 				return { consume: true };
+ 			}
+@@ -159,7 +161,7 @@
+ 			// Ctrl+Shift+T — toggle the unified dashboard between compact and
+ 			// expanded task views (the task-list overlay is merged into the
+ 			// dashboard; §10).
+-			if (matchesKey(data, keybindings.toggleExpand)) {
++			if (dashboardVisible && matchesKey(data, keybindings.toggleExpand)) {
+ 				core.toggleDashboardExpanded();
+ 				return { consume: true };
+ 			}
