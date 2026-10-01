@@ -76,7 +76,7 @@
     "sha256": "6ab7bc0dac0b3a28a3447cf22bcd6103db1568f78c9b1cb5730663241ed83921",
     "version": "2.3.5"
   },
-  "built_at": "2026-10-01T10:40:41+08:00",
+  "built_at": "2026-10-01T10:58:44+08:00",
   "digest_excludes": [
     "HARNESS_SNAPSHOT.json",
     "HARNESS_SNAPSHOT_HISTORY.json",
@@ -6922,12 +6922,12 @@
       "sha256": "0b7058f1e9e9931fdd9846cddc25dcc6f24dba7fdfebf01e68c57065aa9ea941"
     },
     {
-      "bytes": 1484,
+      "bytes": 1640,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "CHANGELOG.md",
-      "sha256": "bedb7c3e32886d403e0ed69bf3c57fd6f6f0fb56198faf81fbd897914f934cec"
+      "sha256": "068483cba06548bdd1a714bf5a7a81ac7c4ce84d8b5c93f58dcc68edaba233cc"
     },
     {
       "bytes": 227,
@@ -6986,12 +6986,12 @@
       "sha256": "9229ca3ee68d1ea79dc399b2a59ac80a02f71db2ddc979072fe48a5aa7704973"
     },
     {
-      "bytes": 15292,
+      "bytes": 15448,
       "layer": "web_channel",
       "mode": "0644",
       "owner": "harness",
       "path": "TEMPLATE_REPOSITORY.md",
-      "sha256": "59d5dc99944ba3366fad24707bb9efa5c4838667270bb139a2af9bd628d8dafa"
+      "sha256": "08c91ea40810a3a44ce5eecd4d124ad912910c74d58ae0d9ccb0e73e7260e2b3"
     },
     {
       "bytes": 6,
@@ -7898,12 +7898,12 @@
       "sha256": "51a08106538ca02ddcb953cd38392e50f1e7434eb1d88a046d941754f0a6cdbb"
     },
     {
-      "bytes": 8635,
+      "bytes": 8647,
       "layer": "research_core",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/install_goal_patch.py",
-      "sha256": "d7b2239c5cc790ad800009c3d926216e39fb38f5abbf3df8e5e3616be8216ad9"
+      "sha256": "bc45075421910f134ab9cca03b4caf83bdd7a2f4b63ea78103ed66890c261fd7"
     },
     {
       "bytes": 3384,
@@ -7946,12 +7946,12 @@
       "sha256": "82ca37f18f9b69f94360ebbb37be56dc26c29b56fb3b6d2e08ddbddf631c1ce3"
     },
     {
-      "bytes": 15353,
+      "bytes": 17290,
       "layer": "research_core",
       "mode": "0644",
       "owner": "harness",
       "path": "scripts/test_goal_integration.py",
-      "sha256": "a7f99433a17d457d42cc41c4faa425f621cbf32c7da86d316944d406b5b8e117"
+      "sha256": "ee96050d2aa269d0653abc1a8d3ec8b8abce07e4b7132064981f5c542b83aeea"
     },
     {
       "bytes": 4627,
@@ -8323,5 +8323,5 @@
     "source_manifest_sha256": "5936efe64b64a725e7014a70ffe7ed293ee52d5a905312cc2af099df8d5d3c5e",
     "worktree_dirty": false
   },
-  "tree_sha256": "4bb87bfe58bef7f2c118ce0c86a4baa0c89bd47089dbd88a5f33950259b3a5f1"
+  "tree_sha256": "1c381643ef9bc19442fcacfd0fa8f4152fa19fc133b6713f58354c9dd1d50507"
 }
