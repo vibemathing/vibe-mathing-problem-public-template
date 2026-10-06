@@ -1,0 +1,69 @@
+<template>
+  <style>
+    #root{position:relative;width:1080px;height:1920px;overflow:hidden;container-type:size;color:#0E2A47;font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif;}
+    .f03-bg{position:absolute;inset:0;background:#F6F8FB;}.f03-gridbg{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.055) 1px,transparent 1px);background-size:72px 72px;}
+    .f03-title{position:absolute;left:56px;top:82px;font-size:56px;line-height:1.12;}.f03-axis{position:absolute;left:56px;top:190px;font-size:22px;line-height:1.3;color:#59718A;}
+    .f03-matrix{position:absolute;left:48px;top:280px;width:918px;height:1000px;background:#FFFFFF;border-top:2px solid #2563EB;border-bottom:2px solid #2563EB;}
+    .f03-times{position:absolute;left:180px;top:16px;width:718px;display:grid;grid-template-columns:repeat(14,1fr);font-size:14px;color:#59718A;text-align:center;}
+    .f03-rows{position:absolute;left:0;right:0;top:54px;bottom:20px;display:grid;grid-template-rows:repeat(15,1fr);}
+    .f03-r{display:grid;grid-template-columns:180px 1fr;align-items:center;border-bottom:1px solid rgba(14,42,71,.09);}
+    .f03-token{font-size:22px;padding-left:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#324E69;}
+    .f03-cells{height:100%;display:grid;grid-template-columns:repeat(14,1fr);gap:3px;padding:4px 0;position:relative;}
+    .f03-cell{position:relative;border:1px solid rgba(37,99,235,.06);background:#FFFFFF;overflow:hidden;}
+    .f03-cell i{position:absolute;inset:0;background:#2563EB;opacity:var(--p);display:block;}
+    .f03-cell.sel{outline:3px solid #0F766E;outline-offset:-2px;z-index:3;background:#CCFBF1;}.f03-cell.sel i{background:#0F766E;opacity:.82;}
+    .f03-ellipsis{font-size:34px;letter-spacing:.24em;color:#59718A;}.f03-ellipsis .f03-token{font-size:23px;color:#59718A;}
+    .f03-vocab{position:absolute;left:65px;top:1315px;font-size:25px;color:#59718A;} .f03-scale{position:absolute;left:990px;top:355px;width:18px;height:790px;border:1px solid rgba(37,99,235,.18);background:linear-gradient(to top,#FFFFFF 0%,#DCEAFE 30%,#7DB2F3 65%,#2563EB 100%);} .f03-scale:before{content:"P";position:absolute;top:-34px;left:-1px;font-size:17px;color:#59718A;} .f03-scale:after{content:"";position:absolute;left:-7px;right:-7px;top:50%;border-top:1px solid rgba(14,42,71,.18);}.f03-vocab b{font-weight:400;color:#0F766E;}
+    .f03-seq{position:absolute;left:56px;top:1410px;width:968px;border-top:2px solid #2563EB;padding-top:24px;}
+    .f03-seq-label{font-size:23px;color:#59718A;margin-bottom:18px;}.f03-chips{display:flex;gap:8px;flex-wrap:wrap;}.f03-chip{font-size:24px;padding:8px 12px;border:1px solid rgba(15,118,110,.32);background:#FFFFFF;color:#0F766E;opacity:0;}
+  </style>
+  <div id="root" data-composition-id="03-time-matrix" data-start="0" data-duration="13" data-fps="24" data-width="1080" data-height="1920">
+    <div id="el-03-time-matrix-bg" class="clip f03-bg" data-start="0" data-duration="13" data-track-index="0"><div class="f03-gridbg"></div></div>
+    <div id="el-03-time-matrix-title" class="f03-title">输出空间随时间展开</div>
+    <div id="el-03-time-matrix-axis" class="f03-axis">纵向：固定 token　　横向：生成时间步</div>
+    <div id="el-03-time-matrix-matrix" class="f03-matrix"><div id="el-03-time-matrix-times" class="f03-times"></div><div id="el-03-time-matrix-rows" class="f03-rows"></div></div>
+    <div id="el-03-time-matrix-scale" class="f03-scale"></div>
+    <div id="el-03-time-matrix-vocab" class="f03-vocab">中间省略大量未展示 token · 词表总量 <b>≈128K</b></div>
+    <div id="el-03-time-matrix-seq" class="f03-seq"><div class="f03-seq-label">连贯 token 序列</div><div id="el-03-time-matrix-chips" class="f03-chips"></div></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      const tokens=["vector","好","▁state","。","heat","128K","蓝","▁model","…","if","矩阵","token","，","sample","space"];
+      const selected=[1,3,4,6,10,11,12,13,14,2,7,5,0,3];
+      const seq=["今","天","天","气","很","好","，","模","型","在","采","样","。","✓"];
+      const times=document.getElementById("el-03-time-matrix-times");
+      for(let c=0;c<14;c++){const s=document.createElement("span");s.id="el-03-time-matrix-time-"+c;s.textContent="t"+(c+1);times.appendChild(s);}
+      const rows=document.getElementById("el-03-time-matrix-rows");
+      for(let r=0;r<tokens.length;r++){
+        const row=document.createElement("div");row.className="f03-r"+(r===8?" f03-ellipsis":"");row.id="el-03-time-matrix-row-"+r;
+        const lab=document.createElement("div");lab.className="f03-token";lab.textContent=tokens[r];row.appendChild(lab);
+        const cs=document.createElement("div");cs.className="f03-cells";
+        for(let c=0;c<14;c++){
+          const cell=document.createElement("div");cell.className="f03-cell";cell.id="el-03-time-matrix-cell-"+r+"-"+c;
+          const band=(Math.sin((r+1)*1.7+(c+1)*.83)+1)/2;const p=.06+.76*band;
+          if(r===selected[c]) cell.classList.add("sel");
+          const fill=document.createElement("i");fill.style.setProperty("--p",p.toFixed(2));cell.appendChild(fill);cs.appendChild(cell);
+        }
+        row.appendChild(cs);rows.appendChild(row);
+      }
+      const chips=document.getElementById("el-03-time-matrix-chips");seq.forEach((x,i)=>{const d=document.createElement("div");d.className="f03-chip";d.id="el-03-time-matrix-chip-"+i;d.textContent=x;chips.appendChild(d);});
+      window.__timelines=window.__timelines||{};
+      const tl=gsap.timeline({paused:true});
+      tl.fromTo("#el-03-time-matrix-title",{opacity:0,y:20},{opacity:1,y:0,duration:.32},.08);
+      tl.fromTo("#el-03-time-matrix-matrix",{opacity:0,y:22},{opacity:1,y:0,duration:.4},.5);
+      tl.fromTo("#el-03-time-matrix-scale",{opacity:0},{opacity:1,duration:.25},1.6);
+      for(let c=0;c<14;c++){
+        tl.fromTo("#el-03-time-matrix-time-"+c,{opacity:0},{opacity:1,duration:.16},2.35+c*.32);
+        for(let r=0;r<tokens.length;r++) tl.fromTo("#el-03-time-matrix-cell-"+r+"-"+c,{opacity:0},{opacity:1,duration:.14},2.35+c*.32);
+      }
+      tl.fromTo("#el-03-time-matrix-row-8",{opacity:0},{opacity:1,duration:.3},7.45);
+      tl.fromTo("#el-03-time-matrix-vocab",{opacity:0,y:14},{opacity:1,y:0,duration:.35},7.8);
+      for(let c=0;c<14;c++){
+        tl.fromTo("#el-03-time-matrix-cell-"+selected[c]+"-"+c,{boxShadow:"0 0 0 rgba(15,118,110,0)"},{boxShadow:"0 0 22px rgba(15,118,110,.30)",duration:.18},9.6+c*.18);
+        tl.to("#el-03-time-matrix-chip-"+c,{opacity:1,duration:.16},9.6+c*.18);
+      }
+      tl.to({}, {duration:13},0);
+      window.__timelines["03-time-matrix"]=tl;
+      tl.seek(0);
+    </script>
+  </div>
+</template>
