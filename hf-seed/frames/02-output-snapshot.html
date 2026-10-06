@@ -1,0 +1,44 @@
+<template>
+  <style>
+    @font-face{font-family:"Noto Sans SC";font-style:normal;font-weight:400;font-display:block;src:url("assets/fonts/captured-noto-sans-sc.woff2") format("woff2");}
+    #root{position:relative;width:1080px;height:1920px;overflow:hidden;container-type:size;color:#0E2A47;font-family:"Noto Sans SC",sans-serif;}
+    .f02-bg{position:absolute;inset:0;background:#F6F8FB;}.f02-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.07) 1px,transparent 1px);background-size:72px 72px;}
+    .f02-title{position:absolute;left:72px;top:112px;font-size:62px;line-height:1.15;}.f02-sub{position:absolute;left:72px;top:200px;font-size:28px;color:#59718A;}
+    .f02-table{position:absolute;left:92px;top:330px;width:896px;height:1000px;border-top:2px solid #2563EB;border-bottom:2px solid #2563EB;}
+    .f02-head{height:70px;display:grid;grid-template-columns:1fr 220px;align-items:center;font-size:24px;letter-spacing:.08em;color:#59718A;border-bottom:1px solid rgba(14,42,71,.22);}
+    .f02-row{height:51px;display:grid;grid-template-columns:1fr 220px;align-items:center;border-bottom:1px solid rgba(14,42,71,.10);font-size:28px;}
+    .f02-token{padding-left:12px;}.f02-cell{height:30px;margin-right:8px;border:1px solid rgba(37,99,235,.10);background:#FFFFFF;position:relative;}
+    .f02-cell > i{position:absolute;inset:0;background:#2563EB;opacity:var(--p);display:block;}
+    .f02-selected{outline:4px solid #0F766E;outline-offset:2px;}.f02-selected:after{content:"SAMPLED";position:absolute;right:8px;top:4px;font-size:15px;letter-spacing:.08em;color:#0F766E;background:#FFFFFF;padding:1px 4px;}
+    .f02-note{position:absolute;left:72px;top:1430px;width:936px;font-size:48px;line-height:1.28;border-top:2px solid #2563EB;padding-top:34px;}
+    .f02-note em{font-style:normal;color:#0F766E;}
+  </style>
+  <div id="root" data-composition-id="02-output-snapshot" data-start="0" data-duration="9" data-fps="24" data-width="1080" data-height="1920">
+    <div id="02-output-snapshot-bg" class="clip f02-bg" data-start="0" data-duration="9" data-track-index="0"><div class="f02-grid"></div></div>
+    <div id="02-output-snapshot-title" class="f02-title">单步输出快照</div>
+    <div id="02-output-snapshot-sub" class="f02-sub">同一时刻，对整个词表产生一组 logits / 概率</div>
+    <div id="02-output-snapshot-table" class="f02-table">
+      <div class="f02-head"><div>TOKEN</div><div>PROBABILITY</div></div>
+      <div id="02-output-snapshot-rows"></div>
+    </div>
+    <div id="02-output-snapshot-note" class="f02-note">1 个生成步 = <em>1 张全词表打分表</em></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      const rows=[
+        ["好",.92],["vector",.35],["。",.28],["latent",.18],["热",.62],["if",.11],["the",.16],["蓝",.23],["model",.31],["好",.74],["▁space",.12],["冷",.55],["42",.20],["矩阵",.46],["but",.15],["token",.29],["，",.39],["sample",.25]
+      ];
+      const host=document.getElementById("02-output-snapshot-rows");
+      rows.forEach((r,i)=>{const d=document.createElement("div");d.className="f02-row";d.id="02-output-snapshot-row-"+i;d.innerHTML='<div class="f02-token">'+r[0]+'</div><div class="f02-cell '+(i===9?'f02-selected':'')+'"><i style="--p:'+r[1]+'"></i></div>';host.appendChild(d);});
+      window.__timelines=window.__timelines||{};
+      const tl=gsap.timeline({paused:true});
+      tl.fromTo("#02-output-snapshot-title",{opacity:0,y:24},{opacity:1,y:0,duration:.32},.08);
+      tl.fromTo("#02-output-snapshot-table",{opacity:0,y:28},{opacity:1,y:0,duration:.4},.55);
+      for(let i=0;i<rows.length;i++){tl.fromTo("#02-output-snapshot-row-"+i+" .f02-cell i",{scaleX:0,transformOrigin:"left center"},{scaleX:1,duration:.22},2.0+i*.16);}
+      tl.fromTo("#02-output-snapshot-row-9 .f02-cell",{boxShadow:"0 0 0 rgba(15,118,110,0)"},{boxShadow:"0 0 32px rgba(15,118,110,.28)",duration:.45},5.55);
+      tl.fromTo("#02-output-snapshot-note",{opacity:0,y:24},{opacity:1,y:0,duration:.4},7.35);
+      tl.to({}, {duration:9},0);
+      window.__timelines["02-output-snapshot"]=tl;
+      tl.seek(0);
+    </script>
+  </div>
+</template>
