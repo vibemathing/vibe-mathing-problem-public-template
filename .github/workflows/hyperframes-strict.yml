@@ -1,0 +1,164 @@
+name: HyperFrames strict render
+
+on:
+  push:
+    branches:
+      - tmp/hyperframes-llm-output-space-20261006
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      HYPERFRAMES_RUN_ID: strict-llm-output-space-20261006
+    steps:
+      - name: Checkout temporary branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install system render dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg zip
+          node --version
+          ffmpeg -version | head -1
+
+      - name: Run official HyperFrames faceless-explainer workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          LOG="$GITHUB_WORKSPACE/strict-run.log"
+          : > "$LOG"
+          exec > >(tee -a "$LOG") 2>&1
+
+          HF=(npx --yes hyperframes@0.8.136)
+          echo '=== HyperFrames CLI version ==='
+          "${HF[@]}" --version
+
+          echo '=== usage preflight ==='
+          "${HF[@]}" usage --json || true
+
+          echo '=== refresh faceless-explainer + core skills ==='
+          "${HF[@]}" skills update faceless-explainer
+
+          echo '=== official init ==='
+          "${HF[@]}" init "videos/llm-output-space" --non-interactive --example=blank --skill=faceless-explainer
+
+          PROJECT="$GITHUB_WORKSPACE/videos/llm-output-space"
+          cd "$PROJECT"
+
+          echo '=== BRIEF immediately after init ==='
+          cp "$GITHUB_WORKSPACE/hf-seed/BRIEF.md" ./BRIEF.md
+
+          echo '=== locate official installed workflow skills ==='
+          BUILD_FRAME=$(find "$HOME" "$GITHUB_WORKSPACE" -type f -path '*/faceless-explainer/scripts/build-frame.mjs' -print -quit 2>/dev/null || true)
+          test -n "$BUILD_FRAME"
+          SKILL_DIR=$(dirname "$(dirname "$BUILD_FRAME")")
+          PREFS=$(find "$HOME" "$GITHUB_WORKSPACE" -type f -path '*/media-use/scripts/prefs.mjs' -print -quit 2>/dev/null || true)
+          test -n "$PREFS"
+          MEDIA_DIR=$(dirname "$(dirname "$PREFS")")
+          echo "SKILL_DIR=$SKILL_DIR"
+          echo "MEDIA_DIR=$MEDIA_DIR"
+
+          echo '=== record only user-confirmed aspect preference ==='
+          node "$PREFS" record --hyperframes . --key aspect --value 1080x1920
+
+          echo '=== auth status (workflow preflight) ==='
+          "${HF[@]}" auth status || true
+
+          echo '=== Step 1: verbatim source package ==='
+          mkdir -p capture/extracted capture/assets/fonts compositions/frames renders
+          cp "$GITHUB_WORKSPACE/hf-seed/source.json" capture/extracted/visible-text.txt
+
+          cat > capture/extracted/tokens.json <<'JSON'
+          {
+            "title": "前沿 LLM 输出层数量与输出空间",
+            "description": "解释 LM head、全词表 logits/概率、token×时间输出矩阵与采样轨迹。",
+            "colors": ["#F6F8FB", "#0E2A47", "#2563EB", "#0F766E", "#CCFBF1"],
+            "fonts": [{"family":"Noto Sans SC","weights":[400]}]
+          }
+          JSON
+
+          echo '=== stage deterministic local Chinese font ==='
+          npm install --prefix /tmp/hf-font --no-save @fontsource/noto-sans-sc@5.2.9
+          FONT=$(find /tmp/hf-font/node_modules/@fontsource/noto-sans-sc/files -type f \( -name '*chinese-simplified-400-normal.woff2' -o -name '*400-normal.woff2' \) -print -quit)
+          test -s "$FONT"
+          cp "$FONT" capture/assets/fonts/noto-sans-sc.woff2
+          cat > capture/extracted/page.html <<'HTML'
+          <!doctype html><html><head><style>
+          @font-face{font-family:"Noto Sans SC";font-style:normal;font-weight:400;font-display:block;src:url("assets/fonts/noto-sans-sc.woff2") format("woff2");}
+          </style></head><body></body></html>
+          HTML
+
+          echo '=== Step 2: official build-frame preset ==='
+          node "$SKILL_DIR/scripts/build-frame.mjs" --preset cobalt-grid --hyperframes .
+          test -s frame.md
+          test -s assets/fonts/captured-noto-sans-sc.woff2
+
+          echo '=== Step 3/4: storyboard + official packet builder ==='
+          cp "$GITHUB_WORKSPACE/hf-seed/STORYBOARD.md" ./STORYBOARD.md
+          "${HF[@]}" catalog --query "probability heatmap data matrix" --json > catalog-heatmap.json || true
+          node "$SKILL_DIR/scripts/frame-packets.mjs" --project "$PROJECT" --storyboard "$PROJECT/STORYBOARD.md"
+          test -s .hyperframes/frame-packets/_role.md
+
+          echo '=== Step 5: frame worker outputs ==='
+          cp "$GITHUB_WORKSPACE/hf-seed/frames/"*.html compositions/frames/
+          for f in compositions/frames/*.html; do test -s "$f"; done
+          echo 'silent marker: music=none and no SCRIPT.md; audio generation intentionally skipped per workflow contract'
+
+          echo '=== official assemble-index ==='
+          node "$SKILL_DIR/scripts/assemble-index.mjs" --storyboard ./STORYBOARD.md --hyperframes .
+          test -s index.html
+
+          echo '=== official transition inject + verify ==='
+          node "$SKILL_DIR/scripts/transitions.mjs" inject --storyboard ./STORYBOARD.md --hyperframes .
+          node "$SKILL_DIR/scripts/transitions.mjs" verify --storyboard ./STORYBOARD.md --index ./index.html
+
+          echo '=== official lint ==='
+          "${HF[@]}" lint
+
+          echo '=== official check ==='
+          "${HF[@]}" check
+
+          echo '=== official snapshot ==='
+          "${HF[@]}" snapshot --at 4,12.5,23.5,35
+
+          echo '=== official preview startup ==='
+          "${HF[@]}" preview --background || true
+
+          echo '=== usage before render ==='
+          "${HF[@]}" usage --json || true
+
+          echo '=== official HyperFrames render ==='
+          "${HF[@]}" render --skill=faceless-explainer --quality high --output renders/video.mp4
+          test -s renders/video.mp4
+
+          echo '=== ffprobe verification ==='
+          ffprobe -v error -show_entries format=duration,size -show_entries stream=codec_name,width,height,r_frame_rate,pix_fmt -of json renders/video.mp4 | tee ffprobe.json
+
+          echo '=== package outputs ==='
+          mkdir -p "$GITHUB_WORKSPACE/hf-output"
+          cp renders/video.mp4 "$GITHUB_WORKSPACE/hf-output/HyperFrames-LLM-output-space-strict.mp4"
+          cp ffprobe.json "$GITHUB_WORKSPACE/hf-output/ffprobe.json"
+          cp "$LOG" "$GITHUB_WORKSPACE/hf-output/strict-run.log"
+          if [ -f snapshots/contact-sheet.jpg ]; then cp snapshots/contact-sheet.jpg "$GITHUB_WORKSPACE/hf-output/contact-sheet.jpg"; fi
+          cd "$GITHUB_WORKSPACE"
+          zip -qr hf-output/HyperFrames-LLM-output-space-project.zip videos/llm-output-space -x '*/node_modules/*' '*/.git/*'
+
+      - name: Upload strict HyperFrames outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: strict-hyperframes-output
+          path: |
+            hf-output/**
+            strict-run.log
+          if-no-files-found: warn
+          retention-days: 1
