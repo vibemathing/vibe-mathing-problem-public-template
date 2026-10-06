@@ -1,0 +1,44 @@
+<template>
+  <style>
+    @font-face{font-family:"Noto Sans SC";font-style:normal;font-weight:400;font-display:block;src:url("assets/fonts/captured-noto-sans-sc.woff2") format("woff2");}
+    #root{position:relative;width:1080px;height:1920px;overflow:hidden;container-type:size;color:#0E2A47;font-family:"Noto Sans SC",sans-serif;}
+    .f01-bg{position:absolute;inset:0;background:#F6F8FB;overflow:hidden;}
+    .f01-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.08) 1px,transparent 1px);background-size:72px 72px;}
+    .f01-kicker{position:absolute;left:72px;top:120px;font-size:31px;letter-spacing:.08em;}
+    .f01-q{position:absolute;left:72px;top:190px;width:900px;font-size:72px;line-height:1.18;}
+    .f01-head{position:absolute;left:150px;top:560px;width:780px;height:290px;border:2px solid #2563EB;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#FFFFFF;}
+    .f01-head-label{font-size:34px;letter-spacing:.12em;color:#2563EB;}
+    .f01-one{font-size:146px;line-height:1;margin-top:14px;color:#0F766E;}
+    .f01-map{position:absolute;left:92px;top:980px;width:896px;height:250px;display:grid;grid-template-columns:260px 1fr 260px;align-items:center;}
+    .f01-box{height:140px;border:1.5px solid rgba(14,42,71,.35);background:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .f01-num{font-size:66px;line-height:1;color:#0E2A47;}.f01-small{font-size:25px;margin-top:16px;color:#59718A;}
+    .f01-arrow{height:2px;background:#2563EB;position:relative;margin:0 22px;}.f01-arrow:after{content:"";position:absolute;right:-1px;top:-8px;border-left:16px solid #2563EB;border-top:9px solid transparent;border-bottom:9px solid transparent;}
+    .f01-bottom{position:absolute;left:72px;top:1370px;width:936px;padding-top:34px;border-top:2px solid #2563EB;font-size:48px;line-height:1.25;}
+    .f01-bottom b{font-weight:400;color:#0F766E;}
+  </style>
+  <div id="root" data-composition-id="01-lm-head" data-start="0" data-duration="8" data-fps="24" data-width="1080" data-height="1920">
+    <div id="01-lm-head-bg" class="clip f01-bg" data-start="0" data-duration="8" data-track-index="0"><div class="f01-grid"></div></div>
+    <div id="01-lm-head-kicker" class="f01-kicker">LLM OUTPUT</div>
+    <div id="01-lm-head-question" class="f01-q">前沿 LLM 的<br>输出层有几个？</div>
+    <div id="01-lm-head-head" class="f01-head"><div class="f01-head-label">LM HEAD</div><div class="f01-one">1</div></div>
+    <div id="01-lm-head-map" class="f01-map">
+      <div id="01-lm-head-hidden" class="f01-box"><div class="f01-num">8192</div><div class="f01-small">hidden size</div></div>
+      <div id="01-lm-head-arrow" class="f01-arrow"></div>
+      <div id="01-lm-head-vocab" class="f01-box"><div class="f01-num">≈128K</div><div class="f01-small">vocabulary</div></div>
+    </div>
+    <div id="01-lm-head-bottom" class="f01-bottom">每一步：<b>给整个词表打分</b></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#01-lm-head-question",{opacity:0,y:28},{opacity:1,y:0,duration:.35},.08);
+      tl.fromTo("#01-lm-head-head",{opacity:0,y:36},{opacity:1,y:0,duration:.45},2.05);
+      tl.fromTo("#01-lm-head-map",{opacity:0,y:28},{opacity:1,y:0,duration:.5},4.45);
+      tl.fromTo("#01-lm-head-arrow",{opacity:0,scaleX:.1,transformOrigin:"left center"},{opacity:1,scaleX:1,duration:.55},5.15);
+      tl.fromTo("#01-lm-head-bottom",{opacity:0,y:24},{opacity:1,y:0,duration:.4},6.45);
+      tl.to({}, {duration:8}, 0);
+      window.__timelines["01-lm-head"] = tl;
+      tl.seek(0);
+    </script>
+  </div>
+</template>
