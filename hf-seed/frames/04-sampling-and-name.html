@@ -12,16 +12,16 @@
     .f04-reason{position:absolute;left:110px;top:1125px;width:860px;font-size:31px;line-height:1.5;text-align:center;color:#59718A;}
     .f04-final{position:absolute;left:68px;top:1370px;width:944px;}.f04-name{font-size:66px;line-height:1.15;color:#0E2A47;}.f04-name em{font-style:normal;color:#0F766E;}.f04-def{margin-top:32px;font-size:32px;line-height:1.55;color:#324E69;}.f04-def b{font-weight:400;color:#2563EB;}
   </style>
-  <div id="root" data-composition-id="04-sampling-and-name" data-start="0" data-duration="10" data-fps="24" data-width="1080" data-height="1920">
-    <div id="04-sampling-and-name-bg" class="clip f04-bg" data-start="0" data-duration="10" data-track-index="0"><div class="f04-grid"></div></div>
-    <div id="04-sampling-and-name-title" class="f04-title">最终采样 token<br>不一定概率最高</div>
-    <div id="04-sampling-and-name-compare" class="f04-compare">
-      <div id="04-sampling-and-name-max" class="f04-card blue"><div class="f04-lab">MAX PROB</div><div class="f04-token">好</div><div class="f04-bar"><i></i></div></div>
-      <div id="04-sampling-and-name-sampled" class="f04-card green f04-green"><div class="f04-lab">SAMPLED</div><div class="f04-token">热</div><div class="f04-bar"><i></i></div></div>
+  <div id="root" data-composition-id="el-04-sampling-and-name" data-start="0" data-duration="10" data-fps="24" data-width="1080" data-height="1920">
+    <div id="el-04-sampling-and-name-bg" class="clip f04-bg" data-start="0" data-duration="10" data-track-index="0"><div class="f04-grid"></div></div>
+    <div id="el-04-sampling-and-name-title" class="f04-title">最终采样 token<br>不一定概率最高</div>
+    <div id="el-04-sampling-and-name-compare" class="f04-compare">
+      <div id="el-04-sampling-and-name-max" class="f04-card blue"><div class="f04-lab">MAX PROB</div><div class="f04-token">好</div><div class="f04-bar"><i></i></div></div>
+      <div id="el-04-sampling-and-name-sampled" class="f04-card green f04-green"><div class="f04-lab">SAMPLED</div><div class="f04-token">热</div><div class="f04-bar"><i></i></div></div>
     </div>
-    <div id="04-sampling-and-name-neq" class="f04-neq">sampling ≠ argmax</div>
-    <div id="04-sampling-and-name-reason" class="f04-reason">temperature / top-p / top-k 会让采样结果<br>有机会落在第二、第三甚至更低概率候选上</div>
-    <div id="04-sampling-and-name-final" class="f04-final">
+    <div id="el-04-sampling-and-name-neq" class="f04-neq">sampling ≠ argmax</div>
+    <div id="el-04-sampling-and-name-reason" class="f04-reason">temperature / top-p / top-k 会让采样结果<br>有机会落在第二、第三甚至更低概率候选上</div>
+    <div id="el-04-sampling-and-name-final" class="f04-final">
       <div class="f04-name">准确名称：<br><em>LLM 输出空间与生成轨迹</em></div>
       <div class="f04-def"><b>每一列</b> = 一次全词表输出分布<br><b>从左到右</b> = 逐 token 生成过程</div>
     </div>
@@ -29,12 +29,12 @@
     <script>
       window.__timelines=window.__timelines||{};
       const tl=gsap.timeline({paused:true});
-      tl.fromTo("#04-sampling-and-name-title",{opacity:0,y:22},{opacity:1,y:0,duration:.34},.08);
-      tl.fromTo("#04-sampling-and-name-max",{opacity:0,y:28},{opacity:1,y:0,duration:.38},.55);
-      tl.fromTo("#04-sampling-and-name-sampled",{opacity:0,y:28},{opacity:1,y:0,duration:.38},1.6);
-      tl.fromTo("#04-sampling-and-name-neq",{opacity:0},{opacity:1,duration:.35},3.0);
-      tl.fromTo("#04-sampling-and-name-reason",{opacity:0,y:18},{opacity:1,y:0,duration:.4},4.0);
-      tl.fromTo("#04-sampling-and-name-final",{opacity:0,y:24},{opacity:1,y:0,duration:.45},5.55);
+      tl.fromTo("#el-04-sampling-and-name-title",{opacity:0,y:22},{opacity:1,y:0,duration:.34},.08);
+      tl.fromTo("#el-04-sampling-and-name-max",{opacity:0,y:28},{opacity:1,y:0,duration:.38},.55);
+      tl.fromTo("#el-04-sampling-and-name-sampled",{opacity:0,y:28},{opacity:1,y:0,duration:.38},1.6);
+      tl.fromTo("#el-04-sampling-and-name-neq",{opacity:0},{opacity:1,duration:.35},3.0);
+      tl.fromTo("#el-04-sampling-and-name-reason",{opacity:0,y:18},{opacity:1,y:0,duration:.4},4.0);
+      tl.fromTo("#el-04-sampling-and-name-final",{opacity:0,y:24},{opacity:1,y:0,duration:.45},5.55);
       tl.to({}, {duration:10},0);
       window.__timelines["04-sampling-and-name"]=tl;
       tl.seek(0);
