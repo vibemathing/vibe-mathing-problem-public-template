@@ -30,7 +30,7 @@ jobs:
       - name: Install system render dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg zip
+          sudo apt-get install -y ffmpeg zip fonts-noto-cjk fontconfig
           node --version
           ffmpeg -version | head -1
 
@@ -86,25 +86,17 @@ jobs:
             "title": "前沿 LLM 输出层数量与输出空间",
             "description": "解释 LM head、全词表 logits/概率、token×时间输出矩阵与采样轨迹。",
             "colors": ["#F6F8FB", "#0E2A47", "#2563EB", "#0F766E", "#CCFBF1"],
-            "fonts": [{"family":"Noto Sans SC","weights":[400]}]
+            "fonts": [{"family":"Noto Sans CJK SC","weights":[400]}]
           }
           JSON
 
-          echo '=== stage deterministic local Chinese font ==='
-          npm install --prefix /tmp/hf-font --no-save @fontsource/noto-sans-sc@5.2.9
-          FONT=$(find /tmp/hf-font/node_modules/@fontsource/noto-sans-sc/files -type f \( -name '*chinese-simplified-400-normal.woff2' -o -name '*400-normal.woff2' \) -print -quit)
-          test -s "$FONT"
-          cp "$FONT" capture/assets/fonts/noto-sans-sc.woff2
-          cat > capture/extracted/page.html <<'HTML'
-          <!doctype html><html><head><style>
-          @font-face{font-family:"Noto Sans SC";font-style:normal;font-weight:400;font-display:block;src:url("assets/fonts/noto-sans-sc.woff2") format("woff2");}
-          </style></head><body></body></html>
-          HTML
+          echo '=== verify full CJK font coverage source ==='
+          fc-match "Noto Sans CJK SC"
+          fc-list | grep -m1 "Noto Sans CJK SC" >/dev/null
 
           echo '=== Step 2: official build-frame preset ==='
           node "$SKILL_DIR/scripts/build-frame.mjs" --preset cobalt-grid --hyperframes .
           test -s frame.md
-          test -s assets/fonts/captured-noto-sans-sc.woff2
 
           echo '=== Step 3/4: storyboard + official packet builder ==='
           cp "$GITHUB_WORKSPACE/hf-seed/STORYBOARD.md" ./STORYBOARD.md
