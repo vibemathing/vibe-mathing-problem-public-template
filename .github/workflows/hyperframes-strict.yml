@@ -4,12 +4,16 @@ on:
   push:
     branches:
       - tmp/hyperframes-llm-output-space-20261006
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
 
 jobs:
   render:
+    if: github.event_name == 'push' || github.head_ref == 'tmp/hyperframes-llm-output-space-20261006'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
